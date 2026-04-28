@@ -1,0 +1,2363 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Integer Computation - Unofficial MIPS Loongson Intrinsics Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../main.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Integer Computation";
+        var mkdocs_page_input_path = "sx/integer_computation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Unofficial MIPS Loongson Intrinsics Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../loongson_simd_basics/">Loongson SIMD Basics</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SX</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Integer Computation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vabs_b-__m128i-_1">__m128i __lsx_vabs_b (__m128i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vabs_d-__m128i-_1">__m128i __lsx_vabs_d (__m128i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_1">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_1">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_1">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_1">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vabs_h-__m128i-_1">__m128i __lsx_vabs_h (__m128i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_2">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_2">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_2">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_2">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vabs_w-__m128i-_1">__m128i __lsx_vabs_w (__m128i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_3">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_3">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_3">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_3">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vacc4b_u_h-__m128i-_1-__m128i-_2">__m128i __lsx_vacc4b_u_h (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_4">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_4">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_4">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_4">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vacc8b_u_d-__m128i-_1">__m128i __lsx_vacc8b_u_d (__m128i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_5">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_5">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_5">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_5">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vaddx_s_d-__m128i-_1-__m128i-_2">__m128i __lsx_vaddx_s_d (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_6">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_6">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_6">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_6">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vaddx_s_h-__m128i-_1-__m128i-_2">__m128i __lsx_vaddx_s_h (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_7">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_7">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_7">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_7">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vaddx_s_w-__m128i-_1-__m128i-_2">__m128i __lsx_vaddx_s_w (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_8">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_8">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_8">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_8">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vaddx_u_d-__m128i-_1-__m128i-_2">__m128i __lsx_vaddx_u_d (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_9">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_9">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_9">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_9">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vaddx_u_h-__m128i-_1-__m128i-_2">__m128i __lsx_vaddx_u_h (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_10">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_10">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_10">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_10">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vaddx_u_w-__m128i-_1-__m128i-_2">__m128i __lsx_vaddx_u_w (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_11">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_11">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_11">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_11">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vaddxs_s_d-__m128i-_1-__m128i-_2">__m128i __lsx_vaddxs_s_d (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_12">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_12">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_12">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_12">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vaddxs_s_h-__m128i-_1-__m128i-_2">__m128i __lsx_vaddxs_s_h (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_13">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_13">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_13">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_13">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vaddxs_s_w-__m128i-_1-__m128i-_2">__m128i __lsx_vaddxs_s_w (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_14">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_14">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_14">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_14">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vaddxs_u_d-__m128i-_1-__m128i-_2">__m128i __lsx_vaddxs_u_d (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_15">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_15">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_15">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_15">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vaddxs_u_h-__m128i-_1-__m128i-_2">__m128i __lsx_vaddxs_u_h (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_16">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_16">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_16">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_16">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vaddxs_u_w-__m128i-_1-__m128i-_2">__m128i __lsx_vaddxs_u_w (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_17">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_17">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_17">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_17">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulhi_s_b-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_s_b (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_18">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_18">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_18">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_18">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulhi_s_d-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_s_d (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_19">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_19">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_19">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_19">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulhi_s_h-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_s_h (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_20">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_20">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_20">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_20">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulhi_s_w-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_s_w (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_21">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_21">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_21">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_21">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulhi_u_b-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_u_b (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_22">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_22">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_22">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_22">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulhi_u_d-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_u_d (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_23">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_23">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_23">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_23">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulhi_u_h-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_u_h (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_24">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_24">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_24">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_24">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulhi_u_w-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_u_w (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_25">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_25">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_25">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_25">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulhi_us_b-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_us_b (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_26">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_26">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_26">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_26">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulhi_us_h-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_us_h (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_27">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_27">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_27">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_27">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulhi_us_w-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_us_w (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_28">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_28">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_28">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_28">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulx_s_d-__m128i-_1-__m128i-_2">__m128i __lsx_vmulx_s_d (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_29">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_29">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_29">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_29">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulx_s_h-__m128i-_1-__m128i-_2">__m128i __lsx_vmulx_s_h (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_30">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_30">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_30">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_30">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulx_s_w-__m128i-_1-__m128i-_2">__m128i __lsx_vmulx_s_w (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_31">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_31">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_31">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_31">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulx_u_d-__m128i-_1-__m128i-_2">__m128i __lsx_vmulx_u_d (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_32">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_32">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_32">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_32">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulx_u_h-__m128i-_1-__m128i-_2">__m128i __lsx_vmulx_u_h (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_33">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_33">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_33">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_33">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vmulx_u_w-__m128i-_1-__m128i-_2">__m128i __lsx_vmulx_u_w (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_34">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_34">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_34">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_34">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vneg_b-__m128i-_1">__m128i __lsx_vneg_b (__m128i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_35">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_35">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_35">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_35">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vneg_d-__m128i-_1">__m128i __lsx_vneg_d (__m128i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_36">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_36">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_36">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_36">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vneg_h-__m128i-_1">__m128i __lsx_vneg_h (__m128i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_37">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_37">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_37">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_37">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vneg_w-__m128i-_1">__m128i __lsx_vneg_w (__m128i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_38">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_38">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_38">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_38">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubh_s_b-__m128i-_1-__m128i-_2">__m128i __lsx_vsubh_s_b (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_39">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_39">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_39">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_39">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubh_s_d-__m128i-_1-__m128i-_2">__m128i __lsx_vsubh_s_d (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_40">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_40">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_40">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_40">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubh_s_h-__m128i-_1-__m128i-_2">__m128i __lsx_vsubh_s_h (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_41">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_41">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_41">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_41">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubh_s_w-__m128i-_1-__m128i-_2">__m128i __lsx_vsubh_s_w (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_42">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_42">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_42">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_42">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubh_u_b-__m128i-_1-__m128i-_2">__m128i __lsx_vsubh_u_b (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_43">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_43">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_43">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_43">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubh_u_d-__m128i-_1-__m128i-_2">__m128i __lsx_vsubh_u_d (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_44">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_44">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_44">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_44">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubh_u_h-__m128i-_1-__m128i-_2">__m128i __lsx_vsubh_u_h (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_45">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_45">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_45">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_45">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubh_u_w-__m128i-_1-__m128i-_2">__m128i __lsx_vsubh_u_w (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_46">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_46">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_46">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_46">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubx_s_d-__m128i-_1-__m128i-_2">__m128i __lsx_vsubx_s_d (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_47">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_47">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_47">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_47">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubx_s_h-__m128i-_1-__m128i-_2">__m128i __lsx_vsubx_s_h (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_48">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_48">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_48">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_48">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubx_s_w-__m128i-_1-__m128i-_2">__m128i __lsx_vsubx_s_w (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_49">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_49">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_49">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_49">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubx_u_d-__m128i-_1-__m128i-_2">__m128i __lsx_vsubx_u_d (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_50">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_50">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_50">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_50">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubx_u_h-__m128i-_1-__m128i-_2">__m128i __lsx_vsubx_u_h (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_51">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_51">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_51">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_51">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubx_u_w-__m128i-_1-__m128i-_2">__m128i __lsx_vsubx_u_w (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_52">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_52">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_52">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_52">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubxs_s_d-__m128i-_1-__m128i-_2">__m128i __lsx_vsubxs_s_d (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_53">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_53">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_53">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_53">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubxs_s_h-__m128i-_1-__m128i-_2">__m128i __lsx_vsubxs_s_h (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_54">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_54">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_54">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_54">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubxs_s_w-__m128i-_1-__m128i-_2">__m128i __lsx_vsubxs_s_w (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_55">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_55">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_55">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_55">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubxs_u_d-__m128i-_1-__m128i-_2">__m128i __lsx_vsubxs_u_d (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_56">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_56">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_56">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_56">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubxs_u_h-__m128i-_1-__m128i-_2">__m128i __lsx_vsubxs_u_h (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_57">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_57">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_57">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_57">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vsubxs_u_w-__m128i-_1-__m128i-_2">__m128i __lsx_vsubxs_u_w (__m128i _1, __m128i _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_58">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_58">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_58">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_58">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA Crypto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa_crypto/crypto/">Cryptography</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MMI</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CSR</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../csr/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Unofficial MIPS Loongson Intrinsics Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">SX</li>
+      <li class="breadcrumb-item active">Integer Computation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="integer-computation">Integer Computation</h1>
+<p>Generated from <code>include/loongson-sxintrin.h</code>. This page contains 59 intrinsics.</p>
+<h2 id="__m128i-__lsx_vabs_b-__m128i-_1">__m128i __lsx_vabs_b (__m128i _1)</h2>
+<h3 id="synopsis">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vabs_b (__m128i _1)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vabs.b
+Builtin: __builtin_lsx_vabs_b
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:63
+</code></pre>
+<h3 id="description">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vabs.b.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 16 lanes of 8-bit elements.
+a = _1;
+for i in 0..15:
+  dst.byte[i] = abs(a.byte[i]);
+</code></pre>
+<h3 id="header-mapping">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vabs_b((v16i8)_1);
+</code></pre>
+<h2 id="__m128i-__lsx_vabs_d-__m128i-_1">__m128i __lsx_vabs_d (__m128i _1)</h2>
+<h3 id="synopsis_1">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vabs_d (__m128i _1)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vabs.d
+Builtin: __builtin_lsx_vabs_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:84
+</code></pre>
+<h3 id="description_1">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_1">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vabs.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+for i in 0..1:
+  dst.dword[i] = abs(a.dword[i]);
+</code></pre>
+<h3 id="header-mapping_1">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vabs_d((v2i64)_1);
+</code></pre>
+<h2 id="__m128i-__lsx_vabs_h-__m128i-_1">__m128i __lsx_vabs_h (__m128i _1)</h2>
+<h3 id="synopsis_2">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vabs_h (__m128i _1)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vabs.h
+Builtin: __builtin_lsx_vabs_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:70
+</code></pre>
+<h3 id="description_2">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_2">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vabs.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+for i in 0..7:
+  dst.half[i] = abs(a.half[i]);
+</code></pre>
+<h3 id="header-mapping_2">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vabs_h((v8i16)_1);
+</code></pre>
+<h2 id="__m128i-__lsx_vabs_w-__m128i-_1">__m128i __lsx_vabs_w (__m128i _1)</h2>
+<h3 id="synopsis_3">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vabs_w (__m128i _1)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vabs.w
+Builtin: __builtin_lsx_vabs_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:77
+</code></pre>
+<h3 id="description_3">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_3">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vabs.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+for i in 0..3:
+  dst.word[i] = abs(a.word[i]);
+</code></pre>
+<h3 id="header-mapping_3">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vabs_w((v4i32)_1);
+</code></pre>
+<h2 id="__m128i-__lsx_vacc4b_u_h-__m128i-_1-__m128i-_2">__m128i __lsx_vacc4b_u_h (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_4">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vacc4b_u_h (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vacc4b.u.h
+Builtin: __builtin_lsx_vacc4b_u_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:343
+</code></pre>
+<h3 id="description_4">Description</h3>
+<p>Accumulate groups of 4 byte elements into wider unsigned destination lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_4">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vacc4b.u.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  sum = 0;
+  for j in 0..3:
+    sum += unsigned(a.byte[i * group + j]);
+  dst.wide_lane[i] = sum;
+</code></pre>
+<h3 id="header-mapping_4">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vacc4b_u_h((v16u8)_1, (v16u8)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vacc8b_u_d-__m128i-_1">__m128i __lsx_vacc8b_u_d (__m128i _1)</h2>
+<h3 id="synopsis_5">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vacc8b_u_d (__m128i _1)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vacc8b.u.d
+Builtin: __builtin_lsx_vacc8b_u_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:350
+</code></pre>
+<h3 id="description_5">Description</h3>
+<p>Accumulate groups of 8 byte elements into wider unsigned destination lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_5">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vacc8b.u.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+for i in 0..1:
+  sum = 0;
+  for j in 0..7:
+    sum += unsigned(a.byte[i * group + j]);
+  dst.wide_lane[i] = sum;
+</code></pre>
+<h3 id="header-mapping_5">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vacc8b_u_d((v16u8)_1);
+</code></pre>
+<h2 id="__m128i-__lsx_vaddx_s_d-__m128i-_1-__m128i-_2">__m128i __lsx_vaddx_s_d (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_6">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vaddx_s_d (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vaddx.s.d
+Builtin: __builtin_lsx_vaddx_s_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:119
+</code></pre>
+<h3 id="description_6">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_6">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vaddx.s.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..1:
+  dst.dword[i] = a.dword[i] + b.dword[i];
+</code></pre>
+<h3 id="header-mapping_6">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vaddx_s_d((v2i64)_1, (v2i64)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vaddx_s_h-__m128i-_1-__m128i-_2">__m128i __lsx_vaddx_s_h (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_7">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vaddx_s_h (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vaddx.s.h
+Builtin: __builtin_lsx_vaddx_s_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:133
+</code></pre>
+<h3 id="description_7">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_7">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vaddx.s.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.half[i] = a.half[i] + b.half[i];
+</code></pre>
+<h3 id="header-mapping_7">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vaddx_s_h((v8i16)_1, (v8i16)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vaddx_s_w-__m128i-_1-__m128i-_2">__m128i __lsx_vaddx_s_w (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_8">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vaddx_s_w (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vaddx.s.w
+Builtin: __builtin_lsx_vaddx_s_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:126
+</code></pre>
+<h3 id="description_8">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_8">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vaddx.s.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.word[i] = a.word[i] + b.word[i];
+</code></pre>
+<h3 id="header-mapping_8">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vaddx_s_w((v4i32)_1, (v4i32)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vaddx_u_d-__m128i-_1-__m128i-_2">__m128i __lsx_vaddx_u_d (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_9">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vaddx_u_d (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vaddx.u.d
+Builtin: __builtin_lsx_vaddx_u_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:140
+</code></pre>
+<h3 id="description_9">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_9">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vaddx.u.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..1:
+  dst.dword[i] = a.dword[i] + b.dword[i];
+</code></pre>
+<h3 id="header-mapping_9">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vaddx_u_d((v2u64)_1, (v2u64)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vaddx_u_h-__m128i-_1-__m128i-_2">__m128i __lsx_vaddx_u_h (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_10">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vaddx_u_h (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vaddx.u.h
+Builtin: __builtin_lsx_vaddx_u_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:154
+</code></pre>
+<h3 id="description_10">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_10">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vaddx.u.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.half[i] = a.half[i] + b.half[i];
+</code></pre>
+<h3 id="header-mapping_10">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vaddx_u_h((v8u16)_1, (v8u16)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vaddx_u_w-__m128i-_1-__m128i-_2">__m128i __lsx_vaddx_u_w (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_11">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vaddx_u_w (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vaddx.u.w
+Builtin: __builtin_lsx_vaddx_u_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:147
+</code></pre>
+<h3 id="description_11">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_11">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vaddx.u.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.word[i] = a.word[i] + b.word[i];
+</code></pre>
+<h3 id="header-mapping_11">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vaddx_u_w((v4u32)_1, (v4u32)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vaddxs_s_d-__m128i-_1-__m128i-_2">__m128i __lsx_vaddxs_s_d (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_12">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vaddxs_s_d (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vaddxs.s.d
+Builtin: __builtin_lsx_vaddxs_s_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:203
+</code></pre>
+<h3 id="description_12">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_12">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vaddxs.s.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..1:
+  dst.dword[i] = a.dword[i] + b.dword[i];
+</code></pre>
+<h3 id="header-mapping_12">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vaddxs_s_d((v2i64)_1, (v2i64)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vaddxs_s_h-__m128i-_1-__m128i-_2">__m128i __lsx_vaddxs_s_h (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_13">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vaddxs_s_h (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vaddxs.s.h
+Builtin: __builtin_lsx_vaddxs_s_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:217
+</code></pre>
+<h3 id="description_13">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_13">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vaddxs.s.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.half[i] = a.half[i] + b.half[i];
+</code></pre>
+<h3 id="header-mapping_13">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vaddxs_s_h((v8i16)_1, (v8i16)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vaddxs_s_w-__m128i-_1-__m128i-_2">__m128i __lsx_vaddxs_s_w (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_14">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vaddxs_s_w (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vaddxs.s.w
+Builtin: __builtin_lsx_vaddxs_s_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:210
+</code></pre>
+<h3 id="description_14">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_14">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vaddxs.s.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.word[i] = a.word[i] + b.word[i];
+</code></pre>
+<h3 id="header-mapping_14">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vaddxs_s_w((v4i32)_1, (v4i32)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vaddxs_u_d-__m128i-_1-__m128i-_2">__m128i __lsx_vaddxs_u_d (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_15">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vaddxs_u_d (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vaddxs.u.d
+Builtin: __builtin_lsx_vaddxs_u_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:224
+</code></pre>
+<h3 id="description_15">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_15">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vaddxs.u.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..1:
+  dst.dword[i] = a.dword[i] + b.dword[i];
+</code></pre>
+<h3 id="header-mapping_15">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vaddxs_u_d((v2u64)_1, (v2u64)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vaddxs_u_h-__m128i-_1-__m128i-_2">__m128i __lsx_vaddxs_u_h (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_16">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vaddxs_u_h (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vaddxs.u.h
+Builtin: __builtin_lsx_vaddxs_u_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:238
+</code></pre>
+<h3 id="description_16">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_16">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vaddxs.u.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.half[i] = a.half[i] + b.half[i];
+</code></pre>
+<h3 id="header-mapping_16">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vaddxs_u_h((v8u16)_1, (v8u16)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vaddxs_u_w-__m128i-_1-__m128i-_2">__m128i __lsx_vaddxs_u_w (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_17">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vaddxs_u_w (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vaddxs.u.w
+Builtin: __builtin_lsx_vaddxs_u_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:231
+</code></pre>
+<h3 id="description_17">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_17">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vaddxs.u.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.word[i] = a.word[i] + b.word[i];
+</code></pre>
+<h3 id="header-mapping_17">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vaddxs_u_w((v4u32)_1, (v4u32)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulhi_s_b-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_s_b (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_18">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulhi_s_b (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulhi.s.b
+Builtin: __builtin_lsx_vmulhi_s_b
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:378
+</code></pre>
+<h3 id="description_18">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_18">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulhi.s.b.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 16 lanes of 8-bit elements.
+a = _1;
+b = _2;
+for i in 0..15:
+  dst.byte[i] = high_half(a.byte[i] * b.byte[i]);
+</code></pre>
+<h3 id="header-mapping_18">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulhi_s_b((v16i8)_1, (v16i8)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulhi_s_d-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_s_d (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_19">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulhi_s_d (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulhi.s.d
+Builtin: __builtin_lsx_vmulhi_s_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:357
+</code></pre>
+<h3 id="description_19">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_19">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulhi.s.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..1:
+  dst.dword[i] = high_half(a.dword[i] * b.dword[i]);
+</code></pre>
+<h3 id="header-mapping_19">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulhi_s_d((v2i64)_1, (v2i64)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulhi_s_h-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_s_h (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_20">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulhi_s_h (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulhi.s.h
+Builtin: __builtin_lsx_vmulhi_s_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:371
+</code></pre>
+<h3 id="description_20">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_20">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulhi.s.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.half[i] = high_half(a.half[i] * b.half[i]);
+</code></pre>
+<h3 id="header-mapping_20">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulhi_s_h((v8i16)_1, (v8i16)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulhi_s_w-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_s_w (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_21">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulhi_s_w (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulhi.s.w
+Builtin: __builtin_lsx_vmulhi_s_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:364
+</code></pre>
+<h3 id="description_21">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_21">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulhi.s.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.word[i] = high_half(a.word[i] * b.word[i]);
+</code></pre>
+<h3 id="header-mapping_21">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulhi_s_w((v4i32)_1, (v4i32)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulhi_u_b-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_u_b (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_22">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulhi_u_b (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulhi.u.b
+Builtin: __builtin_lsx_vmulhi_u_b
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:406
+</code></pre>
+<h3 id="description_22">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_22">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulhi.u.b.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 16 lanes of 8-bit elements.
+a = _1;
+b = _2;
+for i in 0..15:
+  dst.byte[i] = high_half(a.byte[i] * b.byte[i]);
+</code></pre>
+<h3 id="header-mapping_22">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulhi_u_b((v16u8)_1, (v16u8)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulhi_u_d-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_u_d (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_23">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulhi_u_d (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulhi.u.d
+Builtin: __builtin_lsx_vmulhi_u_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:385
+</code></pre>
+<h3 id="description_23">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_23">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulhi.u.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..1:
+  dst.dword[i] = high_half(a.dword[i] * b.dword[i]);
+</code></pre>
+<h3 id="header-mapping_23">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulhi_u_d((v2u64)_1, (v2u64)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulhi_u_h-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_u_h (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_24">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulhi_u_h (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulhi.u.h
+Builtin: __builtin_lsx_vmulhi_u_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:399
+</code></pre>
+<h3 id="description_24">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_24">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulhi.u.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.half[i] = high_half(a.half[i] * b.half[i]);
+</code></pre>
+<h3 id="header-mapping_24">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulhi_u_h((v8u16)_1, (v8u16)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulhi_u_w-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_u_w (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_25">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulhi_u_w (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulhi.u.w
+Builtin: __builtin_lsx_vmulhi_u_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:392
+</code></pre>
+<h3 id="description_25">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_25">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulhi.u.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.word[i] = high_half(a.word[i] * b.word[i]);
+</code></pre>
+<h3 id="header-mapping_25">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulhi_u_w((v4u32)_1, (v4u32)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulhi_us_b-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_us_b (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_26">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulhi_us_b (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulhi.us.b
+Builtin: __builtin_lsx_vmulhi_us_b
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1376
+</code></pre>
+<h3 id="description_26">Description</h3>
+<p>Compute lane-wise unsigned/signed mixed integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_26">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulhi.us.b.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 16 lanes of 8-bit elements.
+a = _1;
+b = _2;
+for i in 0..15:
+  dst.byte[i] = high_half(a.byte[i] * b.byte[i]);
+</code></pre>
+<h3 id="header-mapping_26">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulhi_us_b((v16i8)_1, (v16i8)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulhi_us_h-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_us_h (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_27">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulhi_us_h (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulhi.us.h
+Builtin: __builtin_lsx_vmulhi_us_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1369
+</code></pre>
+<h3 id="description_27">Description</h3>
+<p>Compute lane-wise unsigned/signed mixed integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_27">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulhi.us.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.half[i] = high_half(a.half[i] * b.half[i]);
+</code></pre>
+<h3 id="header-mapping_27">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulhi_us_h((v8i16)_1, (v8i16)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulhi_us_w-__m128i-_1-__m128i-_2">__m128i __lsx_vmulhi_us_w (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_28">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulhi_us_w (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulhi.us.w
+Builtin: __builtin_lsx_vmulhi_us_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1362
+</code></pre>
+<h3 id="description_28">Description</h3>
+<p>Compute lane-wise unsigned/signed mixed integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_28">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulhi.us.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.word[i] = high_half(a.word[i] * b.word[i]);
+</code></pre>
+<h3 id="header-mapping_28">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulhi_us_w((v4i32)_1, (v4i32)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulx_s_d-__m128i-_1-__m128i-_2">__m128i __lsx_vmulx_s_d (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_29">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulx_s_d (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulx.s.d
+Builtin: __builtin_lsx_vmulx_s_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:413
+</code></pre>
+<h3 id="description_29">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_29">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulx.s.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..1:
+  dst.dword[i] = a.dword[i] * b.dword[i];
+</code></pre>
+<h3 id="header-mapping_29">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulx_s_d((v4i32)_1, (v4i32)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulx_s_h-__m128i-_1-__m128i-_2">__m128i __lsx_vmulx_s_h (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_30">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulx_s_h (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulx.s.h
+Builtin: __builtin_lsx_vmulx_s_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:427
+</code></pre>
+<h3 id="description_30">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_30">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulx.s.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.half[i] = a.half[i] * b.half[i];
+</code></pre>
+<h3 id="header-mapping_30">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulx_s_h((v16i8)_1, (v16i8)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulx_s_w-__m128i-_1-__m128i-_2">__m128i __lsx_vmulx_s_w (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_31">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulx_s_w (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulx.s.w
+Builtin: __builtin_lsx_vmulx_s_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:420
+</code></pre>
+<h3 id="description_31">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_31">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulx.s.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.word[i] = a.word[i] * b.word[i];
+</code></pre>
+<h3 id="header-mapping_31">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulx_s_w((v8i16)_1, (v8i16)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulx_u_d-__m128i-_1-__m128i-_2">__m128i __lsx_vmulx_u_d (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_32">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulx_u_d (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulx.u.d
+Builtin: __builtin_lsx_vmulx_u_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:434
+</code></pre>
+<h3 id="description_32">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_32">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulx.u.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..1:
+  dst.dword[i] = a.dword[i] * b.dword[i];
+</code></pre>
+<h3 id="header-mapping_32">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulx_u_d((v4u32)_1, (v4u32)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulx_u_h-__m128i-_1-__m128i-_2">__m128i __lsx_vmulx_u_h (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_33">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulx_u_h (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulx.u.h
+Builtin: __builtin_lsx_vmulx_u_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:448
+</code></pre>
+<h3 id="description_33">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_33">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulx.u.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.half[i] = a.half[i] * b.half[i];
+</code></pre>
+<h3 id="header-mapping_33">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulx_u_h((v16u8)_1, (v16u8)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vmulx_u_w-__m128i-_1-__m128i-_2">__m128i __lsx_vmulx_u_w (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_34">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vmulx_u_w (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vmulx.u.w
+Builtin: __builtin_lsx_vmulx_u_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:441
+</code></pre>
+<h3 id="description_34">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_34">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulx.u.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.word[i] = a.word[i] * b.word[i];
+</code></pre>
+<h3 id="header-mapping_34">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vmulx_u_w((v8u16)_1, (v8u16)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vneg_b-__m128i-_1">__m128i __lsx_vneg_b (__m128i _1)</h2>
+<h3 id="synopsis_35">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vneg_b (__m128i _1)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vneg.b
+Builtin: __builtin_lsx_vneg_b
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:91
+</code></pre>
+<h3 id="description_35">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_35">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vneg.b.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 16 lanes of 8-bit elements.
+a = _1;
+for i in 0..15:
+  dst.byte[i] = -a.byte[i];
+</code></pre>
+<h3 id="header-mapping_35">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vneg_b((v16i8)_1);
+</code></pre>
+<h2 id="__m128i-__lsx_vneg_d-__m128i-_1">__m128i __lsx_vneg_d (__m128i _1)</h2>
+<h3 id="synopsis_36">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vneg_d (__m128i _1)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vneg.d
+Builtin: __builtin_lsx_vneg_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:112
+</code></pre>
+<h3 id="description_36">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_36">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vneg.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+for i in 0..1:
+  dst.dword[i] = -a.dword[i];
+</code></pre>
+<h3 id="header-mapping_36">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vneg_d((v2i64)_1);
+</code></pre>
+<h2 id="__m128i-__lsx_vneg_h-__m128i-_1">__m128i __lsx_vneg_h (__m128i _1)</h2>
+<h3 id="synopsis_37">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vneg_h (__m128i _1)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vneg.h
+Builtin: __builtin_lsx_vneg_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:98
+</code></pre>
+<h3 id="description_37">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_37">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vneg.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+for i in 0..7:
+  dst.half[i] = -a.half[i];
+</code></pre>
+<h3 id="header-mapping_37">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vneg_h((v8i16)_1);
+</code></pre>
+<h2 id="__m128i-__lsx_vneg_w-__m128i-_1">__m128i __lsx_vneg_w (__m128i _1)</h2>
+<h3 id="synopsis_38">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vneg_w (__m128i _1)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vneg.w
+Builtin: __builtin_lsx_vneg_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:105
+</code></pre>
+<h3 id="description_38">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_38">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vneg.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+for i in 0..3:
+  dst.word[i] = -a.word[i];
+</code></pre>
+<h3 id="header-mapping_38">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vneg_w((v4i32)_1);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubh_s_b-__m128i-_1-__m128i-_2">__m128i __lsx_vsubh_s_b (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_39">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubh_s_b (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubh.s.b
+Builtin: __builtin_lsx_vsubh_s_b
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:308
+</code></pre>
+<h3 id="description_39">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_39">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubh.s.b.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 16 lanes of 8-bit elements.
+a = _1;
+b = _2;
+for i in 0..15:
+  dst.byte[i] = a.byte[i] - b.byte[i];
+</code></pre>
+<h3 id="header-mapping_39">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubh_s_b((v16i8)_1, (v16i8)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubh_s_d-__m128i-_1-__m128i-_2">__m128i __lsx_vsubh_s_d (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_40">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubh_s_d (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubh.s.d
+Builtin: __builtin_lsx_vsubh_s_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:287
+</code></pre>
+<h3 id="description_40">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_40">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubh.s.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..1:
+  dst.dword[i] = a.dword[i] - b.dword[i];
+</code></pre>
+<h3 id="header-mapping_40">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubh_s_d((v2i64)_1, (v2i64)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubh_s_h-__m128i-_1-__m128i-_2">__m128i __lsx_vsubh_s_h (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_41">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubh_s_h (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubh.s.h
+Builtin: __builtin_lsx_vsubh_s_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:301
+</code></pre>
+<h3 id="description_41">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_41">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubh.s.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.half[i] = a.half[i] - b.half[i];
+</code></pre>
+<h3 id="header-mapping_41">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubh_s_h((v8i16)_1, (v8i16)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubh_s_w-__m128i-_1-__m128i-_2">__m128i __lsx_vsubh_s_w (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_42">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubh_s_w (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubh.s.w
+Builtin: __builtin_lsx_vsubh_s_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:294
+</code></pre>
+<h3 id="description_42">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_42">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubh.s.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.word[i] = a.word[i] - b.word[i];
+</code></pre>
+<h3 id="header-mapping_42">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubh_s_w((v4i32)_1, (v4i32)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubh_u_b-__m128i-_1-__m128i-_2">__m128i __lsx_vsubh_u_b (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_43">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubh_u_b (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubh.u.b
+Builtin: __builtin_lsx_vsubh_u_b
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:336
+</code></pre>
+<h3 id="description_43">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_43">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubh.u.b.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 16 lanes of 8-bit elements.
+a = _1;
+b = _2;
+for i in 0..15:
+  dst.byte[i] = a.byte[i] - b.byte[i];
+</code></pre>
+<h3 id="header-mapping_43">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubh_u_b((v16u8)_1, (v16u8)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubh_u_d-__m128i-_1-__m128i-_2">__m128i __lsx_vsubh_u_d (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_44">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubh_u_d (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubh.u.d
+Builtin: __builtin_lsx_vsubh_u_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:315
+</code></pre>
+<h3 id="description_44">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_44">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubh.u.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..1:
+  dst.dword[i] = a.dword[i] - b.dword[i];
+</code></pre>
+<h3 id="header-mapping_44">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubh_u_d((v2u64)_1, (v2u64)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubh_u_h-__m128i-_1-__m128i-_2">__m128i __lsx_vsubh_u_h (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_45">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubh_u_h (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubh.u.h
+Builtin: __builtin_lsx_vsubh_u_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:329
+</code></pre>
+<h3 id="description_45">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_45">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubh.u.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.half[i] = a.half[i] - b.half[i];
+</code></pre>
+<h3 id="header-mapping_45">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubh_u_h((v8u16)_1, (v8u16)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubh_u_w-__m128i-_1-__m128i-_2">__m128i __lsx_vsubh_u_w (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_46">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubh_u_w (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubh.u.w
+Builtin: __builtin_lsx_vsubh_u_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:322
+</code></pre>
+<h3 id="description_46">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_46">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubh.u.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.word[i] = a.word[i] - b.word[i];
+</code></pre>
+<h3 id="header-mapping_46">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubh_u_w((v4u32)_1, (v4u32)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubx_s_d-__m128i-_1-__m128i-_2">__m128i __lsx_vsubx_s_d (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_47">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubx_s_d (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubx.s.d
+Builtin: __builtin_lsx_vsubx_s_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:161
+</code></pre>
+<h3 id="description_47">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_47">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubx.s.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..1:
+  dst.dword[i] = a.dword[i] - b.dword[i];
+</code></pre>
+<h3 id="header-mapping_47">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubx_s_d((v2i64)_1, (v2i64)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubx_s_h-__m128i-_1-__m128i-_2">__m128i __lsx_vsubx_s_h (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_48">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubx_s_h (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubx.s.h
+Builtin: __builtin_lsx_vsubx_s_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:175
+</code></pre>
+<h3 id="description_48">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_48">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubx.s.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.half[i] = a.half[i] - b.half[i];
+</code></pre>
+<h3 id="header-mapping_48">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubx_s_h((v8i16)_1, (v8i16)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubx_s_w-__m128i-_1-__m128i-_2">__m128i __lsx_vsubx_s_w (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_49">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubx_s_w (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubx.s.w
+Builtin: __builtin_lsx_vsubx_s_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:168
+</code></pre>
+<h3 id="description_49">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_49">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubx.s.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.word[i] = a.word[i] - b.word[i];
+</code></pre>
+<h3 id="header-mapping_49">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubx_s_w((v4i32)_1, (v4i32)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubx_u_d-__m128i-_1-__m128i-_2">__m128i __lsx_vsubx_u_d (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_50">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubx_u_d (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubx.u.d
+Builtin: __builtin_lsx_vsubx_u_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:182
+</code></pre>
+<h3 id="description_50">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_50">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubx.u.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..1:
+  dst.dword[i] = a.dword[i] - b.dword[i];
+</code></pre>
+<h3 id="header-mapping_50">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubx_u_d((v2u64)_1, (v2u64)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubx_u_h-__m128i-_1-__m128i-_2">__m128i __lsx_vsubx_u_h (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_51">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubx_u_h (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubx.u.h
+Builtin: __builtin_lsx_vsubx_u_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:196
+</code></pre>
+<h3 id="description_51">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_51">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubx.u.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.half[i] = a.half[i] - b.half[i];
+</code></pre>
+<h3 id="header-mapping_51">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubx_u_h((v8u16)_1, (v8u16)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubx_u_w-__m128i-_1-__m128i-_2">__m128i __lsx_vsubx_u_w (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_52">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubx_u_w (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubx.u.w
+Builtin: __builtin_lsx_vsubx_u_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:189
+</code></pre>
+<h3 id="description_52">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_52">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubx.u.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.word[i] = a.word[i] - b.word[i];
+</code></pre>
+<h3 id="header-mapping_52">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubx_u_w((v4u32)_1, (v4u32)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubxs_s_d-__m128i-_1-__m128i-_2">__m128i __lsx_vsubxs_s_d (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_53">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubxs_s_d (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubxs.s.d
+Builtin: __builtin_lsx_vsubxs_s_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:245
+</code></pre>
+<h3 id="description_53">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_53">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubxs.s.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..1:
+  dst.dword[i] = a.dword[i] - b.dword[i];
+</code></pre>
+<h3 id="header-mapping_53">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubxs_s_d((v2i64)_1, (v2i64)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubxs_s_h-__m128i-_1-__m128i-_2">__m128i __lsx_vsubxs_s_h (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_54">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubxs_s_h (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubxs.s.h
+Builtin: __builtin_lsx_vsubxs_s_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:259
+</code></pre>
+<h3 id="description_54">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_54">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubxs.s.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.half[i] = a.half[i] - b.half[i];
+</code></pre>
+<h3 id="header-mapping_54">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubxs_s_h((v8i16)_1, (v8i16)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubxs_s_w-__m128i-_1-__m128i-_2">__m128i __lsx_vsubxs_s_w (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_55">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubxs_s_w (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubxs.s.w
+Builtin: __builtin_lsx_vsubxs_s_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:252
+</code></pre>
+<h3 id="description_55">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_55">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubxs.s.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.word[i] = a.word[i] - b.word[i];
+</code></pre>
+<h3 id="header-mapping_55">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubxs_s_w((v4i32)_1, (v4i32)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubxs_u_d-__m128i-_1-__m128i-_2">__m128i __lsx_vsubxs_u_d (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_56">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubxs_u_d (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubxs.u.d
+Builtin: __builtin_lsx_vsubxs_u_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:266
+</code></pre>
+<h3 id="description_56">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_56">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubxs.u.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..1:
+  dst.dword[i] = a.dword[i] - b.dword[i];
+</code></pre>
+<h3 id="header-mapping_56">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubxs_u_d((v2u64)_1, (v2u64)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubxs_u_h-__m128i-_1-__m128i-_2">__m128i __lsx_vsubxs_u_h (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_57">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubxs_u_h (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubxs.u.h
+Builtin: __builtin_lsx_vsubxs_u_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:280
+</code></pre>
+<h3 id="description_57">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_57">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubxs.u.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.half[i] = a.half[i] - b.half[i];
+</code></pre>
+<h3 id="header-mapping_57">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubxs_u_h((v8u16)_1, (v8u16)_2);
+</code></pre>
+<h2 id="__m128i-__lsx_vsubxs_u_w-__m128i-_1-__m128i-_2">__m128i __lsx_vsubxs_u_w (__m128i _1, __m128i _2)</h2>
+<h3 id="synopsis_58">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vsubxs_u_w (__m128i _1, __m128i _2)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vsubxs.u.w
+Builtin: __builtin_lsx_vsubxs_u_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:273
+</code></pre>
+<h3 id="description_58">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_58">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsubxs.u.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.word[i] = a.word[i] - b.word[i];
+</code></pre>
+<h3 id="header-mapping_58">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vsubxs_u_w((v4u32)_1, (v4u32)_2);
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../loongson_simd_basics/" class="btn btn-neutral float-left" title="Loongson SIMD Basics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../integer_comparison/" class="btn btn-neutral float-right" title="Integer Comparison">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../loongson_simd_basics/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../integer_comparison/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

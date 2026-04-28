@@ -1,0 +1,2702 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Integer Computation - Unofficial MIPS Loongson Intrinsics Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../main.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Integer Computation";
+        var mkdocs_page_input_path = "msa2/integer_computation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Unofficial MIPS Loongson Intrinsics Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../loongson_simd_basics/">Loongson SIMD Basics</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA2</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Integer Computation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_dotp_s_q-__m128i-a-__m128i-b">__m128i __msa2_dotp_s_q (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_dotp_u_q-__m128i-a-__m128i-b">__m128i __msa2_dotp_u_q (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_1">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_1">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_1">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_1">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_dotp_us_d-__m128i-a-__m128i-b">__m128i __msa2_dotp_us_d (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_2">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_2">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_2">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_2">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_dotp_us_h-__m128i-a-__m128i-b">__m128i __msa2_dotp_us_h (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_3">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_3">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_3">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_3">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_dotp_us_q-__m128i-a-__m128i-b">__m128i __msa2_dotp_us_q (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_4">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_4">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_4">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_4">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_dotp_us_w-__m128i-a-__m128i-b">__m128i __msa2_dotp_us_w (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_5">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_5">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_5">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_5">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_dpadd_s_q-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_dpadd_s_q (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_6">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_6">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_6">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_6">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_dpadd_u_q-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_dpadd_u_q (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_7">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_7">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_7">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_7">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_dpadd_us_d-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_dpadd_us_d (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_8">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_8">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_8">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_8">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_dpadd_us_h-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_dpadd_us_h (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_9">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_9">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_9">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_9">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_dpadd_us_q-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_dpadd_us_q (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_10">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_10">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_10">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_10">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_dpadd_us_w-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_dpadd_us_w (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_11">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_11">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_11">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_11">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_dpsub_s_q-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_dpsub_s_q (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_12">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_12">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_12">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_12">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_dpsub_u_q-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_dpsub_u_q (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_13">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_13">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_13">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_13">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_hadd_s_q-__m128i-a-__m128i-b">__m128i __msa2_hadd_s_q (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_14">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_14">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_14">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_14">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_hadd_u_q-__m128i-a-__m128i-b">__m128i __msa2_hadd_u_q (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_15">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_15">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_15">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_15">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_hsub_s_q-__m128i-a-__m128i-b">__m128i __msa2_hsub_s_q (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_16">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_16">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_16">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_16">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_hsub_u_q-__m128i-a-__m128i-b">__m128i __msa2_hsub_u_q (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_17">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_17">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_17">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_17">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_muhv_s_d-__m128i-a-__m128i-b">__m128i __msa2_muhv_s_d (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_18">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_18">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_18">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_18">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_muhv_u_d-__m128i-a-__m128i-b">__m128i __msa2_muhv_u_d (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_19">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_19">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_19">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_19">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_muhv_us_d-__m128i-a-__m128i-b">__m128i __msa2_muhv_us_d (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_20">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_20">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_20">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_20">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_subssu_u_b-__m128i-a-__m128i-b">__m128i __msa2_subssu_u_b (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_21">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_21">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_21">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_21">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_subssu_u_d-__m128i-a-__m128i-b">__m128i __msa2_subssu_u_d (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_22">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_22">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_22">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_22">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_subssu_u_h-__m128i-a-__m128i-b">__m128i __msa2_subssu_u_h (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_23">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_23">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_23">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_23">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_subssu_u_w-__m128i-a-__m128i-b">__m128i __msa2_subssu_u_w (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_24">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_24">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_24">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_24">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vadd_el0_q-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_q (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_25">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_25">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_25">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_25">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vadd_el0_s_wx_d-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_s_wx_d (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_26">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_26">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_26">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_26">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vadd_el0_s_wx_h-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_s_wx_h (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_27">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_27">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_27">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_27">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vadd_el0_s_wx_w-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_s_wx_w (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_28">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_28">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_28">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_28">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vadd_el0_u_wx_d-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_u_wx_d (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_29">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_29">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_29">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_29">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vadd_el0_u_wx_h-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_u_wx_h (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_30">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_30">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_30">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_30">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vadd_el0_u_wx_w-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_u_wx_w (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_31">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_31">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_31">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_31">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vadd_el0_us_wx_d-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_us_wx_d (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_32">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_32">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_32">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_32">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vadd_el0_us_wx_h-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_us_wx_h (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_33">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_33">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_33">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_33">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vadd_el0_us_wx_w-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_us_wx_w (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_34">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_34">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_34">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_34">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmuhp_d-__m128i-a-__m128i-b">__m128i __msa2_vmuhp_d (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_35">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_35">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_35">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_35">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmuhp_w-__m128i-a-__m128i-b">__m128i __msa2_vmuhp_w (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_36">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_36">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_36">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_36">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmuhp_xacc_d-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmuhp_xacc_d (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_37">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_37">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_37">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_37">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmuhp_xacc_w-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmuhp_xacc_w (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_38">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_38">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_38">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_38">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmulp_d-__m128i-a-__m128i-b">__m128i __msa2_vmulp_d (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_39">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_39">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_39">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_39">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmulp_w-__m128i-a-__m128i-b">__m128i __msa2_vmulp_w (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_40">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_40">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_40">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_40">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmulp_xacc_d-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmulp_xacc_d (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_41">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_41">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_41">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_41">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmulp_xacc_w-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmulp_xacc_w (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_42">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_42">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_42">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_42">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_acc_s_wx_d-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_s_wx_d (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_43">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_43">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_43">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_43">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_acc_s_wx_h-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_s_wx_h (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_44">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_44">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_44">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_44">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_acc_s_wx_w-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_s_wx_w (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_45">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_45">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_45">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_45">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_acc_u_wx_d-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_u_wx_d (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_46">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_46">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_46">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_46">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_acc_u_wx_h-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_u_wx_h (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_47">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_47">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_47">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_47">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_acc_u_wx_w-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_u_wx_w (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_48">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_48">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_48">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_48">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_acc_us_wx_d-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_us_wx_d (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_49">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_49">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_49">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_49">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_acc_us_wx_h-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_us_wx_h (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_50">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_50">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_50">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_50">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_acc_us_wx_w-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_us_wx_w (__m128i ret, __m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_51">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_51">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_51">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_51">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_s_wx_d-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_s_wx_d (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_52">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_52">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_52">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_52">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_s_wx_h-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_s_wx_h (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_53">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_53">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_53">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_53">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_s_wx_w-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_s_wx_w (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_54">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_54">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_54">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_54">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_u_wx_d-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_u_wx_d (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_55">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_55">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_55">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_55">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_u_wx_h-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_u_wx_h (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_56">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_56">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_56">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_56">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_u_wx_w-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_u_wx_w (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_57">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_57">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_57">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_57">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_us_wx_d-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_us_wx_d (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_58">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_58">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_58">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_58">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_us_wx_h-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_us_wx_h (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_59">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_59">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_59">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_59">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vmult_el0_us_wx_w-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_us_wx_w (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_60">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_60">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_60">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_60">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vsub_el0_q-__m128i-a-__m128i-b">__m128i __msa2_vsub_el0_q (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_61">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_61">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_61">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_61">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vsub_el0_s_wx_d-__m128i-a-__m128i-b">__m128i __msa2_vsub_el0_s_wx_d (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_62">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_62">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_62">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_62">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vsub_el0_s_wx_h-__m128i-a-__m128i-b">__m128i __msa2_vsub_el0_s_wx_h (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_63">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_63">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_63">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_63">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vsub_el0_s_wx_w-__m128i-a-__m128i-b">__m128i __msa2_vsub_el0_s_wx_w (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_64">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_64">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_64">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_64">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vsub_el0_u_wx_d-__m128i-a-__m128i-b">__m128i __msa2_vsub_el0_u_wx_d (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_65">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_65">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_65">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_65">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vsub_el0_u_wx_h-__m128i-a-__m128i-b">__m128i __msa2_vsub_el0_u_wx_h (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_66">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_66">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_66">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_66">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__msa2_vsub_el0_u_wx_w-__m128i-a-__m128i-b">__m128i __msa2_vsub_el0_u_wx_w (__m128i a, __m128i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_67">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_67">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_67">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_67">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA Crypto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa_crypto/crypto/">Cryptography</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MMI</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CSR</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../csr/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Unofficial MIPS Loongson Intrinsics Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">MSA2</li>
+      <li class="breadcrumb-item active">Integer Computation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="integer-computation">Integer Computation</h1>
+<p>Generated from <code>include/msa2.h</code>. This page contains 68 intrinsics.</p>
+<h2 id="__m128i-__msa2_dotp_s_q-__m128i-a-__m128i-b">__m128i __msa2_dotp_s_q (__m128i a, __m128i b)</h2>
+<h3 id="synopsis">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_dotp_s_q (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: dotp.s.q
+Builtin: __builtin_msa2_dotp_s_q
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:56
+</code></pre>
+<h3 id="description">Description</h3>
+<p>Compute adjacent-pair dot products using signed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for dotp.s.q.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 128-bit elements.
+for i in 0..0:
+  product0 = widen(a.qword[2*i]) * widen(b.qword[2*i]);
+  product1 = widen(a.qword[2*i + 1]) * widen(b.qword[2*i + 1]);
+  dst.wide_lane[i] = (product0 + product1);
+</code></pre>
+<h3 id="header-mapping">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_dotp_s_q ((v2i64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_dotp_u_q-__m128i-a-__m128i-b">__m128i __msa2_dotp_u_q (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_1">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_dotp_u_q (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: dotp.u.q
+Builtin: __builtin_msa2_dotp_u_q
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:62
+</code></pre>
+<h3 id="description_1">Description</h3>
+<p>Compute adjacent-pair dot products using unsigned inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_1">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for dotp.u.q.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 128-bit elements.
+for i in 0..0:
+  product0 = widen(a.qword[2*i]) * widen(b.qword[2*i]);
+  product1 = widen(a.qword[2*i + 1]) * widen(b.qword[2*i + 1]);
+  dst.wide_lane[i] = (product0 + product1);
+</code></pre>
+<h3 id="header-mapping_1">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_dotp_u_q ((v2u64) a, (v2u64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_dotp_us_d-__m128i-a-__m128i-b">__m128i __msa2_dotp_us_d (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_2">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_dotp_us_d (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: dotp.us.d
+Builtin: __builtin_msa2_dotp_us_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:80
+</code></pre>
+<h3 id="description_2">Description</h3>
+<p>Compute adjacent-pair dot products using unsigned/signed mixed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_2">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for dotp.us.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for i in 0..0:
+  product0 = widen(a.dword[2*i]) * widen(b.dword[2*i]);
+  product1 = widen(a.dword[2*i + 1]) * widen(b.dword[2*i + 1]);
+  dst.wide_lane[i] = (product0 + product1);
+</code></pre>
+<h3 id="header-mapping_2">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_dotp_us_d ((v4u32) a, (v4i32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_dotp_us_h-__m128i-a-__m128i-b">__m128i __msa2_dotp_us_h (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_3">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_dotp_us_h (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: dotp.us.h
+Builtin: __builtin_msa2_dotp_us_h
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:68
+</code></pre>
+<h3 id="description_3">Description</h3>
+<p>Compute adjacent-pair dot products using unsigned/signed mixed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_3">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for dotp.us.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+for i in 0..3:
+  product0 = widen(a.half[2*i]) * widen(b.half[2*i]);
+  product1 = widen(a.half[2*i + 1]) * widen(b.half[2*i + 1]);
+  dst.wide_lane[i] = (product0 + product1);
+</code></pre>
+<h3 id="header-mapping_3">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_dotp_us_h ((v16u8) a, (v16i8) b);
+</code></pre>
+<h2 id="__m128i-__msa2_dotp_us_q-__m128i-a-__m128i-b">__m128i __msa2_dotp_us_q (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_4">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_dotp_us_q (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: dotp.us.q
+Builtin: __builtin_msa2_dotp_us_q
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:86
+</code></pre>
+<h3 id="description_4">Description</h3>
+<p>Compute adjacent-pair dot products using unsigned/signed mixed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_4">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for dotp.us.q.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 128-bit elements.
+for i in 0..0:
+  product0 = widen(a.qword[2*i]) * widen(b.qword[2*i]);
+  product1 = widen(a.qword[2*i + 1]) * widen(b.qword[2*i + 1]);
+  dst.wide_lane[i] = (product0 + product1);
+</code></pre>
+<h3 id="header-mapping_4">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_dotp_us_q ((v2u64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_dotp_us_w-__m128i-a-__m128i-b">__m128i __msa2_dotp_us_w (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_5">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_dotp_us_w (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: dotp.us.w
+Builtin: __builtin_msa2_dotp_us_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:74
+</code></pre>
+<h3 id="description_5">Description</h3>
+<p>Compute adjacent-pair dot products using unsigned/signed mixed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_5">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for dotp.us.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+for i in 0..1:
+  product0 = widen(a.word[2*i]) * widen(b.word[2*i]);
+  product1 = widen(a.word[2*i + 1]) * widen(b.word[2*i + 1]);
+  dst.wide_lane[i] = (product0 + product1);
+</code></pre>
+<h3 id="header-mapping_5">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_dotp_us_w ((v8u16) a, (v8i16) b);
+</code></pre>
+<h2 id="__m128i-__msa2_dpadd_s_q-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_dpadd_s_q (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_6">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_dpadd_s_q (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: dpadd.s.q
+Builtin: __builtin_msa2_dpadd_s_q
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:92
+</code></pre>
+<h3 id="description_6">Description</h3>
+<p>Compute adjacent-pair dot products using signed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_6">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for dpadd.s.q.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 128-bit elements.
+acc = ret;
+for i in 0..0:
+  product0 = widen(a.qword[2*i]) * widen(b.qword[2*i]);
+  product1 = widen(a.qword[2*i + 1]) * widen(b.qword[2*i + 1]);
+  dst.wide_lane[i] = acc + (product0 + product1);
+</code></pre>
+<h3 id="header-mapping_6">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_dpadd_s_q ((v2i64) ret, (v2i64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_dpadd_u_q-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_dpadd_u_q (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_7">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_dpadd_u_q (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: dpadd.u.q
+Builtin: __builtin_msa2_dpadd_u_q
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:98
+</code></pre>
+<h3 id="description_7">Description</h3>
+<p>Compute adjacent-pair dot products using unsigned inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_7">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for dpadd.u.q.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 128-bit elements.
+acc = ret;
+for i in 0..0:
+  product0 = widen(a.qword[2*i]) * widen(b.qword[2*i]);
+  product1 = widen(a.qword[2*i + 1]) * widen(b.qword[2*i + 1]);
+  dst.wide_lane[i] = acc + (product0 + product1);
+</code></pre>
+<h3 id="header-mapping_7">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_dpadd_u_q ((v2u64) ret, (v2u64) a, (v2u64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_dpadd_us_d-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_dpadd_us_d (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_8">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_dpadd_us_d (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: dpadd.us.d
+Builtin: __builtin_msa2_dpadd_us_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:116
+</code></pre>
+<h3 id="description_8">Description</h3>
+<p>Compute adjacent-pair dot products using unsigned/signed mixed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_8">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for dpadd.us.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+acc = ret;
+for i in 0..0:
+  product0 = widen(a.dword[2*i]) * widen(b.dword[2*i]);
+  product1 = widen(a.dword[2*i + 1]) * widen(b.dword[2*i + 1]);
+  dst.wide_lane[i] = acc + (product0 + product1);
+</code></pre>
+<h3 id="header-mapping_8">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_dpadd_us_d ((v2u64) ret, (v4u32) a, (v4i32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_dpadd_us_h-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_dpadd_us_h (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_9">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_dpadd_us_h (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: dpadd.us.h
+Builtin: __builtin_msa2_dpadd_us_h
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:104
+</code></pre>
+<h3 id="description_9">Description</h3>
+<p>Compute adjacent-pair dot products using unsigned/signed mixed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_9">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for dpadd.us.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+acc = ret;
+for i in 0..3:
+  product0 = widen(a.half[2*i]) * widen(b.half[2*i]);
+  product1 = widen(a.half[2*i + 1]) * widen(b.half[2*i + 1]);
+  dst.wide_lane[i] = acc + (product0 + product1);
+</code></pre>
+<h3 id="header-mapping_9">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_dpadd_us_h ((v8u16) ret, (v16u8) a, (v16i8) b);
+</code></pre>
+<h2 id="__m128i-__msa2_dpadd_us_q-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_dpadd_us_q (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_10">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_dpadd_us_q (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: dpadd.us.q
+Builtin: __builtin_msa2_dpadd_us_q
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:122
+</code></pre>
+<h3 id="description_10">Description</h3>
+<p>Compute adjacent-pair dot products using unsigned/signed mixed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_10">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for dpadd.us.q.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 128-bit elements.
+acc = ret;
+for i in 0..0:
+  product0 = widen(a.qword[2*i]) * widen(b.qword[2*i]);
+  product1 = widen(a.qword[2*i + 1]) * widen(b.qword[2*i + 1]);
+  dst.wide_lane[i] = acc + (product0 + product1);
+</code></pre>
+<h3 id="header-mapping_10">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_dpadd_us_q ((v2u64) ret, (v2u64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_dpadd_us_w-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_dpadd_us_w (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_11">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_dpadd_us_w (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: dpadd.us.w
+Builtin: __builtin_msa2_dpadd_us_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:110
+</code></pre>
+<h3 id="description_11">Description</h3>
+<p>Compute adjacent-pair dot products using unsigned/signed mixed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_11">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for dpadd.us.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+acc = ret;
+for i in 0..1:
+  product0 = widen(a.word[2*i]) * widen(b.word[2*i]);
+  product1 = widen(a.word[2*i + 1]) * widen(b.word[2*i + 1]);
+  dst.wide_lane[i] = acc + (product0 + product1);
+</code></pre>
+<h3 id="header-mapping_11">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_dpadd_us_w ((v4u32) ret, (v8u16) a, (v8i16) b);
+</code></pre>
+<h2 id="__m128i-__msa2_dpsub_s_q-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_dpsub_s_q (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_12">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_dpsub_s_q (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: dpsub.s.q
+Builtin: __builtin_msa2_dpsub_s_q
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:128
+</code></pre>
+<h3 id="description_12">Description</h3>
+<p>Compute adjacent-pair dot products using signed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_12">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for dpsub.s.q.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 128-bit elements.
+acc = ret;
+for i in 0..0:
+  product0 = widen(a.qword[2*i]) * widen(b.qword[2*i]);
+  product1 = widen(a.qword[2*i + 1]) * widen(b.qword[2*i + 1]);
+  dst.wide_lane[i] = acc - (product0 + product1);
+</code></pre>
+<h3 id="header-mapping_12">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_dpsub_s_q ((v2i64) ret, (v2i64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_dpsub_u_q-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_dpsub_u_q (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_13">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_dpsub_u_q (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: dpsub.u.q
+Builtin: __builtin_msa2_dpsub_u_q
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:134
+</code></pre>
+<h3 id="description_13">Description</h3>
+<p>Compute adjacent-pair dot products using unsigned inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_13">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for dpsub.u.q.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 128-bit elements.
+acc = ret;
+for i in 0..0:
+  product0 = widen(a.qword[2*i]) * widen(b.qword[2*i]);
+  product1 = widen(a.qword[2*i + 1]) * widen(b.qword[2*i + 1]);
+  dst.wide_lane[i] = acc - (product0 + product1);
+</code></pre>
+<h3 id="header-mapping_13">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_dpsub_u_q ((v2u64) ret, (v2u64) a, (v2u64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_hadd_s_q-__m128i-a-__m128i-b">__m128i __msa2_hadd_s_q (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_14">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_hadd_s_q (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: hadd.s.q
+Builtin: __builtin_msa2_hadd_s_q
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:140
+</code></pre>
+<h3 id="description_14">Description</h3>
+<p>Compute horizontal adjacent add/subtract operations over signed 1 x 128-bit qword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_14">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for hadd.s.q.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 128-bit elements.
+for i in 0..0:
+  dst.wide_lane[i] = widen(a.qword[2*i]) + widen(a.qword[2*i + 1]);
+</code></pre>
+<h3 id="header-mapping_14">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_hadd_s_q ((v2i64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_hadd_u_q-__m128i-a-__m128i-b">__m128i __msa2_hadd_u_q (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_15">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_hadd_u_q (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: hadd.u.q
+Builtin: __builtin_msa2_hadd_u_q
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:146
+</code></pre>
+<h3 id="description_15">Description</h3>
+<p>Compute horizontal adjacent add/subtract operations over unsigned 1 x 128-bit qword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_15">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for hadd.u.q.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 128-bit elements.
+for i in 0..0:
+  dst.wide_lane[i] = widen(a.qword[2*i]) + widen(a.qword[2*i + 1]);
+</code></pre>
+<h3 id="header-mapping_15">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_hadd_u_q ((v2u64) a, (v2u64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_hsub_s_q-__m128i-a-__m128i-b">__m128i __msa2_hsub_s_q (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_16">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_hsub_s_q (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: hsub.s.q
+Builtin: __builtin_msa2_hsub_s_q
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:152
+</code></pre>
+<h3 id="description_16">Description</h3>
+<p>Compute horizontal adjacent add/subtract operations over signed 1 x 128-bit qword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_16">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for hsub.s.q.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 128-bit elements.
+for i in 0..0:
+  dst.wide_lane[i] = widen(a.qword[2*i]) - widen(a.qword[2*i + 1]);
+</code></pre>
+<h3 id="header-mapping_16">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_hsub_s_q ((v2i64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_hsub_u_q-__m128i-a-__m128i-b">__m128i __msa2_hsub_u_q (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_17">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_hsub_u_q (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: hsub.u.q
+Builtin: __builtin_msa2_hsub_u_q
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:158
+</code></pre>
+<h3 id="description_17">Description</h3>
+<p>Compute horizontal adjacent add/subtract operations over unsigned 1 x 128-bit qword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_17">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for hsub.u.q.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 128-bit elements.
+for i in 0..0:
+  dst.wide_lane[i] = widen(a.qword[2*i]) - widen(a.qword[2*i + 1]);
+</code></pre>
+<h3 id="header-mapping_17">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_hsub_u_q ((v2u64) a, (v2u64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_muhv_s_d-__m128i-a-__m128i-b">__m128i __msa2_muhv_s_d (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_18">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_muhv_s_d (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: muhv.s.d
+Builtin: __builtin_msa2_muhv_s_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:479
+</code></pre>
+<h3 id="description_18">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_18">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for muhv.s.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for i in 0..1:
+  dst.dword[i] = high_half(a.dword[i] * b.dword[i]);
+</code></pre>
+<h3 id="header-mapping_18">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_muhv_s_d((v2i64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_muhv_u_d-__m128i-a-__m128i-b">__m128i __msa2_muhv_u_d (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_19">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_muhv_u_d (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: muhv.u.d
+Builtin: __builtin_msa2_muhv_u_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:500
+</code></pre>
+<h3 id="description_19">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_19">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for muhv.u.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for i in 0..1:
+  dst.dword[i] = high_half(a.dword[i] * b.dword[i]);
+</code></pre>
+<h3 id="header-mapping_19">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_muhv_u_d((v2u64) a, (v2u64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_muhv_us_d-__m128i-a-__m128i-b">__m128i __msa2_muhv_us_d (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_20">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_muhv_us_d (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: muhv.us.d
+Builtin: __builtin_msa2_muhv_us_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:521
+</code></pre>
+<h3 id="description_20">Description</h3>
+<p>Compute lane-wise unsigned/signed mixed integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_20">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for muhv.us.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for i in 0..1:
+  dst.dword[i] = high_half(a.dword[i] * b.dword[i]);
+</code></pre>
+<h3 id="header-mapping_20">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_muhv_us_d((v2u64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_subssu_u_b-__m128i-a-__m128i-b">__m128i __msa2_subssu_u_b (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_21">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_subssu_u_b (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: subssu.u.b
+Builtin: __builtin_msa2_subssu_u_b
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:362
+</code></pre>
+<h3 id="description_21">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_21">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for subssu.u.b.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 16 lanes of 8-bit elements.
+for i in 0..15:
+  dst.byte[i] = unsigned_saturate(signed(a.byte[i]) - unsigned(b.byte[i]), 8);
+</code></pre>
+<h3 id="header-mapping_21">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_subssu_u_b ((v16i8) a, (v16u8) b);
+</code></pre>
+<h2 id="__m128i-__msa2_subssu_u_d-__m128i-a-__m128i-b">__m128i __msa2_subssu_u_d (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_22">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_subssu_u_d (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: subssu.u.d
+Builtin: __builtin_msa2_subssu_u_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:380
+</code></pre>
+<h3 id="description_22">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_22">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for subssu.u.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for i in 0..1:
+  dst.dword[i] = unsigned_saturate(signed(a.dword[i]) - unsigned(b.dword[i]), 64);
+</code></pre>
+<h3 id="header-mapping_22">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_subssu_u_d ((v2i64) a, (v2u64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_subssu_u_h-__m128i-a-__m128i-b">__m128i __msa2_subssu_u_h (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_23">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_subssu_u_h (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: subssu.u.h
+Builtin: __builtin_msa2_subssu_u_h
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:368
+</code></pre>
+<h3 id="description_23">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_23">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for subssu.u.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+for i in 0..7:
+  dst.half[i] = unsigned_saturate(signed(a.half[i]) - unsigned(b.half[i]), 16);
+</code></pre>
+<h3 id="header-mapping_23">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_subssu_u_h ((v8i16) a, (v8u16) b);
+</code></pre>
+<h2 id="__m128i-__msa2_subssu_u_w-__m128i-a-__m128i-b">__m128i __msa2_subssu_u_w (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_24">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_subssu_u_w (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: subssu.u.w
+Builtin: __builtin_msa2_subssu_u_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:374
+</code></pre>
+<h3 id="description_24">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_24">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for subssu.u.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+for i in 0..3:
+  dst.word[i] = unsigned_saturate(signed(a.word[i]) - unsigned(b.word[i]), 32);
+</code></pre>
+<h3 id="header-mapping_24">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_subssu_u_w ((v4i32) a, (v4u32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vadd_el0_q-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_q (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_25">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vadd_el0_q (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vadd.el0.q
+Builtin: __builtin_msa2_vadd_el0_q
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:386
+</code></pre>
+<h3 id="description_25">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 1 x 128-bit qword lanes over selected source lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_25">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vadd.el0.q.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 128-bit elements.
+for i in 0..0:
+  dst.qword[i] = a.qword[i] + b.qword[i];
+</code></pre>
+<h3 id="header-mapping_25">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_vadd_el0_q ((v2i64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vadd_el0_s_wx_d-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_s_wx_d (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_26">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vadd_el0_s_wx_d (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vadd.el0.s.wx.d
+Builtin: __builtin_msa2_vadd_el0_s_wx_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:830
+</code></pre>
+<h3 id="description_26">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_26">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vadd.el0.s.wx.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.dword[j]) + widen(b.dword[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_26">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vadd_el0_s_wx_d((v2i64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vadd_el0_s_wx_h-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_s_wx_h (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_27">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vadd_el0_s_wx_h (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vadd.el0.s.wx.h
+Builtin: __builtin_msa2_vadd_el0_s_wx_h
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:788
+</code></pre>
+<h3 id="description_27">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_27">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vadd.el0.s.wx.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.half[j]) + widen(b.half[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_27">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vadd_el0_s_wx_h((v8i16) a, (v8i16) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vadd_el0_s_wx_w-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_s_wx_w (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_28">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vadd_el0_s_wx_w (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vadd.el0.s.wx.w
+Builtin: __builtin_msa2_vadd_el0_s_wx_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:809
+</code></pre>
+<h3 id="description_28">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_28">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vadd.el0.s.wx.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.word[j]) + widen(b.word[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_28">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vadd_el0_s_wx_w((v4i32) a, (v4i32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vadd_el0_u_wx_d-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_u_wx_d (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_29">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vadd_el0_u_wx_d (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vadd.el0.u.wx.d
+Builtin: __builtin_msa2_vadd_el0_u_wx_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:893
+</code></pre>
+<h3 id="description_29">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_29">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vadd.el0.u.wx.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.dword[j]) + widen(b.dword[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_29">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vadd_el0_u_wx_d((v2u64) a, (v2u64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vadd_el0_u_wx_h-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_u_wx_h (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_30">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vadd_el0_u_wx_h (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vadd.el0.u.wx.h
+Builtin: __builtin_msa2_vadd_el0_u_wx_h
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:851
+</code></pre>
+<h3 id="description_30">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_30">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vadd.el0.u.wx.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.half[j]) + widen(b.half[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_30">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vadd_el0_u_wx_h((v8u16) a, (v8u16) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vadd_el0_u_wx_w-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_u_wx_w (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_31">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vadd_el0_u_wx_w (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vadd.el0.u.wx.w
+Builtin: __builtin_msa2_vadd_el0_u_wx_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:872
+</code></pre>
+<h3 id="description_31">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_31">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vadd.el0.u.wx.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.word[j]) + widen(b.word[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_31">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vadd_el0_u_wx_w((v4u32) a, (v4u32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vadd_el0_us_wx_d-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_us_wx_d (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_32">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vadd_el0_us_wx_d (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vadd.el0.us.wx.d
+Builtin: __builtin_msa2_vadd_el0_us_wx_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:956
+</code></pre>
+<h3 id="description_32">Description</h3>
+<p>Compute lane-wise unsigned/signed mixed integer arithmetic on 2 x 64-bit dword lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_32">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vadd.el0.us.wx.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.dword[j]) + widen(b.dword[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_32">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vadd_el0_us_wx_d((v2u64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vadd_el0_us_wx_h-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_us_wx_h (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_33">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vadd_el0_us_wx_h (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vadd.el0.us.wx.h
+Builtin: __builtin_msa2_vadd_el0_us_wx_h
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:914
+</code></pre>
+<h3 id="description_33">Description</h3>
+<p>Compute lane-wise unsigned/signed mixed integer arithmetic on 8 x 16-bit half lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_33">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vadd.el0.us.wx.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.half[j]) + widen(b.half[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_33">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vadd_el0_us_wx_h((v8u16) a, (v8i16) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vadd_el0_us_wx_w-__m128i-a-__m128i-b">__m128i __msa2_vadd_el0_us_wx_w (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_34">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vadd_el0_us_wx_w (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vadd.el0.us.wx.w
+Builtin: __builtin_msa2_vadd_el0_us_wx_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:935
+</code></pre>
+<h3 id="description_34">Description</h3>
+<p>Compute lane-wise unsigned/signed mixed integer arithmetic on 4 x 32-bit word lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_34">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vadd.el0.us.wx.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.word[j]) + widen(b.word[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_34">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vadd_el0_us_wx_w((v4u32) a, (v4i32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmuhp_d-__m128i-a-__m128i-b">__m128i __msa2_vmuhp_d (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_35">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmuhp_d (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmuhp.d
+Builtin: __builtin_msa2_vmuhp_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2006
+</code></pre>
+<h3 id="description_35">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_35">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmuhp.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for i in 0..1:
+  dst.dword[i] = high_half(a.dword[i] * b.dword[i]);
+</code></pre>
+<h3 id="header-mapping_35">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmuhp_d((v2i64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmuhp_w-__m128i-a-__m128i-b">__m128i __msa2_vmuhp_w (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_36">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmuhp_w (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmuhp.w
+Builtin: __builtin_msa2_vmuhp_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:1985
+</code></pre>
+<h3 id="description_36">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_36">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmuhp.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+for i in 0..3:
+  dst.word[i] = high_half(a.word[i] * b.word[i]);
+</code></pre>
+<h3 id="header-mapping_36">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmuhp_w((v4i32) a, (v4i32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmuhp_xacc_d-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmuhp_xacc_d (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_37">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmuhp_xacc_d (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmuhp.xacc.d
+Builtin: __builtin_msa2_vmuhp_xacc_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2088
+</code></pre>
+<h3 id="description_37">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 2 x 64-bit dword lanes over accumulation into the first operand. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_37">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmuhp.xacc.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+acc = ret;
+for i in 0..1:
+  dst.dword[i] = high_half(a.dword[i] * b.dword[i]);
+</code></pre>
+<h3 id="header-mapping_37">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmuhp_xacc_d((v2i64) ret, (v2i64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmuhp_xacc_w-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmuhp_xacc_w (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_38">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmuhp_xacc_w (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmuhp.xacc.w
+Builtin: __builtin_msa2_vmuhp_xacc_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2068
+</code></pre>
+<h3 id="description_38">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes over accumulation into the first operand. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_38">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmuhp.xacc.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+acc = ret;
+for i in 0..3:
+  dst.word[i] = high_half(a.word[i] * b.word[i]);
+</code></pre>
+<h3 id="header-mapping_38">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmuhp_xacc_w((v4i32) ret, (v4i32) a, (v4i32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmulp_d-__m128i-a-__m128i-b">__m128i __msa2_vmulp_d (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_39">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmulp_d (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmulp.d
+Builtin: __builtin_msa2_vmulp_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2048
+</code></pre>
+<h3 id="description_39">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_39">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulp.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for i in 0..1:
+  dst.dword[i] = a.dword[i] * b.dword[i];
+</code></pre>
+<h3 id="header-mapping_39">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmulp_d((v2i64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmulp_w-__m128i-a-__m128i-b">__m128i __msa2_vmulp_w (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_40">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmulp_w (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmulp.w
+Builtin: __builtin_msa2_vmulp_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2027
+</code></pre>
+<h3 id="description_40">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_40">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulp.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+for i in 0..3:
+  dst.word[i] = a.word[i] * b.word[i];
+</code></pre>
+<h3 id="header-mapping_40">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmulp_w((v4i32) a, (v4i32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmulp_xacc_d-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmulp_xacc_d (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_41">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmulp_xacc_d (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmulp.xacc.d
+Builtin: __builtin_msa2_vmulp_xacc_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2128
+</code></pre>
+<h3 id="description_41">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 2 x 64-bit dword lanes over accumulation into the first operand. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_41">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulp.xacc.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+acc = ret;
+for i in 0..1:
+  dst.dword[i] = a.dword[i] * b.dword[i];
+</code></pre>
+<h3 id="header-mapping_41">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmulp_xacc_d((v2i64) ret, (v2i64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmulp_xacc_w-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmulp_xacc_w (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_42">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmulp_xacc_w (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmulp.xacc.w
+Builtin: __builtin_msa2_vmulp_xacc_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2108
+</code></pre>
+<h3 id="description_42">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes over accumulation into the first operand. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_42">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmulp.xacc.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+acc = ret;
+for i in 0..3:
+  dst.word[i] = a.word[i] * b.word[i];
+</code></pre>
+<h3 id="header-mapping_42">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmulp_xacc_w((v4i32) ret, (v4i32) a, (v4i32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_acc_s_wx_d-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_s_wx_d (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_43">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_acc_s_wx_d (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.acc.s.wx.d
+Builtin: __builtin_msa2_vmult_el0_acc_s_wx_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2377
+</code></pre>
+<h3 id="description_43">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes over selected source lanes and widened output lanes and accumulation into the first operand. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_43">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.acc.s.wx.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+acc = ret;
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.dword[j]) * widen(b.dword[j]);
+  dst.wide_lane[i] = acc.wide_lane[i] + wide_result;
+</code></pre>
+<h3 id="header-mapping_43">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_acc_s_wx_d((v2i64) ret, (v2i64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_acc_s_wx_h-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_s_wx_h (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_44">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_acc_s_wx_h (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.acc.s.wx.h
+Builtin: __builtin_msa2_vmult_el0_acc_s_wx_h
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2337
+</code></pre>
+<h3 id="description_44">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes over selected source lanes and widened output lanes and accumulation into the first operand. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_44">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.acc.s.wx.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+acc = ret;
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.half[j]) * widen(b.half[j]);
+  dst.wide_lane[i] = acc.wide_lane[i] + wide_result;
+</code></pre>
+<h3 id="header-mapping_44">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_acc_s_wx_h((v2i64) ret, (v8i16) a, (v8i16) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_acc_s_wx_w-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_s_wx_w (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_45">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_acc_s_wx_w (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.acc.s.wx.w
+Builtin: __builtin_msa2_vmult_el0_acc_s_wx_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2357
+</code></pre>
+<h3 id="description_45">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes over selected source lanes and widened output lanes and accumulation into the first operand. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_45">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.acc.s.wx.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+acc = ret;
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.word[j]) * widen(b.word[j]);
+  dst.wide_lane[i] = acc.wide_lane[i] + wide_result;
+</code></pre>
+<h3 id="header-mapping_45">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_acc_s_wx_w((v2i64) ret, (v4i32) a, (v4i32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_acc_u_wx_d-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_u_wx_d (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_46">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_acc_u_wx_d (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.acc.u.wx.d
+Builtin: __builtin_msa2_vmult_el0_acc_u_wx_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2437
+</code></pre>
+<h3 id="description_46">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes over selected source lanes and widened output lanes and accumulation into the first operand. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_46">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.acc.u.wx.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+acc = ret;
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.dword[j]) * widen(b.dword[j]);
+  dst.wide_lane[i] = acc.wide_lane[i] + wide_result;
+</code></pre>
+<h3 id="header-mapping_46">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_acc_u_wx_d((v2u64) ret, (v2u64) a, (v2u64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_acc_u_wx_h-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_u_wx_h (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_47">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_acc_u_wx_h (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.acc.u.wx.h
+Builtin: __builtin_msa2_vmult_el0_acc_u_wx_h
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2397
+</code></pre>
+<h3 id="description_47">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes over selected source lanes and widened output lanes and accumulation into the first operand. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_47">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.acc.u.wx.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+acc = ret;
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.half[j]) * widen(b.half[j]);
+  dst.wide_lane[i] = acc.wide_lane[i] + wide_result;
+</code></pre>
+<h3 id="header-mapping_47">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_acc_u_wx_h((v2u64) ret, (v8u16) a, (v8u16) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_acc_u_wx_w-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_u_wx_w (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_48">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_acc_u_wx_w (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.acc.u.wx.w
+Builtin: __builtin_msa2_vmult_el0_acc_u_wx_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2417
+</code></pre>
+<h3 id="description_48">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes over selected source lanes and widened output lanes and accumulation into the first operand. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_48">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.acc.u.wx.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+acc = ret;
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.word[j]) * widen(b.word[j]);
+  dst.wide_lane[i] = acc.wide_lane[i] + wide_result;
+</code></pre>
+<h3 id="header-mapping_48">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_acc_u_wx_w((v2u64) ret, (v4u32) a, (v4u32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_acc_us_wx_d-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_us_wx_d (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_49">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_acc_us_wx_d (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.acc.us.wx.d
+Builtin: __builtin_msa2_vmult_el0_acc_us_wx_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2497
+</code></pre>
+<h3 id="description_49">Description</h3>
+<p>Compute lane-wise unsigned/signed mixed integer arithmetic on 2 x 64-bit dword lanes over selected source lanes and widened output lanes and accumulation into the first operand. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_49">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.acc.us.wx.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+acc = ret;
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.dword[j]) * widen(b.dword[j]);
+  dst.wide_lane[i] = acc.wide_lane[i] + wide_result;
+</code></pre>
+<h3 id="header-mapping_49">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_acc_us_wx_d((v2u64) ret, (v2u64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_acc_us_wx_h-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_us_wx_h (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_50">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_acc_us_wx_h (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.acc.us.wx.h
+Builtin: __builtin_msa2_vmult_el0_acc_us_wx_h
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2457
+</code></pre>
+<h3 id="description_50">Description</h3>
+<p>Compute lane-wise unsigned/signed mixed integer arithmetic on 8 x 16-bit half lanes over selected source lanes and widened output lanes and accumulation into the first operand. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_50">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.acc.us.wx.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+acc = ret;
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.half[j]) * widen(b.half[j]);
+  dst.wide_lane[i] = acc.wide_lane[i] + wide_result;
+</code></pre>
+<h3 id="header-mapping_50">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_acc_us_wx_h((v2u64) ret, (v8u16) a, (v8i16) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_acc_us_wx_w-__m128i-ret-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_acc_us_wx_w (__m128i ret, __m128i a, __m128i b)</h2>
+<h3 id="synopsis_51">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_acc_us_wx_w (__m128i ret, __m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.acc.us.wx.w
+Builtin: __builtin_msa2_vmult_el0_acc_us_wx_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2477
+</code></pre>
+<h3 id="description_51">Description</h3>
+<p>Compute lane-wise unsigned/signed mixed integer arithmetic on 4 x 32-bit word lanes over selected source lanes and widened output lanes and accumulation into the first operand. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_51">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.acc.us.wx.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+acc = ret;
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.word[j]) * widen(b.word[j]);
+  dst.wide_lane[i] = acc.wide_lane[i] + wide_result;
+</code></pre>
+<h3 id="header-mapping_51">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_acc_us_wx_w((v2u64) ret, (v4u32) a, (v4i32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_s_wx_d-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_s_wx_d (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_52">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_s_wx_d (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.s.wx.d
+Builtin: __builtin_msa2_vmult_el0_s_wx_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2191
+</code></pre>
+<h3 id="description_52">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_52">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.s.wx.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.dword[j]) * widen(b.dword[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_52">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_s_wx_d((v2i64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_s_wx_h-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_s_wx_h (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_53">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_s_wx_h (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.s.wx.h
+Builtin: __builtin_msa2_vmult_el0_s_wx_h
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2149
+</code></pre>
+<h3 id="description_53">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_53">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.s.wx.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.half[j]) * widen(b.half[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_53">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_s_wx_h((v8i16) a, (v8i16) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_s_wx_w-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_s_wx_w (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_54">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_s_wx_w (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.s.wx.w
+Builtin: __builtin_msa2_vmult_el0_s_wx_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2170
+</code></pre>
+<h3 id="description_54">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_54">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.s.wx.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.word[j]) * widen(b.word[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_54">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_s_wx_w((v4i32) a, (v4i32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_u_wx_d-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_u_wx_d (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_55">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_u_wx_d (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.u.wx.d
+Builtin: __builtin_msa2_vmult_el0_u_wx_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2254
+</code></pre>
+<h3 id="description_55">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_55">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.u.wx.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.dword[j]) * widen(b.dword[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_55">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_u_wx_d((v2u64) a, (v2u64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_u_wx_h-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_u_wx_h (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_56">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_u_wx_h (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.u.wx.h
+Builtin: __builtin_msa2_vmult_el0_u_wx_h
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2212
+</code></pre>
+<h3 id="description_56">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_56">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.u.wx.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.half[j]) * widen(b.half[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_56">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_u_wx_h((v8u16) a, (v8u16) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_u_wx_w-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_u_wx_w (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_57">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_u_wx_w (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.u.wx.w
+Builtin: __builtin_msa2_vmult_el0_u_wx_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2233
+</code></pre>
+<h3 id="description_57">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_57">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.u.wx.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.word[j]) * widen(b.word[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_57">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_u_wx_w((v4u32) a, (v4u32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_us_wx_d-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_us_wx_d (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_58">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_us_wx_d (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.us.wx.d
+Builtin: __builtin_msa2_vmult_el0_us_wx_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2317
+</code></pre>
+<h3 id="description_58">Description</h3>
+<p>Compute lane-wise unsigned/signed mixed integer arithmetic on 2 x 64-bit dword lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_58">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.us.wx.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.dword[j]) * widen(b.dword[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_58">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_us_wx_d((v2u64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_us_wx_h-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_us_wx_h (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_59">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_us_wx_h (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.us.wx.h
+Builtin: __builtin_msa2_vmult_el0_us_wx_h
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2275
+</code></pre>
+<h3 id="description_59">Description</h3>
+<p>Compute lane-wise unsigned/signed mixed integer arithmetic on 8 x 16-bit half lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_59">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.us.wx.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.half[j]) * widen(b.half[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_59">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_us_wx_h((v8u16) a, (v8i16) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vmult_el0_us_wx_w-__m128i-a-__m128i-b">__m128i __msa2_vmult_el0_us_wx_w (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_60">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vmult_el0_us_wx_w (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vmult.el0.us.wx.w
+Builtin: __builtin_msa2_vmult_el0_us_wx_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:2296
+</code></pre>
+<h3 id="description_60">Description</h3>
+<p>Compute lane-wise unsigned/signed mixed integer arithmetic on 4 x 32-bit word lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_60">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vmult.el0.us.wx.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.word[j]) * widen(b.word[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_60">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vmult_el0_us_wx_w((v4u32) a, (v4i32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vsub_el0_q-__m128i-a-__m128i-b">__m128i __msa2_vsub_el0_q (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_61">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vsub_el0_q (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vsub.el0.q
+Builtin: __builtin_msa2_vsub_el0_q
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:398
+</code></pre>
+<h3 id="description_61">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 1 x 128-bit qword lanes over selected source lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_61">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsub.el0.q.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 128-bit elements.
+for i in 0..0:
+  dst.qword[i] = a.qword[i] - b.qword[i];
+</code></pre>
+<h3 id="header-mapping_61">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i) __builtin_msa2_vsub_el0_q ((v2i64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vsub_el0_s_wx_d-__m128i-a-__m128i-b">__m128i __msa2_vsub_el0_s_wx_d (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_62">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vsub_el0_s_wx_d (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vsub.el0.s.wx.d
+Builtin: __builtin_msa2_vsub_el0_s_wx_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:5430
+</code></pre>
+<h3 id="description_62">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_62">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsub.el0.s.wx.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.dword[j]) - widen(b.dword[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_62">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vsub_el0_s_wx_d((v2i64) a, (v2i64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vsub_el0_s_wx_h-__m128i-a-__m128i-b">__m128i __msa2_vsub_el0_s_wx_h (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_63">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vsub_el0_s_wx_h (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vsub.el0.s.wx.h
+Builtin: __builtin_msa2_vsub_el0_s_wx_h
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:5388
+</code></pre>
+<h3 id="description_63">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_63">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsub.el0.s.wx.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.half[j]) - widen(b.half[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_63">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vsub_el0_s_wx_h((v8i16) a, (v8i16) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vsub_el0_s_wx_w-__m128i-a-__m128i-b">__m128i __msa2_vsub_el0_s_wx_w (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_64">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vsub_el0_s_wx_w (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vsub.el0.s.wx.w
+Builtin: __builtin_msa2_vsub_el0_s_wx_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:5409
+</code></pre>
+<h3 id="description_64">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_64">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsub.el0.s.wx.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.word[j]) - widen(b.word[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_64">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vsub_el0_s_wx_w((v4i32) a, (v4i32) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vsub_el0_u_wx_d-__m128i-a-__m128i-b">__m128i __msa2_vsub_el0_u_wx_d (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_65">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vsub_el0_u_wx_d (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vsub.el0.u.wx.d
+Builtin: __builtin_msa2_vsub_el0_u_wx_d
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:5493
+</code></pre>
+<h3 id="description_65">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_65">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsub.el0.u.wx.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.dword[j]) - widen(b.dword[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_65">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vsub_el0_u_wx_d((v2u64) a, (v2u64) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vsub_el0_u_wx_h-__m128i-a-__m128i-b">__m128i __msa2_vsub_el0_u_wx_h (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_66">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vsub_el0_u_wx_h (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vsub.el0.u.wx.h
+Builtin: __builtin_msa2_vsub_el0_u_wx_h
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:5451
+</code></pre>
+<h3 id="description_66">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_66">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsub.el0.u.wx.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.half[j]) - widen(b.half[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_66">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vsub_el0_u_wx_h((v8u16) a, (v8u16) b);
+</code></pre>
+<h2 id="__m128i-__msa2_vsub_el0_u_wx_w-__m128i-a-__m128i-b">__m128i __msa2_vsub_el0_u_wx_w (__m128i a, __m128i b)</h2>
+<h3 id="synopsis_67">Synopsis</h3>
+<pre><code class="language-c">__m128i __msa2_vsub_el0_u_wx_w (__m128i a, __m128i b)
+#include &lt;msa2.h&gt;
+Instruction: vsub.el0.u.wx.w
+Builtin: __builtin_msa2_vsub_el0_u_wx_w
+CPU Flags: __mips_msa
+Kind: function
+Source: include/msa2.h:5472
+</code></pre>
+<h3 id="description_67">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes over selected source lanes and widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_67">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for vsub.el0.u.wx.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+source_lanes = number_of_input_lanes;
+for each produced wide lane i:
+  j = 0;
+  wide_result = widen(a.word[j]) - widen(b.word[j]);
+  dst.wide_lane[i] = wide_result;
+</code></pre>
+<h3 id="header-mapping_67">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_msa2_vsub_el0_u_wx_w((v4u32) a, (v4u32) b);
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../msa/control_status/" class="btn btn-neutral float-left" title="Control and Status"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../shift/" class="btn btn-neutral float-right" title="Shift">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../msa/control_status/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../shift/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Branch - Unofficial MIPS Loongson Intrinsics Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../main.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Branch";
+        var mkdocs_page_input_path = "asx/branch.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Unofficial MIPS Loongson Intrinsics Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../loongson_simd_basics/">Loongson SIMD Basics</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASX</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Branch</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#int-__lasx_xbnz_b-__m256i-_1">int __lasx_xbnz_b (__m256i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int-__lasx_xbnz_d-__m256i-_1">int __lasx_xbnz_d (__m256i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_1">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_1">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_1">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_1">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int-__lasx_xbnz_h-__m256i-_1">int __lasx_xbnz_h (__m256i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_2">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_2">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_2">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_2">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int-__lasx_xbnz_v-__m256i-_1">int __lasx_xbnz_v (__m256i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_3">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_3">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_3">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_3">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int-__lasx_xbnz_w-__m256i-_1">int __lasx_xbnz_w (__m256i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_4">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_4">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_4">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_4">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int-__lasx_xbz_b-__m256i-_1">int __lasx_xbz_b (__m256i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_5">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_5">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_5">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_5">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int-__lasx_xbz_d-__m256i-_1">int __lasx_xbz_d (__m256i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_6">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_6">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_6">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_6">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int-__lasx_xbz_h-__m256i-_1">int __lasx_xbz_h (__m256i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_7">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_7">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_7">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_7">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int-__lasx_xbz_v-__m256i-_1">int __lasx_xbz_v (__m256i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_8">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_8">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_8">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_8">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int-__lasx_xbz_w-__m256i-_1">int __lasx_xbz_w (__m256i _1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_9">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_9">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_9">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_9">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA Crypto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa_crypto/crypto/">Cryptography</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MMI</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CSR</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../csr/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Unofficial MIPS Loongson Intrinsics Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">ASX</li>
+      <li class="breadcrumb-item active">Branch</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="branch">Branch</h1>
+<p>Generated from <code>include/loongson-asxintrin.h</code>. This page contains 10 intrinsics.</p>
+<h2 id="int-__lasx_xbnz_b-__m256i-_1">int __lasx_xbnz_b (__m256i _1)</h2>
+<h3 id="synopsis">Synopsis</h3>
+<pre><code class="language-c">int __lasx_xbnz_b (__m256i _1)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xbnz.b
+Builtin: __builtin_lasx_xbnz_b
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:4366
+</code></pre>
+<h3 id="description">Description</h3>
+<p>Test whether the requested vector lanes are non-zero and return the branch predicate. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xbnz.b.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 32 lanes of 8-bit elements.
+a = _1;
+predicate = false;
+for each tested lane i:
+  predicate |= (a.lane[i] != 0);
+return predicate;
+</code></pre>
+<h3 id="header-mapping">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_lasx_xbnz_b((v32u8)_1);
+</code></pre>
+<h2 id="int-__lasx_xbnz_d-__m256i-_1">int __lasx_xbnz_d (__m256i _1)</h2>
+<h3 id="synopsis_1">Synopsis</h3>
+<pre><code class="language-c">int __lasx_xbnz_d (__m256i _1)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xbnz.d
+Builtin: __builtin_lasx_xbnz_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:4386
+</code></pre>
+<h3 id="description_1">Description</h3>
+<p>Test whether the requested vector lanes are non-zero and return the branch predicate. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_1">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xbnz.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+predicate = false;
+for each tested lane i:
+  predicate |= (a.lane[i] != 0);
+return predicate;
+</code></pre>
+<h3 id="header-mapping_1">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_lasx_xbnz_d((v4u64)_1);
+</code></pre>
+<h2 id="int-__lasx_xbnz_h-__m256i-_1">int __lasx_xbnz_h (__m256i _1)</h2>
+<h3 id="synopsis_2">Synopsis</h3>
+<pre><code class="language-c">int __lasx_xbnz_h (__m256i _1)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xbnz.h
+Builtin: __builtin_lasx_xbnz_h
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:4373
+</code></pre>
+<h3 id="description_2">Description</h3>
+<p>Test whether the requested vector lanes are non-zero and return the branch predicate. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_2">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xbnz.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 16 lanes of 16-bit elements.
+a = _1;
+predicate = false;
+for each tested lane i:
+  predicate |= (a.lane[i] != 0);
+return predicate;
+</code></pre>
+<h3 id="header-mapping_2">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_lasx_xbnz_h((v16u16)_1);
+</code></pre>
+<h2 id="int-__lasx_xbnz_v-__m256i-_1">int __lasx_xbnz_v (__m256i _1)</h2>
+<h3 id="synopsis_3">Synopsis</h3>
+<pre><code class="language-c">int __lasx_xbnz_v (__m256i _1)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xbnz.v
+Builtin: __builtin_lasx_xbnz_v
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:4359
+</code></pre>
+<h3 id="description_3">Description</h3>
+<p>Test whether the requested vector lanes are non-zero and return the branch predicate. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_3">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xbnz.v.
+// Operand order follows the intrinsic arguments in the header.
+a = _1;
+predicate = false;
+for each tested lane i:
+  predicate |= (a.lane[i] != 0);
+return predicate;
+</code></pre>
+<h3 id="header-mapping_3">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_lasx_xbnz_v((v32u8)_1);
+</code></pre>
+<h2 id="int-__lasx_xbnz_w-__m256i-_1">int __lasx_xbnz_w (__m256i _1)</h2>
+<h3 id="synopsis_4">Synopsis</h3>
+<pre><code class="language-c">int __lasx_xbnz_w (__m256i _1)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xbnz.w
+Builtin: __builtin_lasx_xbnz_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:4380
+</code></pre>
+<h3 id="description_4">Description</h3>
+<p>Test whether the requested vector lanes are non-zero and return the branch predicate. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_4">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xbnz.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+predicate = false;
+for each tested lane i:
+  predicate |= (a.lane[i] != 0);
+return predicate;
+</code></pre>
+<h3 id="header-mapping_4">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_lasx_xbnz_w((v8u32)_1);
+</code></pre>
+<h2 id="int-__lasx_xbz_b-__m256i-_1">int __lasx_xbz_b (__m256i _1)</h2>
+<h3 id="synopsis_5">Synopsis</h3>
+<pre><code class="language-c">int __lasx_xbz_b (__m256i _1)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xbz.b
+Builtin: __builtin_lasx_xbz_b
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:4332
+</code></pre>
+<h3 id="description_5">Description</h3>
+<p>Test whether the requested vector lanes are zero and return the branch predicate. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_5">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xbz.b.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 32 lanes of 8-bit elements.
+a = _1;
+predicate = false;
+for each tested lane i:
+  predicate |= (a.lane[i] == 0);
+return predicate;
+</code></pre>
+<h3 id="header-mapping_5">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_lasx_xbz_b((v32u8)_1);
+</code></pre>
+<h2 id="int-__lasx_xbz_d-__m256i-_1">int __lasx_xbz_d (__m256i _1)</h2>
+<h3 id="synopsis_6">Synopsis</h3>
+<pre><code class="language-c">int __lasx_xbz_d (__m256i _1)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xbz.d
+Builtin: __builtin_lasx_xbz_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:4352
+</code></pre>
+<h3 id="description_6">Description</h3>
+<p>Test whether the requested vector lanes are zero and return the branch predicate. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_6">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xbz.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+predicate = false;
+for each tested lane i:
+  predicate |= (a.lane[i] == 0);
+return predicate;
+</code></pre>
+<h3 id="header-mapping_6">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_lasx_xbz_d((v4u64)_1);
+</code></pre>
+<h2 id="int-__lasx_xbz_h-__m256i-_1">int __lasx_xbz_h (__m256i _1)</h2>
+<h3 id="synopsis_7">Synopsis</h3>
+<pre><code class="language-c">int __lasx_xbz_h (__m256i _1)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xbz.h
+Builtin: __builtin_lasx_xbz_h
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:4339
+</code></pre>
+<h3 id="description_7">Description</h3>
+<p>Test whether the requested vector lanes are zero and return the branch predicate. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_7">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xbz.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 16 lanes of 16-bit elements.
+a = _1;
+predicate = false;
+for each tested lane i:
+  predicate |= (a.lane[i] == 0);
+return predicate;
+</code></pre>
+<h3 id="header-mapping_7">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_lasx_xbz_h((v16u16)_1);
+</code></pre>
+<h2 id="int-__lasx_xbz_v-__m256i-_1">int __lasx_xbz_v (__m256i _1)</h2>
+<h3 id="synopsis_8">Synopsis</h3>
+<pre><code class="language-c">int __lasx_xbz_v (__m256i _1)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xbz.v
+Builtin: __builtin_lasx_xbz_v
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:4325
+</code></pre>
+<h3 id="description_8">Description</h3>
+<p>Test whether the requested vector lanes are zero and return the branch predicate. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_8">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xbz.v.
+// Operand order follows the intrinsic arguments in the header.
+a = _1;
+predicate = false;
+for each tested lane i:
+  predicate |= (a.lane[i] == 0);
+return predicate;
+</code></pre>
+<h3 id="header-mapping_8">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_lasx_xbz_v((v32u8)_1);
+</code></pre>
+<h2 id="int-__lasx_xbz_w-__m256i-_1">int __lasx_xbz_w (__m256i _1)</h2>
+<h3 id="synopsis_9">Synopsis</h3>
+<pre><code class="language-c">int __lasx_xbz_w (__m256i _1)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xbz.w
+Builtin: __builtin_lasx_xbz_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:4346
+</code></pre>
+<h3 id="description_9">Description</h3>
+<p>Test whether the requested vector lanes are zero and return the branch predicate. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_9">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xbz.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+predicate = false;
+for each tested lane i:
+  predicate |= (a.lane[i] == 0);
+return predicate;
+</code></pre>
+<h3 id="header-mapping_9">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_lasx_xbz_w((v8u32)_1);
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../memory/" class="btn btn-neutral float-left" title="Memory"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../misc/" class="btn btn-neutral float-right" title="Miscellaneous">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../memory/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../misc/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Integer Computation - Unofficial MIPS Loongson Intrinsics Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../main.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Integer Computation";
+        var mkdocs_page_input_path = "mmi/integer_computation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Unofficial MIPS Loongson Intrinsics Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../loongson_simd_basics/">Loongson SIMD Basics</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA Crypto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa_crypto/crypto/">Cryptography</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MMI</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Integer Computation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#uint16x4_t-biadd-uint8x8_t-s">uint16x4_t biadd (uint8x8_t s)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int8x8_t-paddb_s-int8x8_t-s-int8x8_t-t">int8x8_t paddb_s (int8x8_t s, int8x8_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_1">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_1">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_1">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_1">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint8x8_t-paddb_u-uint8x8_t-s-uint8x8_t-t">uint8x8_t paddb_u (uint8x8_t s, uint8x8_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_2">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_2">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_2">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_2">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int64_t-paddd_s-int64_t-s-int64_t-t">int64_t paddd_s (int64_t s, int64_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_3">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_3">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_3">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_3">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint64_t-paddd_u-uint64_t-s-uint64_t-t">uint64_t paddd_u (uint64_t s, uint64_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_4">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_4">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_4">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_4">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int16x4_t-paddh_s-int16x4_t-s-int16x4_t-t">int16x4_t paddh_s (int16x4_t s, int16x4_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_5">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_5">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_5">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_5">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint16x4_t-paddh_u-uint16x4_t-s-uint16x4_t-t">uint16x4_t paddh_u (uint16x4_t s, uint16x4_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_6">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_6">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_6">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_6">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int8x8_t-paddsb-int8x8_t-s-int8x8_t-t">int8x8_t paddsb (int8x8_t s, int8x8_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_7">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_7">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_7">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_7">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int16x4_t-paddsh-int16x4_t-s-int16x4_t-t">int16x4_t paddsh (int16x4_t s, int16x4_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_8">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_8">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_8">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_8">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint8x8_t-paddusb-uint8x8_t-s-uint8x8_t-t">uint8x8_t paddusb (uint8x8_t s, uint8x8_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_9">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_9">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_9">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_9">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint16x4_t-paddush-uint16x4_t-s-uint16x4_t-t">uint16x4_t paddush (uint16x4_t s, uint16x4_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_10">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_10">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_10">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_10">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int32x2_t-paddw_s-int32x2_t-s-int32x2_t-t">int32x2_t paddw_s (int32x2_t s, int32x2_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_11">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_11">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_11">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_11">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint32x2_t-paddw_u-uint32x2_t-s-uint32x2_t-t">uint32x2_t paddw_u (uint32x2_t s, uint32x2_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_12">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_12">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_12">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_12">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint8x8_t-pasubub-uint8x8_t-s-uint8x8_t-t">uint8x8_t pasubub (uint8x8_t s, uint8x8_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_13">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_13">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_13">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_13">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint8x8_t-pavgb-uint8x8_t-s-uint8x8_t-t">uint8x8_t pavgb (uint8x8_t s, uint8x8_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_14">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_14">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_14">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_14">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint16x4_t-pavgh-uint16x4_t-s-uint16x4_t-t">uint16x4_t pavgh (uint16x4_t s, uint16x4_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_15">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_15">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_15">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_15">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int32x2_t-pmaddhw-int16x4_t-s-int16x4_t-t">int32x2_t pmaddhw (int16x4_t s, int16x4_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_16">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_16">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_16">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_16">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int16x4_t-pmulhh-int16x4_t-s-int16x4_t-t">int16x4_t pmulhh (int16x4_t s, int16x4_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_17">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_17">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_17">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_17">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint16x4_t-pmulhuh-uint16x4_t-s-uint16x4_t-t">uint16x4_t pmulhuh (uint16x4_t s, uint16x4_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_18">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_18">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_18">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_18">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int16x4_t-pmullh-int16x4_t-s-int16x4_t-t">int16x4_t pmullh (int16x4_t s, int16x4_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_19">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_19">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_19">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_19">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int64_t-pmuluw-uint32x2_t-s-uint32x2_t-t">int64_t pmuluw (uint32x2_t s, uint32x2_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_20">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_20">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_20">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_20">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint16x4_t-psadbh-uint8x8_t-s-uint8x8_t-t">uint16x4_t psadbh (uint8x8_t s, uint8x8_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_21">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_21">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_21">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_21">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int8x8_t-psubb_s-int8x8_t-s-int8x8_t-t">int8x8_t psubb_s (int8x8_t s, int8x8_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_22">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_22">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_22">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_22">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint8x8_t-psubb_u-uint8x8_t-s-uint8x8_t-t">uint8x8_t psubb_u (uint8x8_t s, uint8x8_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_23">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_23">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_23">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_23">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int64_t-psubd_s-int64_t-s-int64_t-t">int64_t psubd_s (int64_t s, int64_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_24">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_24">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_24">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_24">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint64_t-psubd_u-uint64_t-s-uint64_t-t">uint64_t psubd_u (uint64_t s, uint64_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_25">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_25">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_25">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_25">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int16x4_t-psubh_s-int16x4_t-s-int16x4_t-t">int16x4_t psubh_s (int16x4_t s, int16x4_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_26">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_26">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_26">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_26">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint16x4_t-psubh_u-uint16x4_t-s-uint16x4_t-t">uint16x4_t psubh_u (uint16x4_t s, uint16x4_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_27">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_27">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_27">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_27">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int8x8_t-psubsb-int8x8_t-s-int8x8_t-t">int8x8_t psubsb (int8x8_t s, int8x8_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_28">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_28">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_28">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_28">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int16x4_t-psubsh-int16x4_t-s-int16x4_t-t">int16x4_t psubsh (int16x4_t s, int16x4_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_29">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_29">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_29">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_29">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint8x8_t-psubusb-uint8x8_t-s-uint8x8_t-t">uint8x8_t psubusb (uint8x8_t s, uint8x8_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_30">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_30">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_30">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_30">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint16x4_t-psubush-uint16x4_t-s-uint16x4_t-t">uint16x4_t psubush (uint16x4_t s, uint16x4_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_31">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_31">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_31">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_31">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int32x2_t-psubw_s-int32x2_t-s-int32x2_t-t">int32x2_t psubw_s (int32x2_t s, int32x2_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_32">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_32">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_32">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_32">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uint32x2_t-psubw_u-uint32x2_t-s-uint32x2_t-t">uint32x2_t psubw_u (uint32x2_t s, uint32x2_t t)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_33">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_33">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_33">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_33">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CSR</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../csr/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Unofficial MIPS Loongson Intrinsics Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">MMI</li>
+      <li class="breadcrumb-item active">Integer Computation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="integer-computation">Integer Computation</h1>
+<p>Generated from <code>include/loongson-mmiintrin.h</code>. This page contains 34 intrinsics.</p>
+<h2 id="uint16x4_t-biadd-uint8x8_t-s">uint16x4_t biadd (uint8x8_t s)</h2>
+<h3 id="synopsis">Synopsis</h3>
+<pre><code class="language-c">uint16x4_t biadd (uint8x8_t s)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: biadd
+Builtin: __builtin_loongson_biadd
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:434
+</code></pre>
+<h3 id="description">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 1 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for biadd.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 64-bit elements.
+a = s;
+for i in 0..3:
+  dst.half[i] = unsigned(a.byte[2*i]) + unsigned(a.byte[2*i + 1]);
+</code></pre>
+<h3 id="header-mapping">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_biadd (s);
+</code></pre>
+<h2 id="int8x8_t-paddb_s-int8x8_t-s-int8x8_t-t">int8x8_t paddb_s (int8x8_t s, int8x8_t t)</h2>
+<h3 id="synopsis_1">Synopsis</h3>
+<pre><code class="language-c">int8x8_t paddb_s (int8x8_t s, int8x8_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: paddb.s
+Builtin: __builtin_loongson_paddb_s
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:107
+</code></pre>
+<h3 id="description_1">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 8 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_1">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for paddb.s.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 8-bit elements.
+a = s;
+b = t;
+for i in 0..7:
+  dst.byte[i] = a.byte[i] + b.byte[i];
+</code></pre>
+<h3 id="header-mapping_1">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_paddb_s (s, t);
+</code></pre>
+<h2 id="uint8x8_t-paddb_u-uint8x8_t-s-uint8x8_t-t">uint8x8_t paddb_u (uint8x8_t s, uint8x8_t t)</h2>
+<h3 id="synopsis_2">Synopsis</h3>
+<pre><code class="language-c">uint8x8_t paddb_u (uint8x8_t s, uint8x8_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: paddb.u
+Builtin: __builtin_loongson_paddb_u
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:89
+</code></pre>
+<h3 id="description_2">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 8 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_2">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for paddb.u.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 8-bit elements.
+a = s;
+b = t;
+for i in 0..7:
+  dst.byte[i] = a.byte[i] + b.byte[i];
+</code></pre>
+<h3 id="header-mapping_2">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_paddb_u (s, t);
+</code></pre>
+<h2 id="int64_t-paddd_s-int64_t-s-int64_t-t">int64_t paddd_s (int64_t s, int64_t t)</h2>
+<h3 id="synopsis_3">Synopsis</h3>
+<pre><code class="language-c">int64_t paddd_s (int64_t s, int64_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: paddd.s
+Builtin: __builtin_loongson_paddd_s
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:120
+</code></pre>
+<h3 id="description_3">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 1 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_3">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for paddd.s.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 64-bit elements.
+a = s;
+b = t;
+for i in 0..0:
+  dst.dword[i] = a.dword[i] + b.dword[i];
+</code></pre>
+<h3 id="header-mapping_3">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_paddd_s (s, t);
+</code></pre>
+<h2 id="uint64_t-paddd_u-uint64_t-s-uint64_t-t">uint64_t paddd_u (uint64_t s, uint64_t t)</h2>
+<h3 id="synopsis_4">Synopsis</h3>
+<pre><code class="language-c">uint64_t paddd_u (uint64_t s, uint64_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: paddd.u
+Builtin: __builtin_loongson_paddd_u
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:114
+</code></pre>
+<h3 id="description_4">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 1 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_4">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for paddd.u.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 64-bit elements.
+a = s;
+b = t;
+for i in 0..0:
+  dst.dword[i] = a.dword[i] + b.dword[i];
+</code></pre>
+<h3 id="header-mapping_4">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_paddd_u (s, t);
+</code></pre>
+<h2 id="int16x4_t-paddh_s-int16x4_t-s-int16x4_t-t">int16x4_t paddh_s (int16x4_t s, int16x4_t t)</h2>
+<h3 id="synopsis_5">Synopsis</h3>
+<pre><code class="language-c">int16x4_t paddh_s (int16x4_t s, int16x4_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: paddh.s
+Builtin: __builtin_loongson_paddh_s
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:101
+</code></pre>
+<h3 id="description_5">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 4 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_5">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for paddh.s.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 16-bit elements.
+a = s;
+b = t;
+for i in 0..3:
+  dst.half[i] = a.half[i] + b.half[i];
+</code></pre>
+<h3 id="header-mapping_5">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_paddh_s (s, t);
+</code></pre>
+<h2 id="uint16x4_t-paddh_u-uint16x4_t-s-uint16x4_t-t">uint16x4_t paddh_u (uint16x4_t s, uint16x4_t t)</h2>
+<h3 id="synopsis_6">Synopsis</h3>
+<pre><code class="language-c">uint16x4_t paddh_u (uint16x4_t s, uint16x4_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: paddh.u
+Builtin: __builtin_loongson_paddh_u
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:83
+</code></pre>
+<h3 id="description_6">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 4 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_6">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for paddh.u.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 16-bit elements.
+a = s;
+b = t;
+for i in 0..3:
+  dst.half[i] = a.half[i] + b.half[i];
+</code></pre>
+<h3 id="header-mapping_6">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_paddh_u (s, t);
+</code></pre>
+<h2 id="int8x8_t-paddsb-int8x8_t-s-int8x8_t-t">int8x8_t paddsb (int8x8_t s, int8x8_t t)</h2>
+<h3 id="synopsis_7">Synopsis</h3>
+<pre><code class="language-c">int8x8_t paddsb (int8x8_t s, int8x8_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: paddsb
+Builtin: __builtin_loongson_paddsb
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:133
+</code></pre>
+<h3 id="description_7">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 8 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_7">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for paddsb.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 8-bit elements.
+a = s;
+b = t;
+for i in 0..7:
+  dst.byte[i] = saturate(a.byte[i] + b.byte[i], 8, signedness);
+</code></pre>
+<h3 id="header-mapping_7">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_paddsb (s, t);
+</code></pre>
+<h2 id="int16x4_t-paddsh-int16x4_t-s-int16x4_t-t">int16x4_t paddsh (int16x4_t s, int16x4_t t)</h2>
+<h3 id="synopsis_8">Synopsis</h3>
+<pre><code class="language-c">int16x4_t paddsh (int16x4_t s, int16x4_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: paddsh
+Builtin: __builtin_loongson_paddsh
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:127
+</code></pre>
+<h3 id="description_8">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 4 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_8">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for paddsh.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 16-bit elements.
+a = s;
+b = t;
+for i in 0..3:
+  dst.half[i] = saturate(a.half[i] + b.half[i], 16, signedness);
+</code></pre>
+<h3 id="header-mapping_8">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_paddsh (s, t);
+</code></pre>
+<h2 id="uint8x8_t-paddusb-uint8x8_t-s-uint8x8_t-t">uint8x8_t paddusb (uint8x8_t s, uint8x8_t t)</h2>
+<h3 id="synopsis_9">Synopsis</h3>
+<pre><code class="language-c">uint8x8_t paddusb (uint8x8_t s, uint8x8_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: paddusb
+Builtin: __builtin_loongson_paddusb
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:146
+</code></pre>
+<h3 id="description_9">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 8 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_9">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for paddusb.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 8-bit elements.
+a = s;
+b = t;
+for i in 0..7:
+  dst.byte[i] = a.byte[i] + b.byte[i];
+</code></pre>
+<h3 id="header-mapping_9">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_paddusb (s, t);
+</code></pre>
+<h2 id="uint16x4_t-paddush-uint16x4_t-s-uint16x4_t-t">uint16x4_t paddush (uint16x4_t s, uint16x4_t t)</h2>
+<h3 id="synopsis_10">Synopsis</h3>
+<pre><code class="language-c">uint16x4_t paddush (uint16x4_t s, uint16x4_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: paddush
+Builtin: __builtin_loongson_paddush
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:140
+</code></pre>
+<h3 id="description_10">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 4 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_10">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for paddush.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 16-bit elements.
+a = s;
+b = t;
+for i in 0..3:
+  dst.half[i] = a.half[i] + b.half[i];
+</code></pre>
+<h3 id="header-mapping_10">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_paddush (s, t);
+</code></pre>
+<h2 id="int32x2_t-paddw_s-int32x2_t-s-int32x2_t-t">int32x2_t paddw_s (int32x2_t s, int32x2_t t)</h2>
+<h3 id="synopsis_11">Synopsis</h3>
+<pre><code class="language-c">int32x2_t paddw_s (int32x2_t s, int32x2_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: paddw.s
+Builtin: __builtin_loongson_paddw_s
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:95
+</code></pre>
+<h3 id="description_11">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 2 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_11">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for paddw.s.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 32-bit elements.
+a = s;
+b = t;
+for i in 0..1:
+  dst.word[i] = a.word[i] + b.word[i];
+</code></pre>
+<h3 id="header-mapping_11">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_paddw_s (s, t);
+</code></pre>
+<h2 id="uint32x2_t-paddw_u-uint32x2_t-s-uint32x2_t-t">uint32x2_t paddw_u (uint32x2_t s, uint32x2_t t)</h2>
+<h3 id="synopsis_12">Synopsis</h3>
+<pre><code class="language-c">uint32x2_t paddw_u (uint32x2_t s, uint32x2_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: paddw.u
+Builtin: __builtin_loongson_paddw_u
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:77
+</code></pre>
+<h3 id="description_12">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 2 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_12">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for paddw.u.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 32-bit elements.
+a = s;
+b = t;
+for i in 0..1:
+  dst.word[i] = a.word[i] + b.word[i];
+</code></pre>
+<h3 id="header-mapping_12">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_paddw_u (s, t);
+</code></pre>
+<h2 id="uint8x8_t-pasubub-uint8x8_t-s-uint8x8_t-t">uint8x8_t pasubub (uint8x8_t s, uint8x8_t t)</h2>
+<h3 id="synopsis_13">Synopsis</h3>
+<pre><code class="language-c">uint8x8_t pasubub (uint8x8_t s, uint8x8_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: pasubub
+Builtin: __builtin_loongson_pasubub
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:427
+</code></pre>
+<h3 id="description_13">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 8 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_13">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for pasubub.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 8-bit elements.
+a = s;
+b = t;
+for i in 0..7:
+  dst.byte[i] = abs(a.byte[i] - b.byte[i]);
+</code></pre>
+<h3 id="header-mapping_13">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_pasubub (s, t);
+</code></pre>
+<h2 id="uint8x8_t-pavgb-uint8x8_t-s-uint8x8_t-t">uint8x8_t pavgb (uint8x8_t s, uint8x8_t t)</h2>
+<h3 id="synopsis_14">Synopsis</h3>
+<pre><code class="language-c">uint8x8_t pavgb (uint8x8_t s, uint8x8_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: pavgb
+Builtin: __builtin_loongson_pavgb
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:208
+</code></pre>
+<h3 id="description_14">Description</h3>
+<p>Compute lane-wise rounded average values for 8 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_14">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for pavgb.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 8-bit elements.
+a = s;
+b = t;
+for i in 0..7:
+  dst.byte[i] = floor_average(a.byte[i], b.byte[i]);
+</code></pre>
+<h3 id="header-mapping_14">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_pavgb (s, t);
+</code></pre>
+<h2 id="uint16x4_t-pavgh-uint16x4_t-s-uint16x4_t-t">uint16x4_t pavgh (uint16x4_t s, uint16x4_t t)</h2>
+<h3 id="synopsis_15">Synopsis</h3>
+<pre><code class="language-c">uint16x4_t pavgh (uint16x4_t s, uint16x4_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: pavgh
+Builtin: __builtin_loongson_pavgh
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:202
+</code></pre>
+<h3 id="description_15">Description</h3>
+<p>Compute lane-wise rounded average values for 4 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_15">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for pavgh.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 16-bit elements.
+a = s;
+b = t;
+for i in 0..3:
+  dst.half[i] = floor_average(a.half[i], b.half[i]);
+</code></pre>
+<h3 id="header-mapping_15">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_pavgh (s, t);
+</code></pre>
+<h2 id="int32x2_t-pmaddhw-int16x4_t-s-int16x4_t-t">int32x2_t pmaddhw (int16x4_t s, int16x4_t t)</h2>
+<h3 id="synopsis_16">Synopsis</h3>
+<pre><code class="language-c">int32x2_t pmaddhw (int16x4_t s, int16x4_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: pmaddhw
+Builtin: __builtin_loongson_pmaddhw
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:351
+</code></pre>
+<h3 id="description_16">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 2 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_16">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for pmaddhw.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 32-bit elements.
+a = s;
+b = t;
+for i in 0..1:
+  p0 = signed(a.half[2*i]) * signed(b.half[2*i]);
+  p1 = signed(a.half[2*i + 1]) * signed(b.half[2*i + 1]);
+  dst.word[i] = p0 + p1;
+</code></pre>
+<h3 id="header-mapping_16">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_pmaddhw (s, t);
+</code></pre>
+<h2 id="int16x4_t-pmulhh-int16x4_t-s-int16x4_t-t">int16x4_t pmulhh (int16x4_t s, int16x4_t t)</h2>
+<h3 id="synopsis_17">Synopsis</h3>
+<pre><code class="language-c">int16x4_t pmulhh (int16x4_t s, int16x4_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: pmulhh
+Builtin: __builtin_loongson_pmulhh
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:406
+</code></pre>
+<h3 id="description_17">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 4 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_17">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for pmulhh.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 16-bit elements.
+a = s;
+b = t;
+for i in 0..3:
+  dst.half[i] = a.half[i] * b.half[i];
+</code></pre>
+<h3 id="header-mapping_17">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_pmulhh (s, t);
+</code></pre>
+<h2 id="uint16x4_t-pmulhuh-uint16x4_t-s-uint16x4_t-t">uint16x4_t pmulhuh (uint16x4_t s, uint16x4_t t)</h2>
+<h3 id="synopsis_18">Synopsis</h3>
+<pre><code class="language-c">uint16x4_t pmulhuh (uint16x4_t s, uint16x4_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: pmulhuh
+Builtin: __builtin_loongson_pmulhuh
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:399
+</code></pre>
+<h3 id="description_18">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 4 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_18">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for pmulhuh.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 16-bit elements.
+a = s;
+b = t;
+for i in 0..3:
+  dst.half[i] = a.half[i] * b.half[i];
+</code></pre>
+<h3 id="header-mapping_18">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_pmulhuh (s, t);
+</code></pre>
+<h2 id="int16x4_t-pmullh-int16x4_t-s-int16x4_t-t">int16x4_t pmullh (int16x4_t s, int16x4_t t)</h2>
+<h3 id="synopsis_19">Synopsis</h3>
+<pre><code class="language-c">int16x4_t pmullh (int16x4_t s, int16x4_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: pmullh
+Builtin: __builtin_loongson_pmullh
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:413
+</code></pre>
+<h3 id="description_19">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 4 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_19">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for pmullh.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 16-bit elements.
+a = s;
+b = t;
+for i in 0..3:
+  dst.half[i] = a.half[i] * b.half[i];
+</code></pre>
+<h3 id="header-mapping_19">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_pmullh (s, t);
+</code></pre>
+<h2 id="int64_t-pmuluw-uint32x2_t-s-uint32x2_t-t">int64_t pmuluw (uint32x2_t s, uint32x2_t t)</h2>
+<h3 id="synopsis_20">Synopsis</h3>
+<pre><code class="language-c">int64_t pmuluw (uint32x2_t s, uint32x2_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: pmuluw
+Builtin: __builtin_loongson_pmuluw
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:420
+</code></pre>
+<h3 id="description_20">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 2 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_20">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for pmuluw.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 32-bit elements.
+a = s;
+b = t;
+for i in 0..1:
+  dst.word[i] = a.word[i] * b.word[i];
+</code></pre>
+<h3 id="header-mapping_20">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_pmuluw (s, t);
+</code></pre>
+<h2 id="uint16x4_t-psadbh-uint8x8_t-s-uint8x8_t-t">uint16x4_t psadbh (uint8x8_t s, uint8x8_t t)</h2>
+<h3 id="synopsis_21">Synopsis</h3>
+<pre><code class="language-c">uint16x4_t psadbh (uint8x8_t s, uint8x8_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: psadbh
+Builtin: __builtin_loongson_psadbh
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:443
+</code></pre>
+<h3 id="description_21">Description</h3>
+<p>Compute adjacent-pair sum of absolute differences using modular inputs and widened results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_21">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for psadbh.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 16-bit elements.
+a = s;
+b = t;
+for i in 0..3:
+  d0 = abs(unsigned(a.byte[2*i]) - unsigned(b.byte[2*i]));
+  d1 = abs(unsigned(a.byte[2*i + 1]) - unsigned(b.byte[2*i + 1]));
+  dst.half[i] = d0 + d1;
+</code></pre>
+<h3 id="header-mapping_21">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_psadbh (s, t);
+</code></pre>
+<h2 id="int8x8_t-psubb_s-int8x8_t-s-int8x8_t-t">int8x8_t psubb_s (int8x8_t s, int8x8_t t)</h2>
+<h3 id="synopsis_22">Synopsis</h3>
+<pre><code class="language-c">int8x8_t psubb_s (int8x8_t s, int8x8_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: psubb.s
+Builtin: __builtin_loongson_psubb_s
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:568
+</code></pre>
+<h3 id="description_22">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 8 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_22">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for psubb.s.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 8-bit elements.
+a = s;
+b = t;
+for i in 0..7:
+  dst.byte[i] = a.byte[i] - b.byte[i];
+</code></pre>
+<h3 id="header-mapping_22">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_psubb_s (s, t);
+</code></pre>
+<h2 id="uint8x8_t-psubb_u-uint8x8_t-s-uint8x8_t-t">uint8x8_t psubb_u (uint8x8_t s, uint8x8_t t)</h2>
+<h3 id="synopsis_23">Synopsis</h3>
+<pre><code class="language-c">uint8x8_t psubb_u (uint8x8_t s, uint8x8_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: psubb.u
+Builtin: __builtin_loongson_psubb_u
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:550
+</code></pre>
+<h3 id="description_23">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 8 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_23">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for psubb.u.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 8-bit elements.
+a = s;
+b = t;
+for i in 0..7:
+  dst.byte[i] = a.byte[i] - b.byte[i];
+</code></pre>
+<h3 id="header-mapping_23">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_psubb_u (s, t);
+</code></pre>
+<h2 id="int64_t-psubd_s-int64_t-s-int64_t-t">int64_t psubd_s (int64_t s, int64_t t)</h2>
+<h3 id="synopsis_24">Synopsis</h3>
+<pre><code class="language-c">int64_t psubd_s (int64_t s, int64_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: psubd.s
+Builtin: __builtin_loongson_psubd_s
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:581
+</code></pre>
+<h3 id="description_24">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 1 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_24">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for psubd.s.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 64-bit elements.
+a = s;
+b = t;
+for i in 0..0:
+  dst.dword[i] = a.dword[i] - b.dword[i];
+</code></pre>
+<h3 id="header-mapping_24">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_psubd_s (s, t);
+</code></pre>
+<h2 id="uint64_t-psubd_u-uint64_t-s-uint64_t-t">uint64_t psubd_u (uint64_t s, uint64_t t)</h2>
+<h3 id="synopsis_25">Synopsis</h3>
+<pre><code class="language-c">uint64_t psubd_u (uint64_t s, uint64_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: psubd.u
+Builtin: __builtin_loongson_psubd_u
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:575
+</code></pre>
+<h3 id="description_25">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 1 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_25">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for psubd.u.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 1 lanes of 64-bit elements.
+a = s;
+b = t;
+for i in 0..0:
+  dst.dword[i] = a.dword[i] - b.dword[i];
+</code></pre>
+<h3 id="header-mapping_25">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_psubd_u (s, t);
+</code></pre>
+<h2 id="int16x4_t-psubh_s-int16x4_t-s-int16x4_t-t">int16x4_t psubh_s (int16x4_t s, int16x4_t t)</h2>
+<h3 id="synopsis_26">Synopsis</h3>
+<pre><code class="language-c">int16x4_t psubh_s (int16x4_t s, int16x4_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: psubh.s
+Builtin: __builtin_loongson_psubh_s
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:562
+</code></pre>
+<h3 id="description_26">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 4 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_26">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for psubh.s.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 16-bit elements.
+a = s;
+b = t;
+for i in 0..3:
+  dst.half[i] = a.half[i] - b.half[i];
+</code></pre>
+<h3 id="header-mapping_26">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_psubh_s (s, t);
+</code></pre>
+<h2 id="uint16x4_t-psubh_u-uint16x4_t-s-uint16x4_t-t">uint16x4_t psubh_u (uint16x4_t s, uint16x4_t t)</h2>
+<h3 id="synopsis_27">Synopsis</h3>
+<pre><code class="language-c">uint16x4_t psubh_u (uint16x4_t s, uint16x4_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: psubh.u
+Builtin: __builtin_loongson_psubh_u
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:544
+</code></pre>
+<h3 id="description_27">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 4 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_27">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for psubh.u.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 16-bit elements.
+a = s;
+b = t;
+for i in 0..3:
+  dst.half[i] = a.half[i] - b.half[i];
+</code></pre>
+<h3 id="header-mapping_27">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_psubh_u (s, t);
+</code></pre>
+<h2 id="int8x8_t-psubsb-int8x8_t-s-int8x8_t-t">int8x8_t psubsb (int8x8_t s, int8x8_t t)</h2>
+<h3 id="synopsis_28">Synopsis</h3>
+<pre><code class="language-c">int8x8_t psubsb (int8x8_t s, int8x8_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: psubsb
+Builtin: __builtin_loongson_psubsb
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:594
+</code></pre>
+<h3 id="description_28">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 8 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_28">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for psubsb.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 8-bit elements.
+a = s;
+b = t;
+for i in 0..7:
+  dst.byte[i] = saturate(a.byte[i] - b.byte[i], 8, signedness);
+</code></pre>
+<h3 id="header-mapping_28">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_psubsb (s, t);
+</code></pre>
+<h2 id="int16x4_t-psubsh-int16x4_t-s-int16x4_t-t">int16x4_t psubsh (int16x4_t s, int16x4_t t)</h2>
+<h3 id="synopsis_29">Synopsis</h3>
+<pre><code class="language-c">int16x4_t psubsh (int16x4_t s, int16x4_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: psubsh
+Builtin: __builtin_loongson_psubsh
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:588
+</code></pre>
+<h3 id="description_29">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 4 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_29">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for psubsh.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 16-bit elements.
+a = s;
+b = t;
+for i in 0..3:
+  dst.half[i] = saturate(a.half[i] - b.half[i], 16, signedness);
+</code></pre>
+<h3 id="header-mapping_29">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_psubsh (s, t);
+</code></pre>
+<h2 id="uint8x8_t-psubusb-uint8x8_t-s-uint8x8_t-t">uint8x8_t psubusb (uint8x8_t s, uint8x8_t t)</h2>
+<h3 id="synopsis_30">Synopsis</h3>
+<pre><code class="language-c">uint8x8_t psubusb (uint8x8_t s, uint8x8_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: psubusb
+Builtin: __builtin_loongson_psubusb
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:607
+</code></pre>
+<h3 id="description_30">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 8 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_30">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for psubusb.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 8-bit elements.
+a = s;
+b = t;
+for i in 0..7:
+  dst.byte[i] = a.byte[i] - b.byte[i];
+</code></pre>
+<h3 id="header-mapping_30">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_psubusb (s, t);
+</code></pre>
+<h2 id="uint16x4_t-psubush-uint16x4_t-s-uint16x4_t-t">uint16x4_t psubush (uint16x4_t s, uint16x4_t t)</h2>
+<h3 id="synopsis_31">Synopsis</h3>
+<pre><code class="language-c">uint16x4_t psubush (uint16x4_t s, uint16x4_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: psubush
+Builtin: __builtin_loongson_psubush
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:601
+</code></pre>
+<h3 id="description_31">Description</h3>
+<p>Compute lane-wise modular integer arithmetic on 4 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_31">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for psubush.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 16-bit elements.
+a = s;
+b = t;
+for i in 0..3:
+  dst.half[i] = a.half[i] - b.half[i];
+</code></pre>
+<h3 id="header-mapping_31">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_psubush (s, t);
+</code></pre>
+<h2 id="int32x2_t-psubw_s-int32x2_t-s-int32x2_t-t">int32x2_t psubw_s (int32x2_t s, int32x2_t t)</h2>
+<h3 id="synopsis_32">Synopsis</h3>
+<pre><code class="language-c">int32x2_t psubw_s (int32x2_t s, int32x2_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: psubw.s
+Builtin: __builtin_loongson_psubw_s
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:556
+</code></pre>
+<h3 id="description_32">Description</h3>
+<p>Compute lane-wise signed integer arithmetic on 2 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_32">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for psubw.s.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 32-bit elements.
+a = s;
+b = t;
+for i in 0..1:
+  dst.word[i] = a.word[i] - b.word[i];
+</code></pre>
+<h3 id="header-mapping_32">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_psubw_s (s, t);
+</code></pre>
+<h2 id="uint32x2_t-psubw_u-uint32x2_t-s-uint32x2_t-t">uint32x2_t psubw_u (uint32x2_t s, uint32x2_t t)</h2>
+<h3 id="synopsis_33">Synopsis</h3>
+<pre><code class="language-c">uint32x2_t psubw_u (uint32x2_t s, uint32x2_t t)
+#include &lt;loongson-mmiintrin.h&gt;
+Instruction: psubw.u
+Builtin: __builtin_loongson_psubw_u
+CPU Flags: __mips_loongson_mmi
+Kind: function
+Source: include/loongson-mmiintrin.h:538
+</code></pre>
+<h3 id="description_33">Description</h3>
+<p>Compute lane-wise unsigned integer arithmetic on 2 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_33">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for psubw.u.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 32-bit elements.
+a = s;
+b = t;
+for i in 0..1:
+  dst.word[i] = a.word[i] - b.word[i];
+</code></pre>
+<h3 id="header-mapping_33">Header Mapping</h3>
+<pre><code class="language-c">return __builtin_loongson_psubw_u (s, t);
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../msa_crypto/crypto/" class="btn btn-neutral float-left" title="Cryptography"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../integer_comparison/" class="btn btn-neutral float-right" title="Integer Comparison">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../msa_crypto/crypto/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../integer_comparison/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

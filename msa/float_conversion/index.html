@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Float Conversion - Unofficial MIPS Loongson Intrinsics Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../main.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Float Conversion";
+        var mkdocs_page_input_path = "msa/float_conversion.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Unofficial MIPS Loongson Intrinsics Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../loongson_simd_basics/">Loongson SIMD Basics</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Float Conversion</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#v2i64-__msa_fclass_d-v2f64-a">v2i64 __msa_fclass_d (v2f64 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4i32-__msa_fclass_w-v4f32-a">v4i32 __msa_fclass_w (v4f32 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_1">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_1">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_1">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_1">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v8i16-__msa_fexdo_h-v4f32-a-v4f32-b">v8i16 __msa_fexdo_h (v4f32 a, v4f32 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_2">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_2">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_2">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_2">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4f32-__msa_fexdo_w-v2f64-a-v2f64-b">v4f32 __msa_fexdo_w (v2f64 a, v2f64 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_3">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_3">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_3">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_3">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2f64-__msa_fexp2_d-v2f64-a-v2i64-b">v2f64 __msa_fexp2_d (v2f64 a, v2i64 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_4">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_4">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_4">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_4">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4f32-__msa_fexp2_w-v4f32-a-v4i32-b">v4f32 __msa_fexp2_w (v4f32 a, v4i32 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_5">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_5">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_5">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_5">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2f64-__msa_fexupl_d-v4f32-a">v2f64 __msa_fexupl_d (v4f32 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_6">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_6">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_6">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_6">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4f32-__msa_fexupl_w-v8i16-a">v4f32 __msa_fexupl_w (v8i16 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_7">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_7">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_7">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_7">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2f64-__msa_fexupr_d-v4f32-a">v2f64 __msa_fexupr_d (v4f32 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_8">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_8">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_8">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_8">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4f32-__msa_fexupr_w-v8i16-a">v4f32 __msa_fexupr_w (v8i16 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_9">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_9">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_9">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_9">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2f64-__msa_ffint_s_d-v2i64-a">v2f64 __msa_ffint_s_d (v2i64 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_10">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_10">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_10">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_10">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4f32-__msa_ffint_s_w-v4i32-a">v4f32 __msa_ffint_s_w (v4i32 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_11">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_11">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_11">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_11">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2f64-__msa_ffint_u_d-v2u64-a">v2f64 __msa_ffint_u_d (v2u64 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_12">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_12">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_12">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_12">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4f32-__msa_ffint_u_w-v4u32-a">v4f32 __msa_ffint_u_w (v4u32 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_13">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_13">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_13">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_13">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2f64-__msa_frint_d-v2f64-a">v2f64 __msa_frint_d (v2f64 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_14">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_14">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_14">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_14">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4f32-__msa_frint_w-v4f32-a">v4f32 __msa_frint_w (v4f32 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_15">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_15">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_15">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_15">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2i64-__msa_ftint_s_d-v2f64-a">v2i64 __msa_ftint_s_d (v2f64 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_16">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_16">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_16">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_16">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4i32-__msa_ftint_s_w-v4f32-a">v4i32 __msa_ftint_s_w (v4f32 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_17">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_17">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_17">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_17">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2u64-__msa_ftint_u_d-v2f64-a">v2u64 __msa_ftint_u_d (v2f64 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_18">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_18">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_18">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_18">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4u32-__msa_ftint_u_w-v4f32-a">v4u32 __msa_ftint_u_w (v4f32 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_19">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_19">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_19">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_19">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2i64-__msa_ftrunc_s_d-v2f64-a">v2i64 __msa_ftrunc_s_d (v2f64 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_20">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_20">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_20">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_20">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4i32-__msa_ftrunc_s_w-v4f32-a">v4i32 __msa_ftrunc_s_w (v4f32 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_21">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_21">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_21">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_21">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2u64-__msa_ftrunc_u_d-v2f64-a">v2u64 __msa_ftrunc_u_d (v2f64 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_22">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_22">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_22">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_22">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4u32-__msa_ftrunc_u_w-v4f32-a">v4u32 __msa_ftrunc_u_w (v4f32 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_23">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_23">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_23">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_23">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../control_status/">Control and Status</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA Crypto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa_crypto/crypto/">Cryptography</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MMI</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CSR</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../csr/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Unofficial MIPS Loongson Intrinsics Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">MSA</li>
+      <li class="breadcrumb-item active">Float Conversion</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="float-conversion">Float Conversion</h1>
+<p>Generated from <code>include/msa.h</code>. This page contains 24 intrinsics.</p>
+<h2 id="v2i64-__msa_fclass_d-v2f64-a">v2i64 __msa_fclass_d (v2f64 a)</h2>
+<h3 id="synopsis">Synopsis</h3>
+<pre><code class="language-c">v2i64 __msa_fclass_d (v2f64 a)
+#include &lt;msa.h&gt;
+Instruction: fclass.d
+Builtin: __builtin_msa_fclass_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:548
+</code></pre>
+<h3 id="description">Description</h3>
+<p>Classify floating-point values lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for fclass.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for i in 0..1:
+  dst.fp64[i] = classify_fp(a.fp64[i]);
+</code></pre>
+<h3 id="header-mapping">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_fclass_d __builtin_msa_fclass_d
+</code></pre>
+<h2 id="v4i32-__msa_fclass_w-v4f32-a">v4i32 __msa_fclass_w (v4f32 a)</h2>
+<h3 id="synopsis_1">Synopsis</h3>
+<pre><code class="language-c">v4i32 __msa_fclass_w (v4f32 a)
+#include &lt;msa.h&gt;
+Instruction: fclass.w
+Builtin: __builtin_msa_fclass_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:547
+</code></pre>
+<h3 id="description_1">Description</h3>
+<p>Classify floating-point values lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_1">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for fclass.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+for i in 0..3:
+  dst.fp32[i] = classify_fp(a.fp32[i]);
+</code></pre>
+<h3 id="header-mapping_1">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_fclass_w __builtin_msa_fclass_w
+</code></pre>
+<h2 id="v8i16-__msa_fexdo_h-v4f32-a-v4f32-b">v8i16 __msa_fexdo_h (v4f32 a, v4f32 b)</h2>
+<h3 id="synopsis_2">Synopsis</h3>
+<pre><code class="language-c">v8i16 __msa_fexdo_h (v4f32 a, v4f32 b)
+#include &lt;msa.h&gt;
+Instruction: fexdo.h
+Builtin: __builtin_msa_fexdo_h
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:523
+</code></pre>
+<h3 id="description_2">Description</h3>
+<p>Extract and convert paired floating-point data lane-wise for 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_2">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for fexdo.h.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 16-bit elements.
+combined = interleave_or_pair_fp_sources(a, b);
+for each destination lane i:
+  dst.lane[i] = extract_odd_or_double_format_element(combined, i);
+</code></pre>
+<h3 id="header-mapping_2">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_fexdo_h __builtin_msa_fexdo_h
+</code></pre>
+<h2 id="v4f32-__msa_fexdo_w-v2f64-a-v2f64-b">v4f32 __msa_fexdo_w (v2f64 a, v2f64 b)</h2>
+<h3 id="synopsis_3">Synopsis</h3>
+<pre><code class="language-c">v4f32 __msa_fexdo_w (v2f64 a, v2f64 b)
+#include &lt;msa.h&gt;
+Instruction: fexdo.w
+Builtin: __builtin_msa_fexdo_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:524
+</code></pre>
+<h3 id="description_3">Description</h3>
+<p>Extract and convert paired floating-point data lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_3">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for fexdo.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+combined = interleave_or_pair_fp_sources(a, b);
+for each destination lane i:
+  dst.lane[i] = extract_odd_or_double_format_element(combined, i);
+</code></pre>
+<h3 id="header-mapping_3">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_fexdo_w __builtin_msa_fexdo_w
+</code></pre>
+<h2 id="v2f64-__msa_fexp2_d-v2f64-a-v2i64-b">v2f64 __msa_fexp2_d (v2f64 a, v2i64 b)</h2>
+<h3 id="synopsis_4">Synopsis</h3>
+<pre><code class="language-c">v2f64 __msa_fexp2_d (v2f64 a, v2i64 b)
+#include &lt;msa.h&gt;
+Instruction: fexp2.d
+Builtin: __builtin_msa_fexp2_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:522
+</code></pre>
+<h3 id="description_4">Description</h3>
+<p>Compute base-2 exponential lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_4">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for fexp2.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for i in 0..1:
+  dst.fp64[i] = exp2(a.fp64[i]);
+</code></pre>
+<h3 id="header-mapping_4">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_fexp2_d __builtin_msa_fexp2_d
+</code></pre>
+<h2 id="v4f32-__msa_fexp2_w-v4f32-a-v4i32-b">v4f32 __msa_fexp2_w (v4f32 a, v4i32 b)</h2>
+<h3 id="synopsis_5">Synopsis</h3>
+<pre><code class="language-c">v4f32 __msa_fexp2_w (v4f32 a, v4i32 b)
+#include &lt;msa.h&gt;
+Instruction: fexp2.w
+Builtin: __builtin_msa_fexp2_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:521
+</code></pre>
+<h3 id="description_5">Description</h3>
+<p>Compute base-2 exponential lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_5">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for fexp2.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+for i in 0..3:
+  dst.fp32[i] = exp2(a.fp32[i]);
+</code></pre>
+<h3 id="header-mapping_5">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_fexp2_w __builtin_msa_fexp2_w
+</code></pre>
+<h2 id="v2f64-__msa_fexupl_d-v4f32-a">v2f64 __msa_fexupl_d (v4f32 a)</h2>
+<h3 id="synopsis_6">Synopsis</h3>
+<pre><code class="language-c">v2f64 __msa_fexupl_d (v4f32 a)
+#include &lt;msa.h&gt;
+Instruction: fexupl.d
+Builtin: __builtin_msa_fexupl_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:560
+</code></pre>
+<h3 id="description_6">Description</h3>
+<p>Extend lower floating-point or fixed-point lanes lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_6">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for fexupl.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for each lower source lane i:
+  dst.fp_lane[i] = widen_integer_or_float_to_next_fp_width(a, i);
+</code></pre>
+<h3 id="header-mapping_6">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_fexupl_d __builtin_msa_fexupl_d
+</code></pre>
+<h2 id="v4f32-__msa_fexupl_w-v8i16-a">v4f32 __msa_fexupl_w (v8i16 a)</h2>
+<h3 id="synopsis_7">Synopsis</h3>
+<pre><code class="language-c">v4f32 __msa_fexupl_w (v8i16 a)
+#include &lt;msa.h&gt;
+Instruction: fexupl.w
+Builtin: __builtin_msa_fexupl_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:559
+</code></pre>
+<h3 id="description_7">Description</h3>
+<p>Extend lower floating-point or fixed-point lanes lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_7">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for fexupl.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+for each lower source lane i:
+  dst.fp_lane[i] = widen_integer_or_float_to_next_fp_width(a, i);
+</code></pre>
+<h3 id="header-mapping_7">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_fexupl_w __builtin_msa_fexupl_w
+</code></pre>
+<h2 id="v2f64-__msa_fexupr_d-v4f32-a">v2f64 __msa_fexupr_d (v4f32 a)</h2>
+<h3 id="synopsis_8">Synopsis</h3>
+<pre><code class="language-c">v2f64 __msa_fexupr_d (v4f32 a)
+#include &lt;msa.h&gt;
+Instruction: fexupr.d
+Builtin: __builtin_msa_fexupr_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:562
+</code></pre>
+<h3 id="description_8">Description</h3>
+<p>Extend upper floating-point or fixed-point lanes lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_8">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for fexupr.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for each upper source lane i:
+  dst.fp_lane[i] = widen_integer_or_float_to_next_fp_width(a, i);
+</code></pre>
+<h3 id="header-mapping_8">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_fexupr_d __builtin_msa_fexupr_d
+</code></pre>
+<h2 id="v4f32-__msa_fexupr_w-v8i16-a">v4f32 __msa_fexupr_w (v8i16 a)</h2>
+<h3 id="synopsis_9">Synopsis</h3>
+<pre><code class="language-c">v4f32 __msa_fexupr_w (v8i16 a)
+#include &lt;msa.h&gt;
+Instruction: fexupr.w
+Builtin: __builtin_msa_fexupr_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:561
+</code></pre>
+<h3 id="description_9">Description</h3>
+<p>Extend upper floating-point or fixed-point lanes lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_9">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for fexupr.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+for each upper source lane i:
+  dst.fp_lane[i] = widen_integer_or_float_to_next_fp_width(a, i);
+</code></pre>
+<h3 id="header-mapping_9">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_fexupr_w __builtin_msa_fexupr_w
+</code></pre>
+<h2 id="v2f64-__msa_ffint_s_d-v2i64-a">v2f64 __msa_ffint_s_d (v2i64 a)</h2>
+<h3 id="synopsis_10">Synopsis</h3>
+<pre><code class="language-c">v2f64 __msa_ffint_s_d (v2i64 a)
+#include &lt;msa.h&gt;
+Instruction: ffint.s.d
+Builtin: __builtin_msa_ffint_s_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:576
+</code></pre>
+<h3 id="description_10">Description</h3>
+<p>Convert integer to floating point lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_10">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for ffint.s.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for i in 0..1:
+  dst.fp64[i] = float_convert(a.integer_lane[i]);
+</code></pre>
+<h3 id="header-mapping_10">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_ffint_s_d __builtin_msa_ffint_s_d
+</code></pre>
+<h2 id="v4f32-__msa_ffint_s_w-v4i32-a">v4f32 __msa_ffint_s_w (v4i32 a)</h2>
+<h3 id="synopsis_11">Synopsis</h3>
+<pre><code class="language-c">v4f32 __msa_ffint_s_w (v4i32 a)
+#include &lt;msa.h&gt;
+Instruction: ffint.s.w
+Builtin: __builtin_msa_ffint_s_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:575
+</code></pre>
+<h3 id="description_11">Description</h3>
+<p>Convert integer to floating point lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_11">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for ffint.s.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+for i in 0..3:
+  dst.fp32[i] = float_convert(a.integer_lane[i]);
+</code></pre>
+<h3 id="header-mapping_11">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_ffint_s_w __builtin_msa_ffint_s_w
+</code></pre>
+<h2 id="v2f64-__msa_ffint_u_d-v2u64-a">v2f64 __msa_ffint_u_d (v2u64 a)</h2>
+<h3 id="synopsis_12">Synopsis</h3>
+<pre><code class="language-c">v2f64 __msa_ffint_u_d (v2u64 a)
+#include &lt;msa.h&gt;
+Instruction: ffint.u.d
+Builtin: __builtin_msa_ffint_u_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:578
+</code></pre>
+<h3 id="description_12">Description</h3>
+<p>Convert integer to floating point lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_12">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for ffint.u.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for i in 0..1:
+  dst.fp64[i] = float_convert(a.integer_lane[i]);
+</code></pre>
+<h3 id="header-mapping_12">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_ffint_u_d __builtin_msa_ffint_u_d
+</code></pre>
+<h2 id="v4f32-__msa_ffint_u_w-v4u32-a">v4f32 __msa_ffint_u_w (v4u32 a)</h2>
+<h3 id="synopsis_13">Synopsis</h3>
+<pre><code class="language-c">v4f32 __msa_ffint_u_w (v4u32 a)
+#include &lt;msa.h&gt;
+Instruction: ffint.u.w
+Builtin: __builtin_msa_ffint_u_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:577
+</code></pre>
+<h3 id="description_13">Description</h3>
+<p>Convert integer to floating point lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_13">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for ffint.u.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+for i in 0..3:
+  dst.fp32[i] = float_convert(a.integer_lane[i]);
+</code></pre>
+<h3 id="header-mapping_13">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_ffint_u_w __builtin_msa_ffint_u_w
+</code></pre>
+<h2 id="v2f64-__msa_frint_d-v2f64-a">v2f64 __msa_frint_d (v2f64 a)</h2>
+<h3 id="synopsis_14">Synopsis</h3>
+<pre><code class="language-c">v2f64 __msa_frint_d (v2f64 a)
+#include &lt;msa.h&gt;
+Instruction: frint.d
+Builtin: __builtin_msa_frint_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:554
+</code></pre>
+<h3 id="description_14">Description</h3>
+<p>Round to an integral floating-point value lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_14">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for frint.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for i in 0..1:
+  dst.fp64[i] = round_to_integral_float(a.fp64[i], rounding_mode_from_suffix);
+</code></pre>
+<h3 id="header-mapping_14">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_frint_d __builtin_msa_frint_d
+</code></pre>
+<h2 id="v4f32-__msa_frint_w-v4f32-a">v4f32 __msa_frint_w (v4f32 a)</h2>
+<h3 id="synopsis_15">Synopsis</h3>
+<pre><code class="language-c">v4f32 __msa_frint_w (v4f32 a)
+#include &lt;msa.h&gt;
+Instruction: frint.w
+Builtin: __builtin_msa_frint_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:553
+</code></pre>
+<h3 id="description_15">Description</h3>
+<p>Round to an integral floating-point value lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_15">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for frint.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+for i in 0..3:
+  dst.fp32[i] = round_to_integral_float(a.fp32[i], rounding_mode_from_suffix);
+</code></pre>
+<h3 id="header-mapping_15">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_frint_w __builtin_msa_frint_w
+</code></pre>
+<h2 id="v2i64-__msa_ftint_s_d-v2f64-a">v2i64 __msa_ftint_s_d (v2f64 a)</h2>
+<h3 id="synopsis_16">Synopsis</h3>
+<pre><code class="language-c">v2i64 __msa_ftint_s_d (v2f64 a)
+#include &lt;msa.h&gt;
+Instruction: ftint.s.d
+Builtin: __builtin_msa_ftint_s_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:568
+</code></pre>
+<h3 id="description_16">Description</h3>
+<p>Convert floating point to integer lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_16">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for ftint.s.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for i in 0..1:
+  dst.fp64[i] = integer_convert_with_current_rounding(a.fp64[i]);
+</code></pre>
+<h3 id="header-mapping_16">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_ftint_s_d __builtin_msa_ftint_s_d
+</code></pre>
+<h2 id="v4i32-__msa_ftint_s_w-v4f32-a">v4i32 __msa_ftint_s_w (v4f32 a)</h2>
+<h3 id="synopsis_17">Synopsis</h3>
+<pre><code class="language-c">v4i32 __msa_ftint_s_w (v4f32 a)
+#include &lt;msa.h&gt;
+Instruction: ftint.s.w
+Builtin: __builtin_msa_ftint_s_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:567
+</code></pre>
+<h3 id="description_17">Description</h3>
+<p>Convert floating point to integer lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_17">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for ftint.s.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+for i in 0..3:
+  dst.fp32[i] = integer_convert_with_current_rounding(a.fp32[i]);
+</code></pre>
+<h3 id="header-mapping_17">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_ftint_s_w __builtin_msa_ftint_s_w
+</code></pre>
+<h2 id="v2u64-__msa_ftint_u_d-v2f64-a">v2u64 __msa_ftint_u_d (v2f64 a)</h2>
+<h3 id="synopsis_18">Synopsis</h3>
+<pre><code class="language-c">v2u64 __msa_ftint_u_d (v2f64 a)
+#include &lt;msa.h&gt;
+Instruction: ftint.u.d
+Builtin: __builtin_msa_ftint_u_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:570
+</code></pre>
+<h3 id="description_18">Description</h3>
+<p>Convert floating point to integer lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_18">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for ftint.u.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for i in 0..1:
+  dst.fp64[i] = integer_convert_with_current_rounding(a.fp64[i]);
+</code></pre>
+<h3 id="header-mapping_18">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_ftint_u_d __builtin_msa_ftint_u_d
+</code></pre>
+<h2 id="v4u32-__msa_ftint_u_w-v4f32-a">v4u32 __msa_ftint_u_w (v4f32 a)</h2>
+<h3 id="synopsis_19">Synopsis</h3>
+<pre><code class="language-c">v4u32 __msa_ftint_u_w (v4f32 a)
+#include &lt;msa.h&gt;
+Instruction: ftint.u.w
+Builtin: __builtin_msa_ftint_u_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:569
+</code></pre>
+<h3 id="description_19">Description</h3>
+<p>Convert floating point to integer lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_19">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for ftint.u.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+for i in 0..3:
+  dst.fp32[i] = integer_convert_with_current_rounding(a.fp32[i]);
+</code></pre>
+<h3 id="header-mapping_19">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_ftint_u_w __builtin_msa_ftint_u_w
+</code></pre>
+<h2 id="v2i64-__msa_ftrunc_s_d-v2f64-a">v2i64 __msa_ftrunc_s_d (v2f64 a)</h2>
+<h3 id="synopsis_20">Synopsis</h3>
+<pre><code class="language-c">v2i64 __msa_ftrunc_s_d (v2f64 a)
+#include &lt;msa.h&gt;
+Instruction: ftrunc.s.d
+Builtin: __builtin_msa_ftrunc_s_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:572
+</code></pre>
+<h3 id="description_20">Description</h3>
+<p>Truncate floating point to integer lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_20">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for ftrunc.s.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for i in 0..1:
+  dst.fp64[i] = integer_truncate_toward_zero(a.fp64[i]);
+</code></pre>
+<h3 id="header-mapping_20">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_ftrunc_s_d __builtin_msa_ftrunc_s_d
+</code></pre>
+<h2 id="v4i32-__msa_ftrunc_s_w-v4f32-a">v4i32 __msa_ftrunc_s_w (v4f32 a)</h2>
+<h3 id="synopsis_21">Synopsis</h3>
+<pre><code class="language-c">v4i32 __msa_ftrunc_s_w (v4f32 a)
+#include &lt;msa.h&gt;
+Instruction: ftrunc.s.w
+Builtin: __builtin_msa_ftrunc_s_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:571
+</code></pre>
+<h3 id="description_21">Description</h3>
+<p>Truncate floating point to integer lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_21">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for ftrunc.s.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+for i in 0..3:
+  dst.fp32[i] = integer_truncate_toward_zero(a.fp32[i]);
+</code></pre>
+<h3 id="header-mapping_21">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_ftrunc_s_w __builtin_msa_ftrunc_s_w
+</code></pre>
+<h2 id="v2u64-__msa_ftrunc_u_d-v2f64-a">v2u64 __msa_ftrunc_u_d (v2f64 a)</h2>
+<h3 id="synopsis_22">Synopsis</h3>
+<pre><code class="language-c">v2u64 __msa_ftrunc_u_d (v2f64 a)
+#include &lt;msa.h&gt;
+Instruction: ftrunc.u.d
+Builtin: __builtin_msa_ftrunc_u_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:574
+</code></pre>
+<h3 id="description_22">Description</h3>
+<p>Truncate floating point to integer lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_22">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for ftrunc.u.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 2 lanes of 64-bit elements.
+for i in 0..1:
+  dst.fp64[i] = integer_truncate_toward_zero(a.fp64[i]);
+</code></pre>
+<h3 id="header-mapping_22">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_ftrunc_u_d __builtin_msa_ftrunc_u_d
+</code></pre>
+<h2 id="v4u32-__msa_ftrunc_u_w-v4f32-a">v4u32 __msa_ftrunc_u_w (v4f32 a)</h2>
+<h3 id="synopsis_23">Synopsis</h3>
+<pre><code class="language-c">v4u32 __msa_ftrunc_u_w (v4f32 a)
+#include &lt;msa.h&gt;
+Instruction: ftrunc.u.w
+Builtin: __builtin_msa_ftrunc_u_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:573
+</code></pre>
+<h3 id="description_23">Description</h3>
+<p>Truncate floating point to integer lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_23">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for ftrunc.u.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 32-bit elements.
+for i in 0..3:
+  dst.fp32[i] = integer_truncate_toward_zero(a.fp32[i]);
+</code></pre>
+<h3 id="header-mapping_23">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_ftrunc_u_w __builtin_msa_ftrunc_u_w
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../float_comparison/" class="btn btn-neutral float-left" title="Float Comparison"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../memory/" class="btn btn-neutral float-right" title="Memory">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../float_comparison/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../memory/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

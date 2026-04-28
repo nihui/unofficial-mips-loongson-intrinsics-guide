@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Control and Status - Unofficial MIPS Loongson Intrinsics Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../main.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Control and Status";
+        var mkdocs_page_input_path = "csr/control_status.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Unofficial MIPS Loongson Intrinsics Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../loongson_simd_basics/">Loongson SIMD Basics</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA Crypto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa_crypto/crypto/">Cryptography</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MMI</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CSR</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Control and Status</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#int-__lcsr_cpucfg-int-selector">int __lcsr_cpucfg (int selector)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#long-__lcsr_drdcsr-long-csr">long __lcsr_drdcsr (long csr)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_1">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_1">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_1">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_1">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#long-__lcsr_drdgcsr-long-csr">long __lcsr_drdgcsr (long csr)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_2">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_2">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_2">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_2">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__drdtime_t-__lcsr_drdtime-void">__drdtime_t __lcsr_drdtime (void)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_3">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_3">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_3">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_3">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#void-__lcsr_dwrcsr-long-value-long-csr">void __lcsr_dwrcsr (long value, long csr)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_4">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_4">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_4">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_4">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#void-__lcsr_dwrgcsr-long-value-long-csr">void __lcsr_dwrgcsr (long value, long csr)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_5">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_5">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_5">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_5">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#long-__lcsr_lddir-long-base-unsigned-char-level">long __lcsr_lddir (long base, unsigned char level)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_6">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_6">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_6">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_6">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#long-__lcsr_ldpte-unsigned-char-op">long __lcsr_ldpte (unsigned char op)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_7">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_7">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_7">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_7">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int-__lcsr_lwdir-int-base-unsigned-char-level">int __lcsr_lwdir (int base, unsigned char level)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_8">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_8">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_8">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_8">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int-__lcsr_lwpte-unsigned-char-op">int __lcsr_lwpte (unsigned char op)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_9">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_9">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_9">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_9">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int-__lcsr_rdcsr-int-csr">int __lcsr_rdcsr (int csr)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_10">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_10">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_10">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_10">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#int-__lcsr_rdgcsr-int-csr">int __lcsr_rdgcsr (int csr)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_11">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_11">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_11">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_11">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__rdtime_t-__lcsr_rdtimeh-void">__rdtime_t __lcsr_rdtimeh (void)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_12">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_12">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_12">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_12">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__rdtime_t-__lcsr_rdtimel-void">__rdtime_t __lcsr_rdtimel (void)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_13">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_13">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_13">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_13">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#void-__lcsr_wrcsr-int-value-int-csr">void __lcsr_wrcsr (int value, int csr)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_14">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_14">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_14">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_14">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#void-__lcsr_wrgcsr-int-value-int-csr">void __lcsr_wrgcsr (int value, int csr)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_15">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_15">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_15">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_15">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Unofficial MIPS Loongson Intrinsics Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">CSR</li>
+      <li class="breadcrumb-item active">Control and Status</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="control-and-status">Control and Status</h1>
+<p>Generated from <code>include/loongson-csr.h</code>. This page contains 16 intrinsics.</p>
+<h2 id="int-__lcsr_cpucfg-int-selector">int __lcsr_cpucfg (int selector)</h2>
+<h3 id="synopsis">Synopsis</h3>
+<pre><code class="language-c">int __lcsr_cpucfg (int selector)
+#include &lt;loongson-csr.h&gt;
+Instruction: cpucfg
+Builtin: __builtin_loongson_cpucfg
+CPU Flags: __mips_loongson_csr
+Kind: alias
+Source: include/loongson-csr.h:45
+</code></pre>
+<h3 id="description">Description</h3>
+<p>Read, write, or query a Loongson control/status resource using <code>cpucfg</code>. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for cpucfg.
+// Operand order follows the intrinsic arguments in the header.
+return read_cpu_configuration(selector);
+</code></pre>
+<h3 id="header-mapping">Header Mapping</h3>
+<pre><code class="language-c">#define __lcsr_cpucfg __builtin_loongson_cpucfg
+</code></pre>
+<h2 id="long-__lcsr_drdcsr-long-csr">long __lcsr_drdcsr (long csr)</h2>
+<h3 id="synopsis_1">Synopsis</h3>
+<pre><code class="language-c">long __lcsr_drdcsr (long csr)
+#include &lt;loongson-csr.h&gt;
+Instruction: drdcsr
+Builtin: __builtin_loongson_drdcsr
+CPU Flags: __mips_loongson_csr
+Kind: alias
+Source: include/loongson-csr.h:48
+</code></pre>
+<h3 id="description_1">Description</h3>
+<p>Read, write, or query a Loongson control/status resource using <code>drdcsr</code>. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_1">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for drdcsr.
+// Operand order follows the intrinsic arguments in the header.
+return read_loongson_csr(csr);
+</code></pre>
+<h3 id="header-mapping_1">Header Mapping</h3>
+<pre><code class="language-c">#define __lcsr_drdcsr __builtin_loongson_drdcsr
+</code></pre>
+<h2 id="long-__lcsr_drdgcsr-long-csr">long __lcsr_drdgcsr (long csr)</h2>
+<h3 id="synopsis_2">Synopsis</h3>
+<pre><code class="language-c">long __lcsr_drdgcsr (long csr)
+#include &lt;loongson-csr.h&gt;
+Instruction: drdgcsr
+Builtin: __builtin_loongson_drdgcsr
+CPU Flags: __mips_loongson_csr
+Kind: alias
+Source: include/loongson-csr.h:52
+</code></pre>
+<h3 id="description_2">Description</h3>
+<p>Read, write, or query a Loongson control/status resource using <code>drdgcsr</code>. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_2">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for drdgcsr.
+// Operand order follows the intrinsic arguments in the header.
+return read_loongson_guest_csr(csr);
+</code></pre>
+<h3 id="header-mapping_2">Header Mapping</h3>
+<pre><code class="language-c">#define __lcsr_drdgcsr __builtin_loongson_drdgcsr
+</code></pre>
+<h2 id="__drdtime_t-__lcsr_drdtime-void">__drdtime_t __lcsr_drdtime (void)</h2>
+<h3 id="synopsis_3">Synopsis</h3>
+<pre><code class="language-c">__drdtime_t __lcsr_drdtime (void)
+#include &lt;loongson-csr.h&gt;
+Instruction: drdtime
+Builtin: __builtin_loongson_drdtime
+CPU Flags: __mips_loongson_csr
+Kind: alias
+Source: include/loongson-csr.h:54
+</code></pre>
+<h3 id="description_3">Description</h3>
+<p>Read, write, or query a Loongson control/status resource using <code>drdtime</code>. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_3">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for drdtime.
+// Operand order follows the intrinsic arguments in the header.
+result.dvalue = read_64bit_time_counter();
+result.dtimeid = read_time_counter_id();
+return result;
+</code></pre>
+<h3 id="header-mapping_3">Header Mapping</h3>
+<pre><code class="language-c">#define __lcsr_drdtime __builtin_loongson_drdtime
+</code></pre>
+<h2 id="void-__lcsr_dwrcsr-long-value-long-csr">void __lcsr_dwrcsr (long value, long csr)</h2>
+<h3 id="synopsis_4">Synopsis</h3>
+<pre><code class="language-c">void __lcsr_dwrcsr (long value, long csr)
+#include &lt;loongson-csr.h&gt;
+Instruction: dwrcsr
+Builtin: __builtin_loongson_dwrcsr
+CPU Flags: __mips_loongson_csr
+Kind: alias
+Source: include/loongson-csr.h:49
+</code></pre>
+<h3 id="description_4">Description</h3>
+<p>Read, write, or query a Loongson control/status resource using <code>dwrcsr</code>. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_4">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for dwrcsr.
+// Operand order follows the intrinsic arguments in the header.
+write_loongson_csr(csr, value);
+</code></pre>
+<h3 id="header-mapping_4">Header Mapping</h3>
+<pre><code class="language-c">#define __lcsr_dwrcsr __builtin_loongson_dwrcsr
+</code></pre>
+<h2 id="void-__lcsr_dwrgcsr-long-value-long-csr">void __lcsr_dwrgcsr (long value, long csr)</h2>
+<h3 id="synopsis_5">Synopsis</h3>
+<pre><code class="language-c">void __lcsr_dwrgcsr (long value, long csr)
+#include &lt;loongson-csr.h&gt;
+Instruction: dwrgcsr
+Builtin: __builtin_loongson_dwrgcsr
+CPU Flags: __mips_loongson_csr
+Kind: alias
+Source: include/loongson-csr.h:53
+</code></pre>
+<h3 id="description_5">Description</h3>
+<p>Read, write, or query a Loongson control/status resource using <code>dwrgcsr</code>. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_5">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for dwrgcsr.
+// Operand order follows the intrinsic arguments in the header.
+write_loongson_guest_csr(csr, value);
+</code></pre>
+<h3 id="header-mapping_5">Header Mapping</h3>
+<pre><code class="language-c">#define __lcsr_dwrgcsr __builtin_loongson_dwrgcsr
+</code></pre>
+<h2 id="long-__lcsr_lddir-long-base-unsigned-char-level">long __lcsr_lddir (long base, unsigned char level)</h2>
+<h3 id="synopsis_6">Synopsis</h3>
+<pre><code class="language-c">long __lcsr_lddir (long base, unsigned char level)
+#include &lt;loongson-csr.h&gt;
+Instruction: lddir
+Builtin: __builtin_loongson_lddir
+CPU Flags: __mips_loongson_csr
+Kind: alias
+Source: include/loongson-csr.h:57
+</code></pre>
+<h3 id="description_6">Description</h3>
+<p>Read, write, or query a Loongson control/status resource using <code>lddir</code>. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_6">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for lddir.
+// Operand order follows the intrinsic arguments in the header.
+return load_tlb_directory_entry(base, level);
+</code></pre>
+<h3 id="header-mapping_6">Header Mapping</h3>
+<pre><code class="language-c">#define __lcsr_lddir __builtin_loongson_lddir
+</code></pre>
+<h2 id="long-__lcsr_ldpte-unsigned-char-op">long __lcsr_ldpte (unsigned char op)</h2>
+<h3 id="synopsis_7">Synopsis</h3>
+<pre><code class="language-c">long __lcsr_ldpte (unsigned char op)
+#include &lt;loongson-csr.h&gt;
+Instruction: ldpte
+Builtin: __builtin_loongson_ldpte
+CPU Flags: __mips_loongson_csr
+Kind: alias
+Source: include/loongson-csr.h:59
+</code></pre>
+<h3 id="description_7">Description</h3>
+<p>Read, write, or query a Loongson control/status resource using <code>ldpte</code>. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_7">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for ldpte.
+// Operand order follows the intrinsic arguments in the header.
+return load_tlb_page_table_entry(op);
+</code></pre>
+<h3 id="header-mapping_7">Header Mapping</h3>
+<pre><code class="language-c">#define __lcsr_ldpte __builtin_loongson_ldpte
+</code></pre>
+<h2 id="int-__lcsr_lwdir-int-base-unsigned-char-level">int __lcsr_lwdir (int base, unsigned char level)</h2>
+<h3 id="synopsis_8">Synopsis</h3>
+<pre><code class="language-c">int __lcsr_lwdir (int base, unsigned char level)
+#include &lt;loongson-csr.h&gt;
+Instruction: lwdir
+Builtin: __builtin_loongson_lwdir
+CPU Flags: __mips_loongson_csr
+Kind: alias
+Source: include/loongson-csr.h:58
+</code></pre>
+<h3 id="description_8">Description</h3>
+<p>Read, write, or query a Loongson control/status resource using <code>lwdir</code>. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_8">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for lwdir.
+// Operand order follows the intrinsic arguments in the header.
+return load_tlb_directory_entry(base, level);
+</code></pre>
+<h3 id="header-mapping_8">Header Mapping</h3>
+<pre><code class="language-c">#define __lcsr_lwdir __builtin_loongson_lwdir
+</code></pre>
+<h2 id="int-__lcsr_lwpte-unsigned-char-op">int __lcsr_lwpte (unsigned char op)</h2>
+<h3 id="synopsis_9">Synopsis</h3>
+<pre><code class="language-c">int __lcsr_lwpte (unsigned char op)
+#include &lt;loongson-csr.h&gt;
+Instruction: lwpte
+Builtin: __builtin_loongson_lwpte
+CPU Flags: __mips_loongson_csr
+Kind: alias
+Source: include/loongson-csr.h:60
+</code></pre>
+<h3 id="description_9">Description</h3>
+<p>Read, write, or query a Loongson control/status resource using <code>lwpte</code>. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_9">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for lwpte.
+// Operand order follows the intrinsic arguments in the header.
+return load_tlb_page_table_entry(op);
+</code></pre>
+<h3 id="header-mapping_9">Header Mapping</h3>
+<pre><code class="language-c">#define __lcsr_lwpte __builtin_loongson_lwpte
+</code></pre>
+<h2 id="int-__lcsr_rdcsr-int-csr">int __lcsr_rdcsr (int csr)</h2>
+<h3 id="synopsis_10">Synopsis</h3>
+<pre><code class="language-c">int __lcsr_rdcsr (int csr)
+#include &lt;loongson-csr.h&gt;
+Instruction: rdcsr
+Builtin: __builtin_loongson_rdcsr
+CPU Flags: __mips_loongson_csr
+Kind: alias
+Source: include/loongson-csr.h:46
+</code></pre>
+<h3 id="description_10">Description</h3>
+<p>Read, write, or query a Loongson control/status resource using <code>rdcsr</code>. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_10">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for rdcsr.
+// Operand order follows the intrinsic arguments in the header.
+return read_loongson_csr(csr);
+</code></pre>
+<h3 id="header-mapping_10">Header Mapping</h3>
+<pre><code class="language-c">#define __lcsr_rdcsr __builtin_loongson_rdcsr
+</code></pre>
+<h2 id="int-__lcsr_rdgcsr-int-csr">int __lcsr_rdgcsr (int csr)</h2>
+<h3 id="synopsis_11">Synopsis</h3>
+<pre><code class="language-c">int __lcsr_rdgcsr (int csr)
+#include &lt;loongson-csr.h&gt;
+Instruction: rdgcsr
+Builtin: __builtin_loongson_rdgcsr
+CPU Flags: __mips_loongson_csr
+Kind: alias
+Source: include/loongson-csr.h:50
+</code></pre>
+<h3 id="description_11">Description</h3>
+<p>Read, write, or query a Loongson control/status resource using <code>rdgcsr</code>. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_11">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for rdgcsr.
+// Operand order follows the intrinsic arguments in the header.
+return read_loongson_guest_csr(csr);
+</code></pre>
+<h3 id="header-mapping_11">Header Mapping</h3>
+<pre><code class="language-c">#define __lcsr_rdgcsr __builtin_loongson_rdgcsr
+</code></pre>
+<h2 id="__rdtime_t-__lcsr_rdtimeh-void">__rdtime_t __lcsr_rdtimeh (void)</h2>
+<h3 id="synopsis_12">Synopsis</h3>
+<pre><code class="language-c">__rdtime_t __lcsr_rdtimeh (void)
+#include &lt;loongson-csr.h&gt;
+Instruction: rdtimeh
+Builtin: __builtin_loongson_rdtimeh
+CPU Flags: __mips_loongson_csr
+Kind: alias
+Source: include/loongson-csr.h:56
+</code></pre>
+<h3 id="description_12">Description</h3>
+<p>Read, write, or query a Loongson control/status resource using <code>rdtimeh</code>. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_12">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for rdtimeh.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 16-bit elements.
+result.value = read_high_32_bits_of_time_counter();
+result.timeid = read_time_counter_id();
+return result;
+</code></pre>
+<h3 id="header-mapping_12">Header Mapping</h3>
+<pre><code class="language-c">#define __lcsr_rdtimeh __builtin_loongson_rdtimeh
+</code></pre>
+<h2 id="__rdtime_t-__lcsr_rdtimel-void">__rdtime_t __lcsr_rdtimel (void)</h2>
+<h3 id="synopsis_13">Synopsis</h3>
+<pre><code class="language-c">__rdtime_t __lcsr_rdtimel (void)
+#include &lt;loongson-csr.h&gt;
+Instruction: rdtimel
+Builtin: __builtin_loongson_rdtimel
+CPU Flags: __mips_loongson_csr
+Kind: alias
+Source: include/loongson-csr.h:55
+</code></pre>
+<h3 id="description_13">Description</h3>
+<p>Read, write, or query a Loongson control/status resource using <code>rdtimel</code>. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_13">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for rdtimel.
+// Operand order follows the intrinsic arguments in the header.
+result.value = read_low_32_bits_of_time_counter();
+result.timeid = read_time_counter_id();
+return result;
+</code></pre>
+<h3 id="header-mapping_13">Header Mapping</h3>
+<pre><code class="language-c">#define __lcsr_rdtimel __builtin_loongson_rdtimel
+</code></pre>
+<h2 id="void-__lcsr_wrcsr-int-value-int-csr">void __lcsr_wrcsr (int value, int csr)</h2>
+<h3 id="synopsis_14">Synopsis</h3>
+<pre><code class="language-c">void __lcsr_wrcsr (int value, int csr)
+#include &lt;loongson-csr.h&gt;
+Instruction: wrcsr
+Builtin: __builtin_loongson_wrcsr
+CPU Flags: __mips_loongson_csr
+Kind: alias
+Source: include/loongson-csr.h:47
+</code></pre>
+<h3 id="description_14">Description</h3>
+<p>Read, write, or query a Loongson control/status resource using <code>wrcsr</code>. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_14">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for wrcsr.
+// Operand order follows the intrinsic arguments in the header.
+write_loongson_csr(csr, value);
+</code></pre>
+<h3 id="header-mapping_14">Header Mapping</h3>
+<pre><code class="language-c">#define __lcsr_wrcsr __builtin_loongson_wrcsr
+</code></pre>
+<h2 id="void-__lcsr_wrgcsr-int-value-int-csr">void __lcsr_wrgcsr (int value, int csr)</h2>
+<h3 id="synopsis_15">Synopsis</h3>
+<pre><code class="language-c">void __lcsr_wrgcsr (int value, int csr)
+#include &lt;loongson-csr.h&gt;
+Instruction: wrgcsr
+Builtin: __builtin_loongson_wrgcsr
+CPU Flags: __mips_loongson_csr
+Kind: alias
+Source: include/loongson-csr.h:51
+</code></pre>
+<h3 id="description_15">Description</h3>
+<p>Read, write, or query a Loongson control/status resource using <code>wrgcsr</code>. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_15">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for wrgcsr.
+// Operand order follows the intrinsic arguments in the header.
+write_loongson_guest_csr(csr, value);
+</code></pre>
+<h3 id="header-mapping_15">Header Mapping</h3>
+<pre><code class="language-c">#define __lcsr_wrgcsr __builtin_loongson_wrgcsr
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../mmi/permutation/" class="btn btn-neutral float-left" title="Permutation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../mmi/permutation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

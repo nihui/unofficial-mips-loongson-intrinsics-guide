@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Unofficial MIPS Loongson Intrinsics Guide" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Unofficial MIPS Loongson Intrinsics Guide</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="main.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> Unofficial MIPS Loongson Intrinsics Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#project-information">Project Information</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#covered-headers">Covered Headers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#register-model">Register Model</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="loongson_simd_basics/">Loongson SIMD Basics</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="sx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="sx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="sx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="sx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="sx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="sx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="sx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="sx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="sx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="sx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="asx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="asx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="asx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="asx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="asx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="asx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="asx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="asx/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="asx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="asx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="asx/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="asx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="msa/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="msa/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="msa/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="msa/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="msa/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="msa/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="msa/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="msa/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="msa/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="msa/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="msa/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="msa/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="msa2/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="msa2/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="msa2/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="msa2/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="msa2/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA Crypto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="msa_crypto/crypto/">Cryptography</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MMI</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="mmi/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="mmi/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="mmi/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="mmi/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="mmi/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="mmi/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CSR</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="csr/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Unofficial MIPS Loongson Intrinsics Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="unofficial-mips-loongson-intrinsics-guide">Unofficial MIPS Loongson Intrinsics Guide</h1>
+<p>This is an unofficial guide for the MIPS-era Loongson SIMD intrinsic headers in this repository. It follows the organization of the Unofficial LoongArch Intrinsics Guide, but the content is generated from the Loongson SX, Loongson ASX, MIPS MSA, MSA2, MSA Crypto, Loongson MMI, and Loongson CSR GCC-style headers.</p>
+<p>The SX and ASX headers are early Loongson SIMD interfaces with 128-bit and 256-bit vector registers. Their intrinsic prefixes are still <code>__lsx_</code> and <code>__lasx_</code>, even though these files target MIPS feature macros rather than LoongArch feature macros. MIPS MSA, MSA2, and MSA Crypto document the 128-bit MSA families supplied in <code>msa.h</code>, <code>msa2.h</code>, and <code>msa-cryptointrin.h</code>. MMI documents the older 64-bit paired-integer multimedia operations, while CSR documents scalar control/status helpers.</p>
+<p>The generated operation blocks contain inferred lane-level pseudocode. A separate header-mapping block keeps the original wrapper body from the header. When the header implements a builtin with inline assembly, the generator records the real instruction mnemonic used there. For compiler builtins without inline assembly in the header, the mnemonic is inferred from the builtin name.</p>
+<h2 id="project-information">Project Information</h2>
+<ul>
+<li>Project repository: <a href="https://github.com/nihui/unofficial-mips-loongson-intrinsics-guide">https://github.com/nihui/unofficial-mips-loongson-intrinsics-guide</a></li>
+<li>Inspired by and modeled after: <a href="https://github.com/jiegec/unofficial-loongarch-intrinsics-guide">https://github.com/jiegec/unofficial-loongarch-intrinsics-guide</a></li>
+<li>This guide was generated with assistance from OpenAI GPT-5 Codex.</li>
+</ul>
+<h2 id="covered-headers">Covered Headers</h2>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Header</th>
+<th>Vector width</th>
+<th>Feature macro</th>
+<th>Intrinsics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Loongson SX</td>
+<td><code>include/loongson-sxintrin.h</code></td>
+<td>128 bit</td>
+<td><code>__mips_loongson_sx</code></td>
+<td>255</td>
+</tr>
+<tr>
+<td>Loongson ASX</td>
+<td><code>include/loongson-asxintrin.h</code></td>
+<td>256 bit</td>
+<td><code>__mips_loongson_asx</code></td>
+<td>1165</td>
+</tr>
+<tr>
+<td>MIPS MSA</td>
+<td><code>include/msa.h</code></td>
+<td>128 bit</td>
+<td><code>__mips_msa</code></td>
+<td>529</td>
+</tr>
+<tr>
+<td>MSA2</td>
+<td><code>include/msa2.h</code></td>
+<td>128 bit</td>
+<td><code>__mips_msa</code></td>
+<td>371</td>
+</tr>
+<tr>
+<td>MSA Crypto</td>
+<td><code>include/msa-cryptointrin.h</code></td>
+<td>128 bit</td>
+<td><code>__mips_msa_crypto</code></td>
+<td>29</td>
+</tr>
+<tr>
+<td>Loongson MMI</td>
+<td><code>include/loongson-mmiintrin.h</code></td>
+<td>64 bit</td>
+<td><code>__mips_loongson_mmi</code></td>
+<td>99</td>
+</tr>
+<tr>
+<td>Loongson CSR</td>
+<td><code>include/loongson-csr.h</code></td>
+<td>64 bit</td>
+<td><code>__mips_loongson_csr</code></td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+<p>Total documented intrinsics: 2464.</p>
+<h2 id="register-model">Register Model</h2>
+<p>The pseudo descriptions assume vectors can be viewed through element arrays similar to the following C unions:</p>
+<pre><code class="language-c">union loongson_128_register {
+  uint8_t byte[16];
+  uint16_t half[8];
+  uint32_t word[4];
+  uint64_t dword[2];
+  float fp32[4];
+  double fp64[2];
+};
+
+union loongson_256_register {
+  uint8_t byte[32];
+  uint16_t half[16];
+  uint32_t word[8];
+  uint64_t dword[4];
+  float fp32[8];
+  double fp64[4];
+};
+</code></pre>
+<p>The source headers are GCC runtime headers and retain their original copyright notices.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="loongson_simd_basics/" class="btn btn-neutral float-right" title="Loongson SIMD Basics">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="loongson_simd_basics/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2026-04-28 06:03:35.858185+00:00
+-->

@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Float Comparison - Unofficial MIPS Loongson Intrinsics Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../main.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Float Comparison";
+        var mkdocs_page_input_path = "asx/float_comparison.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Unofficial MIPS Loongson Intrinsics Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../loongson_simd_basics/">Loongson SIMD Basics</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASX</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Float Comparison</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcaf_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcaf_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcaf_w-__m256-_1-__m256-_2">__m256i __lasx_xfcaf_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_1">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_1">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_1">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_1">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfceq_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfceq_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_2">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_2">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_2">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_2">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfceq_w-__m256-_1-__m256-_2">__m256i __lasx_xfceq_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_3">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_3">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_3">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_3">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcle_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcle_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_4">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_4">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_4">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_4">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcle_w-__m256-_1-__m256-_2">__m256i __lasx_xfcle_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_5">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_5">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_5">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_5">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfclt_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfclt_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_6">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_6">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_6">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_6">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfclt_w-__m256-_1-__m256-_2">__m256i __lasx_xfclt_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_7">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_7">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_7">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_7">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcne_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcne_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_8">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_8">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_8">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_8">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcne_w-__m256-_1-__m256-_2">__m256i __lasx_xfcne_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_9">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_9">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_9">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_9">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcor_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcor_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_10">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_10">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_10">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_10">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcor_w-__m256-_1-__m256-_2">__m256i __lasx_xfcor_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_11">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_11">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_11">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_11">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcueq_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcueq_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_12">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_12">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_12">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_12">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcueq_w-__m256-_1-__m256-_2">__m256i __lasx_xfcueq_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_13">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_13">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_13">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_13">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcule_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcule_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_14">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_14">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_14">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_14">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcule_w-__m256-_1-__m256-_2">__m256i __lasx_xfcule_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_15">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_15">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_15">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_15">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcult_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcult_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_16">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_16">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_16">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_16">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcult_w-__m256-_1-__m256-_2">__m256i __lasx_xfcult_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_17">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_17">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_17">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_17">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcun_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcun_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_18">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_18">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_18">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_18">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcun_w-__m256-_1-__m256-_2">__m256i __lasx_xfcun_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_19">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_19">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_19">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_19">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcune_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcune_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_20">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_20">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_20">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_20">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfcune_w-__m256-_1-__m256-_2">__m256i __lasx_xfcune_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_21">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_21">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_21">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_21">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsaf_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsaf_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_22">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_22">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_22">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_22">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsaf_w-__m256-_1-__m256-_2">__m256i __lasx_xfsaf_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_23">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_23">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_23">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_23">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfseq_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfseq_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_24">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_24">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_24">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_24">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfseq_w-__m256-_1-__m256-_2">__m256i __lasx_xfseq_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_25">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_25">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_25">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_25">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsle_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsle_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_26">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_26">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_26">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_26">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsle_w-__m256-_1-__m256-_2">__m256i __lasx_xfsle_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_27">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_27">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_27">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_27">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfslt_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfslt_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_28">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_28">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_28">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_28">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfslt_w-__m256-_1-__m256-_2">__m256i __lasx_xfslt_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_29">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_29">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_29">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_29">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsne_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsne_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_30">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_30">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_30">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_30">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsne_w-__m256-_1-__m256-_2">__m256i __lasx_xfsne_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_31">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_31">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_31">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_31">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsor_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsor_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_32">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_32">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_32">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_32">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsor_w-__m256-_1-__m256-_2">__m256i __lasx_xfsor_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_33">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_33">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_33">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_33">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsueq_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsueq_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_34">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_34">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_34">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_34">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsueq_w-__m256-_1-__m256-_2">__m256i __lasx_xfsueq_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_35">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_35">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_35">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_35">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsule_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsule_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_36">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_36">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_36">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_36">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsule_w-__m256-_1-__m256-_2">__m256i __lasx_xfsule_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_37">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_37">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_37">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_37">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsult_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsult_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_38">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_38">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_38">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_38">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsult_w-__m256-_1-__m256-_2">__m256i __lasx_xfsult_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_39">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_39">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_39">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_39">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsun_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsun_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_40">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_40">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_40">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_40">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsun_w-__m256-_1-__m256-_2">__m256i __lasx_xfsun_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_41">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_41">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_41">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_41">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsune_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsune_d (__m256d _1, __m256d _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_42">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_42">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_42">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_42">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xfsune_w-__m256-_1-__m256-_2">__m256i __lasx_xfsune_w (__m256 _1, __m256 _2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_43">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_43">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_43">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_43">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA Crypto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa_crypto/crypto/">Cryptography</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MMI</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CSR</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../csr/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Unofficial MIPS Loongson Intrinsics Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">ASX</li>
+      <li class="breadcrumb-item active">Float Comparison</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="float-comparison">Float Comparison</h1>
+<p>Generated from <code>include/loongson-asxintrin.h</code>. This page contains 44 intrinsics.</p>
+<h2 id="__m256i-__lasx_xfcaf_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcaf_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcaf_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcaf.d
+Builtin: __builtin_lasx_xfcaf_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:1997
+</code></pre>
+<h3 id="description">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcaf.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_af(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcaf_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcaf_w-__m256-_1-__m256-_2">__m256i __lasx_xfcaf_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_1">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcaf_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcaf.w
+Builtin: __builtin_lasx_xfcaf_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:1990
+</code></pre>
+<h3 id="description_1">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_1">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcaf.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_af(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_1">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcaf_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfceq_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfceq_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_2">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfceq_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfceq.d
+Builtin: __builtin_lasx_xfceq_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2067
+</code></pre>
+<h3 id="description_2">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_2">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfceq.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_eq(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_2">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfceq_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfceq_w-__m256-_1-__m256-_2">__m256i __lasx_xfceq_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_3">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfceq_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfceq.w
+Builtin: __builtin_lasx_xfceq_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2060
+</code></pre>
+<h3 id="description_3">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_3">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfceq.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_eq(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_3">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfceq_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcle_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcle_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_4">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcle_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcle.d
+Builtin: __builtin_lasx_xfcle_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2123
+</code></pre>
+<h3 id="description_4">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_4">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcle.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_le(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_4">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcle_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcle_w-__m256-_1-__m256-_2">__m256i __lasx_xfcle_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_5">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcle_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcle.w
+Builtin: __builtin_lasx_xfcle_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2116
+</code></pre>
+<h3 id="description_5">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_5">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcle.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_le(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_5">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcle_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfclt_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfclt_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_6">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfclt_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfclt.d
+Builtin: __builtin_lasx_xfclt_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2095
+</code></pre>
+<h3 id="description_6">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_6">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfclt.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_lt(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_6">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfclt_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfclt_w-__m256-_1-__m256-_2">__m256i __lasx_xfclt_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_7">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfclt_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfclt.w
+Builtin: __builtin_lasx_xfclt_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2088
+</code></pre>
+<h3 id="description_7">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_7">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfclt.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_lt(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_7">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfclt_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcne_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcne_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_8">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcne_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcne.d
+Builtin: __builtin_lasx_xfcne_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2081
+</code></pre>
+<h3 id="description_8">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_8">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcne.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_ne(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_8">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcne_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcne_w-__m256-_1-__m256-_2">__m256i __lasx_xfcne_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_9">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcne_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcne.w
+Builtin: __builtin_lasx_xfcne_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2074
+</code></pre>
+<h3 id="description_9">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_9">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcne.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_ne(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_9">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcne_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcor_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcor_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_10">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcor_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcor.d
+Builtin: __builtin_lasx_xfcor_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2011
+</code></pre>
+<h3 id="description_10">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_10">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcor.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_or(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_10">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcor_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcor_w-__m256-_1-__m256-_2">__m256i __lasx_xfcor_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_11">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcor_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcor.w
+Builtin: __builtin_lasx_xfcor_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2004
+</code></pre>
+<h3 id="description_11">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_11">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcor.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_or(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_11">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcor_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcueq_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcueq_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_12">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcueq_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcueq.d
+Builtin: __builtin_lasx_xfcueq_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2053
+</code></pre>
+<h3 id="description_12">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_12">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcueq.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_ueq(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_12">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcueq_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcueq_w-__m256-_1-__m256-_2">__m256i __lasx_xfcueq_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_13">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcueq_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcueq.w
+Builtin: __builtin_lasx_xfcueq_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2046
+</code></pre>
+<h3 id="description_13">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_13">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcueq.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_ueq(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_13">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcueq_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcule_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcule_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_14">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcule_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcule.d
+Builtin: __builtin_lasx_xfcule_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2137
+</code></pre>
+<h3 id="description_14">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_14">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcule.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_ule(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_14">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcule_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcule_w-__m256-_1-__m256-_2">__m256i __lasx_xfcule_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_15">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcule_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcule.w
+Builtin: __builtin_lasx_xfcule_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2130
+</code></pre>
+<h3 id="description_15">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_15">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcule.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_ule(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_15">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcule_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcult_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcult_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_16">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcult_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcult.d
+Builtin: __builtin_lasx_xfcult_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2109
+</code></pre>
+<h3 id="description_16">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_16">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcult.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_ult(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_16">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcult_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcult_w-__m256-_1-__m256-_2">__m256i __lasx_xfcult_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_17">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcult_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcult.w
+Builtin: __builtin_lasx_xfcult_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2102
+</code></pre>
+<h3 id="description_17">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_17">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcult.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_ult(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_17">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcult_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcun_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcun_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_18">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcun_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcun.d
+Builtin: __builtin_lasx_xfcun_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2025
+</code></pre>
+<h3 id="description_18">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_18">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcun.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_un(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_18">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcun_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcun_w-__m256-_1-__m256-_2">__m256i __lasx_xfcun_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_19">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcun_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcun.w
+Builtin: __builtin_lasx_xfcun_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2018
+</code></pre>
+<h3 id="description_19">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_19">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcun.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_un(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_19">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcun_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcune_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfcune_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_20">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcune_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcune.d
+Builtin: __builtin_lasx_xfcune_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2039
+</code></pre>
+<h3 id="description_20">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_20">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcune.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_une(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_20">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcune_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfcune_w-__m256-_1-__m256-_2">__m256i __lasx_xfcune_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_21">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfcune_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfcune.w
+Builtin: __builtin_lasx_xfcune_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2032
+</code></pre>
+<h3 id="description_21">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_21">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfcune.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_une(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_21">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfcune_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsaf_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsaf_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_22">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsaf_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsaf.d
+Builtin: __builtin_lasx_xfsaf_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2151
+</code></pre>
+<h3 id="description_22">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_22">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsaf.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_fsaf(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_22">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsaf_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsaf_w-__m256-_1-__m256-_2">__m256i __lasx_xfsaf_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_23">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsaf_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsaf.w
+Builtin: __builtin_lasx_xfsaf_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2144
+</code></pre>
+<h3 id="description_23">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_23">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsaf.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_fsaf(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_23">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsaf_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfseq_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfseq_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_24">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfseq_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfseq.d
+Builtin: __builtin_lasx_xfseq_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2221
+</code></pre>
+<h3 id="description_24">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_24">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfseq.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_fseq(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_24">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfseq_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfseq_w-__m256-_1-__m256-_2">__m256i __lasx_xfseq_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_25">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfseq_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfseq.w
+Builtin: __builtin_lasx_xfseq_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2214
+</code></pre>
+<h3 id="description_25">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_25">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfseq.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_fseq(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_25">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfseq_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsle_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsle_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_26">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsle_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsle.d
+Builtin: __builtin_lasx_xfsle_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2277
+</code></pre>
+<h3 id="description_26">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_26">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsle.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_fsle(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_26">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsle_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsle_w-__m256-_1-__m256-_2">__m256i __lasx_xfsle_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_27">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsle_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsle.w
+Builtin: __builtin_lasx_xfsle_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2270
+</code></pre>
+<h3 id="description_27">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_27">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsle.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_fsle(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_27">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsle_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfslt_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfslt_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_28">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfslt_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfslt.d
+Builtin: __builtin_lasx_xfslt_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2249
+</code></pre>
+<h3 id="description_28">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_28">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfslt.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_fslt(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_28">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfslt_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfslt_w-__m256-_1-__m256-_2">__m256i __lasx_xfslt_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_29">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfslt_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfslt.w
+Builtin: __builtin_lasx_xfslt_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2242
+</code></pre>
+<h3 id="description_29">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_29">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfslt.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_fslt(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_29">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfslt_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsne_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsne_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_30">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsne_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsne.d
+Builtin: __builtin_lasx_xfsne_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2235
+</code></pre>
+<h3 id="description_30">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_30">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsne.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_fsne(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_30">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsne_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsne_w-__m256-_1-__m256-_2">__m256i __lasx_xfsne_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_31">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsne_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsne.w
+Builtin: __builtin_lasx_xfsne_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2228
+</code></pre>
+<h3 id="description_31">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_31">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsne.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_fsne(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_31">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsne_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsor_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsor_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_32">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsor_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsor.d
+Builtin: __builtin_lasx_xfsor_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2165
+</code></pre>
+<h3 id="description_32">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_32">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsor.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_fsor(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_32">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsor_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsor_w-__m256-_1-__m256-_2">__m256i __lasx_xfsor_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_33">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsor_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsor.w
+Builtin: __builtin_lasx_xfsor_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2158
+</code></pre>
+<h3 id="description_33">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_33">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsor.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_fsor(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_33">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsor_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsueq_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsueq_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_34">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsueq_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsueq.d
+Builtin: __builtin_lasx_xfsueq_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2207
+</code></pre>
+<h3 id="description_34">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_34">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsueq.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_fsueq(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_34">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsueq_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsueq_w-__m256-_1-__m256-_2">__m256i __lasx_xfsueq_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_35">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsueq_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsueq.w
+Builtin: __builtin_lasx_xfsueq_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2200
+</code></pre>
+<h3 id="description_35">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_35">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsueq.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_fsueq(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_35">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsueq_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsule_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsule_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_36">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsule_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsule.d
+Builtin: __builtin_lasx_xfsule_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2291
+</code></pre>
+<h3 id="description_36">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_36">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsule.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_fsule(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_36">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsule_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsule_w-__m256-_1-__m256-_2">__m256i __lasx_xfsule_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_37">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsule_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsule.w
+Builtin: __builtin_lasx_xfsule_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2284
+</code></pre>
+<h3 id="description_37">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_37">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsule.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_fsule(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_37">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsule_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsult_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsult_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_38">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsult_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsult.d
+Builtin: __builtin_lasx_xfsult_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2263
+</code></pre>
+<h3 id="description_38">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_38">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsult.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_fsult(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_38">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsult_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsult_w-__m256-_1-__m256-_2">__m256i __lasx_xfsult_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_39">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsult_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsult.w
+Builtin: __builtin_lasx_xfsult_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2256
+</code></pre>
+<h3 id="description_39">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_39">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsult.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_fsult(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_39">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsult_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsun_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsun_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_40">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsun_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsun.d
+Builtin: __builtin_lasx_xfsun_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2179
+</code></pre>
+<h3 id="description_40">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_40">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsun.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_fsun(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_40">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsun_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsun_w-__m256-_1-__m256-_2">__m256i __lasx_xfsun_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_41">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsun_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsun.w
+Builtin: __builtin_lasx_xfsun_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2172
+</code></pre>
+<h3 id="description_41">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_41">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsun.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_fsun(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_41">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsun_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsune_d-__m256d-_1-__m256d-_2">__m256i __lasx_xfsune_d (__m256d _1, __m256d _2)</h2>
+<h3 id="synopsis_42">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsune_d (__m256d _1, __m256d _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsune.d
+Builtin: __builtin_lasx_xfsune_d
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2193
+</code></pre>
+<h3 id="description_42">Description</h3>
+<p>Compare floating-point 4 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_42">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsune.d.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 4 lanes of 64-bit elements.
+a = _1;
+b = _2;
+for i in 0..3:
+  dst.mask[i] = fp_compare_fsune(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_42">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsune_d((v4f64)_1, (v4f64)_2);
+</code></pre>
+<h2 id="__m256i-__lasx_xfsune_w-__m256-_1-__m256-_2">__m256i __lasx_xfsune_w (__m256 _1, __m256 _2)</h2>
+<h3 id="synopsis_43">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xfsune_w (__m256 _1, __m256 _2)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xfsune.w
+Builtin: __builtin_lasx_xfsune_w
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2186
+</code></pre>
+<h3 id="description_43">Description</h3>
+<p>Compare floating-point 8 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.</p>
+<h3 id="operation_43">Operation</h3>
+<pre><code class="language-c">// Inferred semantics for xfsune.w.
+// Operand order follows the intrinsic arguments in the header.
+// Treat vector operands as 8 lanes of 32-bit elements.
+a = _1;
+b = _2;
+for i in 0..7:
+  dst.mask[i] = fp_compare_fsune(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+</code></pre>
+<h3 id="header-mapping_43">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xfsune_w((v8f32)_1, (v8f32)_2);
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../float_computation/" class="btn btn-neutral float-left" title="Float Computation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../float_conversion/" class="btn btn-neutral float-right" title="Float Conversion">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../float_computation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../float_conversion/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
