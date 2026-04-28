@@ -6,6 +6,12 @@ The SX and ASX headers are early Loongson SIMD interfaces with 128-bit and 256-b
 
 The generated operation blocks contain inferred lane-level pseudocode. A separate header-mapping block keeps the original wrapper body from the header. When the header implements a builtin with inline assembly, the generator records the real instruction mnemonic used there. For compiler builtins without inline assembly in the header, the mnemonic is inferred from the builtin name.
 
+## Project Information
+
+- Project repository: <https://github.com/nihui/unofficial-mips-loongson-intrinsics-guide>
+- Inspired by and modeled after: <https://github.com/jiegec/unofficial-loongarch-intrinsics-guide>
+- This guide was generated with assistance from OpenAI GPT-5 Codex.
+
 ## Covered Headers
 
 | Extension | Header | Vector width | Feature macro | Intrinsics |
