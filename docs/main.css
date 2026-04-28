@@ -6,3 +6,7 @@ code {
 .wy-table-responsive table th {
   white-space: normal;
 }
+
+.wy-nav-content {
+  max-width: none;
+}
