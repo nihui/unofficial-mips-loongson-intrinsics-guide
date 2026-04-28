@@ -17,6 +17,7 @@ The operation text is generated from the Loongson/MIPS mnemonic, GCC MSA builtin
 ## Project Information
 
 - Project repository: <https://github.com/nihui/unofficial-mips-loongson-intrinsics-guide>
+- Documentation site: <https://nihui.github.io/unofficial-mips-loongson-intrinsics-guide/>
 - Inspired by and modeled after: <https://github.com/jiegec/unofficial-loongarch-intrinsics-guide>
 - This guide was generated with assistance from OpenAI GPT-5 Codex.
 
