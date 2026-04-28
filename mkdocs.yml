@@ -1,0 +1,64 @@
+site_name: Unofficial MIPS Loongson Intrinsics Guide
+site_description: Unofficial MIPS Loongson Intrinsics Guide
+theme:
+  name: readthedocs
+copyright: Copyright &copy; 2026
+extra_css:
+  - main.css
+nav:
+  - Home: index.md
+  - Loongson SIMD Basics: loongson_simd_basics.md
+  - SX:
+      - Integer Computation: sx/integer_computation.md
+      - Integer Comparison: sx/integer_comparison.md
+      - Shift: sx/shift.md
+      - Logical: sx/logical.md
+      - Bitwise Operations: sx/bitwise_operations.md
+      - Permutation: sx/permutation.md
+      - Float Computation: sx/float_computation.md
+      - Float Conversion: sx/float_conversion.md
+      - Memory: sx/memory.md
+      - Miscellaneous: sx/misc.md
+  - ASX:
+      - Integer Computation: asx/integer_computation.md
+      - Integer Comparison: asx/integer_comparison.md
+      - Shift: asx/shift.md
+      - Logical: asx/logical.md
+      - Bitwise Operations: asx/bitwise_operations.md
+      - Permutation: asx/permutation.md
+      - Float Computation: asx/float_computation.md
+      - Float Comparison: asx/float_comparison.md
+      - Float Conversion: asx/float_conversion.md
+      - Memory: asx/memory.md
+      - Branch: asx/branch.md
+      - Miscellaneous: asx/misc.md
+  - MSA:
+      - Integer Computation: msa/integer_computation.md
+      - Integer Comparison: msa/integer_comparison.md
+      - Shift: msa/shift.md
+      - Logical: msa/logical.md
+      - Bitwise Operations: msa/bitwise_operations.md
+      - Permutation: msa/permutation.md
+      - Float Computation: msa/float_computation.md
+      - Float Comparison: msa/float_comparison.md
+      - Float Conversion: msa/float_conversion.md
+      - Memory: msa/memory.md
+      - Branch: msa/branch.md
+      - Control and Status: msa/control_status.md
+  - MSA2:
+      - Integer Computation: msa2/integer_computation.md
+      - Shift: msa2/shift.md
+      - Logical: msa2/logical.md
+      - Bitwise Operations: msa2/bitwise_operations.md
+      - Permutation: msa2/permutation.md
+  - MSA Crypto:
+      - Cryptography: msa_crypto/crypto.md
+  - MMI:
+      - Integer Computation: mmi/integer_computation.md
+      - Integer Comparison: mmi/integer_comparison.md
+      - Shift: mmi/shift.md
+      - Logical: mmi/logical.md
+      - Bitwise Operations: mmi/bitwise_operations.md
+      - Permutation: mmi/permutation.md
+  - CSR:
+      - Control and Status: csr/control_status.md
