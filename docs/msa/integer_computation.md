@@ -2,12 +2,12 @@
 
 Generated from `include/msa.h`. This page contains 150 intrinsics.
 
-## smallexample v16i8 __msa_add_a_b (v16i8 a, v16i8 b)
+## v16i8 __msa_add_a_b (v16i8 a, v16i8 b)
 
 ### Synopsis
 
 ```c
-smallexample v16i8 __msa_add_a_b (v16i8 a, v16i8 b)
+v16i8 __msa_add_a_b (v16i8 a, v16i8 b)
 #include <msa.h>
 Instruction: add.a.b
 Builtin: __builtin_msa_add_a_b

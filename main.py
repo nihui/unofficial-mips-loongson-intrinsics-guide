@@ -10,6 +10,7 @@ from collections import defaultdict
 ROOT = pathlib.Path(__file__).resolve().parent
 TOOLCHAIN_ROOT = ROOT.parent / "src" / "mips-loongson-gcc7-linux-gnu-2021-02-08-src"
 GCC_EXTEND_TEXI = TOOLCHAIN_ROOT / "gcc-7.3" / "gcc" / "doc" / "extend.texi"
+MSA_PROTOTYPES_TSV = ROOT / "data" / "msa_builtin_prototypes.tsv"
 
 
 @dataclasses.dataclass(frozen=True)
@@ -259,18 +260,26 @@ def named_args_from_builtin_prototype(args: str) -> str:
 
 
 def parse_msa_builtin_prototypes() -> dict[str, tuple[str, str]]:
-    if not GCC_EXTEND_TEXI.exists():
-        return {}
-    text = GCC_EXTEND_TEXI.read_text()
     result: dict[str, tuple[str, str]] = {}
-    for match in re.finditer(
-        r"(?P<ret>[A-Za-z_][A-Za-z0-9_\s\*]*?)\s+(?P<name>__builtin_msa_[A-Za-z0-9_]+)\s*\((?P<args>[^;]*)\);",
-        text,
-    ):
-        result[match.group("name")] = (
-            clean_type(match.group("ret")),
-            named_args_from_builtin_prototype(match.group("args")),
-        )
+    if GCC_EXTEND_TEXI.exists():
+        text = GCC_EXTEND_TEXI.read_text()
+        for match in re.finditer(
+            r"^\s*(?P<ret>[A-Za-z_][A-Za-z0-9_ \*]*?)\s+(?P<name>__builtin_msa_[A-Za-z0-9_]+)\s*\((?P<args>[^;]*)\);",
+            text,
+            re.M,
+        ):
+            result[match.group("name")] = (
+                clean_type(match.group("ret")),
+                named_args_from_builtin_prototype(match.group("args")),
+            )
+    if result:
+        return result
+    if MSA_PROTOTYPES_TSV.exists():
+        for line in MSA_PROTOTYPES_TSV.read_text().splitlines():
+            if not line.strip() or line.startswith("#"):
+                continue
+            name, return_type, args = line.split("\t", 2)
+            result[name] = (return_type, args)
     return result
 
 
@@ -1379,7 +1388,6 @@ def arithmetic_expr(entry: Intrinsic) -> str | None:
 def operation_for_integer(entry: Intrinsic) -> list[str] | None:
     op = normalized_op(entry)
     tokens = mnemonic_tokens(entry)
-    vector_names, _ = arg_name_map(entry)
     width = lane_bits(entry) or 8
     suffix = lane_suffix(entry) or "b"
     lane = LANE_NAMES.get(suffix, "lane")
@@ -1413,7 +1421,7 @@ def operation_for_integer(entry: Intrinsic) -> list[str] | None:
             f"for i in 0..{n - 1}:",
             f"  product = {rounding}(b.{lane}[i] * c.{lane}[i]);",
             f"  dst.{lane}[i] = a.{lane}[i] {operator} product;",
-        ] if len(vector_names) >= 3 else None
+        ]
     if "acc4b" in op or "acc8b" in op:
         group = 4 if "acc4b" in op else 8
         groups = max(1, entry.extension.vector_bits // (8 * group))

@@ -4,6 +4,7 @@
 - `tools/generate_docs.py`: command-line entry point for regenerating `docs/`.
 - `check.py`: verifies that every parsed public intrinsic has a generated documentation entry.
 - `include/`: source headers used as documentation inputs.
+- `data/msa_builtin_prototypes.tsv`: bundled MSA builtin prototypes used when GCC `extend.texi` is not available.
 - `mkdocs.yml`: generated navigation for the static site.
 - `docs/`: generated documentation; edit `main.py` or source headers, then regenerate.
 
