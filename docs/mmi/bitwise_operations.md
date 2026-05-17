@@ -2,12 +2,12 @@
 
 Generated from `include/loongson-mmiintrin.h`. This page contains 2 intrinsics.
 
-## int8x8_t pmovmskb_s (int8x8_t s)
+## int8x8_t pmovmskb_s (int8x8_t a)
 
 ### Synopsis
 
 ```c
-int8x8_t pmovmskb_s (int8x8_t s)
+int8x8_t pmovmskb_s (int8x8_t a)
 #include <loongson-mmiintrin.h>
 Instruction: pmovmskb.s
 Builtin: __builtin_loongson_pmovmskb_s
@@ -18,33 +18,38 @@ Source: include/loongson-mmiintrin.h:392
 
 ### Description
 
-Extract the sign bit from each element of 8 x 8-bit byte lanes and pack those bits into a low-order mask. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extract the sign bit from each element of 8 x i8 lanes and pack those bits into a low-order scalar mask.
 
 ### Operation
 
 ```c
-// Inferred semantics for pmovmskb.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 8-bit elements.
-a = s;
-mask = 0;
-for i in 0..7:
-  mask |= sign_bit(a.byte[i]) << i;
-return mask;
+return pack_sign_bits(a.u8);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pmovmskb_s (s);
+return __builtin_loongson_pmovmskb_s (a);
 ```
 
-## uint8x8_t pmovmskb_u (uint8x8_t s)
+## uint8x8_t pmovmskb_u (uint8x8_t a)
 
 ### Synopsis
 
 ```c
-uint8x8_t pmovmskb_u (uint8x8_t s)
+uint8x8_t pmovmskb_u (uint8x8_t a)
 #include <loongson-mmiintrin.h>
 Instruction: pmovmskb.u
 Builtin: __builtin_loongson_pmovmskb_u
@@ -55,24 +60,29 @@ Source: include/loongson-mmiintrin.h:386
 
 ### Description
 
-Extract the sign bit from each element of 8 x 8-bit byte lanes and pack those bits into a low-order mask. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extract the sign bit from each element of 8 x u8 lanes and pack those bits into a low-order scalar mask.
 
 ### Operation
 
 ```c
-// Inferred semantics for pmovmskb.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 8-bit elements.
-a = s;
-mask = 0;
-for i in 0..7:
-  mask |= sign_bit(a.byte[i]) << i;
-return mask;
+return pack_sign_bits(a.u8);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pmovmskb_u (s);
+return __builtin_loongson_pmovmskb_u (a);
 ```
 

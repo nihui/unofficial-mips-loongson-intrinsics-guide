@@ -2,12 +2,12 @@
 
 Generated from `include/loongson-mmiintrin.h`. This page contains 8 intrinsics.
 
-## int8x8_t pandn_sb (int8x8_t s, int8x8_t t)
+## int8x8_t pandn_sb (int8x8_t a, int8x8_t b)
 
 ### Synopsis
 
 ```c
-int8x8_t pandn_sb (int8x8_t s, int8x8_t t)
+int8x8_t pandn_sb (int8x8_t a, int8x8_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pandn.sb
 Builtin: __builtin_loongson_pandn_sb
@@ -18,31 +18,38 @@ Source: include/loongson-mmiintrin.h:195
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear bits from `b` wherever `a` has one bits, i.e. compute `b & ~a` across the whole vector.
 
 ### Operation
 
 ```c
-// Inferred semantics for pandn.sb.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 8-bit elements.
-a = s;
-b = t;
 dst.bits = b.bits & ~a.bits;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pandn_sb (s, t);
+return __builtin_loongson_pandn_sb (a, b);
 ```
 
-## int64_t pandn_sd (int64_t s, int64_t t)
+## int64_t pandn_sd (int64_t a, int64_t b)
 
 ### Synopsis
 
 ```c
-int64_t pandn_sd (int64_t s, int64_t t)
+int64_t pandn_sd (int64_t a, int64_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pandn.sd
 Builtin: __builtin_loongson_pandn_sd
@@ -53,31 +60,38 @@ Source: include/loongson-mmiintrin.h:177
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear bits from `b` wherever `a` has one bits, i.e. compute `b & ~a` across the whole vector.
 
 ### Operation
 
 ```c
-// Inferred semantics for pandn.sd.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 1 lanes of 64-bit elements.
-a = s;
-b = t;
 dst.bits = b.bits & ~a.bits;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pandn_sd (s, t);
+return __builtin_loongson_pandn_sd (a, b);
 ```
 
-## int16x4_t pandn_sh (int16x4_t s, int16x4_t t)
+## int16x4_t pandn_sh (int16x4_t a, int16x4_t b)
 
 ### Synopsis
 
 ```c
-int16x4_t pandn_sh (int16x4_t s, int16x4_t t)
+int16x4_t pandn_sh (int16x4_t a, int16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pandn.sh
 Builtin: __builtin_loongson_pandn_sh
@@ -88,31 +102,38 @@ Source: include/loongson-mmiintrin.h:189
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear bits from `b` wherever `a` has one bits, i.e. compute `b & ~a` across the whole vector.
 
 ### Operation
 
 ```c
-// Inferred semantics for pandn.sh.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
 dst.bits = b.bits & ~a.bits;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pandn_sh (s, t);
+return __builtin_loongson_pandn_sh (a, b);
 ```
 
-## int32x2_t pandn_sw (int32x2_t s, int32x2_t t)
+## int32x2_t pandn_sw (int32x2_t a, int32x2_t b)
 
 ### Synopsis
 
 ```c
-int32x2_t pandn_sw (int32x2_t s, int32x2_t t)
+int32x2_t pandn_sw (int32x2_t a, int32x2_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pandn.sw
 Builtin: __builtin_loongson_pandn_sw
@@ -123,31 +144,38 @@ Source: include/loongson-mmiintrin.h:183
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear bits from `b` wherever `a` has one bits, i.e. compute `b & ~a` across the whole vector.
 
 ### Operation
 
 ```c
-// Inferred semantics for pandn.sw.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 32-bit elements.
-a = s;
-b = t;
 dst.bits = b.bits & ~a.bits;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pandn_sw (s, t);
+return __builtin_loongson_pandn_sw (a, b);
 ```
 
-## uint8x8_t pandn_ub (uint8x8_t s, uint8x8_t t)
+## uint8x8_t pandn_ub (uint8x8_t a, uint8x8_t b)
 
 ### Synopsis
 
 ```c
-uint8x8_t pandn_ub (uint8x8_t s, uint8x8_t t)
+uint8x8_t pandn_ub (uint8x8_t a, uint8x8_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pandn.ub
 Builtin: __builtin_loongson_pandn_ub
@@ -158,31 +186,38 @@ Source: include/loongson-mmiintrin.h:171
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear bits from `b` wherever `a` has one bits, i.e. compute `b & ~a` across the whole vector.
 
 ### Operation
 
 ```c
-// Inferred semantics for pandn.ub.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 8-bit elements.
-a = s;
-b = t;
 dst.bits = b.bits & ~a.bits;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pandn_ub (s, t);
+return __builtin_loongson_pandn_ub (a, b);
 ```
 
-## uint64_t pandn_ud (uint64_t s, uint64_t t)
+## uint64_t pandn_ud (uint64_t a, uint64_t b)
 
 ### Synopsis
 
 ```c
-uint64_t pandn_ud (uint64_t s, uint64_t t)
+uint64_t pandn_ud (uint64_t a, uint64_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pandn.ud
 Builtin: __builtin_loongson_pandn_ud
@@ -193,31 +228,38 @@ Source: include/loongson-mmiintrin.h:153
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear bits from `b` wherever `a` has one bits, i.e. compute `b & ~a` across the whole vector.
 
 ### Operation
 
 ```c
-// Inferred semantics for pandn.ud.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 1 lanes of 64-bit elements.
-a = s;
-b = t;
 dst.bits = b.bits & ~a.bits;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pandn_ud (s, t);
+return __builtin_loongson_pandn_ud (a, b);
 ```
 
-## uint16x4_t pandn_uh (uint16x4_t s, uint16x4_t t)
+## uint16x4_t pandn_uh (uint16x4_t a, uint16x4_t b)
 
 ### Synopsis
 
 ```c
-uint16x4_t pandn_uh (uint16x4_t s, uint16x4_t t)
+uint16x4_t pandn_uh (uint16x4_t a, uint16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pandn.uh
 Builtin: __builtin_loongson_pandn_uh
@@ -228,31 +270,38 @@ Source: include/loongson-mmiintrin.h:165
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear bits from `b` wherever `a` has one bits, i.e. compute `b & ~a` across the whole vector.
 
 ### Operation
 
 ```c
-// Inferred semantics for pandn.uh.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
 dst.bits = b.bits & ~a.bits;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pandn_uh (s, t);
+return __builtin_loongson_pandn_uh (a, b);
 ```
 
-## uint32x2_t pandn_uw (uint32x2_t s, uint32x2_t t)
+## uint32x2_t pandn_uw (uint32x2_t a, uint32x2_t b)
 
 ### Synopsis
 
 ```c
-uint32x2_t pandn_uw (uint32x2_t s, uint32x2_t t)
+uint32x2_t pandn_uw (uint32x2_t a, uint32x2_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pandn.uw
 Builtin: __builtin_loongson_pandn_uw
@@ -263,22 +312,29 @@ Source: include/loongson-mmiintrin.h:159
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear bits from `b` wherever `a` has one bits, i.e. compute `b & ~a` across the whole vector.
 
 ### Operation
 
 ```c
-// Inferred semantics for pandn.uw.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 32-bit elements.
-a = s;
-b = t;
 dst.bits = b.bits & ~a.bits;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pandn_uw (s, t);
+return __builtin_loongson_pandn_uw (a, b);
 ```
 

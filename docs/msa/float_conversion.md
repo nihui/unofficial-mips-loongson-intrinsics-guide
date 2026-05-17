@@ -18,17 +18,26 @@ Source: include/msa.h:548
 
 ### Description
 
-Classify floating-point values lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Classify floating-point values lane-wise for 2 x fp64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for fclass.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.fp64[i] = classify_fp(a.fp64[i]);
+dst.u64[0] = classify_fp(a.fp64[0]);
+dst.u64[1] = classify_fp(a.fp64[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -52,17 +61,28 @@ Source: include/msa.h:547
 
 ### Description
 
-Classify floating-point values lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Classify floating-point values lane-wise for 4 x fp32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for fclass.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.fp32[i] = classify_fp(a.fp32[i]);
+dst.u32[0] = classify_fp(a.fp32[0]);
+dst.u32[1] = classify_fp(a.fp32[1]);
+dst.u32[2] = classify_fp(a.fp32[2]);
+dst.u32[3] = classify_fp(a.fp32[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -86,18 +106,28 @@ Source: include/msa.h:523
 
 ### Description
 
-Extract and convert paired floating-point data lane-wise for 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extract and convert paired floating-point data lane-wise for 8 x fp16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for fexdo.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-combined = interleave_or_pair_fp_sources(a, b);
-for each destination lane i:
-  dst.lane[i] = extract_odd_or_double_format_element(combined, i);
+dst.fp32[0] = extract_odd_or_double_format_element(interleave_or_pair_fp_sources(a, b), 0);
+dst.fp32[1] = extract_odd_or_double_format_element(interleave_or_pair_fp_sources(a, b), 1);
+dst.fp32[2] = extract_odd_or_double_format_element(interleave_or_pair_fp_sources(a, b), 2);
+dst.fp32[3] = extract_odd_or_double_format_element(interleave_or_pair_fp_sources(a, b), 3);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>1</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -121,18 +151,28 @@ Source: include/msa.h:524
 
 ### Description
 
-Extract and convert paired floating-point data lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extract and convert paired floating-point data lane-wise for 4 x fp32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for fexdo.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-combined = interleave_or_pair_fp_sources(a, b);
-for each destination lane i:
-  dst.lane[i] = extract_odd_or_double_format_element(combined, i);
+dst.fp32[0] = extract_odd_or_double_format_element(interleave_or_pair_fp_sources(a, b), 0);
+dst.fp32[1] = extract_odd_or_double_format_element(interleave_or_pair_fp_sources(a, b), 1);
+dst.fp32[2] = extract_odd_or_double_format_element(interleave_or_pair_fp_sources(a, b), 2);
+dst.fp32[3] = extract_odd_or_double_format_element(interleave_or_pair_fp_sources(a, b), 3);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>1</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -156,17 +196,26 @@ Source: include/msa.h:522
 
 ### Description
 
-Compute base-2 exponential lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute base-2 exponential lane-wise for 2 x fp64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for fexp2.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.fp64[i] = exp2(a.fp64[i]);
+dst.fp64[0] = a.fp64[0] * pow2(b.i64[0]);
+dst.fp64[1] = a.fp64[1] * pow2(b.i64[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -190,17 +239,28 @@ Source: include/msa.h:521
 
 ### Description
 
-Compute base-2 exponential lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute base-2 exponential lane-wise for 4 x fp32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for fexp2.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.fp32[i] = exp2(a.fp32[i]);
+dst.fp32[0] = a.fp32[0] * pow2(b.i32[0]);
+dst.fp32[1] = a.fp32[1] * pow2(b.i32[1]);
+dst.fp32[2] = a.fp32[2] * pow2(b.i32[2]);
+dst.fp32[3] = a.fp32[3] * pow2(b.i32[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -224,17 +284,26 @@ Source: include/msa.h:560
 
 ### Description
 
-Extend lower floating-point or fixed-point lanes lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extend lower floating-point or fixed-point lanes lane-wise for 2 x fp64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for fexupl.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for each lower source lane i:
-  dst.fp_lane[i] = widen_integer_or_float_to_next_fp_width(a, i);
+dst.fp64[0] = widen_lower_half_to_next_fp_width(a, 0);
+dst.fp64[1] = widen_lower_half_to_next_fp_width(a, 1);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>1</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -258,17 +327,28 @@ Source: include/msa.h:559
 
 ### Description
 
-Extend lower floating-point or fixed-point lanes lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extend lower floating-point or fixed-point lanes lane-wise for 4 x fp32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for fexupl.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for each lower source lane i:
-  dst.fp_lane[i] = widen_integer_or_float_to_next_fp_width(a, i);
+dst.fp32[0] = widen_lower_half_to_next_fp_width(a, 0);
+dst.fp32[1] = widen_lower_half_to_next_fp_width(a, 1);
+dst.fp32[2] = widen_lower_half_to_next_fp_width(a, 2);
+dst.fp32[3] = widen_lower_half_to_next_fp_width(a, 3);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>1</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -292,17 +372,26 @@ Source: include/msa.h:562
 
 ### Description
 
-Extend upper floating-point or fixed-point lanes lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extend upper floating-point or fixed-point lanes lane-wise for 2 x fp64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for fexupr.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for each upper source lane i:
-  dst.fp_lane[i] = widen_integer_or_float_to_next_fp_width(a, i);
+dst.fp64[0] = widen_upper_half_to_next_fp_width(a, 0);
+dst.fp64[1] = widen_upper_half_to_next_fp_width(a, 1);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>1</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -326,17 +415,28 @@ Source: include/msa.h:561
 
 ### Description
 
-Extend upper floating-point or fixed-point lanes lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extend upper floating-point or fixed-point lanes lane-wise for 4 x fp32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for fexupr.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for each upper source lane i:
-  dst.fp_lane[i] = widen_integer_or_float_to_next_fp_width(a, i);
+dst.fp32[0] = widen_upper_half_to_next_fp_width(a, 0);
+dst.fp32[1] = widen_upper_half_to_next_fp_width(a, 1);
+dst.fp32[2] = widen_upper_half_to_next_fp_width(a, 2);
+dst.fp32[3] = widen_upper_half_to_next_fp_width(a, 3);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>1</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -360,17 +460,26 @@ Source: include/msa.h:576
 
 ### Description
 
-Convert integer to floating point lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Convert integer to floating point lane-wise for 2 x fp64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for ffint.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.fp64[i] = float_convert(a.integer_lane[i]);
+dst.fp64[0] = float_convert(a.i64[0]);
+dst.fp64[1] = float_convert(a.i64[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -394,17 +503,28 @@ Source: include/msa.h:575
 
 ### Description
 
-Convert integer to floating point lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Convert integer to floating point lane-wise for 4 x fp32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for ffint.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.fp32[i] = float_convert(a.integer_lane[i]);
+dst.fp32[0] = float_convert(a.i32[0]);
+dst.fp32[1] = float_convert(a.i32[1]);
+dst.fp32[2] = float_convert(a.i32[2]);
+dst.fp32[3] = float_convert(a.i32[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -428,17 +548,26 @@ Source: include/msa.h:578
 
 ### Description
 
-Convert integer to floating point lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Convert integer to floating point lane-wise for 2 x fp64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for ffint.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.fp64[i] = float_convert(a.integer_lane[i]);
+dst.fp64[0] = float_convert(a.u64[0]);
+dst.fp64[1] = float_convert(a.u64[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -462,17 +591,28 @@ Source: include/msa.h:577
 
 ### Description
 
-Convert integer to floating point lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Convert integer to floating point lane-wise for 4 x fp32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for ffint.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.fp32[i] = float_convert(a.integer_lane[i]);
+dst.fp32[0] = float_convert(a.u32[0]);
+dst.fp32[1] = float_convert(a.u32[1]);
+dst.fp32[2] = float_convert(a.u32[2]);
+dst.fp32[3] = float_convert(a.u32[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -496,17 +636,26 @@ Source: include/msa.h:554
 
 ### Description
 
-Round to an integral floating-point value lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Round to an integral floating-point value lane-wise for 2 x fp64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for frint.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.fp64[i] = round_to_integral_float(a.fp64[i], rounding_mode_from_suffix);
+dst.fp64[0] = round_to_integral_float(a.fp64[0], rounding_mode_from_suffix);
+dst.fp64[1] = round_to_integral_float(a.fp64[1], rounding_mode_from_suffix);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -530,17 +679,28 @@ Source: include/msa.h:553
 
 ### Description
 
-Round to an integral floating-point value lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Round to an integral floating-point value lane-wise for 4 x fp32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for frint.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.fp32[i] = round_to_integral_float(a.fp32[i], rounding_mode_from_suffix);
+dst.fp32[0] = round_to_integral_float(a.fp32[0], rounding_mode_from_suffix);
+dst.fp32[1] = round_to_integral_float(a.fp32[1], rounding_mode_from_suffix);
+dst.fp32[2] = round_to_integral_float(a.fp32[2], rounding_mode_from_suffix);
+dst.fp32[3] = round_to_integral_float(a.fp32[3], rounding_mode_from_suffix);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -564,17 +724,26 @@ Source: include/msa.h:568
 
 ### Description
 
-Convert floating point to integer lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Convert floating point to integer lane-wise for 2 x fp64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for ftint.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.fp64[i] = integer_convert_with_current_rounding(a.fp64[i]);
+dst.i64[0] = integer_convert(a.fp64[0], rounding=current_rounding_mode);
+dst.i64[1] = integer_convert(a.fp64[1], rounding=current_rounding_mode);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -598,17 +767,28 @@ Source: include/msa.h:567
 
 ### Description
 
-Convert floating point to integer lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Convert floating point to integer lane-wise for 4 x fp32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for ftint.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.fp32[i] = integer_convert_with_current_rounding(a.fp32[i]);
+dst.i32[0] = integer_convert(a.fp32[0], rounding=current_rounding_mode);
+dst.i32[1] = integer_convert(a.fp32[1], rounding=current_rounding_mode);
+dst.i32[2] = integer_convert(a.fp32[2], rounding=current_rounding_mode);
+dst.i32[3] = integer_convert(a.fp32[3], rounding=current_rounding_mode);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -632,17 +812,26 @@ Source: include/msa.h:570
 
 ### Description
 
-Convert floating point to integer lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Convert floating point to integer lane-wise for 2 x fp64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for ftint.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.fp64[i] = integer_convert_with_current_rounding(a.fp64[i]);
+dst.u64[0] = integer_convert(a.fp64[0], rounding=current_rounding_mode);
+dst.u64[1] = integer_convert(a.fp64[1], rounding=current_rounding_mode);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -666,17 +855,28 @@ Source: include/msa.h:569
 
 ### Description
 
-Convert floating point to integer lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Convert floating point to integer lane-wise for 4 x fp32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for ftint.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.fp32[i] = integer_convert_with_current_rounding(a.fp32[i]);
+dst.u32[0] = integer_convert(a.fp32[0], rounding=current_rounding_mode);
+dst.u32[1] = integer_convert(a.fp32[1], rounding=current_rounding_mode);
+dst.u32[2] = integer_convert(a.fp32[2], rounding=current_rounding_mode);
+dst.u32[3] = integer_convert(a.fp32[3], rounding=current_rounding_mode);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -700,17 +900,26 @@ Source: include/msa.h:572
 
 ### Description
 
-Truncate floating point to integer lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Truncate floating point to integer lane-wise for 2 x fp64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for ftrunc.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.fp64[i] = integer_truncate_toward_zero(a.fp64[i]);
+dst.i64[0] = integer_convert(a.fp64[0], rounding=toward_zero);
+dst.i64[1] = integer_convert(a.fp64[1], rounding=toward_zero);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -734,17 +943,28 @@ Source: include/msa.h:571
 
 ### Description
 
-Truncate floating point to integer lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Truncate floating point to integer lane-wise for 4 x fp32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for ftrunc.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.fp32[i] = integer_truncate_toward_zero(a.fp32[i]);
+dst.i32[0] = integer_convert(a.fp32[0], rounding=toward_zero);
+dst.i32[1] = integer_convert(a.fp32[1], rounding=toward_zero);
+dst.i32[2] = integer_convert(a.fp32[2], rounding=toward_zero);
+dst.i32[3] = integer_convert(a.fp32[3], rounding=toward_zero);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -768,17 +988,26 @@ Source: include/msa.h:574
 
 ### Description
 
-Truncate floating point to integer lane-wise for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Truncate floating point to integer lane-wise for 2 x fp64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for ftrunc.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.fp64[i] = integer_truncate_toward_zero(a.fp64[i]);
+dst.u64[0] = integer_convert(a.fp64[0], rounding=toward_zero);
+dst.u64[1] = integer_convert(a.fp64[1], rounding=toward_zero);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -802,17 +1031,28 @@ Source: include/msa.h:573
 
 ### Description
 
-Truncate floating point to integer lane-wise for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Truncate floating point to integer lane-wise for 4 x fp32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for ftrunc.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.fp32[i] = integer_truncate_toward_zero(a.fp32[i]);
+dst.u32[0] = integer_convert(a.fp32[0], rounding=toward_zero);
+dst.u32[1] = integer_convert(a.fp32[1], rounding=toward_zero);
+dst.u32[2] = integer_convert(a.fp32[2], rounding=toward_zero);
+dst.u32[3] = integer_convert(a.fp32[3], rounding=toward_zero);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 

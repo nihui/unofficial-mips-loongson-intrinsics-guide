@@ -2,12 +2,12 @@
 
 Generated from `include/msa.h`. This page contains 72 intrinsics.
 
-## i32 __msa_copy_s_b (v16i8 a, int imm0_15)
+## int __msa_copy_s_b (v16i8 a, int imm)
 
 ### Synopsis
 
 ```c
-i32 __msa_copy_s_b (v16i8 a, int imm0_15)
+int __msa_copy_s_b (v16i8 a, int imm)
 #include <msa.h>
 Instruction: copy.s.b
 Builtin: __builtin_msa_copy_s_b
@@ -18,16 +18,12 @@ Source: include/msa.h:437
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extract one i8 lane from `a`, sign-extend it if needed, and return the scalar value.
 
 ### Operation
 
 ```c
-// Inferred semantics for copy.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_15;
-return sign_or_zero_extend(a.byte[imm]);
+return sign_or_zero_extend(a.u8[imm]);
 ```
 
 ### Header Mapping
@@ -36,12 +32,12 @@ return sign_or_zero_extend(a.byte[imm]);
 #define __msa_copy_s_b __builtin_msa_copy_s_b
 ```
 
-## i64 __msa_copy_s_d (v2i64 a, int imm0_1)
+## long long __msa_copy_s_d (v2i64 a, int imm)
 
 ### Synopsis
 
 ```c
-i64 __msa_copy_s_d (v2i64 a, int imm0_1)
+long long __msa_copy_s_d (v2i64 a, int imm)
 #include <msa.h>
 Instruction: copy.s.d
 Builtin: __builtin_msa_copy_s_d
@@ -52,16 +48,12 @@ Source: include/msa.h:440
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extract one i64 lane from `a`, sign-extend it if needed, and return the scalar value.
 
 ### Operation
 
 ```c
-// Inferred semantics for copy.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm0_1;
-return sign_or_zero_extend(a.dword[imm]);
+return sign_or_zero_extend(a.u64[imm]);
 ```
 
 ### Header Mapping
@@ -70,12 +62,12 @@ return sign_or_zero_extend(a.dword[imm]);
 #define __msa_copy_s_d __builtin_msa_copy_s_d
 ```
 
-## i32 __msa_copy_s_h (v8i16 a, int imm0_7)
+## int __msa_copy_s_h (v8i16 a, int imm)
 
 ### Synopsis
 
 ```c
-i32 __msa_copy_s_h (v8i16 a, int imm0_7)
+int __msa_copy_s_h (v8i16 a, int imm)
 #include <msa.h>
 Instruction: copy.s.h
 Builtin: __builtin_msa_copy_s_h
@@ -86,16 +78,12 @@ Source: include/msa.h:438
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extract one i16 lane from `a`, sign-extend it if needed, and return the scalar value.
 
 ### Operation
 
 ```c
-// Inferred semantics for copy.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm0_7;
-return sign_or_zero_extend(a.half[imm]);
+return sign_or_zero_extend(a.u16[imm]);
 ```
 
 ### Header Mapping
@@ -104,12 +92,12 @@ return sign_or_zero_extend(a.half[imm]);
 #define __msa_copy_s_h __builtin_msa_copy_s_h
 ```
 
-## i32 __msa_copy_s_w (v4i32 a, int imm0_3)
+## int __msa_copy_s_w (v4i32 a, int imm)
 
 ### Synopsis
 
 ```c
-i32 __msa_copy_s_w (v4i32 a, int imm0_3)
+int __msa_copy_s_w (v4i32 a, int imm)
 #include <msa.h>
 Instruction: copy.s.w
 Builtin: __builtin_msa_copy_s_w
@@ -120,16 +108,12 @@ Source: include/msa.h:439
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extract one i32 lane from `a`, sign-extend it if needed, and return the scalar value.
 
 ### Operation
 
 ```c
-// Inferred semantics for copy.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm0_3;
-return sign_or_zero_extend(a.word[imm]);
+return sign_or_zero_extend(a.u32[imm]);
 ```
 
 ### Header Mapping
@@ -138,12 +122,12 @@ return sign_or_zero_extend(a.word[imm]);
 #define __msa_copy_s_w __builtin_msa_copy_s_w
 ```
 
-## u32 __msa_copy_u_b (v16i8 a, int imm0_15)
+## unsigned int __msa_copy_u_b (v16i8 a, int imm)
 
 ### Synopsis
 
 ```c
-u32 __msa_copy_u_b (v16i8 a, int imm0_15)
+unsigned int __msa_copy_u_b (v16i8 a, int imm)
 #include <msa.h>
 Instruction: copy.u.b
 Builtin: __builtin_msa_copy_u_b
@@ -154,16 +138,12 @@ Source: include/msa.h:441
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extract one u8 lane from `a`, zero-extend it if needed, and return the scalar value.
 
 ### Operation
 
 ```c
-// Inferred semantics for copy.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_15;
-return sign_or_zero_extend(a.byte[imm]);
+return sign_or_zero_extend(a.u8[imm]);
 ```
 
 ### Header Mapping
@@ -172,12 +152,12 @@ return sign_or_zero_extend(a.byte[imm]);
 #define __msa_copy_u_b __builtin_msa_copy_u_b
 ```
 
-## u64 __msa_copy_u_d (v2i64 a, int imm0_1)
+## unsigned long long __msa_copy_u_d (v2i64 a, int imm)
 
 ### Synopsis
 
 ```c
-u64 __msa_copy_u_d (v2i64 a, int imm0_1)
+unsigned long long __msa_copy_u_d (v2i64 a, int imm)
 #include <msa.h>
 Instruction: copy.u.d
 Builtin: __builtin_msa_copy_u_d
@@ -188,16 +168,12 @@ Source: include/msa.h:444
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extract one u64 lane from `a`, zero-extend it if needed, and return the scalar value.
 
 ### Operation
 
 ```c
-// Inferred semantics for copy.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm0_1;
-return sign_or_zero_extend(a.dword[imm]);
+return sign_or_zero_extend(a.u64[imm]);
 ```
 
 ### Header Mapping
@@ -206,12 +182,12 @@ return sign_or_zero_extend(a.dword[imm]);
 #define __msa_copy_u_d __builtin_msa_copy_u_d
 ```
 
-## u32 __msa_copy_u_h (v8i16 a, int imm0_7)
+## unsigned int __msa_copy_u_h (v8i16 a, int imm)
 
 ### Synopsis
 
 ```c
-u32 __msa_copy_u_h (v8i16 a, int imm0_7)
+unsigned int __msa_copy_u_h (v8i16 a, int imm)
 #include <msa.h>
 Instruction: copy.u.h
 Builtin: __builtin_msa_copy_u_h
@@ -222,16 +198,12 @@ Source: include/msa.h:442
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extract one u16 lane from `a`, zero-extend it if needed, and return the scalar value.
 
 ### Operation
 
 ```c
-// Inferred semantics for copy.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm0_7;
-return sign_or_zero_extend(a.half[imm]);
+return sign_or_zero_extend(a.u16[imm]);
 ```
 
 ### Header Mapping
@@ -240,12 +212,12 @@ return sign_or_zero_extend(a.half[imm]);
 #define __msa_copy_u_h __builtin_msa_copy_u_h
 ```
 
-## u32 __msa_copy_u_w (v4i32 a, int imm0_3)
+## unsigned int __msa_copy_u_w (v4i32 a, int imm)
 
 ### Synopsis
 
 ```c
-u32 __msa_copy_u_w (v4i32 a, int imm0_3)
+unsigned int __msa_copy_u_w (v4i32 a, int imm)
 #include <msa.h>
 Instruction: copy.u.w
 Builtin: __builtin_msa_copy_u_w
@@ -256,16 +228,12 @@ Source: include/msa.h:443
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extract one u32 lane from `a`, zero-extend it if needed, and return the scalar value.
 
 ### Operation
 
 ```c
-// Inferred semantics for copy.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm0_3;
-return sign_or_zero_extend(a.word[imm]);
+return sign_or_zero_extend(a.u32[imm]);
 ```
 
 ### Header Mapping
@@ -274,12 +242,12 @@ return sign_or_zero_extend(a.word[imm]);
 #define __msa_copy_u_w __builtin_msa_copy_u_w
 ```
 
-## v16i8 __msa_fill_b (i32 imm)
+## v16i8 __msa_fill_b (int imm)
 
 ### Synopsis
 
 ```c
-v16i8 __msa_fill_b (i32 imm)
+v16i8 __msa_fill_b (int imm)
 #include <msa.h>
 Instruction: fill.b
 Builtin: __builtin_msa_fill_b
@@ -290,17 +258,40 @@ Source: include/msa.h:421
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Replicate scalar `imm` into every u8 lane, creating a vector constant.
 
 ### Operation
 
 ```c
-// Inferred semantics for fill.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = truncate_or_extend(imm, 8);
+dst.u8[0] = truncate_or_extend(imm, 8);
+dst.u8[1] = truncate_or_extend(imm, 8);
+dst.u8[2] = truncate_or_extend(imm, 8);
+dst.u8[3] = truncate_or_extend(imm, 8);
+dst.u8[4] = truncate_or_extend(imm, 8);
+dst.u8[5] = truncate_or_extend(imm, 8);
+dst.u8[6] = truncate_or_extend(imm, 8);
+dst.u8[7] = truncate_or_extend(imm, 8);
+dst.u8[8] = truncate_or_extend(imm, 8);
+dst.u8[9] = truncate_or_extend(imm, 8);
+dst.u8[10] = truncate_or_extend(imm, 8);
+dst.u8[11] = truncate_or_extend(imm, 8);
+dst.u8[12] = truncate_or_extend(imm, 8);
+dst.u8[13] = truncate_or_extend(imm, 8);
+dst.u8[14] = truncate_or_extend(imm, 8);
+dst.u8[15] = truncate_or_extend(imm, 8);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td></td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -308,12 +299,12 @@ for i in 0..15:
 #define __msa_fill_b __builtin_msa_fill_b
 ```
 
-## v2i64 __msa_fill_d (i64 imm)
+## v2i64 __msa_fill_d (long long imm)
 
 ### Synopsis
 
 ```c
-v2i64 __msa_fill_d (i64 imm)
+v2i64 __msa_fill_d (long long imm)
 #include <msa.h>
 Instruction: fill.d
 Builtin: __builtin_msa_fill_d
@@ -324,17 +315,26 @@ Source: include/msa.h:424
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Replicate scalar `imm` into every fp64 lane, creating a vector constant.
 
 ### Operation
 
 ```c
-// Inferred semantics for fill.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = truncate_or_extend(imm, 64);
+dst.u64[0] = truncate_or_extend(imm, 64);
+dst.u64[1] = truncate_or_extend(imm, 64);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td></td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -342,12 +342,12 @@ for i in 0..1:
 #define __msa_fill_d __builtin_msa_fill_d
 ```
 
-## v8i16 __msa_fill_h (i32 imm)
+## v8i16 __msa_fill_h (int imm)
 
 ### Synopsis
 
 ```c
-v8i16 __msa_fill_h (i32 imm)
+v8i16 __msa_fill_h (int imm)
 #include <msa.h>
 Instruction: fill.h
 Builtin: __builtin_msa_fill_h
@@ -358,17 +358,32 @@ Source: include/msa.h:422
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Replicate scalar `imm` into every fp16 lane, creating a vector constant.
 
 ### Operation
 
 ```c
-// Inferred semantics for fill.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = truncate_or_extend(imm, 16);
+dst.u16[0] = truncate_or_extend(imm, 16);
+dst.u16[1] = truncate_or_extend(imm, 16);
+dst.u16[2] = truncate_or_extend(imm, 16);
+dst.u16[3] = truncate_or_extend(imm, 16);
+dst.u16[4] = truncate_or_extend(imm, 16);
+dst.u16[5] = truncate_or_extend(imm, 16);
+dst.u16[6] = truncate_or_extend(imm, 16);
+dst.u16[7] = truncate_or_extend(imm, 16);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td></td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -376,12 +391,12 @@ for i in 0..7:
 #define __msa_fill_h __builtin_msa_fill_h
 ```
 
-## v4i32 __msa_fill_w (i32 imm)
+## v4i32 __msa_fill_w (int imm)
 
 ### Synopsis
 
 ```c
-v4i32 __msa_fill_w (i32 imm)
+v4i32 __msa_fill_w (int imm)
 #include <msa.h>
 Instruction: fill.w
 Builtin: __builtin_msa_fill_w
@@ -392,17 +407,28 @@ Source: include/msa.h:423
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Replicate scalar `imm` into every fp32 lane, creating a vector constant.
 
 ### Operation
 
 ```c
-// Inferred semantics for fill.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = truncate_or_extend(imm, 32);
+dst.u32[0] = truncate_or_extend(imm, 32);
+dst.u32[1] = truncate_or_extend(imm, 32);
+dst.u32[2] = truncate_or_extend(imm, 32);
+dst.u32[3] = truncate_or_extend(imm, 32);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td></td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -426,16 +452,25 @@ Source: include/msa.h:390
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Take even-numbered u8 lanes from the two sources and interleave or pack them into the destination.
 
 ### Operation
 
 ```c
-// Inferred semantics for ilvev.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-dst = interleave_or_pack(even byte lanes from a and b);
+dst = interleave_or_pack(even u8 lanes from a and b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -459,16 +494,25 @@ Source: include/msa.h:393
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Take even-numbered u64 lanes from the two sources and interleave or pack them into the destination.
 
 ### Operation
 
 ```c
-// Inferred semantics for ilvev.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-dst = interleave_or_pack(even dword lanes from a and b);
+dst = interleave_or_pack(even u64 lanes from a and b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -492,16 +536,25 @@ Source: include/msa.h:391
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Take even-numbered u16 lanes from the two sources and interleave or pack them into the destination.
 
 ### Operation
 
 ```c
-// Inferred semantics for ilvev.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-dst = interleave_or_pack(even half lanes from a and b);
+dst = interleave_or_pack(even u16 lanes from a and b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -525,16 +578,25 @@ Source: include/msa.h:392
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Take even-numbered u32 lanes from the two sources and interleave or pack them into the destination.
 
 ### Operation
 
 ```c
-// Inferred semantics for ilvev.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-dst = interleave_or_pack(even word lanes from a and b);
+dst = interleave_or_pack(even u32 lanes from a and b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -558,16 +620,25 @@ Source: include/msa.h:382
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Interleave lower-half u8 lanes from `a` and `b`, useful when expanding two packed streams.
 
 ### Operation
 
 ```c
-// Inferred semantics for ilvl.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-dst = interleave_lower_byte_lanes(a, b);
+dst = interleave_lower_u8_lanes(a, b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -591,16 +662,25 @@ Source: include/msa.h:385
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Interleave lower-half u64 lanes from `a` and `b`, useful when expanding two packed streams.
 
 ### Operation
 
 ```c
-// Inferred semantics for ilvl.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-dst = interleave_lower_dword_lanes(a, b);
+dst = interleave_lower_u64_lanes(a, b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -624,16 +704,25 @@ Source: include/msa.h:383
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Interleave lower-half u16 lanes from `a` and `b`, useful when expanding two packed streams.
 
 ### Operation
 
 ```c
-// Inferred semantics for ilvl.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-dst = interleave_lower_half_lanes(a, b);
+dst = interleave_lower_u16_lanes(a, b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -657,16 +746,25 @@ Source: include/msa.h:384
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Interleave lower-half u32 lanes from `a` and `b`, useful when expanding two packed streams.
 
 ### Operation
 
 ```c
-// Inferred semantics for ilvl.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-dst = interleave_lower_word_lanes(a, b);
+dst = interleave_lower_u32_lanes(a, b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -690,16 +788,25 @@ Source: include/msa.h:394
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Take odd-numbered u8 lanes from the two sources and interleave or pack them into the destination.
 
 ### Operation
 
 ```c
-// Inferred semantics for ilvod.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-dst = interleave_or_pack(odd byte lanes from a and b);
+dst = interleave_or_pack(odd u8 lanes from a and b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -723,16 +830,25 @@ Source: include/msa.h:397
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Take odd-numbered u64 lanes from the two sources and interleave or pack them into the destination.
 
 ### Operation
 
 ```c
-// Inferred semantics for ilvod.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-dst = interleave_or_pack(odd dword lanes from a and b);
+dst = interleave_or_pack(odd u64 lanes from a and b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -756,16 +872,25 @@ Source: include/msa.h:395
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Take odd-numbered u16 lanes from the two sources and interleave or pack them into the destination.
 
 ### Operation
 
 ```c
-// Inferred semantics for ilvod.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-dst = interleave_or_pack(odd half lanes from a and b);
+dst = interleave_or_pack(odd u16 lanes from a and b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -789,16 +914,25 @@ Source: include/msa.h:396
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Take odd-numbered u32 lanes from the two sources and interleave or pack them into the destination.
 
 ### Operation
 
 ```c
-// Inferred semantics for ilvod.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-dst = interleave_or_pack(odd word lanes from a and b);
+dst = interleave_or_pack(odd u32 lanes from a and b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -822,16 +956,25 @@ Source: include/msa.h:386
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Interleave upper-half u8 lanes from `a` and `b`, useful when expanding two packed streams.
 
 ### Operation
 
 ```c
-// Inferred semantics for ilvr.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-dst = interleave_upper_byte_lanes(a, b);
+dst = interleave_upper_u8_lanes(a, b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -855,16 +998,25 @@ Source: include/msa.h:389
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Interleave upper-half u64 lanes from `a` and `b`, useful when expanding two packed streams.
 
 ### Operation
 
 ```c
-// Inferred semantics for ilvr.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-dst = interleave_upper_dword_lanes(a, b);
+dst = interleave_upper_u64_lanes(a, b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -888,16 +1040,25 @@ Source: include/msa.h:387
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Interleave upper-half u16 lanes from `a` and `b`, useful when expanding two packed streams.
 
 ### Operation
 
 ```c
-// Inferred semantics for ilvr.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-dst = interleave_upper_half_lanes(a, b);
+dst = interleave_upper_u16_lanes(a, b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -921,16 +1082,25 @@ Source: include/msa.h:388
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Interleave upper-half u32 lanes from `a` and `b`, useful when expanding two packed streams.
 
 ### Operation
 
 ```c
-// Inferred semantics for ilvr.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-dst = interleave_upper_word_lanes(a, b);
+dst = interleave_upper_u32_lanes(a, b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -938,12 +1108,12 @@ dst = interleave_upper_word_lanes(a, b);
 #define __msa_ilvr_w __builtin_msa_ilvr_w
 ```
 
-## v16i8 __msa_insert_b (v16i8 a, int imm0_15, i32 imm)
+## v16i8 __msa_insert_b (v16i8 a, int imm, int imm1)
 
 ### Synopsis
 
 ```c
-v16i8 __msa_insert_b (v16i8 a, int imm0_15, i32 imm)
+v16i8 __msa_insert_b (v16i8 a, int imm, int imm1)
 #include <msa.h>
 Instruction: insert.b
 Builtin: __builtin_msa_insert_b
@@ -954,17 +1124,13 @@ Source: include/msa.h:445
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Start from `a` and replace the selected u8 lane with the scalar value argument.
 
 ### Operation
 
 ```c
-// Inferred semantics for insert.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_15;
 dst = a;
-dst.byte[destination_index_from_imm] = value;
+dst.u8[imm] = imm1;
 ```
 
 ### Header Mapping
@@ -973,12 +1139,12 @@ dst.byte[destination_index_from_imm] = value;
 #define __msa_insert_b __builtin_msa_insert_b
 ```
 
-## v2i64 __msa_insert_d (v2i64 a, int imm0_1, i64 imm)
+## v2i64 __msa_insert_d (v2i64 a, int imm, long long imm1)
 
 ### Synopsis
 
 ```c
-v2i64 __msa_insert_d (v2i64 a, int imm0_1, i64 imm)
+v2i64 __msa_insert_d (v2i64 a, int imm, long long imm1)
 #include <msa.h>
 Instruction: insert.d
 Builtin: __builtin_msa_insert_d
@@ -989,17 +1155,13 @@ Source: include/msa.h:448
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Start from `a` and replace the selected u64 lane with the scalar value argument.
 
 ### Operation
 
 ```c
-// Inferred semantics for insert.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm0_1;
 dst = a;
-dst.dword[destination_index_from_imm] = value;
+dst.u64[imm] = imm1;
 ```
 
 ### Header Mapping
@@ -1008,12 +1170,12 @@ dst.dword[destination_index_from_imm] = value;
 #define __msa_insert_d __builtin_msa_insert_d
 ```
 
-## v8i16 __msa_insert_h (v8i16 a, int imm0_7, i32 imm)
+## v8i16 __msa_insert_h (v8i16 a, int imm, int imm1)
 
 ### Synopsis
 
 ```c
-v8i16 __msa_insert_h (v8i16 a, int imm0_7, i32 imm)
+v8i16 __msa_insert_h (v8i16 a, int imm, int imm1)
 #include <msa.h>
 Instruction: insert.h
 Builtin: __builtin_msa_insert_h
@@ -1024,17 +1186,13 @@ Source: include/msa.h:446
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Start from `a` and replace the selected u16 lane with the scalar value argument.
 
 ### Operation
 
 ```c
-// Inferred semantics for insert.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm0_7;
 dst = a;
-dst.half[destination_index_from_imm] = value;
+dst.u16[imm] = imm1;
 ```
 
 ### Header Mapping
@@ -1043,12 +1201,12 @@ dst.half[destination_index_from_imm] = value;
 #define __msa_insert_h __builtin_msa_insert_h
 ```
 
-## v4i32 __msa_insert_w (v4i32 a, int imm0_3, i32 imm)
+## v4i32 __msa_insert_w (v4i32 a, int imm, int imm1)
 
 ### Synopsis
 
 ```c
-v4i32 __msa_insert_w (v4i32 a, int imm0_3, i32 imm)
+v4i32 __msa_insert_w (v4i32 a, int imm, int imm1)
 #include <msa.h>
 Instruction: insert.w
 Builtin: __builtin_msa_insert_w
@@ -1059,17 +1217,13 @@ Source: include/msa.h:447
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Start from `a` and replace the selected u32 lane with the scalar value argument.
 
 ### Operation
 
 ```c
-// Inferred semantics for insert.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm0_3;
 dst = a;
-dst.word[destination_index_from_imm] = value;
+dst.u32[imm] = imm1;
 ```
 
 ### Header Mapping
@@ -1078,12 +1232,12 @@ dst.word[destination_index_from_imm] = value;
 #define __msa_insert_w __builtin_msa_insert_w
 ```
 
-## v16i8 __msa_insve_b (v16i8 a, int imm0_15, v16i8 b)
+## v16i8 __msa_insve_b (v16i8 a, int imm, v16i8 b)
 
 ### Synopsis
 
 ```c
-v16i8 __msa_insve_b (v16i8 a, int imm0_15, v16i8 b)
+v16i8 __msa_insve_b (v16i8 a, int imm, v16i8 b)
 #include <msa.h>
 Instruction: insve.b
 Builtin: __builtin_msa_insve_b
@@ -1094,17 +1248,13 @@ Source: include/msa.h:449
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Start from `a` and replace the selected u8 lane with lane 0 from `b`.
 
 ### Operation
 
 ```c
-// Inferred semantics for insve.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_15;
 dst = a;
-dst.byte[destination_index_from_imm] = b.byte[source_index_from_imm];
+dst.u8[imm] = b.u8[0];
 ```
 
 ### Header Mapping
@@ -1113,12 +1263,12 @@ dst.byte[destination_index_from_imm] = b.byte[source_index_from_imm];
 #define __msa_insve_b __builtin_msa_insve_b
 ```
 
-## v2i64 __msa_insve_d (v2i64 a, int imm0_1, v2i64 b)
+## v2i64 __msa_insve_d (v2i64 a, int imm, v2i64 b)
 
 ### Synopsis
 
 ```c
-v2i64 __msa_insve_d (v2i64 a, int imm0_1, v2i64 b)
+v2i64 __msa_insve_d (v2i64 a, int imm, v2i64 b)
 #include <msa.h>
 Instruction: insve.d
 Builtin: __builtin_msa_insve_d
@@ -1129,17 +1279,13 @@ Source: include/msa.h:452
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Start from `a` and replace the selected u64 lane with lane 0 from `b`.
 
 ### Operation
 
 ```c
-// Inferred semantics for insve.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm0_1;
 dst = a;
-dst.dword[destination_index_from_imm] = b.dword[source_index_from_imm];
+dst.u64[imm] = b.u64[0];
 ```
 
 ### Header Mapping
@@ -1148,12 +1294,12 @@ dst.dword[destination_index_from_imm] = b.dword[source_index_from_imm];
 #define __msa_insve_d __builtin_msa_insve_d
 ```
 
-## v8i16 __msa_insve_h (v8i16 a, int imm0_7, v8i16 b)
+## v8i16 __msa_insve_h (v8i16 a, int imm, v8i16 b)
 
 ### Synopsis
 
 ```c
-v8i16 __msa_insve_h (v8i16 a, int imm0_7, v8i16 b)
+v8i16 __msa_insve_h (v8i16 a, int imm, v8i16 b)
 #include <msa.h>
 Instruction: insve.h
 Builtin: __builtin_msa_insve_h
@@ -1164,17 +1310,13 @@ Source: include/msa.h:450
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Start from `a` and replace the selected u16 lane with lane 0 from `b`.
 
 ### Operation
 
 ```c
-// Inferred semantics for insve.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm0_7;
 dst = a;
-dst.half[destination_index_from_imm] = b.half[source_index_from_imm];
+dst.u16[imm] = b.u16[0];
 ```
 
 ### Header Mapping
@@ -1183,12 +1325,12 @@ dst.half[destination_index_from_imm] = b.half[source_index_from_imm];
 #define __msa_insve_h __builtin_msa_insve_h
 ```
 
-## v4i32 __msa_insve_w (v4i32 a, int imm0_3, v4i32 b)
+## v4i32 __msa_insve_w (v4i32 a, int imm, v4i32 b)
 
 ### Synopsis
 
 ```c
-v4i32 __msa_insve_w (v4i32 a, int imm0_3, v4i32 b)
+v4i32 __msa_insve_w (v4i32 a, int imm, v4i32 b)
 #include <msa.h>
 Instruction: insve.w
 Builtin: __builtin_msa_insve_w
@@ -1199,17 +1341,13 @@ Source: include/msa.h:451
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Start from `a` and replace the selected u32 lane with lane 0 from `b`.
 
 ### Operation
 
 ```c
-// Inferred semantics for insve.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm0_3;
 dst = a;
-dst.word[destination_index_from_imm] = b.word[source_index_from_imm];
+dst.u32[imm] = b.u32[0];
 ```
 
 ### Header Mapping
@@ -1218,12 +1356,12 @@ dst.word[destination_index_from_imm] = b.word[source_index_from_imm];
 #define __msa_insve_w __builtin_msa_insve_w
 ```
 
-## v16i8 __msa_ldi_b (int imm_n512_511)
+## v16i8 __msa_ldi_b (int imm)
 
 ### Synopsis
 
 ```c
-v16i8 __msa_ldi_b (int imm_n512_511)
+v16i8 __msa_ldi_b (int imm)
 #include <msa.h>
 Instruction: ldi.b
 Builtin: __builtin_msa_ldi_b
@@ -1234,18 +1372,27 @@ Source: include/msa.h:461
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Fill every u8 lane from a sign- or zero-extended immediate constant.
 
 ### Operation
 
 ```c
-// Inferred semantics for ldi.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm_n512_511;
-value = sign_extend_or_zero_extend(imm, element_size_from_mnemonic);
-for i in 0..15:
-  dst.byte[i] = value;
+dst.u8[0] = sign_extend_or_zero_extend(imm, 8);
+dst.u8[1] = sign_extend_or_zero_extend(imm, 8);
+dst.u8[2] = sign_extend_or_zero_extend(imm, 8);
+dst.u8[3] = sign_extend_or_zero_extend(imm, 8);
+dst.u8[4] = sign_extend_or_zero_extend(imm, 8);
+dst.u8[5] = sign_extend_or_zero_extend(imm, 8);
+dst.u8[6] = sign_extend_or_zero_extend(imm, 8);
+dst.u8[7] = sign_extend_or_zero_extend(imm, 8);
+dst.u8[8] = sign_extend_or_zero_extend(imm, 8);
+dst.u8[9] = sign_extend_or_zero_extend(imm, 8);
+dst.u8[10] = sign_extend_or_zero_extend(imm, 8);
+dst.u8[11] = sign_extend_or_zero_extend(imm, 8);
+dst.u8[12] = sign_extend_or_zero_extend(imm, 8);
+dst.u8[13] = sign_extend_or_zero_extend(imm, 8);
+dst.u8[14] = sign_extend_or_zero_extend(imm, 8);
+dst.u8[15] = sign_extend_or_zero_extend(imm, 8);
 ```
 
 ### Header Mapping
@@ -1254,12 +1401,12 @@ for i in 0..15:
 #define __msa_ldi_b __builtin_msa_ldi_b
 ```
 
-## v2i64 __msa_ldi_d (int imm_n512_511)
+## v2i64 __msa_ldi_d (int imm)
 
 ### Synopsis
 
 ```c
-v2i64 __msa_ldi_d (int imm_n512_511)
+v2i64 __msa_ldi_d (int imm)
 #include <msa.h>
 Instruction: ldi.d
 Builtin: __builtin_msa_ldi_d
@@ -1270,18 +1417,13 @@ Source: include/msa.h:464
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Fill every u64 lane from a sign- or zero-extended immediate constant.
 
 ### Operation
 
 ```c
-// Inferred semantics for ldi.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm_n512_511;
-value = sign_extend_or_zero_extend(imm, element_size_from_mnemonic);
-for i in 0..1:
-  dst.dword[i] = value;
+dst.u64[0] = sign_extend_or_zero_extend(imm, 64);
+dst.u64[1] = sign_extend_or_zero_extend(imm, 64);
 ```
 
 ### Header Mapping
@@ -1290,12 +1432,12 @@ for i in 0..1:
 #define __msa_ldi_d __builtin_msa_ldi_d
 ```
 
-## v8i16 __msa_ldi_h (int imm_n512_511)
+## v8i16 __msa_ldi_h (int imm)
 
 ### Synopsis
 
 ```c
-v8i16 __msa_ldi_h (int imm_n512_511)
+v8i16 __msa_ldi_h (int imm)
 #include <msa.h>
 Instruction: ldi.h
 Builtin: __builtin_msa_ldi_h
@@ -1306,18 +1448,19 @@ Source: include/msa.h:462
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Fill every u16 lane from a sign- or zero-extended immediate constant.
 
 ### Operation
 
 ```c
-// Inferred semantics for ldi.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm_n512_511;
-value = sign_extend_or_zero_extend(imm, element_size_from_mnemonic);
-for i in 0..7:
-  dst.half[i] = value;
+dst.u16[0] = sign_extend_or_zero_extend(imm, 16);
+dst.u16[1] = sign_extend_or_zero_extend(imm, 16);
+dst.u16[2] = sign_extend_or_zero_extend(imm, 16);
+dst.u16[3] = sign_extend_or_zero_extend(imm, 16);
+dst.u16[4] = sign_extend_or_zero_extend(imm, 16);
+dst.u16[5] = sign_extend_or_zero_extend(imm, 16);
+dst.u16[6] = sign_extend_or_zero_extend(imm, 16);
+dst.u16[7] = sign_extend_or_zero_extend(imm, 16);
 ```
 
 ### Header Mapping
@@ -1326,12 +1469,12 @@ for i in 0..7:
 #define __msa_ldi_h __builtin_msa_ldi_h
 ```
 
-## v4i32 __msa_ldi_w (int imm_n512_511)
+## v4i32 __msa_ldi_w (int imm)
 
 ### Synopsis
 
 ```c
-v4i32 __msa_ldi_w (int imm_n512_511)
+v4i32 __msa_ldi_w (int imm)
 #include <msa.h>
 Instruction: ldi.w
 Builtin: __builtin_msa_ldi_w
@@ -1342,18 +1485,15 @@ Source: include/msa.h:463
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Fill every u32 lane from a sign- or zero-extended immediate constant.
 
 ### Operation
 
 ```c
-// Inferred semantics for ldi.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm_n512_511;
-value = sign_extend_or_zero_extend(imm, element_size_from_mnemonic);
-for i in 0..3:
-  dst.word[i] = value;
+dst.u32[0] = sign_extend_or_zero_extend(imm, 32);
+dst.u32[1] = sign_extend_or_zero_extend(imm, 32);
+dst.u32[2] = sign_extend_or_zero_extend(imm, 32);
+dst.u32[3] = sign_extend_or_zero_extend(imm, 32);
 ```
 
 ### Header Mapping
@@ -1378,13 +1518,11 @@ Source: include/msa.h:580
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Return the source vector unchanged; this wrapper exposes the move/copy builtin form.
 
 ### Operation
 
 ```c
-// Inferred semantics for move.v.
-// Operand order follows the intrinsic arguments in the header.
 dst = a;
 ```
 
@@ -1410,16 +1548,25 @@ Source: include/msa.h:374
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Take even-numbered u8 lanes from the two sources and interleave or pack them into the destination.
 
 ### Operation
 
 ```c
-// Inferred semantics for pckev.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-dst = interleave_or_pack(even byte lanes from a and b);
+dst = interleave_or_pack(even u8 lanes from a and b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1443,16 +1590,25 @@ Source: include/msa.h:377
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Take even-numbered u64 lanes from the two sources and interleave or pack them into the destination.
 
 ### Operation
 
 ```c
-// Inferred semantics for pckev.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-dst = interleave_or_pack(even dword lanes from a and b);
+dst = interleave_or_pack(even u64 lanes from a and b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1476,16 +1632,25 @@ Source: include/msa.h:375
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Take even-numbered u16 lanes from the two sources and interleave or pack them into the destination.
 
 ### Operation
 
 ```c
-// Inferred semantics for pckev.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-dst = interleave_or_pack(even half lanes from a and b);
+dst = interleave_or_pack(even u16 lanes from a and b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1509,16 +1674,25 @@ Source: include/msa.h:376
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Take even-numbered u32 lanes from the two sources and interleave or pack them into the destination.
 
 ### Operation
 
 ```c
-// Inferred semantics for pckev.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-dst = interleave_or_pack(even word lanes from a and b);
+dst = interleave_or_pack(even u32 lanes from a and b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1542,16 +1716,25 @@ Source: include/msa.h:378
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Take odd-numbered u8 lanes from the two sources and interleave or pack them into the destination.
 
 ### Operation
 
 ```c
-// Inferred semantics for pckod.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-dst = interleave_or_pack(odd byte lanes from a and b);
+dst = interleave_or_pack(odd u8 lanes from a and b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1575,16 +1758,25 @@ Source: include/msa.h:381
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Take odd-numbered u64 lanes from the two sources and interleave or pack them into the destination.
 
 ### Operation
 
 ```c
-// Inferred semantics for pckod.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-dst = interleave_or_pack(odd dword lanes from a and b);
+dst = interleave_or_pack(odd u64 lanes from a and b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1608,16 +1800,25 @@ Source: include/msa.h:379
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Take odd-numbered u16 lanes from the two sources and interleave or pack them into the destination.
 
 ### Operation
 
 ```c
-// Inferred semantics for pckod.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-dst = interleave_or_pack(odd half lanes from a and b);
+dst = interleave_or_pack(odd u16 lanes from a and b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1641,16 +1842,25 @@ Source: include/msa.h:380
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Take odd-numbered u32 lanes from the two sources and interleave or pack them into the destination.
 
 ### Operation
 
 ```c
-// Inferred semantics for pckod.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-dst = interleave_or_pack(odd word lanes from a and b);
+dst = interleave_or_pack(odd u32 lanes from a and b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1658,12 +1868,12 @@ dst = interleave_or_pack(odd word lanes from a and b);
 #define __msa_pckod_w __builtin_msa_pckod_w
 ```
 
-## v16i8 __msa_shf_b (v16i8 a, int imm0_255)
+## v16i8 __msa_shf_b (v16i8 a, int imm)
 
 ### Synopsis
 
 ```c
-v16i8 __msa_shf_b (v16i8 a, int imm0_255)
+v16i8 __msa_shf_b (v16i8 a, int imm)
 #include <msa.h>
 Instruction: shf.b
 Builtin: __builtin_msa_shf_b
@@ -1674,19 +1884,40 @@ Source: include/msa.h:416
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use two-bit fields from the immediate to reorder each four-lane u8 group of `a`.
 
 ### Operation
 
 ```c
-// Inferred semantics for shf.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_255;
-for i in 0..15:
-  control = shuffle_control(imm_or_vector, i);
-  dst.byte[i] = select_lane_from_sources(a, b, control);
+dst.u8[0] = a.u8[((imm >> 0) & 3)];
+dst.u8[1] = a.u8[((imm >> 2) & 3)];
+dst.u8[2] = a.u8[((imm >> 4) & 3)];
+dst.u8[3] = a.u8[((imm >> 6) & 3)];
+dst.u8[4] = a.u8[4 + ((imm >> 0) & 3)];
+dst.u8[5] = a.u8[4 + ((imm >> 2) & 3)];
+dst.u8[6] = a.u8[4 + ((imm >> 4) & 3)];
+dst.u8[7] = a.u8[4 + ((imm >> 6) & 3)];
+dst.u8[8] = a.u8[8 + ((imm >> 0) & 3)];
+dst.u8[9] = a.u8[8 + ((imm >> 2) & 3)];
+dst.u8[10] = a.u8[8 + ((imm >> 4) & 3)];
+dst.u8[11] = a.u8[8 + ((imm >> 6) & 3)];
+dst.u8[12] = a.u8[12 + ((imm >> 0) & 3)];
+dst.u8[13] = a.u8[12 + ((imm >> 2) & 3)];
+dst.u8[14] = a.u8[12 + ((imm >> 4) & 3)];
+dst.u8[15] = a.u8[12 + ((imm >> 6) & 3)];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1694,12 +1925,12 @@ for i in 0..15:
 #define __msa_shf_b __builtin_msa_shf_b
 ```
 
-## v8i16 __msa_shf_h (v8i16 a, int imm0_255)
+## v8i16 __msa_shf_h (v8i16 a, int imm)
 
 ### Synopsis
 
 ```c
-v8i16 __msa_shf_h (v8i16 a, int imm0_255)
+v8i16 __msa_shf_h (v8i16 a, int imm)
 #include <msa.h>
 Instruction: shf.h
 Builtin: __builtin_msa_shf_h
@@ -1710,19 +1941,32 @@ Source: include/msa.h:417
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use two-bit fields from the immediate to reorder each four-lane u16 group of `a`.
 
 ### Operation
 
 ```c
-// Inferred semantics for shf.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm0_255;
-for i in 0..7:
-  control = shuffle_control(imm_or_vector, i);
-  dst.half[i] = select_lane_from_sources(a, b, control);
+dst.u16[0] = a.u16[((imm >> 0) & 3)];
+dst.u16[1] = a.u16[((imm >> 2) & 3)];
+dst.u16[2] = a.u16[((imm >> 4) & 3)];
+dst.u16[3] = a.u16[((imm >> 6) & 3)];
+dst.u16[4] = a.u16[4 + ((imm >> 0) & 3)];
+dst.u16[5] = a.u16[4 + ((imm >> 2) & 3)];
+dst.u16[6] = a.u16[4 + ((imm >> 4) & 3)];
+dst.u16[7] = a.u16[4 + ((imm >> 6) & 3)];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1730,12 +1974,12 @@ for i in 0..7:
 #define __msa_shf_h __builtin_msa_shf_h
 ```
 
-## v4i32 __msa_shf_w (v4i32 a, int imm0_255)
+## v4i32 __msa_shf_w (v4i32 a, int imm)
 
 ### Synopsis
 
 ```c
-v4i32 __msa_shf_w (v4i32 a, int imm0_255)
+v4i32 __msa_shf_w (v4i32 a, int imm)
 #include <msa.h>
 Instruction: shf.w
 Builtin: __builtin_msa_shf_w
@@ -1746,19 +1990,28 @@ Source: include/msa.h:418
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use two-bit fields from the immediate to reorder each four-lane u32 group of `a`.
 
 ### Operation
 
 ```c
-// Inferred semantics for shf.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm0_255;
-for i in 0..3:
-  control = shuffle_control(imm_or_vector, i);
-  dst.word[i] = select_lane_from_sources(a, b, control);
+dst.u32[0] = a.u32[((imm >> 0) & 3)];
+dst.u32[1] = a.u32[((imm >> 2) & 3)];
+dst.u32[2] = a.u32[((imm >> 4) & 3)];
+dst.u32[3] = a.u32[((imm >> 6) & 3)];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1766,12 +2019,12 @@ for i in 0..3:
 #define __msa_shf_w __builtin_msa_shf_w
 ```
 
-## v16i8 __msa_sld_b (v16i8 a, v16i8 b, i32 imm)
+## v16i8 __msa_sld_b (v16i8 a, v16i8 b, int imm)
 
 ### Synopsis
 
 ```c
-v16i8 __msa_sld_b (v16i8 a, v16i8 b, i32 imm)
+v16i8 __msa_sld_b (v16i8 a, v16i8 b, int imm)
 #include <msa.h>
 Instruction: sld.b
 Builtin: __builtin_msa_sld_b
@@ -1782,17 +2035,12 @@ Source: include/msa.h:358
 
 ### Description
 
-Slide elements from the concatenation of two source vectors into 16 x 8-bit byte lanes using an immediate offset. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Slide elements from the concatenation of two source vectors into 16 x u8 lanes using an immediate offset.
 
 ### Operation
 
 ```c
-// Inferred semantics for sld.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-combined = concatenate(b, a);
-for i in 0..15:
-  dst.byte[i] = combined.byte[i + imm];
+dst = slide_lanes(concatenate(b, a), imm);
 ```
 
 ### Header Mapping
@@ -1801,12 +2049,12 @@ for i in 0..15:
 #define __msa_sld_b __builtin_msa_sld_b
 ```
 
-## v2i64 __msa_sld_d (v2i64 a, v2i64 b, i32 imm)
+## v2i64 __msa_sld_d (v2i64 a, v2i64 b, int imm)
 
 ### Synopsis
 
 ```c
-v2i64 __msa_sld_d (v2i64 a, v2i64 b, i32 imm)
+v2i64 __msa_sld_d (v2i64 a, v2i64 b, int imm)
 #include <msa.h>
 Instruction: sld.d
 Builtin: __builtin_msa_sld_d
@@ -1817,17 +2065,12 @@ Source: include/msa.h:361
 
 ### Description
 
-Slide elements from the concatenation of two source vectors into 2 x 64-bit dword lanes using an immediate offset. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Slide elements from the concatenation of two source vectors into 2 x u64 lanes using an immediate offset.
 
 ### Operation
 
 ```c
-// Inferred semantics for sld.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-combined = concatenate(b, a);
-for i in 0..1:
-  dst.dword[i] = combined.dword[i + imm];
+dst = slide_lanes(concatenate(b, a), imm);
 ```
 
 ### Header Mapping
@@ -1836,12 +2079,12 @@ for i in 0..1:
 #define __msa_sld_d __builtin_msa_sld_d
 ```
 
-## v8i16 __msa_sld_h (v8i16 a, v8i16 b, i32 imm)
+## v8i16 __msa_sld_h (v8i16 a, v8i16 b, int imm)
 
 ### Synopsis
 
 ```c
-v8i16 __msa_sld_h (v8i16 a, v8i16 b, i32 imm)
+v8i16 __msa_sld_h (v8i16 a, v8i16 b, int imm)
 #include <msa.h>
 Instruction: sld.h
 Builtin: __builtin_msa_sld_h
@@ -1852,17 +2095,12 @@ Source: include/msa.h:359
 
 ### Description
 
-Slide elements from the concatenation of two source vectors into 8 x 16-bit half lanes using an immediate offset. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Slide elements from the concatenation of two source vectors into 8 x u16 lanes using an immediate offset.
 
 ### Operation
 
 ```c
-// Inferred semantics for sld.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-combined = concatenate(b, a);
-for i in 0..7:
-  dst.half[i] = combined.half[i + imm];
+dst = slide_lanes(concatenate(b, a), imm);
 ```
 
 ### Header Mapping
@@ -1871,12 +2109,12 @@ for i in 0..7:
 #define __msa_sld_h __builtin_msa_sld_h
 ```
 
-## v4i32 __msa_sld_w (v4i32 a, v4i32 b, i32 imm)
+## v4i32 __msa_sld_w (v4i32 a, v4i32 b, int imm)
 
 ### Synopsis
 
 ```c
-v4i32 __msa_sld_w (v4i32 a, v4i32 b, i32 imm)
+v4i32 __msa_sld_w (v4i32 a, v4i32 b, int imm)
 #include <msa.h>
 Instruction: sld.w
 Builtin: __builtin_msa_sld_w
@@ -1887,17 +2125,12 @@ Source: include/msa.h:360
 
 ### Description
 
-Slide elements from the concatenation of two source vectors into 4 x 32-bit word lanes using an immediate offset. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Slide elements from the concatenation of two source vectors into 4 x u32 lanes using an immediate offset.
 
 ### Operation
 
 ```c
-// Inferred semantics for sld.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-combined = concatenate(b, a);
-for i in 0..3:
-  dst.word[i] = combined.word[i + imm];
+dst = slide_lanes(concatenate(b, a), imm);
 ```
 
 ### Header Mapping
@@ -1906,12 +2139,12 @@ for i in 0..3:
 #define __msa_sld_w __builtin_msa_sld_w
 ```
 
-## v16i8 __msa_sldi_b (v16i8 a, v16i8 b, int imm0_15)
+## v16i8 __msa_sldi_b (v16i8 a, v16i8 b, int imm)
 
 ### Synopsis
 
 ```c
-v16i8 __msa_sldi_b (v16i8 a, v16i8 b, int imm0_15)
+v16i8 __msa_sldi_b (v16i8 a, v16i8 b, int imm)
 #include <msa.h>
 Instruction: sldi.b
 Builtin: __builtin_msa_sldi_b
@@ -1922,18 +2155,12 @@ Source: include/msa.h:362
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Slide a lane window across the concatenation of `b` and `a`, controlled by the immediate offset.
 
 ### Operation
 
 ```c
-// Inferred semantics for sldi.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_15;
-combined = concatenate(b, a);
-for i in 0..15:
-  dst.byte[i] = combined.byte[i + imm];
+dst = slide_lanes(concatenate(b, a), imm);
 ```
 
 ### Header Mapping
@@ -1942,12 +2169,12 @@ for i in 0..15:
 #define __msa_sldi_b __builtin_msa_sldi_b
 ```
 
-## v2i64 __msa_sldi_d (v2i64 a, v2i64 b, int imm0_1)
+## v2i64 __msa_sldi_d (v2i64 a, v2i64 b, int imm)
 
 ### Synopsis
 
 ```c
-v2i64 __msa_sldi_d (v2i64 a, v2i64 b, int imm0_1)
+v2i64 __msa_sldi_d (v2i64 a, v2i64 b, int imm)
 #include <msa.h>
 Instruction: sldi.d
 Builtin: __builtin_msa_sldi_d
@@ -1958,18 +2185,12 @@ Source: include/msa.h:365
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Slide a lane window across the concatenation of `b` and `a`, controlled by the immediate offset.
 
 ### Operation
 
 ```c
-// Inferred semantics for sldi.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm0_1;
-combined = concatenate(b, a);
-for i in 0..1:
-  dst.dword[i] = combined.dword[i + imm];
+dst = slide_lanes(concatenate(b, a), imm);
 ```
 
 ### Header Mapping
@@ -1978,12 +2199,12 @@ for i in 0..1:
 #define __msa_sldi_d __builtin_msa_sldi_d
 ```
 
-## v8i16 __msa_sldi_h (v8i16 a, v8i16 b, int imm0_7)
+## v8i16 __msa_sldi_h (v8i16 a, v8i16 b, int imm)
 
 ### Synopsis
 
 ```c
-v8i16 __msa_sldi_h (v8i16 a, v8i16 b, int imm0_7)
+v8i16 __msa_sldi_h (v8i16 a, v8i16 b, int imm)
 #include <msa.h>
 Instruction: sldi.h
 Builtin: __builtin_msa_sldi_h
@@ -1994,18 +2215,12 @@ Source: include/msa.h:363
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Slide a lane window across the concatenation of `b` and `a`, controlled by the immediate offset.
 
 ### Operation
 
 ```c
-// Inferred semantics for sldi.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm0_7;
-combined = concatenate(b, a);
-for i in 0..7:
-  dst.half[i] = combined.half[i + imm];
+dst = slide_lanes(concatenate(b, a), imm);
 ```
 
 ### Header Mapping
@@ -2014,12 +2229,12 @@ for i in 0..7:
 #define __msa_sldi_h __builtin_msa_sldi_h
 ```
 
-## v4i32 __msa_sldi_w (v4i32 a, v4i32 b, int imm0_3)
+## v4i32 __msa_sldi_w (v4i32 a, v4i32 b, int imm)
 
 ### Synopsis
 
 ```c
-v4i32 __msa_sldi_w (v4i32 a, v4i32 b, int imm0_3)
+v4i32 __msa_sldi_w (v4i32 a, v4i32 b, int imm)
 #include <msa.h>
 Instruction: sldi.w
 Builtin: __builtin_msa_sldi_w
@@ -2030,18 +2245,12 @@ Source: include/msa.h:364
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Slide a lane window across the concatenation of `b` and `a`, controlled by the immediate offset.
 
 ### Operation
 
 ```c
-// Inferred semantics for sldi.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm0_3;
-combined = concatenate(b, a);
-for i in 0..3:
-  dst.word[i] = combined.word[i + imm];
+dst = slide_lanes(concatenate(b, a), imm);
 ```
 
 ### Header Mapping
@@ -2050,12 +2259,12 @@ for i in 0..3:
 #define __msa_sldi_w __builtin_msa_sldi_w
 ```
 
-## v16i8 __msa_splat_b (v16i8 a, i32 imm)
+## v16i8 __msa_splat_b (v16i8 a, int imm)
 
 ### Synopsis
 
 ```c
-v16i8 __msa_splat_b (v16i8 a, i32 imm)
+v16i8 __msa_splat_b (v16i8 a, int imm)
 #include <msa.h>
 Instruction: splat.b
 Builtin: __builtin_msa_splat_b
@@ -2066,17 +2275,27 @@ Source: include/msa.h:366
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Broadcast one selected u8 lane from `a` into every destination lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for splat.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-selected = a.byte[imm_or_zero];
-for i in 0..15:
-  dst.byte[i] = selected;
+dst.u8[0] = a.u8[imm];
+dst.u8[1] = a.u8[imm];
+dst.u8[2] = a.u8[imm];
+dst.u8[3] = a.u8[imm];
+dst.u8[4] = a.u8[imm];
+dst.u8[5] = a.u8[imm];
+dst.u8[6] = a.u8[imm];
+dst.u8[7] = a.u8[imm];
+dst.u8[8] = a.u8[imm];
+dst.u8[9] = a.u8[imm];
+dst.u8[10] = a.u8[imm];
+dst.u8[11] = a.u8[imm];
+dst.u8[12] = a.u8[imm];
+dst.u8[13] = a.u8[imm];
+dst.u8[14] = a.u8[imm];
+dst.u8[15] = a.u8[imm];
 ```
 
 ### Header Mapping
@@ -2085,12 +2304,12 @@ for i in 0..15:
 #define __msa_splat_b __builtin_msa_splat_b
 ```
 
-## v2i64 __msa_splat_d (v2i64 a, i32 imm)
+## v2i64 __msa_splat_d (v2i64 a, int imm)
 
 ### Synopsis
 
 ```c
-v2i64 __msa_splat_d (v2i64 a, i32 imm)
+v2i64 __msa_splat_d (v2i64 a, int imm)
 #include <msa.h>
 Instruction: splat.d
 Builtin: __builtin_msa_splat_d
@@ -2101,17 +2320,13 @@ Source: include/msa.h:369
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Broadcast one selected u64 lane from `a` into every destination lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for splat.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-selected = a.dword[imm_or_zero];
-for i in 0..1:
-  dst.dword[i] = selected;
+dst.u64[0] = a.u64[imm];
+dst.u64[1] = a.u64[imm];
 ```
 
 ### Header Mapping
@@ -2120,12 +2335,12 @@ for i in 0..1:
 #define __msa_splat_d __builtin_msa_splat_d
 ```
 
-## v8i16 __msa_splat_h (v8i16 a, i32 imm)
+## v8i16 __msa_splat_h (v8i16 a, int imm)
 
 ### Synopsis
 
 ```c
-v8i16 __msa_splat_h (v8i16 a, i32 imm)
+v8i16 __msa_splat_h (v8i16 a, int imm)
 #include <msa.h>
 Instruction: splat.h
 Builtin: __builtin_msa_splat_h
@@ -2136,17 +2351,19 @@ Source: include/msa.h:367
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Broadcast one selected u16 lane from `a` into every destination lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for splat.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-selected = a.half[imm_or_zero];
-for i in 0..7:
-  dst.half[i] = selected;
+dst.u16[0] = a.u16[imm];
+dst.u16[1] = a.u16[imm];
+dst.u16[2] = a.u16[imm];
+dst.u16[3] = a.u16[imm];
+dst.u16[4] = a.u16[imm];
+dst.u16[5] = a.u16[imm];
+dst.u16[6] = a.u16[imm];
+dst.u16[7] = a.u16[imm];
 ```
 
 ### Header Mapping
@@ -2155,12 +2372,12 @@ for i in 0..7:
 #define __msa_splat_h __builtin_msa_splat_h
 ```
 
-## v4i32 __msa_splat_w (v4i32 a, i32 imm)
+## v4i32 __msa_splat_w (v4i32 a, int imm)
 
 ### Synopsis
 
 ```c
-v4i32 __msa_splat_w (v4i32 a, i32 imm)
+v4i32 __msa_splat_w (v4i32 a, int imm)
 #include <msa.h>
 Instruction: splat.w
 Builtin: __builtin_msa_splat_w
@@ -2171,17 +2388,15 @@ Source: include/msa.h:368
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Broadcast one selected u32 lane from `a` into every destination lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for splat.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-selected = a.word[imm_or_zero];
-for i in 0..3:
-  dst.word[i] = selected;
+dst.u32[0] = a.u32[imm];
+dst.u32[1] = a.u32[imm];
+dst.u32[2] = a.u32[imm];
+dst.u32[3] = a.u32[imm];
 ```
 
 ### Header Mapping
@@ -2190,12 +2405,12 @@ for i in 0..3:
 #define __msa_splat_w __builtin_msa_splat_w
 ```
 
-## v16i8 __msa_splati_b (v16i8 a, int imm0_15)
+## v16i8 __msa_splati_b (v16i8 a, int imm)
 
 ### Synopsis
 
 ```c
-v16i8 __msa_splati_b (v16i8 a, int imm0_15)
+v16i8 __msa_splati_b (v16i8 a, int imm)
 #include <msa.h>
 Instruction: splati.b
 Builtin: __builtin_msa_splati_b
@@ -2206,18 +2421,27 @@ Source: include/msa.h:370
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Broadcast one selected u8 lane from `a` into every destination lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for splati.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_15;
-selected = a.byte[imm_or_zero];
-for i in 0..15:
-  dst.byte[i] = selected;
+dst.u8[0] = a.u8[imm];
+dst.u8[1] = a.u8[imm];
+dst.u8[2] = a.u8[imm];
+dst.u8[3] = a.u8[imm];
+dst.u8[4] = a.u8[imm];
+dst.u8[5] = a.u8[imm];
+dst.u8[6] = a.u8[imm];
+dst.u8[7] = a.u8[imm];
+dst.u8[8] = a.u8[imm];
+dst.u8[9] = a.u8[imm];
+dst.u8[10] = a.u8[imm];
+dst.u8[11] = a.u8[imm];
+dst.u8[12] = a.u8[imm];
+dst.u8[13] = a.u8[imm];
+dst.u8[14] = a.u8[imm];
+dst.u8[15] = a.u8[imm];
 ```
 
 ### Header Mapping
@@ -2226,12 +2450,12 @@ for i in 0..15:
 #define __msa_splati_b __builtin_msa_splati_b
 ```
 
-## v2i64 __msa_splati_d (v2i64 a, int imm0_1)
+## v2i64 __msa_splati_d (v2i64 a, int imm)
 
 ### Synopsis
 
 ```c
-v2i64 __msa_splati_d (v2i64 a, int imm0_1)
+v2i64 __msa_splati_d (v2i64 a, int imm)
 #include <msa.h>
 Instruction: splati.d
 Builtin: __builtin_msa_splati_d
@@ -2242,18 +2466,13 @@ Source: include/msa.h:373
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Broadcast one selected u64 lane from `a` into every destination lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for splati.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm0_1;
-selected = a.dword[imm_or_zero];
-for i in 0..1:
-  dst.dword[i] = selected;
+dst.u64[0] = a.u64[imm];
+dst.u64[1] = a.u64[imm];
 ```
 
 ### Header Mapping
@@ -2262,12 +2481,12 @@ for i in 0..1:
 #define __msa_splati_d __builtin_msa_splati_d
 ```
 
-## v8i16 __msa_splati_h (v8i16 a, int imm0_7)
+## v8i16 __msa_splati_h (v8i16 a, int imm)
 
 ### Synopsis
 
 ```c
-v8i16 __msa_splati_h (v8i16 a, int imm0_7)
+v8i16 __msa_splati_h (v8i16 a, int imm)
 #include <msa.h>
 Instruction: splati.h
 Builtin: __builtin_msa_splati_h
@@ -2278,18 +2497,19 @@ Source: include/msa.h:371
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Broadcast one selected u16 lane from `a` into every destination lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for splati.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm0_7;
-selected = a.half[imm_or_zero];
-for i in 0..7:
-  dst.half[i] = selected;
+dst.u16[0] = a.u16[imm];
+dst.u16[1] = a.u16[imm];
+dst.u16[2] = a.u16[imm];
+dst.u16[3] = a.u16[imm];
+dst.u16[4] = a.u16[imm];
+dst.u16[5] = a.u16[imm];
+dst.u16[6] = a.u16[imm];
+dst.u16[7] = a.u16[imm];
 ```
 
 ### Header Mapping
@@ -2298,12 +2518,12 @@ for i in 0..7:
 #define __msa_splati_h __builtin_msa_splati_h
 ```
 
-## v4i32 __msa_splati_w (v4i32 a, int imm0_3)
+## v4i32 __msa_splati_w (v4i32 a, int imm)
 
 ### Synopsis
 
 ```c
-v4i32 __msa_splati_w (v4i32 a, int imm0_3)
+v4i32 __msa_splati_w (v4i32 a, int imm)
 #include <msa.h>
 Instruction: splati.w
 Builtin: __builtin_msa_splati_w
@@ -2314,18 +2534,15 @@ Source: include/msa.h:372
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Broadcast one selected u32 lane from `a` into every destination lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for splati.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm0_3;
-selected = a.word[imm_or_zero];
-for i in 0..3:
-  dst.word[i] = selected;
+dst.u32[0] = a.u32[imm];
+dst.u32[1] = a.u32[imm];
+dst.u32[2] = a.u32[imm];
+dst.u32[3] = a.u32[imm];
 ```
 
 ### Header Mapping
@@ -2350,18 +2567,40 @@ Source: include/msa.h:398
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use each control u8 lane from `a` to choose a u8 lane from `b` or `c`; control values with the zero bit set produce zero. This is a byte-style table lookup within each 128-bit half.
 
 ### Operation
 
 ```c
-// Inferred semantics for vshf.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  control = shuffle_control(imm_or_vector, i);
-  dst.byte[i] = select_lane_from_sources(a, b, control);
+dst.u8[0] = (a.u8[0] & 0x40) ? 0 : ((a.u8[0] & 0x10) ? b.u8[(a.u8[0] & 15)] : c.u8[(a.u8[0] & 15)]);
+dst.u8[1] = (a.u8[1] & 0x40) ? 0 : ((a.u8[1] & 0x10) ? b.u8[(a.u8[1] & 15)] : c.u8[(a.u8[1] & 15)]);
+dst.u8[2] = (a.u8[2] & 0x40) ? 0 : ((a.u8[2] & 0x10) ? b.u8[(a.u8[2] & 15)] : c.u8[(a.u8[2] & 15)]);
+dst.u8[3] = (a.u8[3] & 0x40) ? 0 : ((a.u8[3] & 0x10) ? b.u8[(a.u8[3] & 15)] : c.u8[(a.u8[3] & 15)]);
+dst.u8[4] = (a.u8[4] & 0x40) ? 0 : ((a.u8[4] & 0x10) ? b.u8[(a.u8[4] & 15)] : c.u8[(a.u8[4] & 15)]);
+dst.u8[5] = (a.u8[5] & 0x40) ? 0 : ((a.u8[5] & 0x10) ? b.u8[(a.u8[5] & 15)] : c.u8[(a.u8[5] & 15)]);
+dst.u8[6] = (a.u8[6] & 0x40) ? 0 : ((a.u8[6] & 0x10) ? b.u8[(a.u8[6] & 15)] : c.u8[(a.u8[6] & 15)]);
+dst.u8[7] = (a.u8[7] & 0x40) ? 0 : ((a.u8[7] & 0x10) ? b.u8[(a.u8[7] & 15)] : c.u8[(a.u8[7] & 15)]);
+dst.u8[8] = (a.u8[8] & 0x40) ? 0 : ((a.u8[8] & 0x10) ? b.u8[(a.u8[8] & 15)] : c.u8[(a.u8[8] & 15)]);
+dst.u8[9] = (a.u8[9] & 0x40) ? 0 : ((a.u8[9] & 0x10) ? b.u8[(a.u8[9] & 15)] : c.u8[(a.u8[9] & 15)]);
+dst.u8[10] = (a.u8[10] & 0x40) ? 0 : ((a.u8[10] & 0x10) ? b.u8[(a.u8[10] & 15)] : c.u8[(a.u8[10] & 15)]);
+dst.u8[11] = (a.u8[11] & 0x40) ? 0 : ((a.u8[11] & 0x10) ? b.u8[(a.u8[11] & 15)] : c.u8[(a.u8[11] & 15)]);
+dst.u8[12] = (a.u8[12] & 0x40) ? 0 : ((a.u8[12] & 0x10) ? b.u8[(a.u8[12] & 15)] : c.u8[(a.u8[12] & 15)]);
+dst.u8[13] = (a.u8[13] & 0x40) ? 0 : ((a.u8[13] & 0x10) ? b.u8[(a.u8[13] & 15)] : c.u8[(a.u8[13] & 15)]);
+dst.u8[14] = (a.u8[14] & 0x40) ? 0 : ((a.u8[14] & 0x10) ? b.u8[(a.u8[14] & 15)] : c.u8[(a.u8[14] & 15)]);
+dst.u8[15] = (a.u8[15] & 0x40) ? 0 : ((a.u8[15] & 0x10) ? b.u8[(a.u8[15] & 15)] : c.u8[(a.u8[15] & 15)]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2385,18 +2624,26 @@ Source: include/msa.h:401
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use each control u64 lane from `a` to choose a u64 lane from `b` or `c`; control values with the zero bit set produce zero. This is a byte-style table lookup within each 128-bit half.
 
 ### Operation
 
 ```c
-// Inferred semantics for vshf.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  control = shuffle_control(imm_or_vector, i);
-  dst.dword[i] = select_lane_from_sources(a, b, control);
+dst.u64[0] = (a.u64[0] & 0x8) ? 0 : ((a.u64[0] & 0x2) ? b.u64[(a.u64[0] & 1)] : c.u64[(a.u64[0] & 1)]);
+dst.u64[1] = (a.u64[1] & 0x8) ? 0 : ((a.u64[1] & 0x2) ? b.u64[(a.u64[1] & 1)] : c.u64[(a.u64[1] & 1)]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2420,18 +2667,32 @@ Source: include/msa.h:399
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use each control u16 lane from `a` to choose a u16 lane from `b` or `c`; control values with the zero bit set produce zero. This is a byte-style table lookup within each 128-bit half.
 
 ### Operation
 
 ```c
-// Inferred semantics for vshf.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  control = shuffle_control(imm_or_vector, i);
-  dst.half[i] = select_lane_from_sources(a, b, control);
+dst.u16[0] = (a.u16[0] & 0x20) ? 0 : ((a.u16[0] & 0x8) ? b.u16[(a.u16[0] & 7)] : c.u16[(a.u16[0] & 7)]);
+dst.u16[1] = (a.u16[1] & 0x20) ? 0 : ((a.u16[1] & 0x8) ? b.u16[(a.u16[1] & 7)] : c.u16[(a.u16[1] & 7)]);
+dst.u16[2] = (a.u16[2] & 0x20) ? 0 : ((a.u16[2] & 0x8) ? b.u16[(a.u16[2] & 7)] : c.u16[(a.u16[2] & 7)]);
+dst.u16[3] = (a.u16[3] & 0x20) ? 0 : ((a.u16[3] & 0x8) ? b.u16[(a.u16[3] & 7)] : c.u16[(a.u16[3] & 7)]);
+dst.u16[4] = (a.u16[4] & 0x20) ? 0 : ((a.u16[4] & 0x8) ? b.u16[(a.u16[4] & 7)] : c.u16[(a.u16[4] & 7)]);
+dst.u16[5] = (a.u16[5] & 0x20) ? 0 : ((a.u16[5] & 0x8) ? b.u16[(a.u16[5] & 7)] : c.u16[(a.u16[5] & 7)]);
+dst.u16[6] = (a.u16[6] & 0x20) ? 0 : ((a.u16[6] & 0x8) ? b.u16[(a.u16[6] & 7)] : c.u16[(a.u16[6] & 7)]);
+dst.u16[7] = (a.u16[7] & 0x20) ? 0 : ((a.u16[7] & 0x8) ? b.u16[(a.u16[7] & 7)] : c.u16[(a.u16[7] & 7)]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2455,18 +2716,28 @@ Source: include/msa.h:400
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use each control u32 lane from `a` to choose a u32 lane from `b` or `c`; control values with the zero bit set produce zero. This is a byte-style table lookup within each 128-bit half.
 
 ### Operation
 
 ```c
-// Inferred semantics for vshf.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  control = shuffle_control(imm_or_vector, i);
-  dst.word[i] = select_lane_from_sources(a, b, control);
+dst.u32[0] = (a.u32[0] & 0x10) ? 0 : ((a.u32[0] & 0x4) ? b.u32[(a.u32[0] & 3)] : c.u32[(a.u32[0] & 3)]);
+dst.u32[1] = (a.u32[1] & 0x10) ? 0 : ((a.u32[1] & 0x4) ? b.u32[(a.u32[1] & 3)] : c.u32[(a.u32[1] & 3)]);
+dst.u32[2] = (a.u32[2] & 0x10) ? 0 : ((a.u32[2] & 0x4) ? b.u32[(a.u32[2] & 3)] : c.u32[(a.u32[2] & 3)]);
+dst.u32[3] = (a.u32[3] & 0x10) ? 0 : ((a.u32[3] & 0x4) ? b.u32[(a.u32[3] & 3)] : c.u32[(a.u32[3] & 3)]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 

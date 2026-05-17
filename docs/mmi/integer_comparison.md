@@ -2,12 +2,12 @@
 
 Generated from `include/loongson-mmiintrin.h`. This page contains 16 intrinsics.
 
-## int8x8_t pcmpeqb_s (int8x8_t s, int8x8_t t)
+## int8x8_t pcmpeqb_s (int8x8_t a, int8x8_t b)
 
 ### Synopsis
 
 ```c
-int8x8_t pcmpeqb_s (int8x8_t s, int8x8_t t)
+int8x8_t pcmpeqb_s (int8x8_t a, int8x8_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pcmpeqb.s
 Builtin: __builtin_loongson_pcmpeqb_s
@@ -18,32 +18,45 @@ Source: include/loongson-mmiintrin.h:245
 
 ### Description
 
-Compare signed 8 x 8-bit byte lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 8 x i8 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pcmpeqb.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 8-bit elements.
-a = s;
-b = t;
-for i in 0..7:
-  dst.byte[i] = (a.byte[i] == b.byte[i]) ? all_ones : 0;
+dst.i8[0] = (a.i8[0] == b.i8[0]) ? all_ones : 0;
+dst.i8[1] = (a.i8[1] == b.i8[1]) ? all_ones : 0;
+dst.i8[2] = (a.i8[2] == b.i8[2]) ? all_ones : 0;
+dst.i8[3] = (a.i8[3] == b.i8[3]) ? all_ones : 0;
+dst.i8[4] = (a.i8[4] == b.i8[4]) ? all_ones : 0;
+dst.i8[5] = (a.i8[5] == b.i8[5]) ? all_ones : 0;
+dst.i8[6] = (a.i8[6] == b.i8[6]) ? all_ones : 0;
+dst.i8[7] = (a.i8[7] == b.i8[7]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pcmpeqb_s (s, t);
+return __builtin_loongson_pcmpeqb_s (a, b);
 ```
 
-## uint8x8_t pcmpeqb_u (uint8x8_t s, uint8x8_t t)
+## uint8x8_t pcmpeqb_u (uint8x8_t a, uint8x8_t b)
 
 ### Synopsis
 
 ```c
-uint8x8_t pcmpeqb_u (uint8x8_t s, uint8x8_t t)
+uint8x8_t pcmpeqb_u (uint8x8_t a, uint8x8_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pcmpeqb.u
 Builtin: __builtin_loongson_pcmpeqb_u
@@ -54,32 +67,45 @@ Source: include/loongson-mmiintrin.h:227
 
 ### Description
 
-Compare unsigned 8 x 8-bit byte lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 8 x u8 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pcmpeqb.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 8-bit elements.
-a = s;
-b = t;
-for i in 0..7:
-  dst.byte[i] = (a.byte[i] == b.byte[i]) ? all_ones : 0;
+dst.u8[0] = (a.u8[0] == b.u8[0]) ? all_ones : 0;
+dst.u8[1] = (a.u8[1] == b.u8[1]) ? all_ones : 0;
+dst.u8[2] = (a.u8[2] == b.u8[2]) ? all_ones : 0;
+dst.u8[3] = (a.u8[3] == b.u8[3]) ? all_ones : 0;
+dst.u8[4] = (a.u8[4] == b.u8[4]) ? all_ones : 0;
+dst.u8[5] = (a.u8[5] == b.u8[5]) ? all_ones : 0;
+dst.u8[6] = (a.u8[6] == b.u8[6]) ? all_ones : 0;
+dst.u8[7] = (a.u8[7] == b.u8[7]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pcmpeqb_u (s, t);
+return __builtin_loongson_pcmpeqb_u (a, b);
 ```
 
-## int16x4_t pcmpeqh_s (int16x4_t s, int16x4_t t)
+## int16x4_t pcmpeqh_s (int16x4_t a, int16x4_t b)
 
 ### Synopsis
 
 ```c
-int16x4_t pcmpeqh_s (int16x4_t s, int16x4_t t)
+int16x4_t pcmpeqh_s (int16x4_t a, int16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pcmpeqh.s
 Builtin: __builtin_loongson_pcmpeqh_s
@@ -90,32 +116,41 @@ Source: include/loongson-mmiintrin.h:239
 
 ### Description
 
-Compare signed 4 x 16-bit half lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 4 x i16 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pcmpeqh.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
-for i in 0..3:
-  dst.half[i] = (a.half[i] == b.half[i]) ? all_ones : 0;
+dst.i16[0] = (a.i16[0] == b.i16[0]) ? all_ones : 0;
+dst.i16[1] = (a.i16[1] == b.i16[1]) ? all_ones : 0;
+dst.i16[2] = (a.i16[2] == b.i16[2]) ? all_ones : 0;
+dst.i16[3] = (a.i16[3] == b.i16[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pcmpeqh_s (s, t);
+return __builtin_loongson_pcmpeqh_s (a, b);
 ```
 
-## uint16x4_t pcmpeqh_u (uint16x4_t s, uint16x4_t t)
+## uint16x4_t pcmpeqh_u (uint16x4_t a, uint16x4_t b)
 
 ### Synopsis
 
 ```c
-uint16x4_t pcmpeqh_u (uint16x4_t s, uint16x4_t t)
+uint16x4_t pcmpeqh_u (uint16x4_t a, uint16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pcmpeqh.u
 Builtin: __builtin_loongson_pcmpeqh_u
@@ -126,32 +161,41 @@ Source: include/loongson-mmiintrin.h:221
 
 ### Description
 
-Compare unsigned 4 x 16-bit half lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 4 x u16 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pcmpeqh.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
-for i in 0..3:
-  dst.half[i] = (a.half[i] == b.half[i]) ? all_ones : 0;
+dst.u16[0] = (a.u16[0] == b.u16[0]) ? all_ones : 0;
+dst.u16[1] = (a.u16[1] == b.u16[1]) ? all_ones : 0;
+dst.u16[2] = (a.u16[2] == b.u16[2]) ? all_ones : 0;
+dst.u16[3] = (a.u16[3] == b.u16[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pcmpeqh_u (s, t);
+return __builtin_loongson_pcmpeqh_u (a, b);
 ```
 
-## int32x2_t pcmpeqw_s (int32x2_t s, int32x2_t t)
+## int32x2_t pcmpeqw_s (int32x2_t a, int32x2_t b)
 
 ### Synopsis
 
 ```c
-int32x2_t pcmpeqw_s (int32x2_t s, int32x2_t t)
+int32x2_t pcmpeqw_s (int32x2_t a, int32x2_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pcmpeqw.s
 Builtin: __builtin_loongson_pcmpeqw_s
@@ -162,32 +206,39 @@ Source: include/loongson-mmiintrin.h:233
 
 ### Description
 
-Compare signed 2 x 32-bit word lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 2 x i32 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pcmpeqw.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 32-bit elements.
-a = s;
-b = t;
-for i in 0..1:
-  dst.word[i] = (a.word[i] == b.word[i]) ? all_ones : 0;
+dst.i32[0] = (a.i32[0] == b.i32[0]) ? all_ones : 0;
+dst.i32[1] = (a.i32[1] == b.i32[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pcmpeqw_s (s, t);
+return __builtin_loongson_pcmpeqw_s (a, b);
 ```
 
-## uint32x2_t pcmpeqw_u (uint32x2_t s, uint32x2_t t)
+## uint32x2_t pcmpeqw_u (uint32x2_t a, uint32x2_t b)
 
 ### Synopsis
 
 ```c
-uint32x2_t pcmpeqw_u (uint32x2_t s, uint32x2_t t)
+uint32x2_t pcmpeqw_u (uint32x2_t a, uint32x2_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pcmpeqw.u
 Builtin: __builtin_loongson_pcmpeqw_u
@@ -198,32 +249,39 @@ Source: include/loongson-mmiintrin.h:215
 
 ### Description
 
-Compare unsigned 2 x 32-bit word lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 2 x u32 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pcmpeqw.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 32-bit elements.
-a = s;
-b = t;
-for i in 0..1:
-  dst.word[i] = (a.word[i] == b.word[i]) ? all_ones : 0;
+dst.u32[0] = (a.u32[0] == b.u32[0]) ? all_ones : 0;
+dst.u32[1] = (a.u32[1] == b.u32[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pcmpeqw_u (s, t);
+return __builtin_loongson_pcmpeqw_u (a, b);
 ```
 
-## int8x8_t pcmpgtb_s (int8x8_t s, int8x8_t t)
+## int8x8_t pcmpgtb_s (int8x8_t a, int8x8_t b)
 
 ### Synopsis
 
 ```c
-int8x8_t pcmpgtb_s (int8x8_t s, int8x8_t t)
+int8x8_t pcmpgtb_s (int8x8_t a, int8x8_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pcmpgtb.s
 Builtin: __builtin_loongson_pcmpgtb_s
@@ -234,32 +292,45 @@ Source: include/loongson-mmiintrin.h:282
 
 ### Description
 
-Compare signed 8 x 8-bit byte lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 8 x i8 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pcmpgtb.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 8-bit elements.
-a = s;
-b = t;
-for i in 0..7:
-  dst.byte[i] = (a.byte[i] > b.byte[i]) ? all_ones : 0;
+dst.i8[0] = (a.i8[0] > b.i8[0]) ? all_ones : 0;
+dst.i8[1] = (a.i8[1] > b.i8[1]) ? all_ones : 0;
+dst.i8[2] = (a.i8[2] > b.i8[2]) ? all_ones : 0;
+dst.i8[3] = (a.i8[3] > b.i8[3]) ? all_ones : 0;
+dst.i8[4] = (a.i8[4] > b.i8[4]) ? all_ones : 0;
+dst.i8[5] = (a.i8[5] > b.i8[5]) ? all_ones : 0;
+dst.i8[6] = (a.i8[6] > b.i8[6]) ? all_ones : 0;
+dst.i8[7] = (a.i8[7] > b.i8[7]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pcmpgtb_s (s, t);
+return __builtin_loongson_pcmpgtb_s (a, b);
 ```
 
-## uint8x8_t pcmpgtb_u (uint8x8_t s, uint8x8_t t)
+## uint8x8_t pcmpgtb_u (uint8x8_t a, uint8x8_t b)
 
 ### Synopsis
 
 ```c
-uint8x8_t pcmpgtb_u (uint8x8_t s, uint8x8_t t)
+uint8x8_t pcmpgtb_u (uint8x8_t a, uint8x8_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pcmpgtb.u
 Builtin: __builtin_loongson_pcmpgtb_u
@@ -270,32 +341,45 @@ Source: include/loongson-mmiintrin.h:264
 
 ### Description
 
-Compare unsigned 8 x 8-bit byte lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 8 x u8 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pcmpgtb.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 8-bit elements.
-a = s;
-b = t;
-for i in 0..7:
-  dst.byte[i] = (a.byte[i] > b.byte[i]) ? all_ones : 0;
+dst.u8[0] = (a.u8[0] > b.u8[0]) ? all_ones : 0;
+dst.u8[1] = (a.u8[1] > b.u8[1]) ? all_ones : 0;
+dst.u8[2] = (a.u8[2] > b.u8[2]) ? all_ones : 0;
+dst.u8[3] = (a.u8[3] > b.u8[3]) ? all_ones : 0;
+dst.u8[4] = (a.u8[4] > b.u8[4]) ? all_ones : 0;
+dst.u8[5] = (a.u8[5] > b.u8[5]) ? all_ones : 0;
+dst.u8[6] = (a.u8[6] > b.u8[6]) ? all_ones : 0;
+dst.u8[7] = (a.u8[7] > b.u8[7]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pcmpgtb_u (s, t);
+return __builtin_loongson_pcmpgtb_u (a, b);
 ```
 
-## int16x4_t pcmpgth_s (int16x4_t s, int16x4_t t)
+## int16x4_t pcmpgth_s (int16x4_t a, int16x4_t b)
 
 ### Synopsis
 
 ```c
-int16x4_t pcmpgth_s (int16x4_t s, int16x4_t t)
+int16x4_t pcmpgth_s (int16x4_t a, int16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pcmpgth.s
 Builtin: __builtin_loongson_pcmpgth_s
@@ -306,32 +390,41 @@ Source: include/loongson-mmiintrin.h:276
 
 ### Description
 
-Compare signed 4 x 16-bit half lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 4 x i16 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pcmpgth.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
-for i in 0..3:
-  dst.half[i] = (a.half[i] > b.half[i]) ? all_ones : 0;
+dst.i16[0] = (a.i16[0] > b.i16[0]) ? all_ones : 0;
+dst.i16[1] = (a.i16[1] > b.i16[1]) ? all_ones : 0;
+dst.i16[2] = (a.i16[2] > b.i16[2]) ? all_ones : 0;
+dst.i16[3] = (a.i16[3] > b.i16[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pcmpgth_s (s, t);
+return __builtin_loongson_pcmpgth_s (a, b);
 ```
 
-## uint16x4_t pcmpgth_u (uint16x4_t s, uint16x4_t t)
+## uint16x4_t pcmpgth_u (uint16x4_t a, uint16x4_t b)
 
 ### Synopsis
 
 ```c
-uint16x4_t pcmpgth_u (uint16x4_t s, uint16x4_t t)
+uint16x4_t pcmpgth_u (uint16x4_t a, uint16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pcmpgth.u
 Builtin: __builtin_loongson_pcmpgth_u
@@ -342,32 +435,41 @@ Source: include/loongson-mmiintrin.h:258
 
 ### Description
 
-Compare unsigned 4 x 16-bit half lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 4 x u16 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pcmpgth.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
-for i in 0..3:
-  dst.half[i] = (a.half[i] > b.half[i]) ? all_ones : 0;
+dst.u16[0] = (a.u16[0] > b.u16[0]) ? all_ones : 0;
+dst.u16[1] = (a.u16[1] > b.u16[1]) ? all_ones : 0;
+dst.u16[2] = (a.u16[2] > b.u16[2]) ? all_ones : 0;
+dst.u16[3] = (a.u16[3] > b.u16[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pcmpgth_u (s, t);
+return __builtin_loongson_pcmpgth_u (a, b);
 ```
 
-## int32x2_t pcmpgtw_s (int32x2_t s, int32x2_t t)
+## int32x2_t pcmpgtw_s (int32x2_t a, int32x2_t b)
 
 ### Synopsis
 
 ```c
-int32x2_t pcmpgtw_s (int32x2_t s, int32x2_t t)
+int32x2_t pcmpgtw_s (int32x2_t a, int32x2_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pcmpgtw.s
 Builtin: __builtin_loongson_pcmpgtw_s
@@ -378,32 +480,39 @@ Source: include/loongson-mmiintrin.h:270
 
 ### Description
 
-Compare signed 2 x 32-bit word lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 2 x i32 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pcmpgtw.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 32-bit elements.
-a = s;
-b = t;
-for i in 0..1:
-  dst.word[i] = (a.word[i] > b.word[i]) ? all_ones : 0;
+dst.i32[0] = (a.i32[0] > b.i32[0]) ? all_ones : 0;
+dst.i32[1] = (a.i32[1] > b.i32[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pcmpgtw_s (s, t);
+return __builtin_loongson_pcmpgtw_s (a, b);
 ```
 
-## uint32x2_t pcmpgtw_u (uint32x2_t s, uint32x2_t t)
+## uint32x2_t pcmpgtw_u (uint32x2_t a, uint32x2_t b)
 
 ### Synopsis
 
 ```c
-uint32x2_t pcmpgtw_u (uint32x2_t s, uint32x2_t t)
+uint32x2_t pcmpgtw_u (uint32x2_t a, uint32x2_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pcmpgtw.u
 Builtin: __builtin_loongson_pcmpgtw_u
@@ -414,32 +523,39 @@ Source: include/loongson-mmiintrin.h:252
 
 ### Description
 
-Compare unsigned 2 x 32-bit word lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 2 x u32 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pcmpgtw.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 32-bit elements.
-a = s;
-b = t;
-for i in 0..1:
-  dst.word[i] = (a.word[i] > b.word[i]) ? all_ones : 0;
+dst.u32[0] = (a.u32[0] > b.u32[0]) ? all_ones : 0;
+dst.u32[1] = (a.u32[1] > b.u32[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pcmpgtw_u (s, t);
+return __builtin_loongson_pcmpgtw_u (a, b);
 ```
 
-## int16x4_t pmaxsh (int16x4_t s, int16x4_t t)
+## int16x4_t pmaxsh (int16x4_t a, int16x4_t b)
 
 ### Synopsis
 
 ```c
-int16x4_t pmaxsh (int16x4_t s, int16x4_t t)
+int16x4_t pmaxsh (int16x4_t a, int16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pmaxsh
 Builtin: __builtin_loongson_pmaxsh
@@ -450,32 +566,41 @@ Source: include/loongson-mmiintrin.h:358
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of modular integer operands on 4 x u16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pmaxsh.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
-for i in 0..3:
-  dst.half[i] = max(a.half[i], b.half[i]);
+dst.u16[0] = max(a.i16[0], b.i16[0]);
+dst.u16[1] = max(a.i16[1], b.i16[1]);
+dst.u16[2] = max(a.i16[2], b.i16[2]);
+dst.u16[3] = max(a.i16[3], b.i16[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pmaxsh (s, t);
+return __builtin_loongson_pmaxsh (a, b);
 ```
 
-## uint8x8_t pmaxub (uint8x8_t s, uint8x8_t t)
+## uint8x8_t pmaxub (uint8x8_t a, uint8x8_t b)
 
 ### Synopsis
 
 ```c
-uint8x8_t pmaxub (uint8x8_t s, uint8x8_t t)
+uint8x8_t pmaxub (uint8x8_t a, uint8x8_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pmaxub
 Builtin: __builtin_loongson_pmaxub
@@ -486,32 +611,45 @@ Source: include/loongson-mmiintrin.h:365
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of modular integer operands on 8 x u8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pmaxub.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 8-bit elements.
-a = s;
-b = t;
-for i in 0..7:
-  dst.byte[i] = max(a.byte[i], b.byte[i]);
+dst.u8[0] = max(a.u8[0], b.u8[0]);
+dst.u8[1] = max(a.u8[1], b.u8[1]);
+dst.u8[2] = max(a.u8[2], b.u8[2]);
+dst.u8[3] = max(a.u8[3], b.u8[3]);
+dst.u8[4] = max(a.u8[4], b.u8[4]);
+dst.u8[5] = max(a.u8[5], b.u8[5]);
+dst.u8[6] = max(a.u8[6], b.u8[6]);
+dst.u8[7] = max(a.u8[7], b.u8[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pmaxub (s, t);
+return __builtin_loongson_pmaxub (a, b);
 ```
 
-## int16x4_t pminsh (int16x4_t s, int16x4_t t)
+## int16x4_t pminsh (int16x4_t a, int16x4_t b)
 
 ### Synopsis
 
 ```c
-int16x4_t pminsh (int16x4_t s, int16x4_t t)
+int16x4_t pminsh (int16x4_t a, int16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pminsh
 Builtin: __builtin_loongson_pminsh
@@ -522,32 +660,41 @@ Source: include/loongson-mmiintrin.h:372
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of modular integer operands on 4 x u16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pminsh.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
-for i in 0..3:
-  dst.half[i] = min(a.half[i], b.half[i]);
+dst.u16[0] = min(a.i16[0], b.i16[0]);
+dst.u16[1] = min(a.i16[1], b.i16[1]);
+dst.u16[2] = min(a.i16[2], b.i16[2]);
+dst.u16[3] = min(a.i16[3], b.i16[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pminsh (s, t);
+return __builtin_loongson_pminsh (a, b);
 ```
 
-## uint8x8_t pminub (uint8x8_t s, uint8x8_t t)
+## uint8x8_t pminub (uint8x8_t a, uint8x8_t b)
 
 ### Synopsis
 
 ```c
-uint8x8_t pminub (uint8x8_t s, uint8x8_t t)
+uint8x8_t pminub (uint8x8_t a, uint8x8_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pminub
 Builtin: __builtin_loongson_pminub
@@ -558,23 +705,36 @@ Source: include/loongson-mmiintrin.h:379
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of modular integer operands on 8 x u8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pminub.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 8-bit elements.
-a = s;
-b = t;
-for i in 0..7:
-  dst.byte[i] = min(a.byte[i], b.byte[i]);
+dst.u8[0] = min(a.u8[0], b.u8[0]);
+dst.u8[1] = min(a.u8[1], b.u8[1]);
+dst.u8[2] = min(a.u8[2], b.u8[2]);
+dst.u8[3] = min(a.u8[3], b.u8[3]);
+dst.u8[4] = min(a.u8[4], b.u8[4]);
+dst.u8[5] = min(a.u8[5], b.u8[5]);
+dst.u8[6] = min(a.u8[6], b.u8[6]);
+dst.u8[7] = min(a.u8[7], b.u8[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pminub (s, t);
+return __builtin_loongson_pminub (a, b);
 ```
 

@@ -1,13 +1,13 @@
 # Logical
 
-Generated from `include/loongson-asxintrin.h`. This page contains 23 intrinsics.
+Generated from `include/loongson-asxintrin.h`. This page contains 17 intrinsics.
 
-## __m256i __lasx_mxand_v (__m256i _1, __m256i _2)
+## __m256i __lasx_mxand_v (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxand_v (__m256i _1, __m256i _2)
+__m256i __lasx_mxand_v (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxand.v
 Builtin: __builtin_lasx_mxand_v
@@ -18,31 +18,38 @@ Source: include/loongson-asxintrin.h:1812
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise AND across the whole vector; immediate forms AND each byte with the immediate mask.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxand.v.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-b = _2;
 dst.bits = a.bits & (imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxand_v((v32u8)_1, (v32u8)_2);
+return (__m256i)__builtin_lasx_mxand_v((v32u8)a, (v32u8)b);
 ```
 
-## __m256i __lasx_mxandi_b (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxandi_b (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxandi_b (__m256i _1, unsigned char _2)
+__m256i __lasx_mxandi_b (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxandi.b
 Builtin: __builtin_lasx_mxandi_b
@@ -53,31 +60,38 @@ Source: include/loongson-asxintrin.h:1818
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise AND across the whole vector; immediate forms AND each byte with the immediate mask.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxandi.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-imm = _2;
 dst.bits = a.bits & (imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxandi_b(_1, _2) ((__m256i)__builtin_lasx_mxandi_b((v32u8)(_1), (_2)))
+#define __lasx_mxandi_b(a, imm) ((__m256i)__builtin_lasx_mxandi_b((v32u8)(a), (imm)))
 ```
 
-## __m256i __lasx_mxbmnz_v (__m256i _1, __m256i _2, __m256i _3)
+## __m256i __lasx_mxbmnz_v (__m256i a, __m256i b, __m256i c)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxbmnz_v (__m256i _1, __m256i _2, __m256i _3)
+__m256i __lasx_mxbmnz_v (__m256i a, __m256i b, __m256i c)
 #include <loongson-asxintrin.h>
 Instruction: mxbmnz.v
 Builtin: __builtin_lasx_mxbmnz_v
@@ -88,31 +102,38 @@ Source: include/loongson-asxintrin.h:1844
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use `a` as a bit mask and keep bits from `b` only where the mask bit is one; other bits become zero.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxbmnz.v.
-// Operand order follows the intrinsic arguments in the header.
-a = _1;
-b = _2;
-c = _3;
 dst.bits = select_bits(mask=a, true_value=b, false_value=0);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxbmnz_v((v32u8)_1, (v32u8)_2, (v32u8)_3);
+return (__m256i)__builtin_lasx_mxbmnz_v((v32u8)a, (v32u8)b, (v32u8)c);
 ```
 
-## __m256i __lasx_mxbmnzi_b (__m256i _1, __m256i _2, unsigned char _3)
+## __m256i __lasx_mxbmnzi_b (__m256i a, __m256i b, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxbmnzi_b (__m256i _1, __m256i _2, unsigned char _3)
+__m256i __lasx_mxbmnzi_b (__m256i a, __m256i b, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxbmnzi.b
 Builtin: __builtin_lasx_mxbmnzi_b
@@ -123,32 +144,38 @@ Source: include/loongson-asxintrin.h:1850
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use `a` as a bit mask and keep bits from `b` only where the mask bit is one; other bits become zero.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxbmnzi.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-b = _2;
-imm = _3;
 dst.bits = select_bits(mask=a, true_value=b, false_value=0);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxbmnzi_b(_1, _2, _3) ((__m256i)__builtin_lasx_mxbmnzi_b((v32u8)(_1), (v32u8)(_2), (_3)))
+#define __lasx_mxbmnzi_b(a, b, imm) ((__m256i)__builtin_lasx_mxbmnzi_b((v32u8)(a), (v32u8)(b), (imm)))
 ```
 
-## __m256i __lasx_mxbmz_v (__m256i _1, __m256i _2, __m256i _3)
+## __m256i __lasx_mxbmz_v (__m256i a, __m256i b, __m256i c)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxbmz_v (__m256i _1, __m256i _2, __m256i _3)
+__m256i __lasx_mxbmz_v (__m256i a, __m256i b, __m256i c)
 #include <loongson-asxintrin.h>
 Instruction: mxbmz.v
 Builtin: __builtin_lasx_mxbmz_v
@@ -159,31 +186,38 @@ Source: include/loongson-asxintrin.h:1852
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use `a` as a bit mask and keep bits from `b` only where the mask bit is zero; masked bits become zero.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxbmz.v.
-// Operand order follows the intrinsic arguments in the header.
-a = _1;
-b = _2;
-c = _3;
 dst.bits = select_bits(mask=a, true_value=0, false_value=b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxbmz_v((v32u8)_1, (v32u8)_2, (v32u8)_3);
+return (__m256i)__builtin_lasx_mxbmz_v((v32u8)a, (v32u8)b, (v32u8)c);
 ```
 
-## __m256i __lasx_mxbmzi_b (__m256i _1, __m256i _2, unsigned char _3)
+## __m256i __lasx_mxbmzi_b (__m256i a, __m256i b, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxbmzi_b (__m256i _1, __m256i _2, unsigned char _3)
+__m256i __lasx_mxbmzi_b (__m256i a, __m256i b, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxbmzi.b
 Builtin: __builtin_lasx_mxbmzi_b
@@ -194,24 +228,30 @@ Source: include/loongson-asxintrin.h:1858
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use `a` as a bit mask and keep bits from `b` only where the mask bit is zero; masked bits become zero.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxbmzi.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-b = _2;
-imm = _3;
 dst.bits = select_bits(mask=a, true_value=0, false_value=b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxbmzi_b(_1, _2, _3) ((__m256i)__builtin_lasx_mxbmzi_b((v32u8)(_1), (v32u8)(_2), (_3)))
+#define __lasx_mxbmzi_b(a, b, imm) ((__m256i)__builtin_lasx_mxbmzi_b((v32u8)(a), (v32u8)(b), (imm)))
 ```
 
 ## __m256i __lasx_mxbsel (__m256i a, __m256i b, __m256i c)
@@ -230,15 +270,25 @@ Source: include/loongson-asxintrin.h:4404
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use `a` as a bit mask: choose bits from `c` where the mask bit is one, otherwise from `b`.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxbsel.
-// Operand order follows the intrinsic arguments in the header.
-dst.bits = (a.bits & b.bits) | (~a.bits & c.bits);
+dst.bits = (a.bits & c.bits) | (~a.bits & b.bits);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>0.50/1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -246,12 +296,12 @@ dst.bits = (a.bits & b.bits) | (~a.bits & c.bits);
 return (__m256i) __builtin_lasx_mxbsel ((v32i8) a, (v32i8) b, (v32i8) c);
 ```
 
-## __m256i __lasx_mxbsel_v (__m256i _1, __m256i _2, __m256i _3)
+## __m256i __lasx_mxbsel_v (__m256i a, __m256i b, __m256i c)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxbsel_v (__m256i _1, __m256i _2, __m256i _3)
+__m256i __lasx_mxbsel_v (__m256i a, __m256i b, __m256i c)
 #include <loongson-asxintrin.h>
 Instruction: mxbsel.v
 Builtin: __builtin_lasx_mxbsel_v
@@ -262,31 +312,38 @@ Source: include/loongson-asxintrin.h:1860
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use `a` as a bit mask: choose bits from `c` where the mask bit is one, otherwise from `b`.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxbsel.v.
-// Operand order follows the intrinsic arguments in the header.
-a = _1;
-b = _2;
-c = _3;
-dst.bits = (a.bits & b.bits) | (~a.bits & c.bits);
+dst.bits = (a.bits & c.bits) | (~a.bits & b.bits);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxbsel_v((v32u8)_1, (v32u8)_2, (v32u8)_3);
+return (__m256i)__builtin_lasx_mxbsel_v((v32u8)a, (v32u8)b, (v32u8)c);
 ```
 
-## __m256i __lasx_mxbseli_b (__m256i _1, __m256i _2, unsigned char _3)
+## __m256i __lasx_mxbseli_b (__m256i a, __m256i b, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxbseli_b (__m256i _1, __m256i _2, unsigned char _3)
+__m256i __lasx_mxbseli_b (__m256i a, __m256i b, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxbseli.b
 Builtin: __builtin_lasx_mxbseli_b
@@ -297,32 +354,38 @@ Source: include/loongson-asxintrin.h:1866
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use `a` as a bit mask: choose bits from `c` where the mask bit is one, otherwise from `b`.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxbseli.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-b = _2;
-imm = _3;
-dst.bits = (a.bits & b.bits) | (~a.bits & c.bits);
+dst.bits = (a.bits & c.bits) | (~a.bits & b.bits);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxbseli_b(_1, _2, _3) ((__m256i)__builtin_lasx_mxbseli_b((v32u8)(_1), (v32u8)(_2), (_3)))
+#define __lasx_mxbseli_b(a, b, imm) ((__m256i)__builtin_lasx_mxbseli_b((v32u8)(a), (v32u8)(b), (imm)))
 ```
 
-## __m256i __lasx_mxnor_v (__m256i _1, __m256i _2)
+## __m256i __lasx_mxnor_v (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxnor_v (__m256i _1, __m256i _2)
+__m256i __lasx_mxnor_v (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxnor.v
 Builtin: __builtin_lasx_mxnor_v
@@ -333,30 +396,38 @@ Source: include/loongson-asxintrin.h:1828
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise NOR across the whole vector, producing the inverse of OR.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxnor.v.
-// Operand order follows the intrinsic arguments in the header.
-a = _1;
-b = _2;
 dst.bits = ~(a.bits | imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxnor_v((v32u8)_1, (v32u8)_2);
+return (__m256i)__builtin_lasx_mxnor_v((v32u8)a, (v32u8)b);
 ```
 
-## __m256i __lasx_mxnori_b (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxnori_b (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxnori_b (__m256i _1, unsigned char _2)
+__m256i __lasx_mxnori_b (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxnori.b
 Builtin: __builtin_lasx_mxnori_b
@@ -367,31 +438,38 @@ Source: include/loongson-asxintrin.h:1834
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise NOR across the whole vector, producing the inverse of OR.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxnori.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-imm = _2;
 dst.bits = ~(a.bits | imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxnori_b(_1, _2) ((__m256i)__builtin_lasx_mxnori_b((v32u8)(_1), (_2)))
+#define __lasx_mxnori_b(a, imm) ((__m256i)__builtin_lasx_mxnori_b((v32u8)(a), (imm)))
 ```
 
-## __m256i __lasx_mxor_v (__m256i _1, __m256i _2)
+## __m256i __lasx_mxor_v (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxor_v (__m256i _1, __m256i _2)
+__m256i __lasx_mxor_v (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxor.v
 Builtin: __builtin_lasx_mxor_v
@@ -402,30 +480,38 @@ Source: include/loongson-asxintrin.h:1820
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise OR across the whole vector; immediate forms OR each byte with the immediate mask.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxor.v.
-// Operand order follows the intrinsic arguments in the header.
-a = _1;
-b = _2;
 dst.bits = a.bits | (imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxor_v((v32u8)_1, (v32u8)_2);
+return (__m256i)__builtin_lasx_mxor_v((v32u8)a, (v32u8)b);
 ```
 
-## __m256i __lasx_mxori_b (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxori_b (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxori_b (__m256i _1, unsigned char _2)
+__m256i __lasx_mxori_b (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxori.b
 Builtin: __builtin_lasx_mxori_b
@@ -436,31 +522,38 @@ Source: include/loongson-asxintrin.h:1826
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise OR across the whole vector; immediate forms OR each byte with the immediate mask.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxori.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-imm = _2;
 dst.bits = a.bits | (imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxori_b(_1, _2) ((__m256i)__builtin_lasx_mxori_b((v32u8)(_1), (_2)))
+#define __lasx_mxori_b(a, imm) ((__m256i)__builtin_lasx_mxori_b((v32u8)(a), (imm)))
 ```
 
-## __m256i __lasx_mxvandn_v (__m256i _1, __m256i _2)
+## __m256i __lasx_mxvandn_v (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxvandn_v (__m256i _1, __m256i _2)
+__m256i __lasx_mxvandn_v (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxvandn.v
 Builtin: __builtin_lasx_mxvandn_v
@@ -471,249 +564,38 @@ Source: include/loongson-asxintrin.h:2795
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear bits from `b` wherever `a` has one bits, i.e. compute `b & ~a` across the whole vector.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxvandn.v.
-// Operand order follows the intrinsic arguments in the header.
-a = _1;
-b = _2;
 dst.bits = b.bits & ~a.bits;
 ```
 
-### Header Mapping
+### Latency and Throughput
 
-```c
-return (__m256i)__builtin_lasx_mxvandn_v((v32u8)_1, (v32u8)_2);
-```
-
-## __m256i __lasx_mxvmultp_hxor_adj2_w2x_d (__m256i a, __m256i b)
-
-### Synopsis
-
-```c
-__m256i __lasx_mxvmultp_hxor_adj2_w2x_d (__m256i a, __m256i b)
-#include <loongson-asxintrin.h>
-Instruction: mxvmultp.hxor.adj2.w2x.d
-Builtin: __builtin_lasx_mxvmultp_hxor_adj2_w2x_d
-CPU Flags: __mips_loongson_asx
-Kind: function
-Source: include/loongson-asxintrin.h:9373
-```
-
-### Description
-
-Compute lane-wise modular integer arithmetic on 4 x 64-bit dword lanes over widened output lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
-
-### Operation
-
-```c
-// Inferred semantics for mxvmultp.hxor.adj2.w2x.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-source_lanes = number_of_input_lanes;
-for each produced wide lane i:
-  j = i;
-  wide_result = widen(a.dword[j]) * widen(b.dword[j]);
-  dst.wide_lane[i] = wide_result;
-```
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxvmultp_hxor_adj2_w2x_d((v4i64) a, (v4i64) b);
+return (__m256i)__builtin_lasx_mxvandn_v((v32u8)a, (v32u8)b);
 ```
 
-## __m256i __lasx_mxvmultp_hxor_adj2_xacc_w2x_d (__m256i ret, __m256i a, __m256i b)
+## __m256i __lasx_mxxor_v (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxvmultp_hxor_adj2_xacc_w2x_d (__m256i ret, __m256i a, __m256i b)
-#include <loongson-asxintrin.h>
-Instruction: mxvmultp.hxor.adj2.xacc.w2x.d
-Builtin: __builtin_lasx_mxvmultp_hxor_adj2_xacc_w2x_d
-CPU Flags: __mips_loongson_asx
-Kind: function
-Source: include/loongson-asxintrin.h:9393
-```
-
-### Description
-
-Compute lane-wise modular integer arithmetic on 4 x 64-bit dword lanes over widened output lanes and accumulation into the first operand. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
-
-### Operation
-
-```c
-// Inferred semantics for mxvmultp.hxor.adj2.xacc.w2x.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-acc = ret;
-source_lanes = number_of_input_lanes;
-for each produced wide lane i:
-  j = i;
-  wide_result = widen(a.dword[j]) * widen(b.dword[j]);
-  dst.wide_lane[i] = acc.wide_lane[i] + wide_result;
-```
-
-### Header Mapping
-
-```c
-return (__m256i)__builtin_lasx_mxvmultp_hxor_adj2_xacc_w2x_d((v4i64) ret, (v4i64) a, (v4i64) b);
-```
-
-## __m256i __lasx_mxvrandsigni_b (__m256i _1, __m256i _2, unsigned char _3)
-
-### Synopsis
-
-```c
-__m256i __lasx_mxvrandsigni_b (__m256i _1, __m256i _2, unsigned char _3)
-#include <loongson-asxintrin.h>
-Instruction: mxvrandsigni.b
-Builtin: __builtin_lasx_mxvrandsigni_b
-CPU Flags: __mips_loongson_asx
-Kind: macro
-Source: include/loongson-asxintrin.h:3547
-```
-
-### Description
-
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
-
-### Operation
-
-```c
-// Inferred semantics for mxvrandsigni.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-b = _2;
-imm = _3;
-dst.bits = a.bits & (imm_or_b);
-```
-
-### Header Mapping
-
-```c
-#define __lasx_mxvrandsigni_b(_1, _2, _3) ((__m256i)__builtin_lasx_mxvrandsigni_b((v32i8)(_1), (v32i8)(_2), (_3)))
-```
-
-## __m256i __lasx_mxvrandsigni_h (__m256i _1, __m256i _2, unsigned char _3)
-
-### Synopsis
-
-```c
-__m256i __lasx_mxvrandsigni_h (__m256i _1, __m256i _2, unsigned char _3)
-#include <loongson-asxintrin.h>
-Instruction: mxvrandsigni.h
-Builtin: __builtin_lasx_mxvrandsigni_h
-CPU Flags: __mips_loongson_asx
-Kind: macro
-Source: include/loongson-asxintrin.h:3546
-```
-
-### Description
-
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
-
-### Operation
-
-```c
-// Inferred semantics for mxvrandsigni.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-b = _2;
-imm = _3;
-dst.bits = a.bits & (imm_or_b);
-```
-
-### Header Mapping
-
-```c
-#define __lasx_mxvrandsigni_h(_1, _2, _3) ((__m256i)__builtin_lasx_mxvrandsigni_h((v16i16)(_1), (v16i16)(_2), (_3)))
-```
-
-## __m256i __lasx_mxvrandsignv_b (__m256i _1, __m256i _2, __m256i _3)
-
-### Synopsis
-
-```c
-__m256i __lasx_mxvrandsignv_b (__m256i _1, __m256i _2, __m256i _3)
-#include <loongson-asxintrin.h>
-Instruction: mxvrandsignv.b
-Builtin: __builtin_lasx_mxvrandsignv_b
-CPU Flags: __mips_loongson_asx
-Kind: function
-Source: include/loongson-asxintrin.h:3570
-```
-
-### Description
-
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
-
-### Operation
-
-```c
-// Inferred semantics for mxvrandsignv.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-b = _2;
-c = _3;
-dst.bits = a.bits & (imm_or_b);
-```
-
-### Header Mapping
-
-```c
-return (__m256i)__builtin_lasx_mxvrandsignv_b((v32i8)_1, (v32i8)_2, (v32i8)_3);
-```
-
-## __m256i __lasx_mxvrandsignv_h (__m256i _1, __m256i _2, __m256i _3)
-
-### Synopsis
-
-```c
-__m256i __lasx_mxvrandsignv_h (__m256i _1, __m256i _2, __m256i _3)
-#include <loongson-asxintrin.h>
-Instruction: mxvrandsignv.h
-Builtin: __builtin_lasx_mxvrandsignv_h
-CPU Flags: __mips_loongson_asx
-Kind: function
-Source: include/loongson-asxintrin.h:3563
-```
-
-### Description
-
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
-
-### Operation
-
-```c
-// Inferred semantics for mxvrandsignv.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-b = _2;
-c = _3;
-dst.bits = a.bits & (imm_or_b);
-```
-
-### Header Mapping
-
-```c
-return (__m256i)__builtin_lasx_mxvrandsignv_h((v16i16)_1, (v16i16)_2, (v16i16)_3);
-```
-
-## __m256i __lasx_mxxor_v (__m256i _1, __m256i _2)
-
-### Synopsis
-
-```c
-__m256i __lasx_mxxor_v (__m256i _1, __m256i _2)
+__m256i __lasx_mxxor_v (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxxor.v
 Builtin: __builtin_lasx_mxxor_v
@@ -724,30 +606,38 @@ Source: include/loongson-asxintrin.h:1836
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise XOR across the whole vector; immediate forms XOR each byte with the immediate mask.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxxor.v.
-// Operand order follows the intrinsic arguments in the header.
-a = _1;
-b = _2;
 dst.bits = a.bits ^ (imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxxor_v((v32u8)_1, (v32u8)_2);
+return (__m256i)__builtin_lasx_mxxor_v((v32u8)a, (v32u8)b);
 ```
 
-## __m256i __lasx_mxxori_b (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxxori_b (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxxori_b (__m256i _1, unsigned char _2)
+__m256i __lasx_mxxori_b (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxxori.b
 Builtin: __builtin_lasx_mxxori_b
@@ -758,31 +648,38 @@ Source: include/loongson-asxintrin.h:1842
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise XOR across the whole vector; immediate forms XOR each byte with the immediate mask.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxxori.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-imm = _2;
 dst.bits = a.bits ^ (imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxxori_b(_1, _2) ((__m256i)__builtin_lasx_mxxori_b((v32u8)(_1), (_2)))
+#define __lasx_mxxori_b(a, imm) ((__m256i)__builtin_lasx_mxxori_b((v32u8)(a), (imm)))
 ```
 
-## __m256i __lasx_xxor_v (__m256i _1, __m256i _2)
+## __m256i __lasx_xxor_v (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_xxor_v (__m256i _1, __m256i _2)
+__m256i __lasx_xxor_v (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: xxor.v
 Builtin: __builtin_lasx_xxor_v
@@ -793,21 +690,29 @@ Source: include/loongson-asxintrin.h:4150
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise XOR across the whole vector; immediate forms XOR each byte with the immediate mask.
 
 ### Operation
 
 ```c
-// Inferred semantics for xxor.v.
-// Operand order follows the intrinsic arguments in the header.
-a = _1;
-b = _2;
 dst.bits = a.bits ^ (imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_xxor_v((v32i8)_1, (v32i8)_2);
+return (__m256i)__builtin_lasx_xxor_v((v32i8)a, (v32i8)b);
 ```
 

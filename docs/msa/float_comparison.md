@@ -18,17 +18,26 @@ Source: include/msa.h:466
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcaf.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_af(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_af(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_af(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -52,17 +61,28 @@ Source: include/msa.h:465
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcaf.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_af(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_af(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_af(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_af(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_af(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -86,17 +106,26 @@ Source: include/msa.h:476
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fceq.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_eq(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_eq(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_eq(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -120,17 +149,28 @@ Source: include/msa.h:475
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fceq.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_eq(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_eq(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_eq(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_eq(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_eq(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -154,17 +194,26 @@ Source: include/msa.h:484
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcle.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_le(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_le(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_le(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -188,17 +237,28 @@ Source: include/msa.h:483
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcle.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_le(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_le(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_le(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_le(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_le(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -222,17 +282,26 @@ Source: include/msa.h:480
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fclt.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_lt(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_lt(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_lt(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -256,17 +325,28 @@ Source: include/msa.h:479
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fclt.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_lt(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_lt(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_lt(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_lt(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_lt(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -290,17 +370,26 @@ Source: include/msa.h:478
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcne.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_ne(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_ne(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_ne(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -324,17 +413,28 @@ Source: include/msa.h:477
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcne.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_ne(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_ne(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_ne(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_ne(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_ne(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -358,17 +458,26 @@ Source: include/msa.h:468
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcor.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_or(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_or(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_or(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -392,17 +501,28 @@ Source: include/msa.h:467
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcor.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_or(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_or(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_or(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_or(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_or(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -426,17 +546,26 @@ Source: include/msa.h:474
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcueq.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_ueq(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_ueq(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_ueq(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -460,17 +589,28 @@ Source: include/msa.h:473
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcueq.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_ueq(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_ueq(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_ueq(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_ueq(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_ueq(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -494,17 +634,26 @@ Source: include/msa.h:486
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcule.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_ule(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_ule(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_ule(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -528,17 +677,28 @@ Source: include/msa.h:485
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcule.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_ule(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_ule(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_ule(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_ule(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_ule(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -562,17 +722,26 @@ Source: include/msa.h:482
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcult.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_ult(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_ult(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_ult(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -596,17 +765,28 @@ Source: include/msa.h:481
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcult.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_ult(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_ult(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_ult(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_ult(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_ult(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -630,17 +810,26 @@ Source: include/msa.h:470
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcun.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_un(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_un(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_un(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -664,17 +853,28 @@ Source: include/msa.h:469
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcun.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_un(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_un(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_un(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_un(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_un(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -698,17 +898,26 @@ Source: include/msa.h:472
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcune.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_une(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_une(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_une(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -732,17 +941,28 @@ Source: include/msa.h:471
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fcune.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_une(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_une(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_une(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_une(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_une(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -766,17 +986,26 @@ Source: include/msa.h:488
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsaf.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_fsaf(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsaf(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsaf(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -800,17 +1029,28 @@ Source: include/msa.h:487
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsaf.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_fsaf(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsaf(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsaf(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_fsaf(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_fsaf(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -834,17 +1074,26 @@ Source: include/msa.h:498
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fseq.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_fseq(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fseq(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fseq(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -868,17 +1117,28 @@ Source: include/msa.h:497
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fseq.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_fseq(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fseq(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fseq(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_fseq(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_fseq(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -902,17 +1162,26 @@ Source: include/msa.h:506
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsle.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_fsle(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsle(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsle(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -936,17 +1205,28 @@ Source: include/msa.h:505
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsle.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_fsle(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsle(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsle(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_fsle(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_fsle(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -970,17 +1250,26 @@ Source: include/msa.h:502
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fslt.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_fslt(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fslt(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fslt(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1004,17 +1293,28 @@ Source: include/msa.h:501
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fslt.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_fslt(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fslt(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fslt(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_fslt(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_fslt(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1038,17 +1338,26 @@ Source: include/msa.h:500
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsne.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_fsne(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsne(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsne(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1072,17 +1381,28 @@ Source: include/msa.h:499
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsne.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_fsne(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsne(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsne(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_fsne(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_fsne(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1106,17 +1426,26 @@ Source: include/msa.h:490
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsor.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_fsor(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsor(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsor(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1140,17 +1469,28 @@ Source: include/msa.h:489
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsor.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_fsor(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsor(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsor(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_fsor(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_fsor(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1174,17 +1514,26 @@ Source: include/msa.h:496
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsueq.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_fsueq(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsueq(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsueq(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1208,17 +1557,28 @@ Source: include/msa.h:495
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsueq.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_fsueq(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsueq(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsueq(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_fsueq(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_fsueq(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1242,17 +1602,26 @@ Source: include/msa.h:508
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsule.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_fsule(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsule(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsule(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1276,17 +1645,28 @@ Source: include/msa.h:507
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsule.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_fsule(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsule(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsule(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_fsule(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_fsule(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1310,17 +1690,26 @@ Source: include/msa.h:504
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsult.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_fsult(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsult(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsult(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1344,17 +1733,28 @@ Source: include/msa.h:503
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsult.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_fsult(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsult(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsult(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_fsult(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_fsult(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1378,17 +1778,26 @@ Source: include/msa.h:492
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsun.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_fsun(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsun(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsun(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1412,17 +1821,28 @@ Source: include/msa.h:491
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsun.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_fsun(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsun(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsun(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_fsun(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_fsun(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1446,17 +1866,26 @@ Source: include/msa.h:494
 
 ### Description
 
-Compare floating-point 2 x 64-bit dword lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 2 x fp64 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsune.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.mask[i] = fp_compare_fsune(a.fp64[i], b.fp64[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsune(a.fp64[0], b.fp64[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsune(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1480,17 +1909,28 @@ Source: include/msa.h:493
 
 ### Description
 
-Compare floating-point 4 x 32-bit word lanes and produce all-ones/all-zero mask elements. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare floating-point 4 x fp32 lanes and produce all-ones/all-zero mask elements.
 
 ### Operation
 
 ```c
-// Inferred semantics for fsune.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.mask[i] = fp_compare_fsune(a.fp32[i], b.fp32[i]) ? all_ones : 0;
+dst.mask[0] = fp_compare_fsune(a.fp32[0], b.fp32[0]) ? all_ones : 0;
+dst.mask[1] = fp_compare_fsune(a.fp32[1], b.fp32[1]) ? all_ones : 0;
+dst.mask[2] = fp_compare_fsune(a.fp32[2], b.fp32[2]) ? all_ones : 0;
+dst.mask[3] = fp_compare_fsune(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 

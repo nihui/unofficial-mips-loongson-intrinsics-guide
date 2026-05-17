@@ -1,6 +1,6 @@
 import pathlib
 
-from main import EXTENSIONS, ROOT, parse_header
+from main import EXTENSIONS, ROOT, display_signature, parse_header
 
 
 def main() -> int:
@@ -12,8 +12,9 @@ def main() -> int:
         entries = parse_header(ext)
         total += len(entries)
         for entry in entries:
-            if f"## {entry.signature}" not in docs:
-                missing.append(entry.signature)
+            signature = display_signature(entry)
+            if f"## {signature}" not in docs:
+                missing.append(signature)
 
     for item in missing:
         print("Missing:", item)

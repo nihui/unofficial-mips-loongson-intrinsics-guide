@@ -18,16 +18,25 @@ Source: include/msa.h:402
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise AND across the whole vector; immediate forms AND each byte with the immediate mask.
 
 ### Operation
 
 ```c
-// Inferred semantics for and.v.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
 dst.bits = a.bits & (imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -35,12 +44,12 @@ dst.bits = a.bits & (imm_or_b);
 #define __msa_and_v __builtin_msa_and_v
 ```
 
-## v16u8 __msa_andi_b (v16u8 a, int imm0_255)
+## v16u8 __msa_andi_b (v16u8 a, int imm)
 
 ### Synopsis
 
 ```c
-v16u8 __msa_andi_b (v16u8 a, int imm0_255)
+v16u8 __msa_andi_b (v16u8 a, int imm)
 #include <msa.h>
 Instruction: andi.b
 Builtin: __builtin_msa_andi_b
@@ -51,17 +60,25 @@ Source: include/msa.h:403
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise AND across the whole vector; immediate forms AND each byte with the immediate mask.
 
 ### Operation
 
 ```c
-// Inferred semantics for andi.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_255;
 dst.bits = a.bits & (imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -85,13 +102,11 @@ Source: include/msa.h:410
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use `a` as a bit mask and keep bits from `b` only where the mask bit is one; other bits become zero.
 
 ### Operation
 
 ```c
-// Inferred semantics for bmnz.v.
-// Operand order follows the intrinsic arguments in the header.
 dst.bits = select_bits(mask=a, true_value=b, false_value=0);
 ```
 
@@ -101,12 +116,12 @@ dst.bits = select_bits(mask=a, true_value=b, false_value=0);
 #define __msa_bmnz_v __builtin_msa_bmnz_v
 ```
 
-## v16u8 __msa_bmnzi_b (v16u8 a, v16u8 b, int imm0_255)
+## v16u8 __msa_bmnzi_b (v16u8 a, v16u8 b, int imm)
 
 ### Synopsis
 
 ```c
-v16u8 __msa_bmnzi_b (v16u8 a, v16u8 b, int imm0_255)
+v16u8 __msa_bmnzi_b (v16u8 a, v16u8 b, int imm)
 #include <msa.h>
 Instruction: bmnzi.b
 Builtin: __builtin_msa_bmnzi_b
@@ -117,15 +132,11 @@ Source: include/msa.h:411
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use `a` as a bit mask and keep bits from `b` only where the mask bit is one; other bits become zero.
 
 ### Operation
 
 ```c
-// Inferred semantics for bmnzi.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_255;
 dst.bits = select_bits(mask=a, true_value=b, false_value=0);
 ```
 
@@ -151,13 +162,11 @@ Source: include/msa.h:412
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use `a` as a bit mask and keep bits from `b` only where the mask bit is zero; masked bits become zero.
 
 ### Operation
 
 ```c
-// Inferred semantics for bmz.v.
-// Operand order follows the intrinsic arguments in the header.
 dst.bits = select_bits(mask=a, true_value=0, false_value=b);
 ```
 
@@ -167,12 +176,12 @@ dst.bits = select_bits(mask=a, true_value=0, false_value=b);
 #define __msa_bmz_v __builtin_msa_bmz_v
 ```
 
-## v16u8 __msa_bmzi_b (v16u8 a, v16u8 b, int imm0_255)
+## v16u8 __msa_bmzi_b (v16u8 a, v16u8 b, int imm)
 
 ### Synopsis
 
 ```c
-v16u8 __msa_bmzi_b (v16u8 a, v16u8 b, int imm0_255)
+v16u8 __msa_bmzi_b (v16u8 a, v16u8 b, int imm)
 #include <msa.h>
 Instruction: bmzi.b
 Builtin: __builtin_msa_bmzi_b
@@ -183,15 +192,11 @@ Source: include/msa.h:413
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use `a` as a bit mask and keep bits from `b` only where the mask bit is zero; masked bits become zero.
 
 ### Operation
 
 ```c
-// Inferred semantics for bmzi.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_255;
 dst.bits = select_bits(mask=a, true_value=0, false_value=b);
 ```
 
@@ -217,14 +222,12 @@ Source: include/msa.h:414
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use `a` as a bit mask: choose bits from `c` where the mask bit is one, otherwise from `b`.
 
 ### Operation
 
 ```c
-// Inferred semantics for bsel.v.
-// Operand order follows the intrinsic arguments in the header.
-dst.bits = (a.bits & b.bits) | (~a.bits & c.bits);
+dst.bits = (a.bits & c.bits) | (~a.bits & b.bits);
 ```
 
 ### Header Mapping
@@ -233,12 +236,12 @@ dst.bits = (a.bits & b.bits) | (~a.bits & c.bits);
 #define __msa_bsel_v __builtin_msa_bsel_v
 ```
 
-## v16u8 __msa_bseli_b (v16u8 a, v16u8 b, int imm0_255)
+## v16u8 __msa_bseli_b (v16u8 a, v16u8 b, int imm)
 
 ### Synopsis
 
 ```c
-v16u8 __msa_bseli_b (v16u8 a, v16u8 b, int imm0_255)
+v16u8 __msa_bseli_b (v16u8 a, v16u8 b, int imm)
 #include <msa.h>
 Instruction: bseli.b
 Builtin: __builtin_msa_bseli_b
@@ -249,16 +252,12 @@ Source: include/msa.h:415
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use `a` as a bit mask: choose bits from `c` where the mask bit is one, otherwise from `b`.
 
 ### Operation
 
 ```c
-// Inferred semantics for bseli.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_255;
-dst.bits = (a.bits & b.bits) | (~a.bits & c.bits);
+dst.bits = (a.bits & c.bits) | (~a.bits & b.bits);
 ```
 
 ### Header Mapping
@@ -283,15 +282,25 @@ Source: include/msa.h:406
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise NOR across the whole vector, producing the inverse of OR.
 
 ### Operation
 
 ```c
-// Inferred semantics for nor.v.
-// Operand order follows the intrinsic arguments in the header.
 dst.bits = ~(a.bits | imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -299,12 +308,12 @@ dst.bits = ~(a.bits | imm_or_b);
 #define __msa_nor_v __builtin_msa_nor_v
 ```
 
-## v16u8 __msa_nori_b (v16u8 a, int imm0_255)
+## v16u8 __msa_nori_b (v16u8 a, int imm)
 
 ### Synopsis
 
 ```c
-v16u8 __msa_nori_b (v16u8 a, int imm0_255)
+v16u8 __msa_nori_b (v16u8 a, int imm)
 #include <msa.h>
 Instruction: nori.b
 Builtin: __builtin_msa_nori_b
@@ -315,17 +324,25 @@ Source: include/msa.h:407
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise NOR across the whole vector, producing the inverse of OR.
 
 ### Operation
 
 ```c
-// Inferred semantics for nori.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_255;
 dst.bits = ~(a.bits | imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -349,15 +366,25 @@ Source: include/msa.h:404
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise OR across the whole vector; immediate forms OR each byte with the immediate mask.
 
 ### Operation
 
 ```c
-// Inferred semantics for or.v.
-// Operand order follows the intrinsic arguments in the header.
 dst.bits = a.bits | (imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -365,12 +392,12 @@ dst.bits = a.bits | (imm_or_b);
 #define __msa_or_v __builtin_msa_or_v
 ```
 
-## v16u8 __msa_ori_b (v16u8 a, int imm0_255)
+## v16u8 __msa_ori_b (v16u8 a, int imm)
 
 ### Synopsis
 
 ```c
-v16u8 __msa_ori_b (v16u8 a, int imm0_255)
+v16u8 __msa_ori_b (v16u8 a, int imm)
 #include <msa.h>
 Instruction: ori.b
 Builtin: __builtin_msa_ori_b
@@ -381,17 +408,25 @@ Source: include/msa.h:405
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise OR across the whole vector; immediate forms OR each byte with the immediate mask.
 
 ### Operation
 
 ```c
-// Inferred semantics for ori.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_255;
 dst.bits = a.bits | (imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -415,15 +450,25 @@ Source: include/msa.h:408
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise XOR across the whole vector; immediate forms XOR each byte with the immediate mask.
 
 ### Operation
 
 ```c
-// Inferred semantics for xor.v.
-// Operand order follows the intrinsic arguments in the header.
-dst.bits = a.bits | (imm_or_b);
+dst.bits = a.bits ^ (imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -431,12 +476,12 @@ dst.bits = a.bits | (imm_or_b);
 #define __msa_xor_v __builtin_msa_xor_v
 ```
 
-## v16u8 __msa_xori_b (v16u8 a, int imm0_255)
+## v16u8 __msa_xori_b (v16u8 a, int imm)
 
 ### Synopsis
 
 ```c
-v16u8 __msa_xori_b (v16u8 a, int imm0_255)
+v16u8 __msa_xori_b (v16u8 a, int imm)
 #include <msa.h>
 Instruction: xori.b
 Builtin: __builtin_msa_xori_b
@@ -447,17 +492,25 @@ Source: include/msa.h:409
 
 ### Description
 
-Perform bitwise logical selection or logical operation across the full vector. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute bitwise XOR across the whole vector; immediate forms XOR each byte with the immediate mask.
 
 ### Operation
 
 ```c
-// Inferred semantics for xori.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_255;
-dst.bits = a.bits | (imm_or_b);
+dst.bits = a.bits ^ (imm_or_b);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 

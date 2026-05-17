@@ -2,12 +2,12 @@
 
 Generated from `include/loongson-mmiintrin.h`. This page contains 27 intrinsics.
 
-## int8x8_t packsshb (int16x4_t s, int16x4_t t)
+## int8x8_t packsshb (int16x4_t a, int16x4_t b)
 
 ### Synopsis
 
 ```c
-int8x8_t packsshb (int16x4_t s, int16x4_t t)
+int8x8_t packsshb (int16x4_t a, int16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: packsshb
 Builtin: __builtin_loongson_packsshb
@@ -18,33 +18,45 @@ Source: include/loongson-mmiintrin.h:63
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Pack wider u16 elements from the concatenated sources into narrower u8 elements with signed saturation. This is used before storing or continuing with narrower packed data.
 
 ### Operation
 
 ```c
-// Inferred semantics for packsshb.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 8-bit elements.
-a = s;
-b = t;
-sources = concatenate_lanes(a, b);
-for each destination byte lane i:
-  dst.byte[i] = signed_saturate(sources.half[i], bit_width(byte));
+dst.i8[0] = signed_saturate(concatenate_lanes(a, b).i16[0], bit_width(i8));
+dst.i8[1] = signed_saturate(concatenate_lanes(a, b).i16[1], bit_width(i8));
+dst.i8[2] = signed_saturate(concatenate_lanes(a, b).i16[2], bit_width(i8));
+dst.i8[3] = signed_saturate(concatenate_lanes(a, b).i16[3], bit_width(i8));
+dst.i8[4] = signed_saturate(concatenate_lanes(a, b).i16[4], bit_width(i8));
+dst.i8[5] = signed_saturate(concatenate_lanes(a, b).i16[5], bit_width(i8));
+dst.i8[6] = signed_saturate(concatenate_lanes(a, b).i16[6], bit_width(i8));
+dst.i8[7] = signed_saturate(concatenate_lanes(a, b).i16[7], bit_width(i8));
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_packsshb (s, t);
+return __builtin_loongson_packsshb (a, b);
 ```
 
-## int16x4_t packsswh (int32x2_t s, int32x2_t t)
+## int16x4_t packsswh (int32x2_t a, int32x2_t b)
 
 ### Synopsis
 
 ```c
-int16x4_t packsswh (int32x2_t s, int32x2_t t)
+int16x4_t packsswh (int32x2_t a, int32x2_t b)
 #include <loongson-mmiintrin.h>
 Instruction: packsswh
 Builtin: __builtin_loongson_packsswh
@@ -55,33 +67,41 @@ Source: include/loongson-mmiintrin.h:57
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Pack wider u32 elements from the concatenated sources into narrower u16 elements with signed saturation. This is used before storing or continuing with narrower packed data.
 
 ### Operation
 
 ```c
-// Inferred semantics for packsswh.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
-sources = concatenate_lanes(a, b);
-for each destination half lane i:
-  dst.half[i] = signed_saturate(sources.word[i], bit_width(half));
+dst.i16[0] = signed_saturate(concatenate_lanes(a, b).i32[0], bit_width(i16));
+dst.i16[1] = signed_saturate(concatenate_lanes(a, b).i32[1], bit_width(i16));
+dst.i16[2] = signed_saturate(concatenate_lanes(a, b).i32[2], bit_width(i16));
+dst.i16[3] = signed_saturate(concatenate_lanes(a, b).i32[3], bit_width(i16));
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_packsswh (s, t);
+return __builtin_loongson_packsswh (a, b);
 ```
 
-## uint8x8_t packushb (uint16x4_t s, uint16x4_t t)
+## uint8x8_t packushb (uint16x4_t a, uint16x4_t b)
 
 ### Synopsis
 
 ```c
-uint8x8_t packushb (uint16x4_t s, uint16x4_t t)
+uint8x8_t packushb (uint16x4_t a, uint16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: packushb
 Builtin: __builtin_loongson_packushb
@@ -92,33 +112,45 @@ Source: include/loongson-mmiintrin.h:70
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Pack wider u16 elements from the concatenated sources into narrower u8 elements with unsigned saturation. This is used before storing or continuing with narrower packed data.
 
 ### Operation
 
 ```c
-// Inferred semantics for packushb.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 8-bit elements.
-a = s;
-b = t;
-sources = concatenate_lanes(a, b);
-for each destination byte lane i:
-  dst.byte[i] = unsigned_saturate(sources.half[i], bit_width(byte));
+dst.u8[0] = unsigned_saturate(concatenate_lanes(a, b).u16[0], bit_width(u8));
+dst.u8[1] = unsigned_saturate(concatenate_lanes(a, b).u16[1], bit_width(u8));
+dst.u8[2] = unsigned_saturate(concatenate_lanes(a, b).u16[2], bit_width(u8));
+dst.u8[3] = unsigned_saturate(concatenate_lanes(a, b).u16[3], bit_width(u8));
+dst.u8[4] = unsigned_saturate(concatenate_lanes(a, b).u16[4], bit_width(u8));
+dst.u8[5] = unsigned_saturate(concatenate_lanes(a, b).u16[5], bit_width(u8));
+dst.u8[6] = unsigned_saturate(concatenate_lanes(a, b).u16[6], bit_width(u8));
+dst.u8[7] = unsigned_saturate(concatenate_lanes(a, b).u16[7], bit_width(u8));
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_packushb (s, t);
+return __builtin_loongson_packushb (a, b);
 ```
 
-## int16x4_t pextrh_s (int16x4_t s, int field)
+## int16x4_t pextrh_s (int16x4_t a, int field)
 
 ### Synopsis
 
 ```c
-int16x4_t pextrh_s (int16x4_t s, int field)
+int16x4_t pextrh_s (int16x4_t a, int field)
 #include <loongson-mmiintrin.h>
 Instruction: pextrh.s
 Builtin: __builtin_loongson_pextrh_s
@@ -129,30 +161,26 @@ Source: include/loongson-mmiintrin.h:295
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extract the selected 16-bit lane from the vector and return it as a scalar, useful at vector/scalar boundaries.
 
 ### Operation
 
 ```c
-// Inferred semantics for pextrh.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-return extract_halfword_lane(a, field);
+return extract_u16_lane(a, field);
 ```
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pextrh_s (s, field);
+return __builtin_loongson_pextrh_s (a, field);
 ```
 
-## uint16x4_t pextrh_u (uint16x4_t s, int field)
+## uint16x4_t pextrh_u (uint16x4_t a, int field)
 
 ### Synopsis
 
 ```c
-uint16x4_t pextrh_u (uint16x4_t s, int field)
+uint16x4_t pextrh_u (uint16x4_t a, int field)
 #include <loongson-mmiintrin.h>
 Instruction: pextrh.u
 Builtin: __builtin_loongson_pextrh_u
@@ -163,30 +191,26 @@ Source: include/loongson-mmiintrin.h:289
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Extract the selected 16-bit lane from the vector and return it as a scalar, useful at vector/scalar boundaries.
 
 ### Operation
 
 ```c
-// Inferred semantics for pextrh.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-return extract_halfword_lane(a, field);
+return extract_u16_lane(a, field);
 ```
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pextrh_u (s, field);
+return __builtin_loongson_pextrh_u (a, field);
 ```
 
-## int16x4_t pinsrh_0_s (int16x4_t s, int16x4_t t)
+## int16x4_t pinsrh_0_s (int16x4_t a, int16x4_t b)
 
 ### Synopsis
 
 ```c
-int16x4_t pinsrh_0_s (int16x4_t s, int16x4_t t)
+int16x4_t pinsrh_0_s (int16x4_t a, int16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pinsrh.0.s
 Builtin: __builtin_loongson_pinsrh_0_s
@@ -197,32 +221,39 @@ Source: include/loongson-mmiintrin.h:326
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert the low 16-bit lane from `b` into a fixed lane of `a`, preserving the other lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pinsrh.0.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
 dst = a;
-dst.half[0] = b.half[0];
+dst.u16[0] = b.u16[0];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pinsrh_0_s (s, t);
+return __builtin_loongson_pinsrh_0_s (a, b);
 ```
 
-## uint16x4_t pinsrh_0_u (uint16x4_t s, uint16x4_t t)
+## uint16x4_t pinsrh_0_u (uint16x4_t a, uint16x4_t b)
 
 ### Synopsis
 
 ```c
-uint16x4_t pinsrh_0_u (uint16x4_t s, uint16x4_t t)
+uint16x4_t pinsrh_0_u (uint16x4_t a, uint16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pinsrh.0.u
 Builtin: __builtin_loongson_pinsrh_0_u
@@ -233,32 +264,39 @@ Source: include/loongson-mmiintrin.h:302
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert the low 16-bit lane from `b` into a fixed lane of `a`, preserving the other lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pinsrh.0.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
 dst = a;
-dst.half[0] = b.half[0];
+dst.u16[0] = b.u16[0];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pinsrh_0_u (s, t);
+return __builtin_loongson_pinsrh_0_u (a, b);
 ```
 
-## int16x4_t pinsrh_1_s (int16x4_t s, int16x4_t t)
+## int16x4_t pinsrh_1_s (int16x4_t a, int16x4_t b)
 
 ### Synopsis
 
 ```c
-int16x4_t pinsrh_1_s (int16x4_t s, int16x4_t t)
+int16x4_t pinsrh_1_s (int16x4_t a, int16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pinsrh.1.s
 Builtin: __builtin_loongson_pinsrh_1_s
@@ -269,32 +307,39 @@ Source: include/loongson-mmiintrin.h:332
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert the low 16-bit lane from `b` into a fixed lane of `a`, preserving the other lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pinsrh.1.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
 dst = a;
-dst.half[1] = b.half[0];
+dst.u16[1] = b.u16[0];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pinsrh_1_s (s, t);
+return __builtin_loongson_pinsrh_1_s (a, b);
 ```
 
-## uint16x4_t pinsrh_1_u (uint16x4_t s, uint16x4_t t)
+## uint16x4_t pinsrh_1_u (uint16x4_t a, uint16x4_t b)
 
 ### Synopsis
 
 ```c
-uint16x4_t pinsrh_1_u (uint16x4_t s, uint16x4_t t)
+uint16x4_t pinsrh_1_u (uint16x4_t a, uint16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pinsrh.1.u
 Builtin: __builtin_loongson_pinsrh_1_u
@@ -305,32 +350,39 @@ Source: include/loongson-mmiintrin.h:308
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert the low 16-bit lane from `b` into a fixed lane of `a`, preserving the other lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pinsrh.1.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
 dst = a;
-dst.half[1] = b.half[0];
+dst.u16[1] = b.u16[0];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pinsrh_1_u (s, t);
+return __builtin_loongson_pinsrh_1_u (a, b);
 ```
 
-## int16x4_t pinsrh_2_s (int16x4_t s, int16x4_t t)
+## int16x4_t pinsrh_2_s (int16x4_t a, int16x4_t b)
 
 ### Synopsis
 
 ```c
-int16x4_t pinsrh_2_s (int16x4_t s, int16x4_t t)
+int16x4_t pinsrh_2_s (int16x4_t a, int16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pinsrh.2.s
 Builtin: __builtin_loongson_pinsrh_2_s
@@ -341,32 +393,39 @@ Source: include/loongson-mmiintrin.h:338
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert the low 16-bit lane from `b` into a fixed lane of `a`, preserving the other lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pinsrh.2.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
 dst = a;
-dst.half[2] = b.half[0];
+dst.u16[2] = b.u16[0];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pinsrh_2_s (s, t);
+return __builtin_loongson_pinsrh_2_s (a, b);
 ```
 
-## uint16x4_t pinsrh_2_u (uint16x4_t s, uint16x4_t t)
+## uint16x4_t pinsrh_2_u (uint16x4_t a, uint16x4_t b)
 
 ### Synopsis
 
 ```c
-uint16x4_t pinsrh_2_u (uint16x4_t s, uint16x4_t t)
+uint16x4_t pinsrh_2_u (uint16x4_t a, uint16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pinsrh.2.u
 Builtin: __builtin_loongson_pinsrh_2_u
@@ -377,32 +436,39 @@ Source: include/loongson-mmiintrin.h:314
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert the low 16-bit lane from `b` into a fixed lane of `a`, preserving the other lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pinsrh.2.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
 dst = a;
-dst.half[2] = b.half[0];
+dst.u16[2] = b.u16[0];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pinsrh_2_u (s, t);
+return __builtin_loongson_pinsrh_2_u (a, b);
 ```
 
-## int16x4_t pinsrh_3_s (int16x4_t s, int16x4_t t)
+## int16x4_t pinsrh_3_s (int16x4_t a, int16x4_t b)
 
 ### Synopsis
 
 ```c
-int16x4_t pinsrh_3_s (int16x4_t s, int16x4_t t)
+int16x4_t pinsrh_3_s (int16x4_t a, int16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pinsrh.3.s
 Builtin: __builtin_loongson_pinsrh_3_s
@@ -413,32 +479,39 @@ Source: include/loongson-mmiintrin.h:344
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert the low 16-bit lane from `b` into a fixed lane of `a`, preserving the other lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pinsrh.3.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
 dst = a;
-dst.half[3] = b.half[0];
+dst.u16[3] = b.u16[0];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pinsrh_3_s (s, t);
+return __builtin_loongson_pinsrh_3_s (a, b);
 ```
 
-## uint16x4_t pinsrh_3_u (uint16x4_t s, uint16x4_t t)
+## uint16x4_t pinsrh_3_u (uint16x4_t a, uint16x4_t b)
 
 ### Synopsis
 
 ```c
-uint16x4_t pinsrh_3_u (uint16x4_t s, uint16x4_t t)
+uint16x4_t pinsrh_3_u (uint16x4_t a, uint16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: pinsrh.3.u
 Builtin: __builtin_loongson_pinsrh_3_u
@@ -449,32 +522,39 @@ Source: include/loongson-mmiintrin.h:320
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert the low 16-bit lane from `b` into a fixed lane of `a`, preserving the other lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for pinsrh.3.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
 dst = a;
-dst.half[3] = b.half[0];
+dst.u16[3] = b.u16[0];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pinsrh_3_u (s, t);
+return __builtin_loongson_pinsrh_3_u (a, b);
 ```
 
-## int16x4_t pshufh_s (int16x4_t dest, int16x4_t s, uint8_t order)
+## int16x4_t pshufh_s (int16x4_t a, int16x4_t b, uint8_t order)
 
 ### Synopsis
 
 ```c
-int16x4_t pshufh_s (int16x4_t dest, int16x4_t s, uint8_t order)
+int16x4_t pshufh_s (int16x4_t a, int16x4_t b, uint8_t order)
 #include <loongson-mmiintrin.h>
 Instruction: pshufh.s
 Builtin: __builtin_loongson_pshufh_s
@@ -485,32 +565,29 @@ Source: include/loongson-mmiintrin.h:456
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use two-bit fields from the immediate to select i16 lanes from the concatenated `a`/`b` inputs inside each 128-bit half.
 
 ### Operation
 
 ```c
-// Inferred semantics for pshufh.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = dest;
-b = s;
-for i in 0..3:
-  dst.half[i] = a.half[shuffle_selector(order, i)];
+dst.u16[0] = b.u16[shuffle_selector(order, 0)];
+dst.u16[1] = b.u16[shuffle_selector(order, 1)];
+dst.u16[2] = b.u16[shuffle_selector(order, 2)];
+dst.u16[3] = b.u16[shuffle_selector(order, 3)];
 ```
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pshufh_s (s, order);
+return __builtin_loongson_pshufh_s (b, order);
 ```
 
-## uint16x4_t pshufh_u (uint16x4_t dest, uint16x4_t s, uint8_t order)
+## uint16x4_t pshufh_u (uint16x4_t a, uint16x4_t b, uint8_t order)
 
 ### Synopsis
 
 ```c
-uint16x4_t pshufh_u (uint16x4_t dest, uint16x4_t s, uint8_t order)
+uint16x4_t pshufh_u (uint16x4_t a, uint16x4_t b, uint8_t order)
 #include <loongson-mmiintrin.h>
 Instruction: pshufh.u
 Builtin: __builtin_loongson_pshufh_u
@@ -521,32 +598,29 @@ Source: include/loongson-mmiintrin.h:450
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Use two-bit fields from the immediate to select u16 lanes from the concatenated `a`/`b` inputs inside each 128-bit half.
 
 ### Operation
 
 ```c
-// Inferred semantics for pshufh.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = dest;
-b = s;
-for i in 0..3:
-  dst.half[i] = a.half[shuffle_selector(order, i)];
+dst.u16[0] = b.u16[shuffle_selector(order, 0)];
+dst.u16[1] = b.u16[shuffle_selector(order, 1)];
+dst.u16[2] = b.u16[shuffle_selector(order, 2)];
+dst.u16[3] = b.u16[shuffle_selector(order, 3)];
 ```
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_pshufh_u (s, order);
+return __builtin_loongson_pshufh_u (b, order);
 ```
 
-## int8x8_t punpckhbh_s (int8x8_t s, int8x8_t t)
+## int8x8_t punpckhbh_s (int8x8_t a, int8x8_t b)
 
 ### Synopsis
 
 ```c
-int8x8_t punpckhbh_s (int8x8_t s, int8x8_t t)
+int8x8_t punpckhbh_s (int8x8_t a, int8x8_t b)
 #include <loongson-mmiintrin.h>
 Instruction: punpckhbh.s
 Builtin: __builtin_loongson_punpckhbh_s
@@ -557,33 +631,41 @@ Source: include/loongson-mmiintrin.h:644
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Unpack by interleaving lower i16 lanes from `b` and `a` into alternating destination lanes. This separates packed streams into a wider interleaved layout.
 
 ### Operation
 
 ```c
-// Inferred semantics for punpckhbh.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
-for each selected upper source lane pair i:
-  dst.half[2*i] = b.half[i];
-  dst.half[2*i + 1] = a.half[i];
+dst.u16[0] = b.u16[0];
+dst.u16[1] = a.u16[0];
+dst.u16[2] = b.u16[1];
+dst.u16[3] = a.u16[1];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_punpckhbh_s (s, t);
+return __builtin_loongson_punpckhbh_s (a, b);
 ```
 
-## uint8x8_t punpckhbh_u (uint8x8_t s, uint8x8_t t)
+## uint8x8_t punpckhbh_u (uint8x8_t a, uint8x8_t b)
 
 ### Synopsis
 
 ```c
-uint8x8_t punpckhbh_u (uint8x8_t s, uint8x8_t t)
+uint8x8_t punpckhbh_u (uint8x8_t a, uint8x8_t b)
 #include <loongson-mmiintrin.h>
 Instruction: punpckhbh.u
 Builtin: __builtin_loongson_punpckhbh_u
@@ -594,33 +676,41 @@ Source: include/loongson-mmiintrin.h:626
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Unpack by interleaving lower u16 lanes from `b` and `a` into alternating destination lanes. This separates packed streams into a wider interleaved layout.
 
 ### Operation
 
 ```c
-// Inferred semantics for punpckhbh.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
-for each selected upper source lane pair i:
-  dst.half[2*i] = b.half[i];
-  dst.half[2*i + 1] = a.half[i];
+dst.u16[0] = b.u16[0];
+dst.u16[1] = a.u16[0];
+dst.u16[2] = b.u16[1];
+dst.u16[3] = a.u16[1];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_punpckhbh_u (s, t);
+return __builtin_loongson_punpckhbh_u (a, b);
 ```
 
-## int16x4_t punpckhhw_s (int16x4_t s, int16x4_t t)
+## int16x4_t punpckhhw_s (int16x4_t a, int16x4_t b)
 
 ### Synopsis
 
 ```c
-int16x4_t punpckhhw_s (int16x4_t s, int16x4_t t)
+int16x4_t punpckhhw_s (int16x4_t a, int16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: punpckhhw.s
 Builtin: __builtin_loongson_punpckhhw_s
@@ -631,33 +721,39 @@ Source: include/loongson-mmiintrin.h:638
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Unpack by interleaving lower i32 lanes from `b` and `a` into alternating destination lanes. This separates packed streams into a wider interleaved layout.
 
 ### Operation
 
 ```c
-// Inferred semantics for punpckhhw.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 32-bit elements.
-a = s;
-b = t;
-for each selected upper source lane pair i:
-  dst.word[2*i] = b.word[i];
-  dst.word[2*i + 1] = a.word[i];
+dst.u32[0] = b.u32[0];
+dst.u32[1] = a.u32[0];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_punpckhhw_s (s, t);
+return __builtin_loongson_punpckhhw_s (a, b);
 ```
 
-## uint16x4_t punpckhhw_u (uint16x4_t s, uint16x4_t t)
+## uint16x4_t punpckhhw_u (uint16x4_t a, uint16x4_t b)
 
 ### Synopsis
 
 ```c
-uint16x4_t punpckhhw_u (uint16x4_t s, uint16x4_t t)
+uint16x4_t punpckhhw_u (uint16x4_t a, uint16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: punpckhhw.u
 Builtin: __builtin_loongson_punpckhhw_u
@@ -668,33 +764,39 @@ Source: include/loongson-mmiintrin.h:620
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Unpack by interleaving lower u32 lanes from `b` and `a` into alternating destination lanes. This separates packed streams into a wider interleaved layout.
 
 ### Operation
 
 ```c
-// Inferred semantics for punpckhhw.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 32-bit elements.
-a = s;
-b = t;
-for each selected upper source lane pair i:
-  dst.word[2*i] = b.word[i];
-  dst.word[2*i + 1] = a.word[i];
+dst.u32[0] = b.u32[0];
+dst.u32[1] = a.u32[0];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_punpckhhw_u (s, t);
+return __builtin_loongson_punpckhhw_u (a, b);
 ```
 
-## int32x2_t punpckhwd_s (int32x2_t s, int32x2_t t)
+## int32x2_t punpckhwd_s (int32x2_t a, int32x2_t b)
 
 ### Synopsis
 
 ```c
-int32x2_t punpckhwd_s (int32x2_t s, int32x2_t t)
+int32x2_t punpckhwd_s (int32x2_t a, int32x2_t b)
 #include <loongson-mmiintrin.h>
 Instruction: punpckhwd.s
 Builtin: __builtin_loongson_punpckhwd_s
@@ -705,33 +807,39 @@ Source: include/loongson-mmiintrin.h:632
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Unpack by interleaving lower i64 lanes from `b` and `a` into alternating destination lanes. This separates packed streams into a wider interleaved layout.
 
 ### Operation
 
 ```c
-// Inferred semantics for punpckhwd.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 1 lanes of 64-bit elements.
-a = s;
-b = t;
-for each selected upper source lane pair i:
-  dst.dword[2*i] = b.dword[i];
-  dst.dword[2*i + 1] = a.dword[i];
+dst.u64[0] = b.u64[0];
+dst.u64[1] = a.u64[0];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_punpckhwd_s (s, t);
+return __builtin_loongson_punpckhwd_s (a, b);
 ```
 
-## uint32x2_t punpckhwd_u (uint32x2_t s, uint32x2_t t)
+## uint32x2_t punpckhwd_u (uint32x2_t a, uint32x2_t b)
 
 ### Synopsis
 
 ```c
-uint32x2_t punpckhwd_u (uint32x2_t s, uint32x2_t t)
+uint32x2_t punpckhwd_u (uint32x2_t a, uint32x2_t b)
 #include <loongson-mmiintrin.h>
 Instruction: punpckhwd.u
 Builtin: __builtin_loongson_punpckhwd_u
@@ -742,33 +850,39 @@ Source: include/loongson-mmiintrin.h:614
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Unpack by interleaving lower u64 lanes from `b` and `a` into alternating destination lanes. This separates packed streams into a wider interleaved layout.
 
 ### Operation
 
 ```c
-// Inferred semantics for punpckhwd.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 1 lanes of 64-bit elements.
-a = s;
-b = t;
-for each selected upper source lane pair i:
-  dst.dword[2*i] = b.dword[i];
-  dst.dword[2*i + 1] = a.dword[i];
+dst.u64[0] = b.u64[0];
+dst.u64[1] = a.u64[0];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_punpckhwd_u (s, t);
+return __builtin_loongson_punpckhwd_u (a, b);
 ```
 
-## int8x8_t punpcklbh_s (int8x8_t s, int8x8_t t)
+## int8x8_t punpcklbh_s (int8x8_t a, int8x8_t b)
 
 ### Synopsis
 
 ```c
-int8x8_t punpcklbh_s (int8x8_t s, int8x8_t t)
+int8x8_t punpcklbh_s (int8x8_t a, int8x8_t b)
 #include <loongson-mmiintrin.h>
 Instruction: punpcklbh.s
 Builtin: __builtin_loongson_punpcklbh_s
@@ -779,33 +893,41 @@ Source: include/loongson-mmiintrin.h:681
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Unpack by interleaving lower i16 lanes from `b` and `a` into alternating destination lanes. This separates packed streams into a wider interleaved layout.
 
 ### Operation
 
 ```c
-// Inferred semantics for punpcklbh.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
-for each selected lower source lane pair i:
-  dst.half[2*i] = b.half[i];
-  dst.half[2*i + 1] = a.half[i];
+dst.u16[0] = b.u16[0];
+dst.u16[1] = a.u16[0];
+dst.u16[2] = b.u16[1];
+dst.u16[3] = a.u16[1];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_punpcklbh_s (s, t);
+return __builtin_loongson_punpcklbh_s (a, b);
 ```
 
-## uint8x8_t punpcklbh_u (uint8x8_t s, uint8x8_t t)
+## uint8x8_t punpcklbh_u (uint8x8_t a, uint8x8_t b)
 
 ### Synopsis
 
 ```c
-uint8x8_t punpcklbh_u (uint8x8_t s, uint8x8_t t)
+uint8x8_t punpcklbh_u (uint8x8_t a, uint8x8_t b)
 #include <loongson-mmiintrin.h>
 Instruction: punpcklbh.u
 Builtin: __builtin_loongson_punpcklbh_u
@@ -816,33 +938,41 @@ Source: include/loongson-mmiintrin.h:663
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Unpack by interleaving lower u16 lanes from `b` and `a` into alternating destination lanes. This separates packed streams into a wider interleaved layout.
 
 ### Operation
 
 ```c
-// Inferred semantics for punpcklbh.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-a = s;
-b = t;
-for each selected lower source lane pair i:
-  dst.half[2*i] = b.half[i];
-  dst.half[2*i + 1] = a.half[i];
+dst.u16[0] = b.u16[0];
+dst.u16[1] = a.u16[0];
+dst.u16[2] = b.u16[1];
+dst.u16[3] = a.u16[1];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_punpcklbh_u (s, t);
+return __builtin_loongson_punpcklbh_u (a, b);
 ```
 
-## int16x4_t punpcklhw_s (int16x4_t s, int16x4_t t)
+## int16x4_t punpcklhw_s (int16x4_t a, int16x4_t b)
 
 ### Synopsis
 
 ```c
-int16x4_t punpcklhw_s (int16x4_t s, int16x4_t t)
+int16x4_t punpcklhw_s (int16x4_t a, int16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: punpcklhw.s
 Builtin: __builtin_loongson_punpcklhw_s
@@ -853,33 +983,39 @@ Source: include/loongson-mmiintrin.h:675
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Unpack by interleaving lower i32 lanes from `b` and `a` into alternating destination lanes. This separates packed streams into a wider interleaved layout.
 
 ### Operation
 
 ```c
-// Inferred semantics for punpcklhw.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 32-bit elements.
-a = s;
-b = t;
-for each selected lower source lane pair i:
-  dst.word[2*i] = b.word[i];
-  dst.word[2*i + 1] = a.word[i];
+dst.u32[0] = b.u32[0];
+dst.u32[1] = a.u32[0];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_punpcklhw_s (s, t);
+return __builtin_loongson_punpcklhw_s (a, b);
 ```
 
-## uint16x4_t punpcklhw_u (uint16x4_t s, uint16x4_t t)
+## uint16x4_t punpcklhw_u (uint16x4_t a, uint16x4_t b)
 
 ### Synopsis
 
 ```c
-uint16x4_t punpcklhw_u (uint16x4_t s, uint16x4_t t)
+uint16x4_t punpcklhw_u (uint16x4_t a, uint16x4_t b)
 #include <loongson-mmiintrin.h>
 Instruction: punpcklhw.u
 Builtin: __builtin_loongson_punpcklhw_u
@@ -890,33 +1026,39 @@ Source: include/loongson-mmiintrin.h:657
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Unpack by interleaving lower u32 lanes from `b` and `a` into alternating destination lanes. This separates packed streams into a wider interleaved layout.
 
 ### Operation
 
 ```c
-// Inferred semantics for punpcklhw.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 32-bit elements.
-a = s;
-b = t;
-for each selected lower source lane pair i:
-  dst.word[2*i] = b.word[i];
-  dst.word[2*i + 1] = a.word[i];
+dst.u32[0] = b.u32[0];
+dst.u32[1] = a.u32[0];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_punpcklhw_u (s, t);
+return __builtin_loongson_punpcklhw_u (a, b);
 ```
 
-## int32x2_t punpcklwd_s (int32x2_t s, int32x2_t t)
+## int32x2_t punpcklwd_s (int32x2_t a, int32x2_t b)
 
 ### Synopsis
 
 ```c
-int32x2_t punpcklwd_s (int32x2_t s, int32x2_t t)
+int32x2_t punpcklwd_s (int32x2_t a, int32x2_t b)
 #include <loongson-mmiintrin.h>
 Instruction: punpcklwd.s
 Builtin: __builtin_loongson_punpcklwd_s
@@ -927,33 +1069,39 @@ Source: include/loongson-mmiintrin.h:669
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Unpack by interleaving lower i64 lanes from `b` and `a` into alternating destination lanes. This separates packed streams into a wider interleaved layout.
 
 ### Operation
 
 ```c
-// Inferred semantics for punpcklwd.s.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 1 lanes of 64-bit elements.
-a = s;
-b = t;
-for each selected lower source lane pair i:
-  dst.dword[2*i] = b.dword[i];
-  dst.dword[2*i + 1] = a.dword[i];
+dst.u64[0] = b.u64[0];
+dst.u64[1] = a.u64[0];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_punpcklwd_s (s, t);
+return __builtin_loongson_punpcklwd_s (a, b);
 ```
 
-## uint32x2_t punpcklwd_u (uint32x2_t s, uint32x2_t t)
+## uint32x2_t punpcklwd_u (uint32x2_t a, uint32x2_t b)
 
 ### Synopsis
 
 ```c
-uint32x2_t punpcklwd_u (uint32x2_t s, uint32x2_t t)
+uint32x2_t punpcklwd_u (uint32x2_t a, uint32x2_t b)
 #include <loongson-mmiintrin.h>
 Instruction: punpcklwd.u
 Builtin: __builtin_loongson_punpcklwd_u
@@ -964,24 +1112,30 @@ Source: include/loongson-mmiintrin.h:651
 
 ### Description
 
-Rearrange, select, widen, or narrow vector elements according to the mnemonic suffixes and immediate operands. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Unpack by interleaving lower u64 lanes from `b` and `a` into alternating destination lanes. This separates packed streams into a wider interleaved layout.
 
 ### Operation
 
 ```c
-// Inferred semantics for punpcklwd.u.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 1 lanes of 64-bit elements.
-a = s;
-b = t;
-for each selected lower source lane pair i:
-  dst.dword[2*i] = b.dword[i];
-  dst.dword[2*i + 1] = a.dword[i];
+dst.u64[0] = b.u64[0];
+dst.u64[1] = a.u64[0];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return __builtin_loongson_punpcklwd_u (s, t);
+return __builtin_loongson_punpcklwd_u (a, b);
 ```
 

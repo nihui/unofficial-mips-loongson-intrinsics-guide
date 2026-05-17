@@ -18,17 +18,40 @@ Source: include/msa.h:244
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 16 x u8 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for add.a.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = abs(a.byte[i]) + abs(b.byte[i]);
+dst.u8[0] = abs(a.i8[0]) + abs(b.i8[0]);
+dst.u8[1] = abs(a.i8[1]) + abs(b.i8[1]);
+dst.u8[2] = abs(a.i8[2]) + abs(b.i8[2]);
+dst.u8[3] = abs(a.i8[3]) + abs(b.i8[3]);
+dst.u8[4] = abs(a.i8[4]) + abs(b.i8[4]);
+dst.u8[5] = abs(a.i8[5]) + abs(b.i8[5]);
+dst.u8[6] = abs(a.i8[6]) + abs(b.i8[6]);
+dst.u8[7] = abs(a.i8[7]) + abs(b.i8[7]);
+dst.u8[8] = abs(a.i8[8]) + abs(b.i8[8]);
+dst.u8[9] = abs(a.i8[9]) + abs(b.i8[9]);
+dst.u8[10] = abs(a.i8[10]) + abs(b.i8[10]);
+dst.u8[11] = abs(a.i8[11]) + abs(b.i8[11]);
+dst.u8[12] = abs(a.i8[12]) + abs(b.i8[12]);
+dst.u8[13] = abs(a.i8[13]) + abs(b.i8[13]);
+dst.u8[14] = abs(a.i8[14]) + abs(b.i8[14]);
+dst.u8[15] = abs(a.i8[15]) + abs(b.i8[15]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -52,17 +75,26 @@ Source: include/msa.h:247
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 2 x u64 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for add.a.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = abs(a.dword[i]) + abs(b.dword[i]);
+dst.u64[0] = abs(a.i64[0]) + abs(b.i64[0]);
+dst.u64[1] = abs(a.i64[1]) + abs(b.i64[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -86,17 +118,32 @@ Source: include/msa.h:245
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 8 x u16 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for add.a.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = abs(a.half[i]) + abs(b.half[i]);
+dst.u16[0] = abs(a.i16[0]) + abs(b.i16[0]);
+dst.u16[1] = abs(a.i16[1]) + abs(b.i16[1]);
+dst.u16[2] = abs(a.i16[2]) + abs(b.i16[2]);
+dst.u16[3] = abs(a.i16[3]) + abs(b.i16[3]);
+dst.u16[4] = abs(a.i16[4]) + abs(b.i16[4]);
+dst.u16[5] = abs(a.i16[5]) + abs(b.i16[5]);
+dst.u16[6] = abs(a.i16[6]) + abs(b.i16[6]);
+dst.u16[7] = abs(a.i16[7]) + abs(b.i16[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -120,17 +167,28 @@ Source: include/msa.h:246
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 4 x u32 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for add.a.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = abs(a.word[i]) + abs(b.word[i]);
+dst.u32[0] = abs(a.i32[0]) + abs(b.i32[0]);
+dst.u32[1] = abs(a.i32[1]) + abs(b.i32[1]);
+dst.u32[2] = abs(a.i32[2]) + abs(b.i32[2]);
+dst.u32[3] = abs(a.i32[3]) + abs(b.i32[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -154,17 +212,40 @@ Source: include/msa.h:248
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise modular saturating integer arithmetic on 16 x u8 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for adds.a.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = saturate(a.byte[i] + b.byte[i], 8, signedness);
+dst.u8[0] = saturate(a.i8[0] + b.i8[0], 8, signedness);
+dst.u8[1] = saturate(a.i8[1] + b.i8[1], 8, signedness);
+dst.u8[2] = saturate(a.i8[2] + b.i8[2], 8, signedness);
+dst.u8[3] = saturate(a.i8[3] + b.i8[3], 8, signedness);
+dst.u8[4] = saturate(a.i8[4] + b.i8[4], 8, signedness);
+dst.u8[5] = saturate(a.i8[5] + b.i8[5], 8, signedness);
+dst.u8[6] = saturate(a.i8[6] + b.i8[6], 8, signedness);
+dst.u8[7] = saturate(a.i8[7] + b.i8[7], 8, signedness);
+dst.u8[8] = saturate(a.i8[8] + b.i8[8], 8, signedness);
+dst.u8[9] = saturate(a.i8[9] + b.i8[9], 8, signedness);
+dst.u8[10] = saturate(a.i8[10] + b.i8[10], 8, signedness);
+dst.u8[11] = saturate(a.i8[11] + b.i8[11], 8, signedness);
+dst.u8[12] = saturate(a.i8[12] + b.i8[12], 8, signedness);
+dst.u8[13] = saturate(a.i8[13] + b.i8[13], 8, signedness);
+dst.u8[14] = saturate(a.i8[14] + b.i8[14], 8, signedness);
+dst.u8[15] = saturate(a.i8[15] + b.i8[15], 8, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -188,17 +269,26 @@ Source: include/msa.h:251
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise modular saturating integer arithmetic on 2 x u64 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for adds.a.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = saturate(a.dword[i] + b.dword[i], 64, signedness);
+dst.u64[0] = saturate(a.i64[0] + b.i64[0], 64, signedness);
+dst.u64[1] = saturate(a.i64[1] + b.i64[1], 64, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -222,17 +312,32 @@ Source: include/msa.h:249
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise modular saturating integer arithmetic on 8 x u16 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for adds.a.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = saturate(a.half[i] + b.half[i], 16, signedness);
+dst.u16[0] = saturate(a.i16[0] + b.i16[0], 16, signedness);
+dst.u16[1] = saturate(a.i16[1] + b.i16[1], 16, signedness);
+dst.u16[2] = saturate(a.i16[2] + b.i16[2], 16, signedness);
+dst.u16[3] = saturate(a.i16[3] + b.i16[3], 16, signedness);
+dst.u16[4] = saturate(a.i16[4] + b.i16[4], 16, signedness);
+dst.u16[5] = saturate(a.i16[5] + b.i16[5], 16, signedness);
+dst.u16[6] = saturate(a.i16[6] + b.i16[6], 16, signedness);
+dst.u16[7] = saturate(a.i16[7] + b.i16[7], 16, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -256,17 +361,28 @@ Source: include/msa.h:250
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise modular saturating integer arithmetic on 4 x u32 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for adds.a.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = saturate(a.word[i] + b.word[i], 32, signedness);
+dst.u32[0] = saturate(a.i32[0] + b.i32[0], 32, signedness);
+dst.u32[1] = saturate(a.i32[1] + b.i32[1], 32, signedness);
+dst.u32[2] = saturate(a.i32[2] + b.i32[2], 32, signedness);
+dst.u32[3] = saturate(a.i32[3] + b.i32[3], 32, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -290,17 +406,40 @@ Source: include/msa.h:252
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise signed saturating integer arithmetic on 16 x i8 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for adds.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = saturate(a.byte[i] + b.byte[i], 8, signedness);
+dst.i8[0] = saturate(a.i8[0] + b.i8[0], 8, signedness);
+dst.i8[1] = saturate(a.i8[1] + b.i8[1], 8, signedness);
+dst.i8[2] = saturate(a.i8[2] + b.i8[2], 8, signedness);
+dst.i8[3] = saturate(a.i8[3] + b.i8[3], 8, signedness);
+dst.i8[4] = saturate(a.i8[4] + b.i8[4], 8, signedness);
+dst.i8[5] = saturate(a.i8[5] + b.i8[5], 8, signedness);
+dst.i8[6] = saturate(a.i8[6] + b.i8[6], 8, signedness);
+dst.i8[7] = saturate(a.i8[7] + b.i8[7], 8, signedness);
+dst.i8[8] = saturate(a.i8[8] + b.i8[8], 8, signedness);
+dst.i8[9] = saturate(a.i8[9] + b.i8[9], 8, signedness);
+dst.i8[10] = saturate(a.i8[10] + b.i8[10], 8, signedness);
+dst.i8[11] = saturate(a.i8[11] + b.i8[11], 8, signedness);
+dst.i8[12] = saturate(a.i8[12] + b.i8[12], 8, signedness);
+dst.i8[13] = saturate(a.i8[13] + b.i8[13], 8, signedness);
+dst.i8[14] = saturate(a.i8[14] + b.i8[14], 8, signedness);
+dst.i8[15] = saturate(a.i8[15] + b.i8[15], 8, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -324,17 +463,26 @@ Source: include/msa.h:255
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise signed saturating integer arithmetic on 2 x i64 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for adds.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = saturate(a.dword[i] + b.dword[i], 64, signedness);
+dst.i64[0] = saturate(a.i64[0] + b.i64[0], 64, signedness);
+dst.i64[1] = saturate(a.i64[1] + b.i64[1], 64, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -358,17 +506,32 @@ Source: include/msa.h:253
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise signed saturating integer arithmetic on 8 x i16 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for adds.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = saturate(a.half[i] + b.half[i], 16, signedness);
+dst.i16[0] = saturate(a.i16[0] + b.i16[0], 16, signedness);
+dst.i16[1] = saturate(a.i16[1] + b.i16[1], 16, signedness);
+dst.i16[2] = saturate(a.i16[2] + b.i16[2], 16, signedness);
+dst.i16[3] = saturate(a.i16[3] + b.i16[3], 16, signedness);
+dst.i16[4] = saturate(a.i16[4] + b.i16[4], 16, signedness);
+dst.i16[5] = saturate(a.i16[5] + b.i16[5], 16, signedness);
+dst.i16[6] = saturate(a.i16[6] + b.i16[6], 16, signedness);
+dst.i16[7] = saturate(a.i16[7] + b.i16[7], 16, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -392,17 +555,28 @@ Source: include/msa.h:254
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise signed saturating integer arithmetic on 4 x i32 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for adds.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = saturate(a.word[i] + b.word[i], 32, signedness);
+dst.i32[0] = saturate(a.i32[0] + b.i32[0], 32, signedness);
+dst.i32[1] = saturate(a.i32[1] + b.i32[1], 32, signedness);
+dst.i32[2] = saturate(a.i32[2] + b.i32[2], 32, signedness);
+dst.i32[3] = saturate(a.i32[3] + b.i32[3], 32, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -426,17 +600,40 @@ Source: include/msa.h:256
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise unsigned saturating integer arithmetic on 16 x u8 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for adds.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = saturate(a.byte[i] + b.byte[i], 8, signedness);
+dst.u8[0] = saturate(a.u8[0] + b.u8[0], 8, signedness);
+dst.u8[1] = saturate(a.u8[1] + b.u8[1], 8, signedness);
+dst.u8[2] = saturate(a.u8[2] + b.u8[2], 8, signedness);
+dst.u8[3] = saturate(a.u8[3] + b.u8[3], 8, signedness);
+dst.u8[4] = saturate(a.u8[4] + b.u8[4], 8, signedness);
+dst.u8[5] = saturate(a.u8[5] + b.u8[5], 8, signedness);
+dst.u8[6] = saturate(a.u8[6] + b.u8[6], 8, signedness);
+dst.u8[7] = saturate(a.u8[7] + b.u8[7], 8, signedness);
+dst.u8[8] = saturate(a.u8[8] + b.u8[8], 8, signedness);
+dst.u8[9] = saturate(a.u8[9] + b.u8[9], 8, signedness);
+dst.u8[10] = saturate(a.u8[10] + b.u8[10], 8, signedness);
+dst.u8[11] = saturate(a.u8[11] + b.u8[11], 8, signedness);
+dst.u8[12] = saturate(a.u8[12] + b.u8[12], 8, signedness);
+dst.u8[13] = saturate(a.u8[13] + b.u8[13], 8, signedness);
+dst.u8[14] = saturate(a.u8[14] + b.u8[14], 8, signedness);
+dst.u8[15] = saturate(a.u8[15] + b.u8[15], 8, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -460,17 +657,26 @@ Source: include/msa.h:259
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise unsigned saturating integer arithmetic on 2 x u64 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for adds.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = saturate(a.dword[i] + b.dword[i], 64, signedness);
+dst.u64[0] = saturate(a.u64[0] + b.u64[0], 64, signedness);
+dst.u64[1] = saturate(a.u64[1] + b.u64[1], 64, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -494,17 +700,32 @@ Source: include/msa.h:257
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise unsigned saturating integer arithmetic on 8 x u16 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for adds.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = saturate(a.half[i] + b.half[i], 16, signedness);
+dst.u16[0] = saturate(a.u16[0] + b.u16[0], 16, signedness);
+dst.u16[1] = saturate(a.u16[1] + b.u16[1], 16, signedness);
+dst.u16[2] = saturate(a.u16[2] + b.u16[2], 16, signedness);
+dst.u16[3] = saturate(a.u16[3] + b.u16[3], 16, signedness);
+dst.u16[4] = saturate(a.u16[4] + b.u16[4], 16, signedness);
+dst.u16[5] = saturate(a.u16[5] + b.u16[5], 16, signedness);
+dst.u16[6] = saturate(a.u16[6] + b.u16[6], 16, signedness);
+dst.u16[7] = saturate(a.u16[7] + b.u16[7], 16, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -528,17 +749,28 @@ Source: include/msa.h:258
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise unsigned saturating integer arithmetic on 4 x u32 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for adds.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = saturate(a.word[i] + b.word[i], 32, signedness);
+dst.u32[0] = saturate(a.u32[0] + b.u32[0], 32, signedness);
+dst.u32[1] = saturate(a.u32[1] + b.u32[1], 32, signedness);
+dst.u32[2] = saturate(a.u32[2] + b.u32[2], 32, signedness);
+dst.u32[3] = saturate(a.u32[3] + b.u32[3], 32, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -562,17 +794,40 @@ Source: include/msa.h:132
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 16 x u8 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for addv.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = a.byte[i] + b.byte[i];
+dst.u8[0] = a.i8[0] + b.i8[0];
+dst.u8[1] = a.i8[1] + b.i8[1];
+dst.u8[2] = a.i8[2] + b.i8[2];
+dst.u8[3] = a.i8[3] + b.i8[3];
+dst.u8[4] = a.i8[4] + b.i8[4];
+dst.u8[5] = a.i8[5] + b.i8[5];
+dst.u8[6] = a.i8[6] + b.i8[6];
+dst.u8[7] = a.i8[7] + b.i8[7];
+dst.u8[8] = a.i8[8] + b.i8[8];
+dst.u8[9] = a.i8[9] + b.i8[9];
+dst.u8[10] = a.i8[10] + b.i8[10];
+dst.u8[11] = a.i8[11] + b.i8[11];
+dst.u8[12] = a.i8[12] + b.i8[12];
+dst.u8[13] = a.i8[13] + b.i8[13];
+dst.u8[14] = a.i8[14] + b.i8[14];
+dst.u8[15] = a.i8[15] + b.i8[15];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -596,17 +851,26 @@ Source: include/msa.h:135
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 2 x u64 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for addv.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = a.dword[i] + b.dword[i];
+dst.u64[0] = a.i64[0] + b.i64[0];
+dst.u64[1] = a.i64[1] + b.i64[1];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -630,17 +894,32 @@ Source: include/msa.h:133
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 8 x u16 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for addv.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = a.half[i] + b.half[i];
+dst.u16[0] = a.i16[0] + b.i16[0];
+dst.u16[1] = a.i16[1] + b.i16[1];
+dst.u16[2] = a.i16[2] + b.i16[2];
+dst.u16[3] = a.i16[3] + b.i16[3];
+dst.u16[4] = a.i16[4] + b.i16[4];
+dst.u16[5] = a.i16[5] + b.i16[5];
+dst.u16[6] = a.i16[6] + b.i16[6];
+dst.u16[7] = a.i16[7] + b.i16[7];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -664,17 +943,28 @@ Source: include/msa.h:134
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 4 x u32 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for addv.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = a.word[i] + b.word[i];
+dst.u32[0] = a.i32[0] + b.i32[0];
+dst.u32[1] = a.i32[1] + b.i32[1];
+dst.u32[2] = a.i32[2] + b.i32[2];
+dst.u32[3] = a.i32[3] + b.i32[3];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -682,12 +972,12 @@ for i in 0..3:
 #define __msa_addv_w __builtin_msa_addv_w
 ```
 
-## v16i8 __msa_addvi_b (v16i8 a, int imm0_31)
+## v16i8 __msa_addvi_b (v16i8 a, int imm)
 
 ### Synopsis
 
 ```c
-v16i8 __msa_addvi_b (v16i8 a, int imm0_31)
+v16i8 __msa_addvi_b (v16i8 a, int imm)
 #include <msa.h>
 Instruction: addvi.b
 Builtin: __builtin_msa_addvi_b
@@ -698,18 +988,40 @@ Source: include/msa.h:136
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 16 x u8 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for addvi.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_31;
-for i in 0..15:
-  dst.byte[i] = a.byte[i] + imm;
+dst.u8[0] = a.i8[0] + imm;
+dst.u8[1] = a.i8[1] + imm;
+dst.u8[2] = a.i8[2] + imm;
+dst.u8[3] = a.i8[3] + imm;
+dst.u8[4] = a.i8[4] + imm;
+dst.u8[5] = a.i8[5] + imm;
+dst.u8[6] = a.i8[6] + imm;
+dst.u8[7] = a.i8[7] + imm;
+dst.u8[8] = a.i8[8] + imm;
+dst.u8[9] = a.i8[9] + imm;
+dst.u8[10] = a.i8[10] + imm;
+dst.u8[11] = a.i8[11] + imm;
+dst.u8[12] = a.i8[12] + imm;
+dst.u8[13] = a.i8[13] + imm;
+dst.u8[14] = a.i8[14] + imm;
+dst.u8[15] = a.i8[15] + imm;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -717,12 +1029,12 @@ for i in 0..15:
 #define __msa_addvi_b __builtin_msa_addvi_b
 ```
 
-## v2i64 __msa_addvi_d (v2i64 a, int imm0_31)
+## v2i64 __msa_addvi_d (v2i64 a, int imm)
 
 ### Synopsis
 
 ```c
-v2i64 __msa_addvi_d (v2i64 a, int imm0_31)
+v2i64 __msa_addvi_d (v2i64 a, int imm)
 #include <msa.h>
 Instruction: addvi.d
 Builtin: __builtin_msa_addvi_d
@@ -733,18 +1045,26 @@ Source: include/msa.h:139
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 2 x u64 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for addvi.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm0_31;
-for i in 0..1:
-  dst.dword[i] = a.dword[i] + imm;
+dst.u64[0] = a.i64[0] + imm;
+dst.u64[1] = a.i64[1] + imm;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -752,12 +1072,12 @@ for i in 0..1:
 #define __msa_addvi_d __builtin_msa_addvi_d
 ```
 
-## v8i16 __msa_addvi_h (v8i16 a, int imm0_31)
+## v8i16 __msa_addvi_h (v8i16 a, int imm)
 
 ### Synopsis
 
 ```c
-v8i16 __msa_addvi_h (v8i16 a, int imm0_31)
+v8i16 __msa_addvi_h (v8i16 a, int imm)
 #include <msa.h>
 Instruction: addvi.h
 Builtin: __builtin_msa_addvi_h
@@ -768,18 +1088,32 @@ Source: include/msa.h:137
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 8 x u16 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for addvi.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm0_31;
-for i in 0..7:
-  dst.half[i] = a.half[i] + imm;
+dst.u16[0] = a.i16[0] + imm;
+dst.u16[1] = a.i16[1] + imm;
+dst.u16[2] = a.i16[2] + imm;
+dst.u16[3] = a.i16[3] + imm;
+dst.u16[4] = a.i16[4] + imm;
+dst.u16[5] = a.i16[5] + imm;
+dst.u16[6] = a.i16[6] + imm;
+dst.u16[7] = a.i16[7] + imm;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -787,12 +1121,12 @@ for i in 0..7:
 #define __msa_addvi_h __builtin_msa_addvi_h
 ```
 
-## v4i32 __msa_addvi_w (v4i32 a, int imm0_31)
+## v4i32 __msa_addvi_w (v4i32 a, int imm)
 
 ### Synopsis
 
 ```c
-v4i32 __msa_addvi_w (v4i32 a, int imm0_31)
+v4i32 __msa_addvi_w (v4i32 a, int imm)
 #include <msa.h>
 Instruction: addvi.w
 Builtin: __builtin_msa_addvi_w
@@ -803,18 +1137,28 @@ Source: include/msa.h:138
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 4 x u32 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for addvi.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm0_31;
-for i in 0..3:
-  dst.word[i] = a.word[i] + imm;
+dst.u32[0] = a.i32[0] + imm;
+dst.u32[1] = a.i32[1] + imm;
+dst.u32[2] = a.i32[2] + imm;
+dst.u32[3] = a.i32[3] + imm;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -838,17 +1182,40 @@ Source: include/msa.h:292
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract signed integer lanes of `b` from `a` on 16 x i8 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for asub.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = abs(a.byte[i] - b.byte[i]);
+dst.i8[0] = abs(a.i8[0] - b.i8[0]);
+dst.i8[1] = abs(a.i8[1] - b.i8[1]);
+dst.i8[2] = abs(a.i8[2] - b.i8[2]);
+dst.i8[3] = abs(a.i8[3] - b.i8[3]);
+dst.i8[4] = abs(a.i8[4] - b.i8[4]);
+dst.i8[5] = abs(a.i8[5] - b.i8[5]);
+dst.i8[6] = abs(a.i8[6] - b.i8[6]);
+dst.i8[7] = abs(a.i8[7] - b.i8[7]);
+dst.i8[8] = abs(a.i8[8] - b.i8[8]);
+dst.i8[9] = abs(a.i8[9] - b.i8[9]);
+dst.i8[10] = abs(a.i8[10] - b.i8[10]);
+dst.i8[11] = abs(a.i8[11] - b.i8[11]);
+dst.i8[12] = abs(a.i8[12] - b.i8[12]);
+dst.i8[13] = abs(a.i8[13] - b.i8[13]);
+dst.i8[14] = abs(a.i8[14] - b.i8[14]);
+dst.i8[15] = abs(a.i8[15] - b.i8[15]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -872,17 +1239,26 @@ Source: include/msa.h:295
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract signed integer lanes of `b` from `a` on 2 x i64 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for asub.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = abs(a.dword[i] - b.dword[i]);
+dst.i64[0] = abs(a.i64[0] - b.i64[0]);
+dst.i64[1] = abs(a.i64[1] - b.i64[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -906,17 +1282,32 @@ Source: include/msa.h:293
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract signed integer lanes of `b` from `a` on 8 x i16 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for asub.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = abs(a.half[i] - b.half[i]);
+dst.i16[0] = abs(a.i16[0] - b.i16[0]);
+dst.i16[1] = abs(a.i16[1] - b.i16[1]);
+dst.i16[2] = abs(a.i16[2] - b.i16[2]);
+dst.i16[3] = abs(a.i16[3] - b.i16[3]);
+dst.i16[4] = abs(a.i16[4] - b.i16[4]);
+dst.i16[5] = abs(a.i16[5] - b.i16[5]);
+dst.i16[6] = abs(a.i16[6] - b.i16[6]);
+dst.i16[7] = abs(a.i16[7] - b.i16[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -940,17 +1331,28 @@ Source: include/msa.h:294
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract signed integer lanes of `b` from `a` on 4 x i32 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for asub.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = abs(a.word[i] - b.word[i]);
+dst.i32[0] = abs(a.i32[0] - b.i32[0]);
+dst.i32[1] = abs(a.i32[1] - b.i32[1]);
+dst.i32[2] = abs(a.i32[2] - b.i32[2]);
+dst.i32[3] = abs(a.i32[3] - b.i32[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -974,17 +1376,40 @@ Source: include/msa.h:296
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract unsigned integer lanes of `b` from `a` on 16 x u8 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for asub.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = abs(a.byte[i] - b.byte[i]);
+dst.u8[0] = abs(a.u8[0] - b.u8[0]);
+dst.u8[1] = abs(a.u8[1] - b.u8[1]);
+dst.u8[2] = abs(a.u8[2] - b.u8[2]);
+dst.u8[3] = abs(a.u8[3] - b.u8[3]);
+dst.u8[4] = abs(a.u8[4] - b.u8[4]);
+dst.u8[5] = abs(a.u8[5] - b.u8[5]);
+dst.u8[6] = abs(a.u8[6] - b.u8[6]);
+dst.u8[7] = abs(a.u8[7] - b.u8[7]);
+dst.u8[8] = abs(a.u8[8] - b.u8[8]);
+dst.u8[9] = abs(a.u8[9] - b.u8[9]);
+dst.u8[10] = abs(a.u8[10] - b.u8[10]);
+dst.u8[11] = abs(a.u8[11] - b.u8[11]);
+dst.u8[12] = abs(a.u8[12] - b.u8[12]);
+dst.u8[13] = abs(a.u8[13] - b.u8[13]);
+dst.u8[14] = abs(a.u8[14] - b.u8[14]);
+dst.u8[15] = abs(a.u8[15] - b.u8[15]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1008,17 +1433,26 @@ Source: include/msa.h:299
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract unsigned integer lanes of `b` from `a` on 2 x u64 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for asub.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = abs(a.dword[i] - b.dword[i]);
+dst.u64[0] = abs(a.u64[0] - b.u64[0]);
+dst.u64[1] = abs(a.u64[1] - b.u64[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1042,17 +1476,32 @@ Source: include/msa.h:297
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract unsigned integer lanes of `b` from `a` on 8 x u16 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for asub.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = abs(a.half[i] - b.half[i]);
+dst.u16[0] = abs(a.u16[0] - b.u16[0]);
+dst.u16[1] = abs(a.u16[1] - b.u16[1]);
+dst.u16[2] = abs(a.u16[2] - b.u16[2]);
+dst.u16[3] = abs(a.u16[3] - b.u16[3]);
+dst.u16[4] = abs(a.u16[4] - b.u16[4]);
+dst.u16[5] = abs(a.u16[5] - b.u16[5]);
+dst.u16[6] = abs(a.u16[6] - b.u16[6]);
+dst.u16[7] = abs(a.u16[7] - b.u16[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1076,17 +1525,28 @@ Source: include/msa.h:298
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract unsigned integer lanes of `b` from `a` on 4 x u32 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for asub.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = abs(a.word[i] - b.word[i]);
+dst.u32[0] = abs(a.u32[0] - b.u32[0]);
+dst.u32[1] = abs(a.u32[1] - b.u32[1]);
+dst.u32[2] = abs(a.u32[2] - b.u32[2]);
+dst.u32[3] = abs(a.u32[3] - b.u32[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1110,17 +1570,40 @@ Source: include/msa.h:260
 
 ### Description
 
-Compute lane-wise rounded average values for 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise floor average of `a` and `b`, useful for blending packed integer samples.
 
 ### Operation
 
 ```c
-// Inferred semantics for ave.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = floor_average(a.byte[i], b.byte[i]);
+dst.i8[0] = floor_average(a.i8[0], b.i8[0]);
+dst.i8[1] = floor_average(a.i8[1], b.i8[1]);
+dst.i8[2] = floor_average(a.i8[2], b.i8[2]);
+dst.i8[3] = floor_average(a.i8[3], b.i8[3]);
+dst.i8[4] = floor_average(a.i8[4], b.i8[4]);
+dst.i8[5] = floor_average(a.i8[5], b.i8[5]);
+dst.i8[6] = floor_average(a.i8[6], b.i8[6]);
+dst.i8[7] = floor_average(a.i8[7], b.i8[7]);
+dst.i8[8] = floor_average(a.i8[8], b.i8[8]);
+dst.i8[9] = floor_average(a.i8[9], b.i8[9]);
+dst.i8[10] = floor_average(a.i8[10], b.i8[10]);
+dst.i8[11] = floor_average(a.i8[11], b.i8[11]);
+dst.i8[12] = floor_average(a.i8[12], b.i8[12]);
+dst.i8[13] = floor_average(a.i8[13], b.i8[13]);
+dst.i8[14] = floor_average(a.i8[14], b.i8[14]);
+dst.i8[15] = floor_average(a.i8[15], b.i8[15]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1144,17 +1627,26 @@ Source: include/msa.h:263
 
 ### Description
 
-Compute lane-wise rounded average values for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise floor average of `a` and `b`, useful for blending packed integer samples.
 
 ### Operation
 
 ```c
-// Inferred semantics for ave.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = floor_average(a.dword[i], b.dword[i]);
+dst.i64[0] = floor_average(a.i64[0], b.i64[0]);
+dst.i64[1] = floor_average(a.i64[1], b.i64[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1178,17 +1670,32 @@ Source: include/msa.h:261
 
 ### Description
 
-Compute lane-wise rounded average values for 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise floor average of `a` and `b`, useful for blending packed integer samples.
 
 ### Operation
 
 ```c
-// Inferred semantics for ave.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = floor_average(a.half[i], b.half[i]);
+dst.i16[0] = floor_average(a.i16[0], b.i16[0]);
+dst.i16[1] = floor_average(a.i16[1], b.i16[1]);
+dst.i16[2] = floor_average(a.i16[2], b.i16[2]);
+dst.i16[3] = floor_average(a.i16[3], b.i16[3]);
+dst.i16[4] = floor_average(a.i16[4], b.i16[4]);
+dst.i16[5] = floor_average(a.i16[5], b.i16[5]);
+dst.i16[6] = floor_average(a.i16[6], b.i16[6]);
+dst.i16[7] = floor_average(a.i16[7], b.i16[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1212,17 +1719,28 @@ Source: include/msa.h:262
 
 ### Description
 
-Compute lane-wise rounded average values for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise floor average of `a` and `b`, useful for blending packed integer samples.
 
 ### Operation
 
 ```c
-// Inferred semantics for ave.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = floor_average(a.word[i], b.word[i]);
+dst.i32[0] = floor_average(a.i32[0], b.i32[0]);
+dst.i32[1] = floor_average(a.i32[1], b.i32[1]);
+dst.i32[2] = floor_average(a.i32[2], b.i32[2]);
+dst.i32[3] = floor_average(a.i32[3], b.i32[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1246,17 +1764,40 @@ Source: include/msa.h:264
 
 ### Description
 
-Compute lane-wise rounded average values for 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise floor average of `a` and `b`, useful for blending packed integer samples.
 
 ### Operation
 
 ```c
-// Inferred semantics for ave.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = floor_average(a.byte[i], b.byte[i]);
+dst.u8[0] = floor_average(a.u8[0], b.u8[0]);
+dst.u8[1] = floor_average(a.u8[1], b.u8[1]);
+dst.u8[2] = floor_average(a.u8[2], b.u8[2]);
+dst.u8[3] = floor_average(a.u8[3], b.u8[3]);
+dst.u8[4] = floor_average(a.u8[4], b.u8[4]);
+dst.u8[5] = floor_average(a.u8[5], b.u8[5]);
+dst.u8[6] = floor_average(a.u8[6], b.u8[6]);
+dst.u8[7] = floor_average(a.u8[7], b.u8[7]);
+dst.u8[8] = floor_average(a.u8[8], b.u8[8]);
+dst.u8[9] = floor_average(a.u8[9], b.u8[9]);
+dst.u8[10] = floor_average(a.u8[10], b.u8[10]);
+dst.u8[11] = floor_average(a.u8[11], b.u8[11]);
+dst.u8[12] = floor_average(a.u8[12], b.u8[12]);
+dst.u8[13] = floor_average(a.u8[13], b.u8[13]);
+dst.u8[14] = floor_average(a.u8[14], b.u8[14]);
+dst.u8[15] = floor_average(a.u8[15], b.u8[15]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1280,17 +1821,26 @@ Source: include/msa.h:267
 
 ### Description
 
-Compute lane-wise rounded average values for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise floor average of `a` and `b`, useful for blending packed integer samples.
 
 ### Operation
 
 ```c
-// Inferred semantics for ave.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = floor_average(a.dword[i], b.dword[i]);
+dst.u64[0] = floor_average(a.u64[0], b.u64[0]);
+dst.u64[1] = floor_average(a.u64[1], b.u64[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1314,17 +1864,32 @@ Source: include/msa.h:265
 
 ### Description
 
-Compute lane-wise rounded average values for 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise floor average of `a` and `b`, useful for blending packed integer samples.
 
 ### Operation
 
 ```c
-// Inferred semantics for ave.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = floor_average(a.half[i], b.half[i]);
+dst.u16[0] = floor_average(a.u16[0], b.u16[0]);
+dst.u16[1] = floor_average(a.u16[1], b.u16[1]);
+dst.u16[2] = floor_average(a.u16[2], b.u16[2]);
+dst.u16[3] = floor_average(a.u16[3], b.u16[3]);
+dst.u16[4] = floor_average(a.u16[4], b.u16[4]);
+dst.u16[5] = floor_average(a.u16[5], b.u16[5]);
+dst.u16[6] = floor_average(a.u16[6], b.u16[6]);
+dst.u16[7] = floor_average(a.u16[7], b.u16[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1348,17 +1913,28 @@ Source: include/msa.h:266
 
 ### Description
 
-Compute lane-wise rounded average values for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise floor average of `a` and `b`, useful for blending packed integer samples.
 
 ### Operation
 
 ```c
-// Inferred semantics for ave.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = floor_average(a.word[i], b.word[i]);
+dst.u32[0] = floor_average(a.u32[0], b.u32[0]);
+dst.u32[1] = floor_average(a.u32[1], b.u32[1]);
+dst.u32[2] = floor_average(a.u32[2], b.u32[2]);
+dst.u32[3] = floor_average(a.u32[3], b.u32[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1382,17 +1958,40 @@ Source: include/msa.h:268
 
 ### Description
 
-Compute lane-wise rounded average values for 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise rounded-up average of `a` and `b`, useful for blending packed integer samples.
 
 ### Operation
 
 ```c
-// Inferred semantics for aver.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = ceil_average(a.byte[i], b.byte[i]);
+dst.i8[0] = ceil_average(a.i8[0], b.i8[0]);
+dst.i8[1] = ceil_average(a.i8[1], b.i8[1]);
+dst.i8[2] = ceil_average(a.i8[2], b.i8[2]);
+dst.i8[3] = ceil_average(a.i8[3], b.i8[3]);
+dst.i8[4] = ceil_average(a.i8[4], b.i8[4]);
+dst.i8[5] = ceil_average(a.i8[5], b.i8[5]);
+dst.i8[6] = ceil_average(a.i8[6], b.i8[6]);
+dst.i8[7] = ceil_average(a.i8[7], b.i8[7]);
+dst.i8[8] = ceil_average(a.i8[8], b.i8[8]);
+dst.i8[9] = ceil_average(a.i8[9], b.i8[9]);
+dst.i8[10] = ceil_average(a.i8[10], b.i8[10]);
+dst.i8[11] = ceil_average(a.i8[11], b.i8[11]);
+dst.i8[12] = ceil_average(a.i8[12], b.i8[12]);
+dst.i8[13] = ceil_average(a.i8[13], b.i8[13]);
+dst.i8[14] = ceil_average(a.i8[14], b.i8[14]);
+dst.i8[15] = ceil_average(a.i8[15], b.i8[15]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1416,17 +2015,26 @@ Source: include/msa.h:271
 
 ### Description
 
-Compute lane-wise rounded average values for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise rounded-up average of `a` and `b`, useful for blending packed integer samples.
 
 ### Operation
 
 ```c
-// Inferred semantics for aver.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = ceil_average(a.dword[i], b.dword[i]);
+dst.i64[0] = ceil_average(a.i64[0], b.i64[0]);
+dst.i64[1] = ceil_average(a.i64[1], b.i64[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1450,17 +2058,32 @@ Source: include/msa.h:269
 
 ### Description
 
-Compute lane-wise rounded average values for 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise rounded-up average of `a` and `b`, useful for blending packed integer samples.
 
 ### Operation
 
 ```c
-// Inferred semantics for aver.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = ceil_average(a.half[i], b.half[i]);
+dst.i16[0] = ceil_average(a.i16[0], b.i16[0]);
+dst.i16[1] = ceil_average(a.i16[1], b.i16[1]);
+dst.i16[2] = ceil_average(a.i16[2], b.i16[2]);
+dst.i16[3] = ceil_average(a.i16[3], b.i16[3]);
+dst.i16[4] = ceil_average(a.i16[4], b.i16[4]);
+dst.i16[5] = ceil_average(a.i16[5], b.i16[5]);
+dst.i16[6] = ceil_average(a.i16[6], b.i16[6]);
+dst.i16[7] = ceil_average(a.i16[7], b.i16[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1484,17 +2107,28 @@ Source: include/msa.h:270
 
 ### Description
 
-Compute lane-wise rounded average values for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise rounded-up average of `a` and `b`, useful for blending packed integer samples.
 
 ### Operation
 
 ```c
-// Inferred semantics for aver.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = ceil_average(a.word[i], b.word[i]);
+dst.i32[0] = ceil_average(a.i32[0], b.i32[0]);
+dst.i32[1] = ceil_average(a.i32[1], b.i32[1]);
+dst.i32[2] = ceil_average(a.i32[2], b.i32[2]);
+dst.i32[3] = ceil_average(a.i32[3], b.i32[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1518,17 +2152,40 @@ Source: include/msa.h:272
 
 ### Description
 
-Compute lane-wise rounded average values for 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise rounded-up average of `a` and `b`, useful for blending packed integer samples.
 
 ### Operation
 
 ```c
-// Inferred semantics for aver.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = ceil_average(a.byte[i], b.byte[i]);
+dst.u8[0] = ceil_average(a.u8[0], b.u8[0]);
+dst.u8[1] = ceil_average(a.u8[1], b.u8[1]);
+dst.u8[2] = ceil_average(a.u8[2], b.u8[2]);
+dst.u8[3] = ceil_average(a.u8[3], b.u8[3]);
+dst.u8[4] = ceil_average(a.u8[4], b.u8[4]);
+dst.u8[5] = ceil_average(a.u8[5], b.u8[5]);
+dst.u8[6] = ceil_average(a.u8[6], b.u8[6]);
+dst.u8[7] = ceil_average(a.u8[7], b.u8[7]);
+dst.u8[8] = ceil_average(a.u8[8], b.u8[8]);
+dst.u8[9] = ceil_average(a.u8[9], b.u8[9]);
+dst.u8[10] = ceil_average(a.u8[10], b.u8[10]);
+dst.u8[11] = ceil_average(a.u8[11], b.u8[11]);
+dst.u8[12] = ceil_average(a.u8[12], b.u8[12]);
+dst.u8[13] = ceil_average(a.u8[13], b.u8[13]);
+dst.u8[14] = ceil_average(a.u8[14], b.u8[14]);
+dst.u8[15] = ceil_average(a.u8[15], b.u8[15]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1552,17 +2209,26 @@ Source: include/msa.h:275
 
 ### Description
 
-Compute lane-wise rounded average values for 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise rounded-up average of `a` and `b`, useful for blending packed integer samples.
 
 ### Operation
 
 ```c
-// Inferred semantics for aver.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = ceil_average(a.dword[i], b.dword[i]);
+dst.u64[0] = ceil_average(a.u64[0], b.u64[0]);
+dst.u64[1] = ceil_average(a.u64[1], b.u64[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1586,17 +2252,32 @@ Source: include/msa.h:273
 
 ### Description
 
-Compute lane-wise rounded average values for 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise rounded-up average of `a` and `b`, useful for blending packed integer samples.
 
 ### Operation
 
 ```c
-// Inferred semantics for aver.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = ceil_average(a.half[i], b.half[i]);
+dst.u16[0] = ceil_average(a.u16[0], b.u16[0]);
+dst.u16[1] = ceil_average(a.u16[1], b.u16[1]);
+dst.u16[2] = ceil_average(a.u16[2], b.u16[2]);
+dst.u16[3] = ceil_average(a.u16[3], b.u16[3]);
+dst.u16[4] = ceil_average(a.u16[4], b.u16[4]);
+dst.u16[5] = ceil_average(a.u16[5], b.u16[5]);
+dst.u16[6] = ceil_average(a.u16[6], b.u16[6]);
+dst.u16[7] = ceil_average(a.u16[7], b.u16[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1620,17 +2301,28 @@ Source: include/msa.h:274
 
 ### Description
 
-Compute lane-wise rounded average values for 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise rounded-up average of `a` and `b`, useful for blending packed integer samples.
 
 ### Operation
 
 ```c
-// Inferred semantics for aver.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = ceil_average(a.word[i], b.word[i]);
+dst.u32[0] = ceil_average(a.u32[0], b.u32[0]);
+dst.u32[1] = ceil_average(a.u32[1], b.u32[1]);
+dst.u32[2] = ceil_average(a.u32[2], b.u32[2]);
+dst.u32[3] = ceil_average(a.u32[3], b.u32[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1654,17 +2346,40 @@ Source: include/msa.h:312
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Divide signed integer lanes of `a` by `b` on 16 x i8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for div.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = a.byte[i] / b.byte[i];
+dst.i8[0] = a.i8[0] / b.i8[0];
+dst.i8[1] = a.i8[1] / b.i8[1];
+dst.i8[2] = a.i8[2] / b.i8[2];
+dst.i8[3] = a.i8[3] / b.i8[3];
+dst.i8[4] = a.i8[4] / b.i8[4];
+dst.i8[5] = a.i8[5] / b.i8[5];
+dst.i8[6] = a.i8[6] / b.i8[6];
+dst.i8[7] = a.i8[7] / b.i8[7];
+dst.i8[8] = a.i8[8] / b.i8[8];
+dst.i8[9] = a.i8[9] / b.i8[9];
+dst.i8[10] = a.i8[10] / b.i8[10];
+dst.i8[11] = a.i8[11] / b.i8[11];
+dst.i8[12] = a.i8[12] / b.i8[12];
+dst.i8[13] = a.i8[13] / b.i8[13];
+dst.i8[14] = a.i8[14] / b.i8[14];
+dst.i8[15] = a.i8[15] / b.i8[15];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>29/52</td><td>0.05(1/21)</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1688,17 +2403,26 @@ Source: include/msa.h:315
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Divide signed integer lanes of `a` by `b` on 2 x i64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for div.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = a.dword[i] / b.dword[i];
+dst.i64[0] = a.i64[0] / b.i64[0];
+dst.i64[1] = a.i64[1] / b.i64[1];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>8</td><td>0.14(1/7)</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1722,17 +2446,32 @@ Source: include/msa.h:313
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Divide signed integer lanes of `a` by `b` on 8 x i16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for div.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = a.half[i] / b.half[i];
+dst.i16[0] = a.i16[0] / b.i16[0];
+dst.i16[1] = a.i16[1] / b.i16[1];
+dst.i16[2] = a.i16[2] / b.i16[2];
+dst.i16[3] = a.i16[3] / b.i16[3];
+dst.i16[4] = a.i16[4] / b.i16[4];
+dst.i16[5] = a.i16[5] / b.i16[5];
+dst.i16[6] = a.i16[6] / b.i16[6];
+dst.i16[7] = a.i16[7] / b.i16[7];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>17/30</td><td>0.08(1/13)</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1756,17 +2495,28 @@ Source: include/msa.h:314
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Divide signed integer lanes of `a` by `b` on 4 x i32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for div.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = a.word[i] / b.word[i];
+dst.i32[0] = a.i32[0] / b.i32[0];
+dst.i32[1] = a.i32[1] / b.i32[1];
+dst.i32[2] = a.i32[2] / b.i32[2];
+dst.i32[3] = a.i32[3] / b.i32[3];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>11/17</td><td>0.11(1/9)</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1790,17 +2540,40 @@ Source: include/msa.h:316
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Divide unsigned integer lanes of `a` by `b` on 16 x u8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for div.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = a.byte[i] / b.byte[i];
+dst.u8[0] = a.u8[0] / b.u8[0];
+dst.u8[1] = a.u8[1] / b.u8[1];
+dst.u8[2] = a.u8[2] / b.u8[2];
+dst.u8[3] = a.u8[3] / b.u8[3];
+dst.u8[4] = a.u8[4] / b.u8[4];
+dst.u8[5] = a.u8[5] / b.u8[5];
+dst.u8[6] = a.u8[6] / b.u8[6];
+dst.u8[7] = a.u8[7] / b.u8[7];
+dst.u8[8] = a.u8[8] / b.u8[8];
+dst.u8[9] = a.u8[9] / b.u8[9];
+dst.u8[10] = a.u8[10] / b.u8[10];
+dst.u8[11] = a.u8[11] / b.u8[11];
+dst.u8[12] = a.u8[12] / b.u8[12];
+dst.u8[13] = a.u8[13] / b.u8[13];
+dst.u8[14] = a.u8[14] / b.u8[14];
+dst.u8[15] = a.u8[15] / b.u8[15];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>29/39</td><td>0.05(1/21)</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1824,17 +2597,26 @@ Source: include/msa.h:319
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Divide unsigned integer lanes of `a` by `b` on 2 x u64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for div.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = a.dword[i] / b.dword[i];
+dst.u64[0] = a.u64[0] / b.u64[0];
+dst.u64[1] = a.u64[1] / b.u64[1];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>8/18</td><td>0.16(1/6.14)</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1858,17 +2640,32 @@ Source: include/msa.h:317
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Divide unsigned integer lanes of `a` by `b` on 8 x u16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for div.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = a.half[i] / b.half[i];
+dst.u16[0] = a.u16[0] / b.u16[0];
+dst.u16[1] = a.u16[1] / b.u16[1];
+dst.u16[2] = a.u16[2] / b.u16[2];
+dst.u16[3] = a.u16[3] / b.u16[3];
+dst.u16[4] = a.u16[4] / b.u16[4];
+dst.u16[5] = a.u16[5] / b.u16[5];
+dst.u16[6] = a.u16[6] / b.u16[6];
+dst.u16[7] = a.u16[7] / b.u16[7];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>17</td><td>0.08(1/12)</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1892,17 +2689,28 @@ Source: include/msa.h:318
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Divide unsigned integer lanes of `a` by `b` on 4 x u32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for div.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = a.word[i] / b.word[i];
+dst.u32[0] = a.u32[0] / b.u32[0];
+dst.u32[1] = a.u32[1] / b.u32[1];
+dst.u32[2] = a.u32[2] / b.u32[2];
+dst.u32[3] = a.u32[3] / b.u32[3];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>11/24</td><td>0.14(1/7.37)</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1926,19 +2734,26 @@ Source: include/msa.h:342
 
 ### Description
 
-Compute adjacent-pair dot products using signed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Multiply adjacent pairs of narrower signed lanes, add each pair, and write widened dot-product lanes. This is useful for packed filters, matrix kernels, and sum-of-products code.
 
 ### Operation
 
 ```c
-// Inferred semantics for dotp.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..0:
-  product0 = widen(a.dword[2*i]) * widen(b.dword[2*i]);
-  product1 = widen(a.dword[2*i + 1]) * widen(b.dword[2*i + 1]);
-  dst.wide_lane[i] = (product0 + product1);
+dst.i64[0] = a.i32[0] * b.i32[0] + a.i32[1] * b.i32[1];
+dst.i64[1] = a.i32[2] * b.i32[2] + a.i32[3] * b.i32[3];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1962,19 +2777,32 @@ Source: include/msa.h:340
 
 ### Description
 
-Compute adjacent-pair dot products using signed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Multiply adjacent pairs of narrower signed lanes, add each pair, and write widened dot-product lanes. This is useful for packed filters, matrix kernels, and sum-of-products code.
 
 ### Operation
 
 ```c
-// Inferred semantics for dotp.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..3:
-  product0 = widen(a.half[2*i]) * widen(b.half[2*i]);
-  product1 = widen(a.half[2*i + 1]) * widen(b.half[2*i + 1]);
-  dst.wide_lane[i] = (product0 + product1);
+dst.i16[0] = a.i8[0] * b.i8[0] + a.i8[1] * b.i8[1];
+dst.i16[1] = a.i8[2] * b.i8[2] + a.i8[3] * b.i8[3];
+dst.i16[2] = a.i8[4] * b.i8[4] + a.i8[5] * b.i8[5];
+dst.i16[3] = a.i8[6] * b.i8[6] + a.i8[7] * b.i8[7];
+dst.i16[4] = a.i8[8] * b.i8[8] + a.i8[9] * b.i8[9];
+dst.i16[5] = a.i8[10] * b.i8[10] + a.i8[11] * b.i8[11];
+dst.i16[6] = a.i8[12] * b.i8[12] + a.i8[13] * b.i8[13];
+dst.i16[7] = a.i8[14] * b.i8[14] + a.i8[15] * b.i8[15];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1998,19 +2826,28 @@ Source: include/msa.h:341
 
 ### Description
 
-Compute adjacent-pair dot products using signed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Multiply adjacent pairs of narrower signed lanes, add each pair, and write widened dot-product lanes. This is useful for packed filters, matrix kernels, and sum-of-products code.
 
 ### Operation
 
 ```c
-// Inferred semantics for dotp.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..1:
-  product0 = widen(a.word[2*i]) * widen(b.word[2*i]);
-  product1 = widen(a.word[2*i + 1]) * widen(b.word[2*i + 1]);
-  dst.wide_lane[i] = (product0 + product1);
+dst.i32[0] = a.i16[0] * b.i16[0] + a.i16[1] * b.i16[1];
+dst.i32[1] = a.i16[2] * b.i16[2] + a.i16[3] * b.i16[3];
+dst.i32[2] = a.i16[4] * b.i16[4] + a.i16[5] * b.i16[5];
+dst.i32[3] = a.i16[6] * b.i16[6] + a.i16[7] * b.i16[7];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2034,19 +2871,26 @@ Source: include/msa.h:345
 
 ### Description
 
-Compute adjacent-pair dot products using unsigned inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Multiply adjacent pairs of narrower unsigned lanes, add each pair, and write widened dot-product lanes. This is useful for packed filters, matrix kernels, and sum-of-products code.
 
 ### Operation
 
 ```c
-// Inferred semantics for dotp.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..0:
-  product0 = widen(a.dword[2*i]) * widen(b.dword[2*i]);
-  product1 = widen(a.dword[2*i + 1]) * widen(b.dword[2*i + 1]);
-  dst.wide_lane[i] = (product0 + product1);
+dst.u64[0] = a.u32[0] * b.u32[0] + a.u32[1] * b.u32[1];
+dst.u64[1] = a.u32[2] * b.u32[2] + a.u32[3] * b.u32[3];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2070,19 +2914,32 @@ Source: include/msa.h:343
 
 ### Description
 
-Compute adjacent-pair dot products using unsigned inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Multiply adjacent pairs of narrower unsigned lanes, add each pair, and write widened dot-product lanes. This is useful for packed filters, matrix kernels, and sum-of-products code.
 
 ### Operation
 
 ```c
-// Inferred semantics for dotp.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..3:
-  product0 = widen(a.half[2*i]) * widen(b.half[2*i]);
-  product1 = widen(a.half[2*i + 1]) * widen(b.half[2*i + 1]);
-  dst.wide_lane[i] = (product0 + product1);
+dst.u16[0] = a.u8[0] * b.u8[0] + a.u8[1] * b.u8[1];
+dst.u16[1] = a.u8[2] * b.u8[2] + a.u8[3] * b.u8[3];
+dst.u16[2] = a.u8[4] * b.u8[4] + a.u8[5] * b.u8[5];
+dst.u16[3] = a.u8[6] * b.u8[6] + a.u8[7] * b.u8[7];
+dst.u16[4] = a.u8[8] * b.u8[8] + a.u8[9] * b.u8[9];
+dst.u16[5] = a.u8[10] * b.u8[10] + a.u8[11] * b.u8[11];
+dst.u16[6] = a.u8[12] * b.u8[12] + a.u8[13] * b.u8[13];
+dst.u16[7] = a.u8[14] * b.u8[14] + a.u8[15] * b.u8[15];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2106,19 +2963,28 @@ Source: include/msa.h:344
 
 ### Description
 
-Compute adjacent-pair dot products using unsigned inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Multiply adjacent pairs of narrower unsigned lanes, add each pair, and write widened dot-product lanes. This is useful for packed filters, matrix kernels, and sum-of-products code.
 
 ### Operation
 
 ```c
-// Inferred semantics for dotp.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..1:
-  product0 = widen(a.word[2*i]) * widen(b.word[2*i]);
-  product1 = widen(a.word[2*i + 1]) * widen(b.word[2*i + 1]);
-  dst.wide_lane[i] = (product0 + product1);
+dst.u32[0] = a.u16[0] * b.u16[0] + a.u16[1] * b.u16[1];
+dst.u32[1] = a.u16[2] * b.u16[2] + a.u16[3] * b.u16[3];
+dst.u32[2] = a.u16[4] * b.u16[4] + a.u16[5] * b.u16[5];
+dst.u32[3] = a.u16[6] * b.u16[6] + a.u16[7] * b.u16[7];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2142,19 +3008,26 @@ Source: include/msa.h:348
 
 ### Description
 
-Compute adjacent-pair dot products using signed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute adjacent-pair dot products and add to the accumulator operand in widened lanes. This is a packed multiply-accumulate primitive.
 
 ### Operation
 
 ```c
-// Inferred semantics for dpadd.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..0:
-  product0 = widen(a.dword[2*i]) * widen(b.dword[2*i]);
-  product1 = widen(a.dword[2*i + 1]) * widen(b.dword[2*i + 1]);
-  dst.wide_lane[i] = acc + (product0 + product1);
+dst.i64[0] = a.i64[0] + b.i32[0] * c.i32[0] + b.i32[1] * c.i32[1];
+dst.i64[1] = a.i64[1] + b.i32[2] * c.i32[2] + b.i32[3] * c.i32[3];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2178,19 +3051,32 @@ Source: include/msa.h:346
 
 ### Description
 
-Compute adjacent-pair dot products using signed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute adjacent-pair dot products and add to the accumulator operand in widened lanes. This is a packed multiply-accumulate primitive.
 
 ### Operation
 
 ```c
-// Inferred semantics for dpadd.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..3:
-  product0 = widen(a.half[2*i]) * widen(b.half[2*i]);
-  product1 = widen(a.half[2*i + 1]) * widen(b.half[2*i + 1]);
-  dst.wide_lane[i] = acc + (product0 + product1);
+dst.i16[0] = a.i16[0] + b.i8[0] * c.i8[0] + b.i8[1] * c.i8[1];
+dst.i16[1] = a.i16[1] + b.i8[2] * c.i8[2] + b.i8[3] * c.i8[3];
+dst.i16[2] = a.i16[2] + b.i8[4] * c.i8[4] + b.i8[5] * c.i8[5];
+dst.i16[3] = a.i16[3] + b.i8[6] * c.i8[6] + b.i8[7] * c.i8[7];
+dst.i16[4] = a.i16[4] + b.i8[8] * c.i8[8] + b.i8[9] * c.i8[9];
+dst.i16[5] = a.i16[5] + b.i8[10] * c.i8[10] + b.i8[11] * c.i8[11];
+dst.i16[6] = a.i16[6] + b.i8[12] * c.i8[12] + b.i8[13] * c.i8[13];
+dst.i16[7] = a.i16[7] + b.i8[14] * c.i8[14] + b.i8[15] * c.i8[15];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2214,19 +3100,28 @@ Source: include/msa.h:347
 
 ### Description
 
-Compute adjacent-pair dot products using signed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute adjacent-pair dot products and add to the accumulator operand in widened lanes. This is a packed multiply-accumulate primitive.
 
 ### Operation
 
 ```c
-// Inferred semantics for dpadd.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..1:
-  product0 = widen(a.word[2*i]) * widen(b.word[2*i]);
-  product1 = widen(a.word[2*i + 1]) * widen(b.word[2*i + 1]);
-  dst.wide_lane[i] = acc + (product0 + product1);
+dst.i32[0] = a.i32[0] + b.i16[0] * c.i16[0] + b.i16[1] * c.i16[1];
+dst.i32[1] = a.i32[1] + b.i16[2] * c.i16[2] + b.i16[3] * c.i16[3];
+dst.i32[2] = a.i32[2] + b.i16[4] * c.i16[4] + b.i16[5] * c.i16[5];
+dst.i32[3] = a.i32[3] + b.i16[6] * c.i16[6] + b.i16[7] * c.i16[7];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2250,19 +3145,26 @@ Source: include/msa.h:351
 
 ### Description
 
-Compute adjacent-pair dot products using unsigned inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute adjacent-pair dot products and add to the accumulator operand in widened lanes. This is a packed multiply-accumulate primitive.
 
 ### Operation
 
 ```c
-// Inferred semantics for dpadd.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..0:
-  product0 = widen(a.dword[2*i]) * widen(b.dword[2*i]);
-  product1 = widen(a.dword[2*i + 1]) * widen(b.dword[2*i + 1]);
-  dst.wide_lane[i] = acc + (product0 + product1);
+dst.u64[0] = a.u64[0] + b.u32[0] * c.u32[0] + b.u32[1] * c.u32[1];
+dst.u64[1] = a.u64[1] + b.u32[2] * c.u32[2] + b.u32[3] * c.u32[3];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2286,19 +3188,32 @@ Source: include/msa.h:349
 
 ### Description
 
-Compute adjacent-pair dot products using unsigned inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute adjacent-pair dot products and add to the accumulator operand in widened lanes. This is a packed multiply-accumulate primitive.
 
 ### Operation
 
 ```c
-// Inferred semantics for dpadd.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..3:
-  product0 = widen(a.half[2*i]) * widen(b.half[2*i]);
-  product1 = widen(a.half[2*i + 1]) * widen(b.half[2*i + 1]);
-  dst.wide_lane[i] = acc + (product0 + product1);
+dst.u16[0] = a.u16[0] + b.u8[0] * c.u8[0] + b.u8[1] * c.u8[1];
+dst.u16[1] = a.u16[1] + b.u8[2] * c.u8[2] + b.u8[3] * c.u8[3];
+dst.u16[2] = a.u16[2] + b.u8[4] * c.u8[4] + b.u8[5] * c.u8[5];
+dst.u16[3] = a.u16[3] + b.u8[6] * c.u8[6] + b.u8[7] * c.u8[7];
+dst.u16[4] = a.u16[4] + b.u8[8] * c.u8[8] + b.u8[9] * c.u8[9];
+dst.u16[5] = a.u16[5] + b.u8[10] * c.u8[10] + b.u8[11] * c.u8[11];
+dst.u16[6] = a.u16[6] + b.u8[12] * c.u8[12] + b.u8[13] * c.u8[13];
+dst.u16[7] = a.u16[7] + b.u8[14] * c.u8[14] + b.u8[15] * c.u8[15];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2322,19 +3237,28 @@ Source: include/msa.h:350
 
 ### Description
 
-Compute adjacent-pair dot products using unsigned inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute adjacent-pair dot products and add to the accumulator operand in widened lanes. This is a packed multiply-accumulate primitive.
 
 ### Operation
 
 ```c
-// Inferred semantics for dpadd.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..1:
-  product0 = widen(a.word[2*i]) * widen(b.word[2*i]);
-  product1 = widen(a.word[2*i + 1]) * widen(b.word[2*i + 1]);
-  dst.wide_lane[i] = acc + (product0 + product1);
+dst.u32[0] = a.u32[0] + b.u16[0] * c.u16[0] + b.u16[1] * c.u16[1];
+dst.u32[1] = a.u32[1] + b.u16[2] * c.u16[2] + b.u16[3] * c.u16[3];
+dst.u32[2] = a.u32[2] + b.u16[4] * c.u16[4] + b.u16[5] * c.u16[5];
+dst.u32[3] = a.u32[3] + b.u16[6] * c.u16[6] + b.u16[7] * c.u16[7];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2358,19 +3282,26 @@ Source: include/msa.h:354
 
 ### Description
 
-Compute adjacent-pair dot products using signed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute adjacent-pair dot products and subtract from the accumulator operand in widened lanes. This is a packed multiply-accumulate primitive.
 
 ### Operation
 
 ```c
-// Inferred semantics for dpsub.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..0:
-  product0 = widen(a.dword[2*i]) * widen(b.dword[2*i]);
-  product1 = widen(a.dword[2*i + 1]) * widen(b.dword[2*i + 1]);
-  dst.wide_lane[i] = acc - (product0 + product1);
+dst.i64[0] = a.i64[0] - b.i32[0] * c.i32[0] - b.i32[1] * c.i32[1];
+dst.i64[1] = a.i64[1] - b.i32[2] * c.i32[2] - b.i32[3] * c.i32[3];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2394,19 +3325,32 @@ Source: include/msa.h:352
 
 ### Description
 
-Compute adjacent-pair dot products using signed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute adjacent-pair dot products and subtract from the accumulator operand in widened lanes. This is a packed multiply-accumulate primitive.
 
 ### Operation
 
 ```c
-// Inferred semantics for dpsub.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..3:
-  product0 = widen(a.half[2*i]) * widen(b.half[2*i]);
-  product1 = widen(a.half[2*i + 1]) * widen(b.half[2*i + 1]);
-  dst.wide_lane[i] = acc - (product0 + product1);
+dst.i16[0] = a.i16[0] - b.i8[0] * c.i8[0] - b.i8[1] * c.i8[1];
+dst.i16[1] = a.i16[1] - b.i8[2] * c.i8[2] - b.i8[3] * c.i8[3];
+dst.i16[2] = a.i16[2] - b.i8[4] * c.i8[4] - b.i8[5] * c.i8[5];
+dst.i16[3] = a.i16[3] - b.i8[6] * c.i8[6] - b.i8[7] * c.i8[7];
+dst.i16[4] = a.i16[4] - b.i8[8] * c.i8[8] - b.i8[9] * c.i8[9];
+dst.i16[5] = a.i16[5] - b.i8[10] * c.i8[10] - b.i8[11] * c.i8[11];
+dst.i16[6] = a.i16[6] - b.i8[12] * c.i8[12] - b.i8[13] * c.i8[13];
+dst.i16[7] = a.i16[7] - b.i8[14] * c.i8[14] - b.i8[15] * c.i8[15];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2430,19 +3374,28 @@ Source: include/msa.h:353
 
 ### Description
 
-Compute adjacent-pair dot products using signed inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute adjacent-pair dot products and subtract from the accumulator operand in widened lanes. This is a packed multiply-accumulate primitive.
 
 ### Operation
 
 ```c
-// Inferred semantics for dpsub.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..1:
-  product0 = widen(a.word[2*i]) * widen(b.word[2*i]);
-  product1 = widen(a.word[2*i + 1]) * widen(b.word[2*i + 1]);
-  dst.wide_lane[i] = acc - (product0 + product1);
+dst.i32[0] = a.i32[0] - b.i16[0] * c.i16[0] - b.i16[1] * c.i16[1];
+dst.i32[1] = a.i32[1] - b.i16[2] * c.i16[2] - b.i16[3] * c.i16[3];
+dst.i32[2] = a.i32[2] - b.i16[4] * c.i16[4] - b.i16[5] * c.i16[5];
+dst.i32[3] = a.i32[3] - b.i16[6] * c.i16[6] - b.i16[7] * c.i16[7];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2466,19 +3419,26 @@ Source: include/msa.h:357
 
 ### Description
 
-Compute adjacent-pair dot products using unsigned inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute adjacent-pair dot products and subtract from the accumulator operand in widened lanes. This is a packed multiply-accumulate primitive.
 
 ### Operation
 
 ```c
-// Inferred semantics for dpsub.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..0:
-  product0 = widen(a.dword[2*i]) * widen(b.dword[2*i]);
-  product1 = widen(a.dword[2*i + 1]) * widen(b.dword[2*i + 1]);
-  dst.wide_lane[i] = acc - (product0 + product1);
+dst.u64[0] = a.u64[0] - b.u32[0] * c.u32[0] - b.u32[1] * c.u32[1];
+dst.u64[1] = a.u64[1] - b.u32[2] * c.u32[2] - b.u32[3] * c.u32[3];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2502,19 +3462,32 @@ Source: include/msa.h:355
 
 ### Description
 
-Compute adjacent-pair dot products using unsigned inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute adjacent-pair dot products and subtract from the accumulator operand in widened lanes. This is a packed multiply-accumulate primitive.
 
 ### Operation
 
 ```c
-// Inferred semantics for dpsub.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..3:
-  product0 = widen(a.half[2*i]) * widen(b.half[2*i]);
-  product1 = widen(a.half[2*i + 1]) * widen(b.half[2*i + 1]);
-  dst.wide_lane[i] = acc - (product0 + product1);
+dst.u16[0] = a.u16[0] - b.u8[0] * c.u8[0] - b.u8[1] * c.u8[1];
+dst.u16[1] = a.u16[1] - b.u8[2] * c.u8[2] - b.u8[3] * c.u8[3];
+dst.u16[2] = a.u16[2] - b.u8[4] * c.u8[4] - b.u8[5] * c.u8[5];
+dst.u16[3] = a.u16[3] - b.u8[6] * c.u8[6] - b.u8[7] * c.u8[7];
+dst.u16[4] = a.u16[4] - b.u8[8] * c.u8[8] - b.u8[9] * c.u8[9];
+dst.u16[5] = a.u16[5] - b.u8[10] * c.u8[10] - b.u8[11] * c.u8[11];
+dst.u16[6] = a.u16[6] - b.u8[12] * c.u8[12] - b.u8[13] * c.u8[13];
+dst.u16[7] = a.u16[7] - b.u8[14] * c.u8[14] - b.u8[15] * c.u8[15];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2538,19 +3511,28 @@ Source: include/msa.h:356
 
 ### Description
 
-Compute adjacent-pair dot products using unsigned inputs and produce widened accumulated results. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute adjacent-pair dot products and subtract from the accumulator operand in widened lanes. This is a packed multiply-accumulate primitive.
 
 ### Operation
 
 ```c
-// Inferred semantics for dpsub.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..1:
-  product0 = widen(a.word[2*i]) * widen(b.word[2*i]);
-  product1 = widen(a.word[2*i + 1]) * widen(b.word[2*i + 1]);
-  dst.wide_lane[i] = acc - (product0 + product1);
+dst.u32[0] = a.u32[0] - b.u16[0] * c.u16[0] - b.u16[1] * c.u16[1];
+dst.u32[1] = a.u32[1] - b.u16[2] * c.u16[2] - b.u16[3] * c.u16[3];
+dst.u32[2] = a.u32[2] - b.u16[4] * c.u16[4] - b.u16[5] * c.u16[5];
+dst.u32[3] = a.u32[3] - b.u16[6] * c.u16[6] - b.u16[7] * c.u16[7];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2574,17 +3556,26 @@ Source: include/msa.h:322
 
 ### Description
 
-Compute horizontal adjacent add/subtract operations over signed 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Widen corresponding narrower source lanes and add them pairwise into 2 x i64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for hadd.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..0:
-  dst.wide_lane[i] = widen(a.dword[2*i]) + widen(a.dword[2*i + 1]);
+dst.i64[0] = widen(a.i32[0]) + widen(b.i32[0]);
+dst.i64[1] = widen(a.i32[1]) + widen(b.i32[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2608,17 +3599,32 @@ Source: include/msa.h:320
 
 ### Description
 
-Compute horizontal adjacent add/subtract operations over signed 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Widen corresponding narrower source lanes and add them pairwise into 8 x i16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for hadd.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..3:
-  dst.wide_lane[i] = widen(a.half[2*i]) + widen(a.half[2*i + 1]);
+dst.i16[0] = widen(a.i8[0]) + widen(b.i8[0]);
+dst.i16[1] = widen(a.i8[1]) + widen(b.i8[1]);
+dst.i16[2] = widen(a.i8[2]) + widen(b.i8[2]);
+dst.i16[3] = widen(a.i8[3]) + widen(b.i8[3]);
+dst.i16[4] = widen(a.i8[4]) + widen(b.i8[4]);
+dst.i16[5] = widen(a.i8[5]) + widen(b.i8[5]);
+dst.i16[6] = widen(a.i8[6]) + widen(b.i8[6]);
+dst.i16[7] = widen(a.i8[7]) + widen(b.i8[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2642,17 +3648,28 @@ Source: include/msa.h:321
 
 ### Description
 
-Compute horizontal adjacent add/subtract operations over signed 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Widen corresponding narrower source lanes and add them pairwise into 4 x i32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for hadd.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..1:
-  dst.wide_lane[i] = widen(a.word[2*i]) + widen(a.word[2*i + 1]);
+dst.i32[0] = widen(a.i16[0]) + widen(b.i16[0]);
+dst.i32[1] = widen(a.i16[1]) + widen(b.i16[1]);
+dst.i32[2] = widen(a.i16[2]) + widen(b.i16[2]);
+dst.i32[3] = widen(a.i16[3]) + widen(b.i16[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2676,17 +3693,26 @@ Source: include/msa.h:325
 
 ### Description
 
-Compute horizontal adjacent add/subtract operations over unsigned 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Widen corresponding narrower source lanes and add them pairwise into 2 x u64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for hadd.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..0:
-  dst.wide_lane[i] = widen(a.dword[2*i]) + widen(a.dword[2*i + 1]);
+dst.u64[0] = widen(a.u32[0]) + widen(b.u32[0]);
+dst.u64[1] = widen(a.u32[1]) + widen(b.u32[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2710,17 +3736,32 @@ Source: include/msa.h:323
 
 ### Description
 
-Compute horizontal adjacent add/subtract operations over unsigned 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Widen corresponding narrower source lanes and add them pairwise into 8 x u16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for hadd.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..3:
-  dst.wide_lane[i] = widen(a.half[2*i]) + widen(a.half[2*i + 1]);
+dst.u16[0] = widen(a.u8[0]) + widen(b.u8[0]);
+dst.u16[1] = widen(a.u8[1]) + widen(b.u8[1]);
+dst.u16[2] = widen(a.u8[2]) + widen(b.u8[2]);
+dst.u16[3] = widen(a.u8[3]) + widen(b.u8[3]);
+dst.u16[4] = widen(a.u8[4]) + widen(b.u8[4]);
+dst.u16[5] = widen(a.u8[5]) + widen(b.u8[5]);
+dst.u16[6] = widen(a.u8[6]) + widen(b.u8[6]);
+dst.u16[7] = widen(a.u8[7]) + widen(b.u8[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2744,17 +3785,28 @@ Source: include/msa.h:324
 
 ### Description
 
-Compute horizontal adjacent add/subtract operations over unsigned 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Widen corresponding narrower source lanes and add them pairwise into 4 x u32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for hadd.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..1:
-  dst.wide_lane[i] = widen(a.word[2*i]) + widen(a.word[2*i + 1]);
+dst.u32[0] = widen(a.u16[0]) + widen(b.u16[0]);
+dst.u32[1] = widen(a.u16[1]) + widen(b.u16[1]);
+dst.u32[2] = widen(a.u16[2]) + widen(b.u16[2]);
+dst.u32[3] = widen(a.u16[3]) + widen(b.u16[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2778,17 +3830,26 @@ Source: include/msa.h:328
 
 ### Description
 
-Compute horizontal adjacent add/subtract operations over signed 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Widen corresponding narrower source lanes and subtract them pairwise into 2 x i64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for hsub.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..0:
-  dst.wide_lane[i] = widen(a.dword[2*i]) - widen(a.dword[2*i + 1]);
+dst.i64[0] = widen(a.i32[0]) - widen(b.i32[0]);
+dst.i64[1] = widen(a.i32[1]) - widen(b.i32[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2812,17 +3873,32 @@ Source: include/msa.h:326
 
 ### Description
 
-Compute horizontal adjacent add/subtract operations over signed 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Widen corresponding narrower source lanes and subtract them pairwise into 8 x i16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for hsub.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..3:
-  dst.wide_lane[i] = widen(a.half[2*i]) - widen(a.half[2*i + 1]);
+dst.i16[0] = widen(a.i8[0]) - widen(b.i8[0]);
+dst.i16[1] = widen(a.i8[1]) - widen(b.i8[1]);
+dst.i16[2] = widen(a.i8[2]) - widen(b.i8[2]);
+dst.i16[3] = widen(a.i8[3]) - widen(b.i8[3]);
+dst.i16[4] = widen(a.i8[4]) - widen(b.i8[4]);
+dst.i16[5] = widen(a.i8[5]) - widen(b.i8[5]);
+dst.i16[6] = widen(a.i8[6]) - widen(b.i8[6]);
+dst.i16[7] = widen(a.i8[7]) - widen(b.i8[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2846,17 +3922,28 @@ Source: include/msa.h:327
 
 ### Description
 
-Compute horizontal adjacent add/subtract operations over signed 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Widen corresponding narrower source lanes and subtract them pairwise into 4 x i32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for hsub.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..1:
-  dst.wide_lane[i] = widen(a.word[2*i]) - widen(a.word[2*i + 1]);
+dst.i32[0] = widen(a.i16[0]) - widen(b.i16[0]);
+dst.i32[1] = widen(a.i16[1]) - widen(b.i16[1]);
+dst.i32[2] = widen(a.i16[2]) - widen(b.i16[2]);
+dst.i32[3] = widen(a.i16[3]) - widen(b.i16[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2880,17 +3967,26 @@ Source: include/msa.h:331
 
 ### Description
 
-Compute horizontal adjacent add/subtract operations over unsigned 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Widen corresponding narrower source lanes and subtract them pairwise into 2 x u64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for hsub.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..0:
-  dst.wide_lane[i] = widen(a.dword[2*i]) - widen(a.dword[2*i + 1]);
+dst.u64[0] = widen(a.u32[0]) - widen(b.u32[0]);
+dst.u64[1] = widen(a.u32[1]) - widen(b.u32[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2914,17 +4010,32 @@ Source: include/msa.h:329
 
 ### Description
 
-Compute horizontal adjacent add/subtract operations over unsigned 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Widen corresponding narrower source lanes and subtract them pairwise into 8 x u16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for hsub.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..3:
-  dst.wide_lane[i] = widen(a.half[2*i]) - widen(a.half[2*i + 1]);
+dst.u16[0] = widen(a.u8[0]) - widen(b.u8[0]);
+dst.u16[1] = widen(a.u8[1]) - widen(b.u8[1]);
+dst.u16[2] = widen(a.u8[2]) - widen(b.u8[2]);
+dst.u16[3] = widen(a.u8[3]) - widen(b.u8[3]);
+dst.u16[4] = widen(a.u8[4]) - widen(b.u8[4]);
+dst.u16[5] = widen(a.u8[5]) - widen(b.u8[5]);
+dst.u16[6] = widen(a.u8[6]) - widen(b.u8[6]);
+dst.u16[7] = widen(a.u8[7]) - widen(b.u8[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2948,17 +4059,28 @@ Source: include/msa.h:330
 
 ### Description
 
-Compute horizontal adjacent add/subtract operations over unsigned 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Widen corresponding narrower source lanes and subtract them pairwise into 4 x u32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for hsub.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..1:
-  dst.wide_lane[i] = widen(a.word[2*i]) - widen(a.word[2*i + 1]);
+dst.u32[0] = widen(a.u16[0]) - widen(b.u16[0]);
+dst.u32[1] = widen(a.u16[1]) - widen(b.u16[1]);
+dst.u32[2] = widen(a.u16[2]) - widen(b.u16[2]);
+dst.u32[3] = widen(a.u16[3]) - widen(b.u16[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -2982,17 +4104,32 @@ Source: include/msa.h:539
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 8 x u16 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for madd.q.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = a.half[i] + b.half[i];
+dst.i16[0] = signed_saturate(a.i16[0] + signed_saturate(q_format_shift(b.i16[0] * c.i16[0], 16 - 1), 16), 16);
+dst.i16[1] = signed_saturate(a.i16[1] + signed_saturate(q_format_shift(b.i16[1] * c.i16[1], 16 - 1), 16), 16);
+dst.i16[2] = signed_saturate(a.i16[2] + signed_saturate(q_format_shift(b.i16[2] * c.i16[2], 16 - 1), 16), 16);
+dst.i16[3] = signed_saturate(a.i16[3] + signed_saturate(q_format_shift(b.i16[3] * c.i16[3], 16 - 1), 16), 16);
+dst.i16[4] = signed_saturate(a.i16[4] + signed_saturate(q_format_shift(b.i16[4] * c.i16[4], 16 - 1), 16), 16);
+dst.i16[5] = signed_saturate(a.i16[5] + signed_saturate(q_format_shift(b.i16[5] * c.i16[5], 16 - 1), 16), 16);
+dst.i16[6] = signed_saturate(a.i16[6] + signed_saturate(q_format_shift(b.i16[6] * c.i16[6], 16 - 1), 16), 16);
+dst.i16[7] = signed_saturate(a.i16[7] + signed_saturate(q_format_shift(b.i16[7] * c.i16[7], 16 - 1), 16), 16);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>1.63</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3016,17 +4153,28 @@ Source: include/msa.h:540
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 4 x u32 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for madd.q.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = a.word[i] + b.word[i];
+dst.i32[0] = signed_saturate(a.i32[0] + signed_saturate(q_format_shift(b.i32[0] * c.i32[0], 32 - 1), 32), 32);
+dst.i32[1] = signed_saturate(a.i32[1] + signed_saturate(q_format_shift(b.i32[1] * c.i32[1], 32 - 1), 32), 32);
+dst.i32[2] = signed_saturate(a.i32[2] + signed_saturate(q_format_shift(b.i32[2] * c.i32[2], 32 - 1), 32), 32);
+dst.i32[3] = signed_saturate(a.i32[3] + signed_saturate(q_format_shift(b.i32[3] * c.i32[3], 32 - 1), 32), 32);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>1.63</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3050,18 +4198,32 @@ Source: include/msa.h:541
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 8 x u16 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for maddr.q.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  product = round_fixed_point(b.half[i] * c.half[i]);
-  dst.half[i] = a.half[i] + product;
+dst.i16[0] = signed_saturate(a.i16[0] + signed_saturate(rounding_q_format_shift(b.i16[0] * c.i16[0], 16 - 1), 16), 16);
+dst.i16[1] = signed_saturate(a.i16[1] + signed_saturate(rounding_q_format_shift(b.i16[1] * c.i16[1], 16 - 1), 16), 16);
+dst.i16[2] = signed_saturate(a.i16[2] + signed_saturate(rounding_q_format_shift(b.i16[2] * c.i16[2], 16 - 1), 16), 16);
+dst.i16[3] = signed_saturate(a.i16[3] + signed_saturate(rounding_q_format_shift(b.i16[3] * c.i16[3], 16 - 1), 16), 16);
+dst.i16[4] = signed_saturate(a.i16[4] + signed_saturate(rounding_q_format_shift(b.i16[4] * c.i16[4], 16 - 1), 16), 16);
+dst.i16[5] = signed_saturate(a.i16[5] + signed_saturate(rounding_q_format_shift(b.i16[5] * c.i16[5], 16 - 1), 16), 16);
+dst.i16[6] = signed_saturate(a.i16[6] + signed_saturate(rounding_q_format_shift(b.i16[6] * c.i16[6], 16 - 1), 16), 16);
+dst.i16[7] = signed_saturate(a.i16[7] + signed_saturate(rounding_q_format_shift(b.i16[7] * c.i16[7], 16 - 1), 16), 16);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>1.63</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3085,18 +4247,28 @@ Source: include/msa.h:542
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 4 x u32 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for maddr.q.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  product = round_fixed_point(b.word[i] * c.word[i]);
-  dst.word[i] = a.word[i] + product;
+dst.i32[0] = signed_saturate(a.i32[0] + signed_saturate(rounding_q_format_shift(b.i32[0] * c.i32[0], 32 - 1), 32), 32);
+dst.i32[1] = signed_saturate(a.i32[1] + signed_saturate(rounding_q_format_shift(b.i32[1] * c.i32[1], 32 - 1), 32), 32);
+dst.i32[2] = signed_saturate(a.i32[2] + signed_saturate(rounding_q_format_shift(b.i32[2] * c.i32[2], 32 - 1), 32), 32);
+dst.i32[3] = signed_saturate(a.i32[3] + signed_saturate(rounding_q_format_shift(b.i32[3] * c.i32[3], 32 - 1), 32), 32);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>1.62</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3120,18 +4292,40 @@ Source: include/msa.h:304
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 16 x u8 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for maddv.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  product = identity(b.byte[i] * c.byte[i]);
-  dst.byte[i] = a.byte[i] + product;
+dst.u8[0] = a.u8[0] + b.u8[0] * c.u8[0];
+dst.u8[1] = a.u8[1] + b.u8[1] * c.u8[1];
+dst.u8[2] = a.u8[2] + b.u8[2] * c.u8[2];
+dst.u8[3] = a.u8[3] + b.u8[3] * c.u8[3];
+dst.u8[4] = a.u8[4] + b.u8[4] * c.u8[4];
+dst.u8[5] = a.u8[5] + b.u8[5] * c.u8[5];
+dst.u8[6] = a.u8[6] + b.u8[6] * c.u8[6];
+dst.u8[7] = a.u8[7] + b.u8[7] * c.u8[7];
+dst.u8[8] = a.u8[8] + b.u8[8] * c.u8[8];
+dst.u8[9] = a.u8[9] + b.u8[9] * c.u8[9];
+dst.u8[10] = a.u8[10] + b.u8[10] * c.u8[10];
+dst.u8[11] = a.u8[11] + b.u8[11] * c.u8[11];
+dst.u8[12] = a.u8[12] + b.u8[12] * c.u8[12];
+dst.u8[13] = a.u8[13] + b.u8[13] * c.u8[13];
+dst.u8[14] = a.u8[14] + b.u8[14] * c.u8[14];
+dst.u8[15] = a.u8[15] + b.u8[15] * c.u8[15];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3155,18 +4349,26 @@ Source: include/msa.h:307
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 2 x u64 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for maddv.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  product = identity(b.dword[i] * c.dword[i]);
-  dst.dword[i] = a.dword[i] + product;
+dst.u64[0] = a.u64[0] + b.u64[0] * c.u64[0];
+dst.u64[1] = a.u64[1] + b.u64[1] * c.u64[1];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3190,18 +4392,32 @@ Source: include/msa.h:305
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 8 x u16 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for maddv.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  product = identity(b.half[i] * c.half[i]);
-  dst.half[i] = a.half[i] + product;
+dst.u16[0] = a.u16[0] + b.u16[0] * c.u16[0];
+dst.u16[1] = a.u16[1] + b.u16[1] * c.u16[1];
+dst.u16[2] = a.u16[2] + b.u16[2] * c.u16[2];
+dst.u16[3] = a.u16[3] + b.u16[3] * c.u16[3];
+dst.u16[4] = a.u16[4] + b.u16[4] * c.u16[4];
+dst.u16[5] = a.u16[5] + b.u16[5] * c.u16[5];
+dst.u16[6] = a.u16[6] + b.u16[6] * c.u16[6];
+dst.u16[7] = a.u16[7] + b.u16[7] * c.u16[7];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3225,18 +4441,28 @@ Source: include/msa.h:306
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Add modular integer lanes of `a` and `b` on 4 x u32 lanes; immediate forms add the scalar immediate to each lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for maddv.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  product = identity(b.word[i] * c.word[i]);
-  dst.word[i] = a.word[i] + product;
+dst.u32[0] = a.u32[0] + b.u32[0] * c.u32[0];
+dst.u32[1] = a.u32[1] + b.u32[1] * c.u32[1];
+dst.u32[2] = a.u32[2] + b.u32[2] * c.u32[2];
+dst.u32[3] = a.u32[3] + b.u32[3] * c.u32[3];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3260,17 +4486,40 @@ Source: include/msa.h:332
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise signed remainder of `a` divided by `b` on 16 x i8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mod.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = a.byte[i] % b.byte[i];
+dst.i8[0] = a.i8[0] % b.i8[0];
+dst.i8[1] = a.i8[1] % b.i8[1];
+dst.i8[2] = a.i8[2] % b.i8[2];
+dst.i8[3] = a.i8[3] % b.i8[3];
+dst.i8[4] = a.i8[4] % b.i8[4];
+dst.i8[5] = a.i8[5] % b.i8[5];
+dst.i8[6] = a.i8[6] % b.i8[6];
+dst.i8[7] = a.i8[7] % b.i8[7];
+dst.i8[8] = a.i8[8] % b.i8[8];
+dst.i8[9] = a.i8[9] % b.i8[9];
+dst.i8[10] = a.i8[10] % b.i8[10];
+dst.i8[11] = a.i8[11] % b.i8[11];
+dst.i8[12] = a.i8[12] % b.i8[12];
+dst.i8[13] = a.i8[13] % b.i8[13];
+dst.i8[14] = a.i8[14] % b.i8[14];
+dst.i8[15] = a.i8[15] % b.i8[15];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>29/44</td><td>0.04(1/25)</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3294,17 +4543,26 @@ Source: include/msa.h:335
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise signed remainder of `a` divided by `b` on 2 x i64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mod.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = a.dword[i] % b.dword[i];
+dst.i64[0] = a.i64[0] % b.i64[0];
+dst.i64[1] = a.i64[1] % b.i64[1];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>8/10</td><td>0.11(1/9.22)</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3328,17 +4586,32 @@ Source: include/msa.h:333
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise signed remainder of `a` divided by `b` on 8 x i16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mod.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = a.half[i] % b.half[i];
+dst.i16[0] = a.i16[0] % b.i16[0];
+dst.i16[1] = a.i16[1] % b.i16[1];
+dst.i16[2] = a.i16[2] % b.i16[2];
+dst.i16[3] = a.i16[3] % b.i16[3];
+dst.i16[4] = a.i16[4] % b.i16[4];
+dst.i16[5] = a.i16[5] % b.i16[5];
+dst.i16[6] = a.i16[6] % b.i16[6];
+dst.i16[7] = a.i16[7] % b.i16[7];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>17/25</td><td>0.06(1/16)</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3362,17 +4635,28 @@ Source: include/msa.h:334
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise signed remainder of `a` divided by `b` on 4 x i32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mod.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = a.word[i] % b.word[i];
+dst.i32[0] = a.i32[0] % b.i32[0];
+dst.i32[1] = a.i32[1] % b.i32[1];
+dst.i32[2] = a.i32[2] % b.i32[2];
+dst.i32[3] = a.i32[3] % b.i32[3];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>11/15</td><td>0.09(1/11.43)</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3396,17 +4680,40 @@ Source: include/msa.h:336
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise unsigned remainder of `a` divided by `b` on 16 x u8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mod.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = a.byte[i] % b.byte[i];
+dst.u8[0] = a.u8[0] % b.u8[0];
+dst.u8[1] = a.u8[1] % b.u8[1];
+dst.u8[2] = a.u8[2] % b.u8[2];
+dst.u8[3] = a.u8[3] % b.u8[3];
+dst.u8[4] = a.u8[4] % b.u8[4];
+dst.u8[5] = a.u8[5] % b.u8[5];
+dst.u8[6] = a.u8[6] % b.u8[6];
+dst.u8[7] = a.u8[7] % b.u8[7];
+dst.u8[8] = a.u8[8] % b.u8[8];
+dst.u8[9] = a.u8[9] % b.u8[9];
+dst.u8[10] = a.u8[10] % b.u8[10];
+dst.u8[11] = a.u8[11] % b.u8[11];
+dst.u8[12] = a.u8[12] % b.u8[12];
+dst.u8[13] = a.u8[13] % b.u8[13];
+dst.u8[14] = a.u8[14] % b.u8[14];
+dst.u8[15] = a.u8[15] % b.u8[15];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>29/44</td><td>0.05(1/22)</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3430,17 +4737,26 @@ Source: include/msa.h:339
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise unsigned remainder of `a` divided by `b` on 2 x u64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mod.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = a.dword[i] % b.dword[i];
+dst.u64[0] = a.u64[0] % b.u64[0];
+dst.u64[1] = a.u64[1] % b.u64[1];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>8/10</td><td>0.12(1/8.23)</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3464,17 +4780,32 @@ Source: include/msa.h:337
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise unsigned remainder of `a` divided by `b` on 8 x u16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mod.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = a.half[i] % b.half[i];
+dst.u16[0] = a.u16[0] % b.u16[0];
+dst.u16[1] = a.u16[1] % b.u16[1];
+dst.u16[2] = a.u16[2] % b.u16[2];
+dst.u16[3] = a.u16[3] % b.u16[3];
+dst.u16[4] = a.u16[4] % b.u16[4];
+dst.u16[5] = a.u16[5] % b.u16[5];
+dst.u16[6] = a.u16[6] % b.u16[6];
+dst.u16[7] = a.u16[7] % b.u16[7];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>17/25</td><td>0.07(1/14.50)</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3498,17 +4829,28 @@ Source: include/msa.h:338
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compute the lane-wise unsigned remainder of `a` divided by `b` on 4 x u32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mod.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = a.word[i] % b.word[i];
+dst.u32[0] = a.u32[0] % b.u32[0];
+dst.u32[1] = a.u32[1] % b.u32[1];
+dst.u32[2] = a.u32[2] % b.u32[2];
+dst.u32[3] = a.u32[3] % b.u32[3];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>11/15</td><td>0.08(1/12)</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3532,17 +4874,32 @@ Source: include/msa.h:543
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract modular integer lanes of `b` from `a` on 8 x u16 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for msub.q.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = a.half[i] - b.half[i];
+dst.i16[0] = signed_saturate(a.i16[0] - signed_saturate(q_format_shift(b.i16[0] * c.i16[0], 16 - 1), 16), 16);
+dst.i16[1] = signed_saturate(a.i16[1] - signed_saturate(q_format_shift(b.i16[1] * c.i16[1], 16 - 1), 16), 16);
+dst.i16[2] = signed_saturate(a.i16[2] - signed_saturate(q_format_shift(b.i16[2] * c.i16[2], 16 - 1), 16), 16);
+dst.i16[3] = signed_saturate(a.i16[3] - signed_saturate(q_format_shift(b.i16[3] * c.i16[3], 16 - 1), 16), 16);
+dst.i16[4] = signed_saturate(a.i16[4] - signed_saturate(q_format_shift(b.i16[4] * c.i16[4], 16 - 1), 16), 16);
+dst.i16[5] = signed_saturate(a.i16[5] - signed_saturate(q_format_shift(b.i16[5] * c.i16[5], 16 - 1), 16), 16);
+dst.i16[6] = signed_saturate(a.i16[6] - signed_saturate(q_format_shift(b.i16[6] * c.i16[6], 16 - 1), 16), 16);
+dst.i16[7] = signed_saturate(a.i16[7] - signed_saturate(q_format_shift(b.i16[7] * c.i16[7], 16 - 1), 16), 16);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>1.63</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3566,17 +4923,28 @@ Source: include/msa.h:544
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract modular integer lanes of `b` from `a` on 4 x u32 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for msub.q.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = a.word[i] - b.word[i];
+dst.i32[0] = signed_saturate(a.i32[0] - signed_saturate(q_format_shift(b.i32[0] * c.i32[0], 32 - 1), 32), 32);
+dst.i32[1] = signed_saturate(a.i32[1] - signed_saturate(q_format_shift(b.i32[1] * c.i32[1], 32 - 1), 32), 32);
+dst.i32[2] = signed_saturate(a.i32[2] - signed_saturate(q_format_shift(b.i32[2] * c.i32[2], 32 - 1), 32), 32);
+dst.i32[3] = signed_saturate(a.i32[3] - signed_saturate(q_format_shift(b.i32[3] * c.i32[3], 32 - 1), 32), 32);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>1.63</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3600,18 +4968,32 @@ Source: include/msa.h:545
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract modular integer lanes of `b` from `a` on 8 x u16 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for msubr.q.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  product = round_fixed_point(b.half[i] * c.half[i]);
-  dst.half[i] = a.half[i] - product;
+dst.i16[0] = signed_saturate(a.i16[0] - signed_saturate(rounding_q_format_shift(b.i16[0] * c.i16[0], 16 - 1), 16), 16);
+dst.i16[1] = signed_saturate(a.i16[1] - signed_saturate(rounding_q_format_shift(b.i16[1] * c.i16[1], 16 - 1), 16), 16);
+dst.i16[2] = signed_saturate(a.i16[2] - signed_saturate(rounding_q_format_shift(b.i16[2] * c.i16[2], 16 - 1), 16), 16);
+dst.i16[3] = signed_saturate(a.i16[3] - signed_saturate(rounding_q_format_shift(b.i16[3] * c.i16[3], 16 - 1), 16), 16);
+dst.i16[4] = signed_saturate(a.i16[4] - signed_saturate(rounding_q_format_shift(b.i16[4] * c.i16[4], 16 - 1), 16), 16);
+dst.i16[5] = signed_saturate(a.i16[5] - signed_saturate(rounding_q_format_shift(b.i16[5] * c.i16[5], 16 - 1), 16), 16);
+dst.i16[6] = signed_saturate(a.i16[6] - signed_saturate(rounding_q_format_shift(b.i16[6] * c.i16[6], 16 - 1), 16), 16);
+dst.i16[7] = signed_saturate(a.i16[7] - signed_saturate(rounding_q_format_shift(b.i16[7] * c.i16[7], 16 - 1), 16), 16);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>1.62</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3635,18 +5017,28 @@ Source: include/msa.h:546
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract modular integer lanes of `b` from `a` on 4 x u32 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for msubr.q.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  product = round_fixed_point(b.word[i] * c.word[i]);
-  dst.word[i] = a.word[i] - product;
+dst.i32[0] = signed_saturate(a.i32[0] - signed_saturate(rounding_q_format_shift(b.i32[0] * c.i32[0], 32 - 1), 32), 32);
+dst.i32[1] = signed_saturate(a.i32[1] - signed_saturate(rounding_q_format_shift(b.i32[1] * c.i32[1], 32 - 1), 32), 32);
+dst.i32[2] = signed_saturate(a.i32[2] - signed_saturate(rounding_q_format_shift(b.i32[2] * c.i32[2], 32 - 1), 32), 32);
+dst.i32[3] = signed_saturate(a.i32[3] - signed_saturate(rounding_q_format_shift(b.i32[3] * c.i32[3], 32 - 1), 32), 32);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>1.63</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3670,18 +5062,40 @@ Source: include/msa.h:308
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract modular integer lanes of `b` from `a` on 16 x u8 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for msubv.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  product = identity(b.byte[i] * c.byte[i]);
-  dst.byte[i] = a.byte[i] - product;
+dst.u8[0] = a.u8[0] - b.u8[0] * c.u8[0];
+dst.u8[1] = a.u8[1] - b.u8[1] * c.u8[1];
+dst.u8[2] = a.u8[2] - b.u8[2] * c.u8[2];
+dst.u8[3] = a.u8[3] - b.u8[3] * c.u8[3];
+dst.u8[4] = a.u8[4] - b.u8[4] * c.u8[4];
+dst.u8[5] = a.u8[5] - b.u8[5] * c.u8[5];
+dst.u8[6] = a.u8[6] - b.u8[6] * c.u8[6];
+dst.u8[7] = a.u8[7] - b.u8[7] * c.u8[7];
+dst.u8[8] = a.u8[8] - b.u8[8] * c.u8[8];
+dst.u8[9] = a.u8[9] - b.u8[9] * c.u8[9];
+dst.u8[10] = a.u8[10] - b.u8[10] * c.u8[10];
+dst.u8[11] = a.u8[11] - b.u8[11] * c.u8[11];
+dst.u8[12] = a.u8[12] - b.u8[12] * c.u8[12];
+dst.u8[13] = a.u8[13] - b.u8[13] * c.u8[13];
+dst.u8[14] = a.u8[14] - b.u8[14] * c.u8[14];
+dst.u8[15] = a.u8[15] - b.u8[15] * c.u8[15];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3705,18 +5119,26 @@ Source: include/msa.h:311
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract modular integer lanes of `b` from `a` on 2 x u64 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for msubv.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  product = identity(b.dword[i] * c.dword[i]);
-  dst.dword[i] = a.dword[i] - product;
+dst.u64[0] = a.u64[0] - b.u64[0] * c.u64[0];
+dst.u64[1] = a.u64[1] - b.u64[1] * c.u64[1];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3740,18 +5162,32 @@ Source: include/msa.h:309
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract modular integer lanes of `b` from `a` on 8 x u16 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for msubv.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  product = identity(b.half[i] * c.half[i]);
-  dst.half[i] = a.half[i] - product;
+dst.u16[0] = a.u16[0] - b.u16[0] * c.u16[0];
+dst.u16[1] = a.u16[1] - b.u16[1] * c.u16[1];
+dst.u16[2] = a.u16[2] - b.u16[2] * c.u16[2];
+dst.u16[3] = a.u16[3] - b.u16[3] * c.u16[3];
+dst.u16[4] = a.u16[4] - b.u16[4] * c.u16[4];
+dst.u16[5] = a.u16[5] - b.u16[5] * c.u16[5];
+dst.u16[6] = a.u16[6] - b.u16[6] * c.u16[6];
+dst.u16[7] = a.u16[7] - b.u16[7] * c.u16[7];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3775,18 +5211,28 @@ Source: include/msa.h:310
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract modular integer lanes of `b` from `a` on 4 x u32 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for msubv.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  product = identity(b.word[i] * c.word[i]);
-  dst.word[i] = a.word[i] - product;
+dst.u32[0] = a.u32[0] - b.u32[0] * c.u32[0];
+dst.u32[1] = a.u32[1] - b.u32[1] * c.u32[1];
+dst.u32[2] = a.u32[2] - b.u32[2] * c.u32[2];
+dst.u32[3] = a.u32[3] - b.u32[3] * c.u32[3];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3810,17 +5256,32 @@ Source: include/msa.h:535
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Multiply modular integer lanes of `a` and `b` on 8 x u16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mul.q.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = a.half[i] * b.half[i];
+dst.i16[0] = signed_saturate(q_format_shift(a.i16[0] * b.i16[0], 16 - 1), 16);
+dst.i16[1] = signed_saturate(q_format_shift(a.i16[1] * b.i16[1], 16 - 1), 16);
+dst.i16[2] = signed_saturate(q_format_shift(a.i16[2] * b.i16[2], 16 - 1), 16);
+dst.i16[3] = signed_saturate(q_format_shift(a.i16[3] * b.i16[3], 16 - 1), 16);
+dst.i16[4] = signed_saturate(q_format_shift(a.i16[4] * b.i16[4], 16 - 1), 16);
+dst.i16[5] = signed_saturate(q_format_shift(a.i16[5] * b.i16[5], 16 - 1), 16);
+dst.i16[6] = signed_saturate(q_format_shift(a.i16[6] * b.i16[6], 16 - 1), 16);
+dst.i16[7] = signed_saturate(q_format_shift(a.i16[7] * b.i16[7], 16 - 1), 16);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3844,17 +5305,28 @@ Source: include/msa.h:536
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Multiply modular integer lanes of `a` and `b` on 4 x u32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mul.q.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = a.word[i] * b.word[i];
+dst.i32[0] = signed_saturate(q_format_shift(a.i32[0] * b.i32[0], 32 - 1), 32);
+dst.i32[1] = signed_saturate(q_format_shift(a.i32[1] * b.i32[1], 32 - 1), 32);
+dst.i32[2] = signed_saturate(q_format_shift(a.i32[2] * b.i32[2], 32 - 1), 32);
+dst.i32[3] = signed_saturate(q_format_shift(a.i32[3] * b.i32[3], 32 - 1), 32);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3878,17 +5350,32 @@ Source: include/msa.h:537
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Multiply modular integer lanes of `a` and `b` on 8 x u16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mulr.q.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = a.half[i] * b.half[i];
+dst.i16[0] = signed_saturate(rounding_q_format_shift(a.i16[0] * b.i16[0], 16 - 1), 16);
+dst.i16[1] = signed_saturate(rounding_q_format_shift(a.i16[1] * b.i16[1], 16 - 1), 16);
+dst.i16[2] = signed_saturate(rounding_q_format_shift(a.i16[2] * b.i16[2], 16 - 1), 16);
+dst.i16[3] = signed_saturate(rounding_q_format_shift(a.i16[3] * b.i16[3], 16 - 1), 16);
+dst.i16[4] = signed_saturate(rounding_q_format_shift(a.i16[4] * b.i16[4], 16 - 1), 16);
+dst.i16[5] = signed_saturate(rounding_q_format_shift(a.i16[5] * b.i16[5], 16 - 1), 16);
+dst.i16[6] = signed_saturate(rounding_q_format_shift(a.i16[6] * b.i16[6], 16 - 1), 16);
+dst.i16[7] = signed_saturate(rounding_q_format_shift(a.i16[7] * b.i16[7], 16 - 1), 16);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3912,17 +5399,28 @@ Source: include/msa.h:538
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Multiply modular integer lanes of `a` and `b` on 4 x u32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mulr.q.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = a.word[i] * b.word[i];
+dst.i32[0] = signed_saturate(rounding_q_format_shift(a.i32[0] * b.i32[0], 32 - 1), 32);
+dst.i32[1] = signed_saturate(rounding_q_format_shift(a.i32[1] * b.i32[1], 32 - 1), 32);
+dst.i32[2] = signed_saturate(rounding_q_format_shift(a.i32[2] * b.i32[2], 32 - 1), 32);
+dst.i32[3] = signed_saturate(rounding_q_format_shift(a.i32[3] * b.i32[3], 32 - 1), 32);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3946,17 +5444,40 @@ Source: include/msa.h:300
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Multiply modular integer lanes of `a` and `b` on 16 x u8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mulv.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = a.byte[i] * b.byte[i];
+dst.u8[0] = a.i8[0] * b.i8[0];
+dst.u8[1] = a.i8[1] * b.i8[1];
+dst.u8[2] = a.i8[2] * b.i8[2];
+dst.u8[3] = a.i8[3] * b.i8[3];
+dst.u8[4] = a.i8[4] * b.i8[4];
+dst.u8[5] = a.i8[5] * b.i8[5];
+dst.u8[6] = a.i8[6] * b.i8[6];
+dst.u8[7] = a.i8[7] * b.i8[7];
+dst.u8[8] = a.i8[8] * b.i8[8];
+dst.u8[9] = a.i8[9] * b.i8[9];
+dst.u8[10] = a.i8[10] * b.i8[10];
+dst.u8[11] = a.i8[11] * b.i8[11];
+dst.u8[12] = a.i8[12] * b.i8[12];
+dst.u8[13] = a.i8[13] * b.i8[13];
+dst.u8[14] = a.i8[14] * b.i8[14];
+dst.u8[15] = a.i8[15] * b.i8[15];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -3980,17 +5501,26 @@ Source: include/msa.h:303
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Multiply modular integer lanes of `a` and `b` on 2 x u64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mulv.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = a.dword[i] * b.dword[i];
+dst.u64[0] = a.i64[0] * b.i64[0];
+dst.u64[1] = a.i64[1] * b.i64[1];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4014,17 +5544,32 @@ Source: include/msa.h:301
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Multiply modular integer lanes of `a` and `b` on 8 x u16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mulv.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = a.half[i] * b.half[i];
+dst.u16[0] = a.i16[0] * b.i16[0];
+dst.u16[1] = a.i16[1] * b.i16[1];
+dst.u16[2] = a.i16[2] * b.i16[2];
+dst.u16[3] = a.i16[3] * b.i16[3];
+dst.u16[4] = a.i16[4] * b.i16[4];
+dst.u16[5] = a.i16[5] * b.i16[5];
+dst.u16[6] = a.i16[6] * b.i16[6];
+dst.u16[7] = a.i16[7] * b.i16[7];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4048,17 +5593,28 @@ Source: include/msa.h:302
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Multiply modular integer lanes of `a` and `b` on 4 x u32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mulv.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = a.word[i] * b.word[i];
+dst.u32[0] = a.i32[0] * b.i32[0];
+dst.u32[1] = a.i32[1] * b.i32[1];
+dst.u32[2] = a.i32[2] * b.i32[2];
+dst.u32[3] = a.i32[3] * b.i32[3];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>4</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4066,12 +5622,12 @@ for i in 0..3:
 #define __msa_mulv_w __builtin_msa_mulv_w
 ```
 
-## v16i8 __msa_sat_s_b (v16i8 a, int imm0_7)
+## v16i8 __msa_sat_s_b (v16i8 a, int imm)
 
 ### Synopsis
 
 ```c
-v16i8 __msa_sat_s_b (v16i8 a, int imm0_7)
+v16i8 __msa_sat_s_b (v16i8 a, int imm)
 #include <msa.h>
 Instruction: sat.s.b
 Builtin: __builtin_msa_sat_s_b
@@ -4082,18 +5638,40 @@ Source: include/msa.h:236
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise signed saturating integer arithmetic on 16 x i8 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for sat.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_7;
-for i in 0..15:
-  dst.byte[i] = saturate(a.byte[i], range_selected_by_imm, signedness);
+dst.i8[0] = saturate(a.i8[0], range_selected_by_imm, signedness);
+dst.i8[1] = saturate(a.i8[1], range_selected_by_imm, signedness);
+dst.i8[2] = saturate(a.i8[2], range_selected_by_imm, signedness);
+dst.i8[3] = saturate(a.i8[3], range_selected_by_imm, signedness);
+dst.i8[4] = saturate(a.i8[4], range_selected_by_imm, signedness);
+dst.i8[5] = saturate(a.i8[5], range_selected_by_imm, signedness);
+dst.i8[6] = saturate(a.i8[6], range_selected_by_imm, signedness);
+dst.i8[7] = saturate(a.i8[7], range_selected_by_imm, signedness);
+dst.i8[8] = saturate(a.i8[8], range_selected_by_imm, signedness);
+dst.i8[9] = saturate(a.i8[9], range_selected_by_imm, signedness);
+dst.i8[10] = saturate(a.i8[10], range_selected_by_imm, signedness);
+dst.i8[11] = saturate(a.i8[11], range_selected_by_imm, signedness);
+dst.i8[12] = saturate(a.i8[12], range_selected_by_imm, signedness);
+dst.i8[13] = saturate(a.i8[13], range_selected_by_imm, signedness);
+dst.i8[14] = saturate(a.i8[14], range_selected_by_imm, signedness);
+dst.i8[15] = saturate(a.i8[15], range_selected_by_imm, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4101,12 +5679,12 @@ for i in 0..15:
 #define __msa_sat_s_b __builtin_msa_sat_s_b
 ```
 
-## v2i64 __msa_sat_s_d (v2i64 a, int imm0_63)
+## v2i64 __msa_sat_s_d (v2i64 a, int imm)
 
 ### Synopsis
 
 ```c
-v2i64 __msa_sat_s_d (v2i64 a, int imm0_63)
+v2i64 __msa_sat_s_d (v2i64 a, int imm)
 #include <msa.h>
 Instruction: sat.s.d
 Builtin: __builtin_msa_sat_s_d
@@ -4117,18 +5695,26 @@ Source: include/msa.h:239
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise signed saturating integer arithmetic on 2 x i64 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for sat.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm0_63;
-for i in 0..1:
-  dst.dword[i] = saturate(a.dword[i], range_selected_by_imm, signedness);
+dst.i64[0] = saturate(a.i64[0], range_selected_by_imm, signedness);
+dst.i64[1] = saturate(a.i64[1], range_selected_by_imm, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4136,12 +5722,12 @@ for i in 0..1:
 #define __msa_sat_s_d __builtin_msa_sat_s_d
 ```
 
-## v8i16 __msa_sat_s_h (v8i16 a, int imm0_15)
+## v8i16 __msa_sat_s_h (v8i16 a, int imm)
 
 ### Synopsis
 
 ```c
-v8i16 __msa_sat_s_h (v8i16 a, int imm0_15)
+v8i16 __msa_sat_s_h (v8i16 a, int imm)
 #include <msa.h>
 Instruction: sat.s.h
 Builtin: __builtin_msa_sat_s_h
@@ -4152,18 +5738,32 @@ Source: include/msa.h:237
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise signed saturating integer arithmetic on 8 x i16 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for sat.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm0_15;
-for i in 0..7:
-  dst.half[i] = saturate(a.half[i], range_selected_by_imm, signedness);
+dst.i16[0] = saturate(a.i16[0], range_selected_by_imm, signedness);
+dst.i16[1] = saturate(a.i16[1], range_selected_by_imm, signedness);
+dst.i16[2] = saturate(a.i16[2], range_selected_by_imm, signedness);
+dst.i16[3] = saturate(a.i16[3], range_selected_by_imm, signedness);
+dst.i16[4] = saturate(a.i16[4], range_selected_by_imm, signedness);
+dst.i16[5] = saturate(a.i16[5], range_selected_by_imm, signedness);
+dst.i16[6] = saturate(a.i16[6], range_selected_by_imm, signedness);
+dst.i16[7] = saturate(a.i16[7], range_selected_by_imm, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4171,12 +5771,12 @@ for i in 0..7:
 #define __msa_sat_s_h __builtin_msa_sat_s_h
 ```
 
-## v4i32 __msa_sat_s_w (v4i32 a, int imm0_31)
+## v4i32 __msa_sat_s_w (v4i32 a, int imm)
 
 ### Synopsis
 
 ```c
-v4i32 __msa_sat_s_w (v4i32 a, int imm0_31)
+v4i32 __msa_sat_s_w (v4i32 a, int imm)
 #include <msa.h>
 Instruction: sat.s.w
 Builtin: __builtin_msa_sat_s_w
@@ -4187,18 +5787,28 @@ Source: include/msa.h:238
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise signed saturating integer arithmetic on 4 x i32 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for sat.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm0_31;
-for i in 0..3:
-  dst.word[i] = saturate(a.word[i], range_selected_by_imm, signedness);
+dst.i32[0] = saturate(a.i32[0], range_selected_by_imm, signedness);
+dst.i32[1] = saturate(a.i32[1], range_selected_by_imm, signedness);
+dst.i32[2] = saturate(a.i32[2], range_selected_by_imm, signedness);
+dst.i32[3] = saturate(a.i32[3], range_selected_by_imm, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4206,12 +5816,12 @@ for i in 0..3:
 #define __msa_sat_s_w __builtin_msa_sat_s_w
 ```
 
-## v16u8 __msa_sat_u_b (v16u8 a, int imm0_7)
+## v16u8 __msa_sat_u_b (v16u8 a, int imm)
 
 ### Synopsis
 
 ```c
-v16u8 __msa_sat_u_b (v16u8 a, int imm0_7)
+v16u8 __msa_sat_u_b (v16u8 a, int imm)
 #include <msa.h>
 Instruction: sat.u.b
 Builtin: __builtin_msa_sat_u_b
@@ -4222,18 +5832,40 @@ Source: include/msa.h:240
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise unsigned saturating integer arithmetic on 16 x u8 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for sat.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_7;
-for i in 0..15:
-  dst.byte[i] = saturate(a.byte[i], range_selected_by_imm, signedness);
+dst.u8[0] = saturate(a.u8[0], range_selected_by_imm, signedness);
+dst.u8[1] = saturate(a.u8[1], range_selected_by_imm, signedness);
+dst.u8[2] = saturate(a.u8[2], range_selected_by_imm, signedness);
+dst.u8[3] = saturate(a.u8[3], range_selected_by_imm, signedness);
+dst.u8[4] = saturate(a.u8[4], range_selected_by_imm, signedness);
+dst.u8[5] = saturate(a.u8[5], range_selected_by_imm, signedness);
+dst.u8[6] = saturate(a.u8[6], range_selected_by_imm, signedness);
+dst.u8[7] = saturate(a.u8[7], range_selected_by_imm, signedness);
+dst.u8[8] = saturate(a.u8[8], range_selected_by_imm, signedness);
+dst.u8[9] = saturate(a.u8[9], range_selected_by_imm, signedness);
+dst.u8[10] = saturate(a.u8[10], range_selected_by_imm, signedness);
+dst.u8[11] = saturate(a.u8[11], range_selected_by_imm, signedness);
+dst.u8[12] = saturate(a.u8[12], range_selected_by_imm, signedness);
+dst.u8[13] = saturate(a.u8[13], range_selected_by_imm, signedness);
+dst.u8[14] = saturate(a.u8[14], range_selected_by_imm, signedness);
+dst.u8[15] = saturate(a.u8[15], range_selected_by_imm, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4241,12 +5873,12 @@ for i in 0..15:
 #define __msa_sat_u_b __builtin_msa_sat_u_b
 ```
 
-## v2u64 __msa_sat_u_d (v2u64 a, int imm0_63)
+## v2u64 __msa_sat_u_d (v2u64 a, int imm)
 
 ### Synopsis
 
 ```c
-v2u64 __msa_sat_u_d (v2u64 a, int imm0_63)
+v2u64 __msa_sat_u_d (v2u64 a, int imm)
 #include <msa.h>
 Instruction: sat.u.d
 Builtin: __builtin_msa_sat_u_d
@@ -4257,18 +5889,26 @@ Source: include/msa.h:243
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise unsigned saturating integer arithmetic on 2 x u64 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for sat.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm0_63;
-for i in 0..1:
-  dst.dword[i] = saturate(a.dword[i], range_selected_by_imm, signedness);
+dst.u64[0] = saturate(a.u64[0], range_selected_by_imm, signedness);
+dst.u64[1] = saturate(a.u64[1], range_selected_by_imm, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4276,12 +5916,12 @@ for i in 0..1:
 #define __msa_sat_u_d __builtin_msa_sat_u_d
 ```
 
-## v8u16 __msa_sat_u_h (v8u16 a, int imm0_15)
+## v8u16 __msa_sat_u_h (v8u16 a, int imm)
 
 ### Synopsis
 
 ```c
-v8u16 __msa_sat_u_h (v8u16 a, int imm0_15)
+v8u16 __msa_sat_u_h (v8u16 a, int imm)
 #include <msa.h>
 Instruction: sat.u.h
 Builtin: __builtin_msa_sat_u_h
@@ -4292,18 +5932,32 @@ Source: include/msa.h:241
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise unsigned saturating integer arithmetic on 8 x u16 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for sat.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm0_15;
-for i in 0..7:
-  dst.half[i] = saturate(a.half[i], range_selected_by_imm, signedness);
+dst.u16[0] = saturate(a.u16[0], range_selected_by_imm, signedness);
+dst.u16[1] = saturate(a.u16[1], range_selected_by_imm, signedness);
+dst.u16[2] = saturate(a.u16[2], range_selected_by_imm, signedness);
+dst.u16[3] = saturate(a.u16[3], range_selected_by_imm, signedness);
+dst.u16[4] = saturate(a.u16[4], range_selected_by_imm, signedness);
+dst.u16[5] = saturate(a.u16[5], range_selected_by_imm, signedness);
+dst.u16[6] = saturate(a.u16[6], range_selected_by_imm, signedness);
+dst.u16[7] = saturate(a.u16[7], range_selected_by_imm, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4311,12 +5965,12 @@ for i in 0..7:
 #define __msa_sat_u_h __builtin_msa_sat_u_h
 ```
 
-## v4u32 __msa_sat_u_w (v4u32 a, int imm0_31)
+## v4u32 __msa_sat_u_w (v4u32 a, int imm)
 
 ### Synopsis
 
 ```c
-v4u32 __msa_sat_u_w (v4u32 a, int imm0_31)
+v4u32 __msa_sat_u_w (v4u32 a, int imm)
 #include <msa.h>
 Instruction: sat.u.w
 Builtin: __builtin_msa_sat_u_w
@@ -4327,18 +5981,28 @@ Source: include/msa.h:242
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise unsigned saturating integer arithmetic on 4 x u32 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for sat.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm0_31;
-for i in 0..3:
-  dst.word[i] = saturate(a.word[i], range_selected_by_imm, signedness);
+dst.u32[0] = saturate(a.u32[0], range_selected_by_imm, signedness);
+dst.u32[1] = saturate(a.u32[1], range_selected_by_imm, signedness);
+dst.u32[2] = saturate(a.u32[2], range_selected_by_imm, signedness);
+dst.u32[3] = saturate(a.u32[3], range_selected_by_imm, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4362,17 +6026,40 @@ Source: include/msa.h:276
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise signed saturating integer arithmetic on 16 x i8 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for subs.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = saturate(a.byte[i] - b.byte[i], 8, signedness);
+dst.i8[0] = saturate(a.i8[0] - b.i8[0], 8, signedness);
+dst.i8[1] = saturate(a.i8[1] - b.i8[1], 8, signedness);
+dst.i8[2] = saturate(a.i8[2] - b.i8[2], 8, signedness);
+dst.i8[3] = saturate(a.i8[3] - b.i8[3], 8, signedness);
+dst.i8[4] = saturate(a.i8[4] - b.i8[4], 8, signedness);
+dst.i8[5] = saturate(a.i8[5] - b.i8[5], 8, signedness);
+dst.i8[6] = saturate(a.i8[6] - b.i8[6], 8, signedness);
+dst.i8[7] = saturate(a.i8[7] - b.i8[7], 8, signedness);
+dst.i8[8] = saturate(a.i8[8] - b.i8[8], 8, signedness);
+dst.i8[9] = saturate(a.i8[9] - b.i8[9], 8, signedness);
+dst.i8[10] = saturate(a.i8[10] - b.i8[10], 8, signedness);
+dst.i8[11] = saturate(a.i8[11] - b.i8[11], 8, signedness);
+dst.i8[12] = saturate(a.i8[12] - b.i8[12], 8, signedness);
+dst.i8[13] = saturate(a.i8[13] - b.i8[13], 8, signedness);
+dst.i8[14] = saturate(a.i8[14] - b.i8[14], 8, signedness);
+dst.i8[15] = saturate(a.i8[15] - b.i8[15], 8, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4396,17 +6083,26 @@ Source: include/msa.h:279
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise signed saturating integer arithmetic on 2 x i64 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for subs.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = saturate(a.dword[i] - b.dword[i], 64, signedness);
+dst.i64[0] = saturate(a.i64[0] - b.i64[0], 64, signedness);
+dst.i64[1] = saturate(a.i64[1] - b.i64[1], 64, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4430,17 +6126,32 @@ Source: include/msa.h:277
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise signed saturating integer arithmetic on 8 x i16 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for subs.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = saturate(a.half[i] - b.half[i], 16, signedness);
+dst.i16[0] = saturate(a.i16[0] - b.i16[0], 16, signedness);
+dst.i16[1] = saturate(a.i16[1] - b.i16[1], 16, signedness);
+dst.i16[2] = saturate(a.i16[2] - b.i16[2], 16, signedness);
+dst.i16[3] = saturate(a.i16[3] - b.i16[3], 16, signedness);
+dst.i16[4] = saturate(a.i16[4] - b.i16[4], 16, signedness);
+dst.i16[5] = saturate(a.i16[5] - b.i16[5], 16, signedness);
+dst.i16[6] = saturate(a.i16[6] - b.i16[6], 16, signedness);
+dst.i16[7] = saturate(a.i16[7] - b.i16[7], 16, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4464,17 +6175,28 @@ Source: include/msa.h:278
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise signed saturating integer arithmetic on 4 x i32 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for subs.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = saturate(a.word[i] - b.word[i], 32, signedness);
+dst.i32[0] = saturate(a.i32[0] - b.i32[0], 32, signedness);
+dst.i32[1] = saturate(a.i32[1] - b.i32[1], 32, signedness);
+dst.i32[2] = saturate(a.i32[2] - b.i32[2], 32, signedness);
+dst.i32[3] = saturate(a.i32[3] - b.i32[3], 32, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4498,17 +6220,40 @@ Source: include/msa.h:280
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise unsigned saturating integer arithmetic on 16 x u8 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for subs.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = saturate(a.byte[i] - b.byte[i], 8, signedness);
+dst.u8[0] = saturate(a.u8[0] - b.u8[0], 8, signedness);
+dst.u8[1] = saturate(a.u8[1] - b.u8[1], 8, signedness);
+dst.u8[2] = saturate(a.u8[2] - b.u8[2], 8, signedness);
+dst.u8[3] = saturate(a.u8[3] - b.u8[3], 8, signedness);
+dst.u8[4] = saturate(a.u8[4] - b.u8[4], 8, signedness);
+dst.u8[5] = saturate(a.u8[5] - b.u8[5], 8, signedness);
+dst.u8[6] = saturate(a.u8[6] - b.u8[6], 8, signedness);
+dst.u8[7] = saturate(a.u8[7] - b.u8[7], 8, signedness);
+dst.u8[8] = saturate(a.u8[8] - b.u8[8], 8, signedness);
+dst.u8[9] = saturate(a.u8[9] - b.u8[9], 8, signedness);
+dst.u8[10] = saturate(a.u8[10] - b.u8[10], 8, signedness);
+dst.u8[11] = saturate(a.u8[11] - b.u8[11], 8, signedness);
+dst.u8[12] = saturate(a.u8[12] - b.u8[12], 8, signedness);
+dst.u8[13] = saturate(a.u8[13] - b.u8[13], 8, signedness);
+dst.u8[14] = saturate(a.u8[14] - b.u8[14], 8, signedness);
+dst.u8[15] = saturate(a.u8[15] - b.u8[15], 8, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4532,17 +6277,26 @@ Source: include/msa.h:283
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise unsigned saturating integer arithmetic on 2 x u64 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for subs.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = saturate(a.dword[i] - b.dword[i], 64, signedness);
+dst.u64[0] = saturate(a.u64[0] - b.u64[0], 64, signedness);
+dst.u64[1] = saturate(a.u64[1] - b.u64[1], 64, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4566,17 +6320,32 @@ Source: include/msa.h:281
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise unsigned saturating integer arithmetic on 8 x u16 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for subs.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = saturate(a.half[i] - b.half[i], 16, signedness);
+dst.u16[0] = saturate(a.u16[0] - b.u16[0], 16, signedness);
+dst.u16[1] = saturate(a.u16[1] - b.u16[1], 16, signedness);
+dst.u16[2] = saturate(a.u16[2] - b.u16[2], 16, signedness);
+dst.u16[3] = saturate(a.u16[3] - b.u16[3], 16, signedness);
+dst.u16[4] = saturate(a.u16[4] - b.u16[4], 16, signedness);
+dst.u16[5] = saturate(a.u16[5] - b.u16[5], 16, signedness);
+dst.u16[6] = saturate(a.u16[6] - b.u16[6], 16, signedness);
+dst.u16[7] = saturate(a.u16[7] - b.u16[7], 16, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4600,17 +6369,28 @@ Source: include/msa.h:282
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise unsigned saturating integer arithmetic on 4 x u32 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for subs.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = saturate(a.word[i] - b.word[i], 32, signedness);
+dst.u32[0] = saturate(a.u32[0] - b.u32[0], 32, signedness);
+dst.u32[1] = saturate(a.u32[1] - b.u32[1], 32, signedness);
+dst.u32[2] = saturate(a.u32[2] - b.u32[2], 32, signedness);
+dst.u32[3] = saturate(a.u32[3] - b.u32[3], 32, signedness);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4634,17 +6414,40 @@ Source: include/msa.h:288
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise unsigned saturating integer arithmetic on 16 x u8 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for subsus.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = signed_saturate(unsigned(a.byte[i]) - signed(b.byte[i]), 8);
+dst.u8[0] = unsigned_saturate(a.u8[0] - b.i8[0], 8);
+dst.u8[1] = unsigned_saturate(a.u8[1] - b.i8[1], 8);
+dst.u8[2] = unsigned_saturate(a.u8[2] - b.i8[2], 8);
+dst.u8[3] = unsigned_saturate(a.u8[3] - b.i8[3], 8);
+dst.u8[4] = unsigned_saturate(a.u8[4] - b.i8[4], 8);
+dst.u8[5] = unsigned_saturate(a.u8[5] - b.i8[5], 8);
+dst.u8[6] = unsigned_saturate(a.u8[6] - b.i8[6], 8);
+dst.u8[7] = unsigned_saturate(a.u8[7] - b.i8[7], 8);
+dst.u8[8] = unsigned_saturate(a.u8[8] - b.i8[8], 8);
+dst.u8[9] = unsigned_saturate(a.u8[9] - b.i8[9], 8);
+dst.u8[10] = unsigned_saturate(a.u8[10] - b.i8[10], 8);
+dst.u8[11] = unsigned_saturate(a.u8[11] - b.i8[11], 8);
+dst.u8[12] = unsigned_saturate(a.u8[12] - b.i8[12], 8);
+dst.u8[13] = unsigned_saturate(a.u8[13] - b.i8[13], 8);
+dst.u8[14] = unsigned_saturate(a.u8[14] - b.i8[14], 8);
+dst.u8[15] = unsigned_saturate(a.u8[15] - b.i8[15], 8);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4668,17 +6471,26 @@ Source: include/msa.h:291
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise unsigned saturating integer arithmetic on 2 x u64 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for subsus.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = signed_saturate(unsigned(a.dword[i]) - signed(b.dword[i]), 64);
+dst.u64[0] = unsigned_saturate(a.u64[0] - b.i64[0], 64);
+dst.u64[1] = unsigned_saturate(a.u64[1] - b.i64[1], 64);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4702,17 +6514,32 @@ Source: include/msa.h:289
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise unsigned saturating integer arithmetic on 8 x u16 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for subsus.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = signed_saturate(unsigned(a.half[i]) - signed(b.half[i]), 16);
+dst.u16[0] = unsigned_saturate(a.u16[0] - b.i16[0], 16);
+dst.u16[1] = unsigned_saturate(a.u16[1] - b.i16[1], 16);
+dst.u16[2] = unsigned_saturate(a.u16[2] - b.i16[2], 16);
+dst.u16[3] = unsigned_saturate(a.u16[3] - b.i16[3], 16);
+dst.u16[4] = unsigned_saturate(a.u16[4] - b.i16[4], 16);
+dst.u16[5] = unsigned_saturate(a.u16[5] - b.i16[5], 16);
+dst.u16[6] = unsigned_saturate(a.u16[6] - b.i16[6], 16);
+dst.u16[7] = unsigned_saturate(a.u16[7] - b.i16[7], 16);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4736,17 +6563,28 @@ Source: include/msa.h:290
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise unsigned saturating integer arithmetic on 4 x u32 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for subsus.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = signed_saturate(unsigned(a.word[i]) - signed(b.word[i]), 32);
+dst.u32[0] = unsigned_saturate(a.u32[0] - b.i32[0], 32);
+dst.u32[1] = unsigned_saturate(a.u32[1] - b.i32[1], 32);
+dst.u32[2] = unsigned_saturate(a.u32[2] - b.i32[2], 32);
+dst.u32[3] = unsigned_saturate(a.u32[3] - b.i32[3], 32);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4770,17 +6608,40 @@ Source: include/msa.h:284
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise signed saturating integer arithmetic on 16 x i8 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for subsuu.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = unsigned_saturate(unsigned(a.byte[i]) - unsigned(b.byte[i]), 8);
+dst.i8[0] = signed_saturate(a.u8[0] - b.u8[0], 8);
+dst.i8[1] = signed_saturate(a.u8[1] - b.u8[1], 8);
+dst.i8[2] = signed_saturate(a.u8[2] - b.u8[2], 8);
+dst.i8[3] = signed_saturate(a.u8[3] - b.u8[3], 8);
+dst.i8[4] = signed_saturate(a.u8[4] - b.u8[4], 8);
+dst.i8[5] = signed_saturate(a.u8[5] - b.u8[5], 8);
+dst.i8[6] = signed_saturate(a.u8[6] - b.u8[6], 8);
+dst.i8[7] = signed_saturate(a.u8[7] - b.u8[7], 8);
+dst.i8[8] = signed_saturate(a.u8[8] - b.u8[8], 8);
+dst.i8[9] = signed_saturate(a.u8[9] - b.u8[9], 8);
+dst.i8[10] = signed_saturate(a.u8[10] - b.u8[10], 8);
+dst.i8[11] = signed_saturate(a.u8[11] - b.u8[11], 8);
+dst.i8[12] = signed_saturate(a.u8[12] - b.u8[12], 8);
+dst.i8[13] = signed_saturate(a.u8[13] - b.u8[13], 8);
+dst.i8[14] = signed_saturate(a.u8[14] - b.u8[14], 8);
+dst.i8[15] = signed_saturate(a.u8[15] - b.u8[15], 8);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4804,17 +6665,26 @@ Source: include/msa.h:287
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise signed saturating integer arithmetic on 2 x i64 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for subsuu.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = unsigned_saturate(unsigned(a.dword[i]) - unsigned(b.dword[i]), 64);
+dst.i64[0] = signed_saturate(a.u64[0] - b.u64[0], 64);
+dst.i64[1] = signed_saturate(a.u64[1] - b.u64[1], 64);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4838,17 +6708,32 @@ Source: include/msa.h:285
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise signed saturating integer arithmetic on 8 x i16 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for subsuu.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = unsigned_saturate(unsigned(a.half[i]) - unsigned(b.half[i]), 16);
+dst.i16[0] = signed_saturate(a.u16[0] - b.u16[0], 16);
+dst.i16[1] = signed_saturate(a.u16[1] - b.u16[1], 16);
+dst.i16[2] = signed_saturate(a.u16[2] - b.u16[2], 16);
+dst.i16[3] = signed_saturate(a.u16[3] - b.u16[3], 16);
+dst.i16[4] = signed_saturate(a.u16[4] - b.u16[4], 16);
+dst.i16[5] = signed_saturate(a.u16[5] - b.u16[5], 16);
+dst.i16[6] = signed_saturate(a.u16[6] - b.u16[6], 16);
+dst.i16[7] = signed_saturate(a.u16[7] - b.u16[7], 16);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4872,17 +6757,28 @@ Source: include/msa.h:286
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Perform lane-wise signed saturating integer arithmetic on 4 x i32 lanes, clamping overflow instead of wrapping.
 
 ### Operation
 
 ```c
-// Inferred semantics for subsuu.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = unsigned_saturate(unsigned(a.word[i]) - unsigned(b.word[i]), 32);
+dst.i32[0] = signed_saturate(a.u32[0] - b.u32[0], 32);
+dst.i32[1] = signed_saturate(a.u32[1] - b.u32[1], 32);
+dst.i32[2] = signed_saturate(a.u32[2] - b.u32[2], 32);
+dst.i32[3] = signed_saturate(a.u32[3] - b.u32[3], 32);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4906,17 +6802,40 @@ Source: include/msa.h:140
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract modular integer lanes of `b` from `a` on 16 x u8 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for subv.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = a.byte[i] - b.byte[i];
+dst.u8[0] = a.i8[0] - b.i8[0];
+dst.u8[1] = a.i8[1] - b.i8[1];
+dst.u8[2] = a.i8[2] - b.i8[2];
+dst.u8[3] = a.i8[3] - b.i8[3];
+dst.u8[4] = a.i8[4] - b.i8[4];
+dst.u8[5] = a.i8[5] - b.i8[5];
+dst.u8[6] = a.i8[6] - b.i8[6];
+dst.u8[7] = a.i8[7] - b.i8[7];
+dst.u8[8] = a.i8[8] - b.i8[8];
+dst.u8[9] = a.i8[9] - b.i8[9];
+dst.u8[10] = a.i8[10] - b.i8[10];
+dst.u8[11] = a.i8[11] - b.i8[11];
+dst.u8[12] = a.i8[12] - b.i8[12];
+dst.u8[13] = a.i8[13] - b.i8[13];
+dst.u8[14] = a.i8[14] - b.i8[14];
+dst.u8[15] = a.i8[15] - b.i8[15];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4940,17 +6859,26 @@ Source: include/msa.h:143
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract modular integer lanes of `b` from `a` on 2 x u64 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for subv.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = a.dword[i] - b.dword[i];
+dst.u64[0] = a.i64[0] - b.i64[0];
+dst.u64[1] = a.i64[1] - b.i64[1];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -4974,17 +6902,32 @@ Source: include/msa.h:141
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract modular integer lanes of `b` from `a` on 8 x u16 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for subv.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = a.half[i] - b.half[i];
+dst.u16[0] = a.i16[0] - b.i16[0];
+dst.u16[1] = a.i16[1] - b.i16[1];
+dst.u16[2] = a.i16[2] - b.i16[2];
+dst.u16[3] = a.i16[3] - b.i16[3];
+dst.u16[4] = a.i16[4] - b.i16[4];
+dst.u16[5] = a.i16[5] - b.i16[5];
+dst.u16[6] = a.i16[6] - b.i16[6];
+dst.u16[7] = a.i16[7] - b.i16[7];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -5008,17 +6951,28 @@ Source: include/msa.h:142
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract modular integer lanes of `b` from `a` on 4 x u32 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for subv.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = a.word[i] - b.word[i];
+dst.u32[0] = a.i32[0] - b.i32[0];
+dst.u32[1] = a.i32[1] - b.i32[1];
+dst.u32[2] = a.i32[2] - b.i32[2];
+dst.u32[3] = a.i32[3] - b.i32[3];
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -5026,12 +6980,12 @@ for i in 0..3:
 #define __msa_subv_w __builtin_msa_subv_w
 ```
 
-## v16i8 __msa_subvi_b (v16i8 a, int imm0_31)
+## v16i8 __msa_subvi_b (v16i8 a, int imm)
 
 ### Synopsis
 
 ```c
-v16i8 __msa_subvi_b (v16i8 a, int imm0_31)
+v16i8 __msa_subvi_b (v16i8 a, int imm)
 #include <msa.h>
 Instruction: subvi.b
 Builtin: __builtin_msa_subvi_b
@@ -5042,18 +6996,40 @@ Source: include/msa.h:144
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 16 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract modular integer lanes of `b` from `a` on 16 x u8 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for subvi.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_31;
-for i in 0..15:
-  dst.byte[i] = a.byte[i] - imm;
+dst.u8[0] = a.i8[0] - imm;
+dst.u8[1] = a.i8[1] - imm;
+dst.u8[2] = a.i8[2] - imm;
+dst.u8[3] = a.i8[3] - imm;
+dst.u8[4] = a.i8[4] - imm;
+dst.u8[5] = a.i8[5] - imm;
+dst.u8[6] = a.i8[6] - imm;
+dst.u8[7] = a.i8[7] - imm;
+dst.u8[8] = a.i8[8] - imm;
+dst.u8[9] = a.i8[9] - imm;
+dst.u8[10] = a.i8[10] - imm;
+dst.u8[11] = a.i8[11] - imm;
+dst.u8[12] = a.i8[12] - imm;
+dst.u8[13] = a.i8[13] - imm;
+dst.u8[14] = a.i8[14] - imm;
+dst.u8[15] = a.i8[15] - imm;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -5061,12 +7037,12 @@ for i in 0..15:
 #define __msa_subvi_b __builtin_msa_subvi_b
 ```
 
-## v2i64 __msa_subvi_d (v2i64 a, int imm0_31)
+## v2i64 __msa_subvi_d (v2i64 a, int imm)
 
 ### Synopsis
 
 ```c
-v2i64 __msa_subvi_d (v2i64 a, int imm0_31)
+v2i64 __msa_subvi_d (v2i64 a, int imm)
 #include <msa.h>
 Instruction: subvi.d
 Builtin: __builtin_msa_subvi_d
@@ -5077,18 +7053,26 @@ Source: include/msa.h:147
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 2 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract modular integer lanes of `b` from `a` on 2 x u64 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for subvi.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm0_31;
-for i in 0..1:
-  dst.dword[i] = a.dword[i] - imm;
+dst.u64[0] = a.i64[0] - imm;
+dst.u64[1] = a.i64[1] - imm;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -5096,12 +7080,12 @@ for i in 0..1:
 #define __msa_subvi_d __builtin_msa_subvi_d
 ```
 
-## v8i16 __msa_subvi_h (v8i16 a, int imm0_31)
+## v8i16 __msa_subvi_h (v8i16 a, int imm)
 
 ### Synopsis
 
 ```c
-v8i16 __msa_subvi_h (v8i16 a, int imm0_31)
+v8i16 __msa_subvi_h (v8i16 a, int imm)
 #include <msa.h>
 Instruction: subvi.h
 Builtin: __builtin_msa_subvi_h
@@ -5112,18 +7096,32 @@ Source: include/msa.h:145
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract modular integer lanes of `b` from `a` on 8 x u16 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for subvi.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm0_31;
-for i in 0..7:
-  dst.half[i] = a.half[i] - imm;
+dst.u16[0] = a.i16[0] - imm;
+dst.u16[1] = a.i16[1] - imm;
+dst.u16[2] = a.i16[2] - imm;
+dst.u16[3] = a.i16[3] - imm;
+dst.u16[4] = a.i16[4] - imm;
+dst.u16[5] = a.i16[5] - imm;
+dst.u16[6] = a.i16[6] - imm;
+dst.u16[7] = a.i16[7] - imm;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -5131,12 +7129,12 @@ for i in 0..7:
 #define __msa_subvi_h __builtin_msa_subvi_h
 ```
 
-## v4i32 __msa_subvi_w (v4i32 a, int imm0_31)
+## v4i32 __msa_subvi_w (v4i32 a, int imm)
 
 ### Synopsis
 
 ```c
-v4i32 __msa_subvi_w (v4i32 a, int imm0_31)
+v4i32 __msa_subvi_w (v4i32 a, int imm)
 #include <msa.h>
 Instruction: subvi.w
 Builtin: __builtin_msa_subvi_w
@@ -5147,18 +7145,28 @@ Source: include/msa.h:146
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Subtract modular integer lanes of `b` from `a` on 4 x u32 lanes; immediate forms subtract the scalar immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for subvi.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm0_31;
-for i in 0..3:
-  dst.word[i] = a.word[i] - imm;
+dst.u32[0] = a.i32[0] - imm;
+dst.u32[1] = a.i32[1] - imm;
+dst.u32[2] = a.i32[2] - imm;
+dst.u32[3] = a.i32[3] - imm;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 

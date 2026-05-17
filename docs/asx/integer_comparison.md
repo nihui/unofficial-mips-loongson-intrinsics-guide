@@ -2,12 +2,12 @@
 
 Generated from `include/loongson-asxintrin.h`. This page contains 83 intrinsics.
 
-## __m256i __lasx_mxceq_b (__m256i _1, __m256i _2)
+## __m256i __lasx_mxceq_b (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxceq_b (__m256i _1, __m256i _2)
+__m256i __lasx_mxceq_b (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxceq.b
 Builtin: __builtin_lasx_mxceq_b
@@ -18,32 +18,69 @@ Source: include/loongson-asxintrin.h:642
 
 ### Description
 
-Compare modular 32 x 8-bit byte lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare modular 32 x u8 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxceq.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-b = _2;
-for i in 0..31:
-  dst.byte[i] = (a.byte[i] == b.byte[i]) ? all_ones : 0;
+dst.u8[0] = (a.u8[0] == b.u8[0]) ? all_ones : 0;
+dst.u8[1] = (a.u8[1] == b.u8[1]) ? all_ones : 0;
+dst.u8[2] = (a.u8[2] == b.u8[2]) ? all_ones : 0;
+dst.u8[3] = (a.u8[3] == b.u8[3]) ? all_ones : 0;
+dst.u8[4] = (a.u8[4] == b.u8[4]) ? all_ones : 0;
+dst.u8[5] = (a.u8[5] == b.u8[5]) ? all_ones : 0;
+dst.u8[6] = (a.u8[6] == b.u8[6]) ? all_ones : 0;
+dst.u8[7] = (a.u8[7] == b.u8[7]) ? all_ones : 0;
+dst.u8[8] = (a.u8[8] == b.u8[8]) ? all_ones : 0;
+dst.u8[9] = (a.u8[9] == b.u8[9]) ? all_ones : 0;
+dst.u8[10] = (a.u8[10] == b.u8[10]) ? all_ones : 0;
+dst.u8[11] = (a.u8[11] == b.u8[11]) ? all_ones : 0;
+dst.u8[12] = (a.u8[12] == b.u8[12]) ? all_ones : 0;
+dst.u8[13] = (a.u8[13] == b.u8[13]) ? all_ones : 0;
+dst.u8[14] = (a.u8[14] == b.u8[14]) ? all_ones : 0;
+dst.u8[15] = (a.u8[15] == b.u8[15]) ? all_ones : 0;
+dst.u8[16] = (a.u8[16] == b.u8[16]) ? all_ones : 0;
+dst.u8[17] = (a.u8[17] == b.u8[17]) ? all_ones : 0;
+dst.u8[18] = (a.u8[18] == b.u8[18]) ? all_ones : 0;
+dst.u8[19] = (a.u8[19] == b.u8[19]) ? all_ones : 0;
+dst.u8[20] = (a.u8[20] == b.u8[20]) ? all_ones : 0;
+dst.u8[21] = (a.u8[21] == b.u8[21]) ? all_ones : 0;
+dst.u8[22] = (a.u8[22] == b.u8[22]) ? all_ones : 0;
+dst.u8[23] = (a.u8[23] == b.u8[23]) ? all_ones : 0;
+dst.u8[24] = (a.u8[24] == b.u8[24]) ? all_ones : 0;
+dst.u8[25] = (a.u8[25] == b.u8[25]) ? all_ones : 0;
+dst.u8[26] = (a.u8[26] == b.u8[26]) ? all_ones : 0;
+dst.u8[27] = (a.u8[27] == b.u8[27]) ? all_ones : 0;
+dst.u8[28] = (a.u8[28] == b.u8[28]) ? all_ones : 0;
+dst.u8[29] = (a.u8[29] == b.u8[29]) ? all_ones : 0;
+dst.u8[30] = (a.u8[30] == b.u8[30]) ? all_ones : 0;
+dst.u8[31] = (a.u8[31] == b.u8[31]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxceq_b((v32i8)_1, (v32i8)_2);
+return (__m256i)__builtin_lasx_mxceq_b((v32i8)a, (v32i8)b);
 ```
 
-## __m256i __lasx_mxceq_d (__m256i _1, __m256i _2)
+## __m256i __lasx_mxceq_d (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxceq_d (__m256i _1, __m256i _2)
+__m256i __lasx_mxceq_d (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxceq.d
 Builtin: __builtin_lasx_mxceq_d
@@ -54,32 +91,41 @@ Source: include/loongson-asxintrin.h:663
 
 ### Description
 
-Compare modular 4 x 64-bit dword lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare modular 4 x u64 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxceq.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-b = _2;
-for i in 0..3:
-  dst.dword[i] = (a.dword[i] == b.dword[i]) ? all_ones : 0;
+dst.u64[0] = (a.u64[0] == b.u64[0]) ? all_ones : 0;
+dst.u64[1] = (a.u64[1] == b.u64[1]) ? all_ones : 0;
+dst.u64[2] = (a.u64[2] == b.u64[2]) ? all_ones : 0;
+dst.u64[3] = (a.u64[3] == b.u64[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxceq_d((v4i64)_1, (v4i64)_2);
+return (__m256i)__builtin_lasx_mxceq_d((v4i64)a, (v4i64)b);
 ```
 
-## __m256i __lasx_mxceq_h (__m256i _1, __m256i _2)
+## __m256i __lasx_mxceq_h (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxceq_h (__m256i _1, __m256i _2)
+__m256i __lasx_mxceq_h (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxceq.h
 Builtin: __builtin_lasx_mxceq_h
@@ -90,32 +136,53 @@ Source: include/loongson-asxintrin.h:649
 
 ### Description
 
-Compare modular 16 x 16-bit half lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare modular 16 x u16 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxceq.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-b = _2;
-for i in 0..15:
-  dst.half[i] = (a.half[i] == b.half[i]) ? all_ones : 0;
+dst.u16[0] = (a.u16[0] == b.u16[0]) ? all_ones : 0;
+dst.u16[1] = (a.u16[1] == b.u16[1]) ? all_ones : 0;
+dst.u16[2] = (a.u16[2] == b.u16[2]) ? all_ones : 0;
+dst.u16[3] = (a.u16[3] == b.u16[3]) ? all_ones : 0;
+dst.u16[4] = (a.u16[4] == b.u16[4]) ? all_ones : 0;
+dst.u16[5] = (a.u16[5] == b.u16[5]) ? all_ones : 0;
+dst.u16[6] = (a.u16[6] == b.u16[6]) ? all_ones : 0;
+dst.u16[7] = (a.u16[7] == b.u16[7]) ? all_ones : 0;
+dst.u16[8] = (a.u16[8] == b.u16[8]) ? all_ones : 0;
+dst.u16[9] = (a.u16[9] == b.u16[9]) ? all_ones : 0;
+dst.u16[10] = (a.u16[10] == b.u16[10]) ? all_ones : 0;
+dst.u16[11] = (a.u16[11] == b.u16[11]) ? all_ones : 0;
+dst.u16[12] = (a.u16[12] == b.u16[12]) ? all_ones : 0;
+dst.u16[13] = (a.u16[13] == b.u16[13]) ? all_ones : 0;
+dst.u16[14] = (a.u16[14] == b.u16[14]) ? all_ones : 0;
+dst.u16[15] = (a.u16[15] == b.u16[15]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxceq_h((v16i16)_1, (v16i16)_2);
+return (__m256i)__builtin_lasx_mxceq_h((v16i16)a, (v16i16)b);
 ```
 
-## __m256i __lasx_mxceq_w (__m256i _1, __m256i _2)
+## __m256i __lasx_mxceq_w (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxceq_w (__m256i _1, __m256i _2)
+__m256i __lasx_mxceq_w (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxceq.w
 Builtin: __builtin_lasx_mxceq_w
@@ -126,32 +193,45 @@ Source: include/loongson-asxintrin.h:656
 
 ### Description
 
-Compare modular 8 x 32-bit word lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare modular 8 x u32 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxceq.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-b = _2;
-for i in 0..7:
-  dst.word[i] = (a.word[i] == b.word[i]) ? all_ones : 0;
+dst.u32[0] = (a.u32[0] == b.u32[0]) ? all_ones : 0;
+dst.u32[1] = (a.u32[1] == b.u32[1]) ? all_ones : 0;
+dst.u32[2] = (a.u32[2] == b.u32[2]) ? all_ones : 0;
+dst.u32[3] = (a.u32[3] == b.u32[3]) ? all_ones : 0;
+dst.u32[4] = (a.u32[4] == b.u32[4]) ? all_ones : 0;
+dst.u32[5] = (a.u32[5] == b.u32[5]) ? all_ones : 0;
+dst.u32[6] = (a.u32[6] == b.u32[6]) ? all_ones : 0;
+dst.u32[7] = (a.u32[7] == b.u32[7]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxceq_w((v8i32)_1, (v8i32)_2);
+return (__m256i)__builtin_lasx_mxceq_w((v8i32)a, (v8i32)b);
 ```
 
-## __m256i __lasx_mxceqi_b (__m256i _1, signed char _2)
+## __m256i __lasx_mxceqi_b (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxceqi_b (__m256i _1, signed char _2)
+__m256i __lasx_mxceqi_b (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxceqi.b
 Builtin: __builtin_lasx_mxceqi_b
@@ -162,32 +242,69 @@ Source: include/loongson-asxintrin.h:669
 
 ### Description
 
-Compare modular 32 x 8-bit byte lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare modular 32 x u8 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxceqi.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-imm = _2;
-for i in 0..31:
-  dst.byte[i] = (a.byte[i] == imm) ? all_ones : 0;
+dst.u8[0] = (a.u8[0] == imm) ? all_ones : 0;
+dst.u8[1] = (a.u8[1] == imm) ? all_ones : 0;
+dst.u8[2] = (a.u8[2] == imm) ? all_ones : 0;
+dst.u8[3] = (a.u8[3] == imm) ? all_ones : 0;
+dst.u8[4] = (a.u8[4] == imm) ? all_ones : 0;
+dst.u8[5] = (a.u8[5] == imm) ? all_ones : 0;
+dst.u8[6] = (a.u8[6] == imm) ? all_ones : 0;
+dst.u8[7] = (a.u8[7] == imm) ? all_ones : 0;
+dst.u8[8] = (a.u8[8] == imm) ? all_ones : 0;
+dst.u8[9] = (a.u8[9] == imm) ? all_ones : 0;
+dst.u8[10] = (a.u8[10] == imm) ? all_ones : 0;
+dst.u8[11] = (a.u8[11] == imm) ? all_ones : 0;
+dst.u8[12] = (a.u8[12] == imm) ? all_ones : 0;
+dst.u8[13] = (a.u8[13] == imm) ? all_ones : 0;
+dst.u8[14] = (a.u8[14] == imm) ? all_ones : 0;
+dst.u8[15] = (a.u8[15] == imm) ? all_ones : 0;
+dst.u8[16] = (a.u8[16] == imm) ? all_ones : 0;
+dst.u8[17] = (a.u8[17] == imm) ? all_ones : 0;
+dst.u8[18] = (a.u8[18] == imm) ? all_ones : 0;
+dst.u8[19] = (a.u8[19] == imm) ? all_ones : 0;
+dst.u8[20] = (a.u8[20] == imm) ? all_ones : 0;
+dst.u8[21] = (a.u8[21] == imm) ? all_ones : 0;
+dst.u8[22] = (a.u8[22] == imm) ? all_ones : 0;
+dst.u8[23] = (a.u8[23] == imm) ? all_ones : 0;
+dst.u8[24] = (a.u8[24] == imm) ? all_ones : 0;
+dst.u8[25] = (a.u8[25] == imm) ? all_ones : 0;
+dst.u8[26] = (a.u8[26] == imm) ? all_ones : 0;
+dst.u8[27] = (a.u8[27] == imm) ? all_ones : 0;
+dst.u8[28] = (a.u8[28] == imm) ? all_ones : 0;
+dst.u8[29] = (a.u8[29] == imm) ? all_ones : 0;
+dst.u8[30] = (a.u8[30] == imm) ? all_ones : 0;
+dst.u8[31] = (a.u8[31] == imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxceqi_b(_1, _2) ((__m256i)__builtin_lasx_mxceqi_b((v32i8)(_1), (_2)))
+#define __lasx_mxceqi_b(a, imm) ((__m256i)__builtin_lasx_mxceqi_b((v32i8)(a), (imm)))
 ```
 
-## __m256i __lasx_mxceqi_d (__m256i _1, signed char _2)
+## __m256i __lasx_mxceqi_d (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxceqi_d (__m256i _1, signed char _2)
+__m256i __lasx_mxceqi_d (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxceqi.d
 Builtin: __builtin_lasx_mxceqi_d
@@ -198,32 +315,41 @@ Source: include/loongson-asxintrin.h:672
 
 ### Description
 
-Compare modular 4 x 64-bit dword lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare modular 4 x u64 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxceqi.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-imm = _2;
-for i in 0..3:
-  dst.dword[i] = (a.dword[i] == imm) ? all_ones : 0;
+dst.u64[0] = (a.u64[0] == imm) ? all_ones : 0;
+dst.u64[1] = (a.u64[1] == imm) ? all_ones : 0;
+dst.u64[2] = (a.u64[2] == imm) ? all_ones : 0;
+dst.u64[3] = (a.u64[3] == imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxceqi_d(_1, _2) ((__m256i)__builtin_lasx_mxceqi_d((v4i64)(_1), (_2)))
+#define __lasx_mxceqi_d(a, imm) ((__m256i)__builtin_lasx_mxceqi_d((v4i64)(a), (imm)))
 ```
 
-## __m256i __lasx_mxceqi_h (__m256i _1, signed char _2)
+## __m256i __lasx_mxceqi_h (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxceqi_h (__m256i _1, signed char _2)
+__m256i __lasx_mxceqi_h (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxceqi.h
 Builtin: __builtin_lasx_mxceqi_h
@@ -234,32 +360,53 @@ Source: include/loongson-asxintrin.h:670
 
 ### Description
 
-Compare modular 16 x 16-bit half lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare modular 16 x u16 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxceqi.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-imm = _2;
-for i in 0..15:
-  dst.half[i] = (a.half[i] == imm) ? all_ones : 0;
+dst.u16[0] = (a.u16[0] == imm) ? all_ones : 0;
+dst.u16[1] = (a.u16[1] == imm) ? all_ones : 0;
+dst.u16[2] = (a.u16[2] == imm) ? all_ones : 0;
+dst.u16[3] = (a.u16[3] == imm) ? all_ones : 0;
+dst.u16[4] = (a.u16[4] == imm) ? all_ones : 0;
+dst.u16[5] = (a.u16[5] == imm) ? all_ones : 0;
+dst.u16[6] = (a.u16[6] == imm) ? all_ones : 0;
+dst.u16[7] = (a.u16[7] == imm) ? all_ones : 0;
+dst.u16[8] = (a.u16[8] == imm) ? all_ones : 0;
+dst.u16[9] = (a.u16[9] == imm) ? all_ones : 0;
+dst.u16[10] = (a.u16[10] == imm) ? all_ones : 0;
+dst.u16[11] = (a.u16[11] == imm) ? all_ones : 0;
+dst.u16[12] = (a.u16[12] == imm) ? all_ones : 0;
+dst.u16[13] = (a.u16[13] == imm) ? all_ones : 0;
+dst.u16[14] = (a.u16[14] == imm) ? all_ones : 0;
+dst.u16[15] = (a.u16[15] == imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxceqi_h(_1, _2) ((__m256i)__builtin_lasx_mxceqi_h((v16i16)(_1), (_2)))
+#define __lasx_mxceqi_h(a, imm) ((__m256i)__builtin_lasx_mxceqi_h((v16i16)(a), (imm)))
 ```
 
-## __m256i __lasx_mxceqi_w (__m256i _1, signed char _2)
+## __m256i __lasx_mxceqi_w (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxceqi_w (__m256i _1, signed char _2)
+__m256i __lasx_mxceqi_w (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxceqi.w
 Builtin: __builtin_lasx_mxceqi_w
@@ -270,32 +417,45 @@ Source: include/loongson-asxintrin.h:671
 
 ### Description
 
-Compare modular 8 x 32-bit word lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare modular 8 x u32 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxceqi.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-imm = _2;
-for i in 0..7:
-  dst.word[i] = (a.word[i] == imm) ? all_ones : 0;
+dst.u32[0] = (a.u32[0] == imm) ? all_ones : 0;
+dst.u32[1] = (a.u32[1] == imm) ? all_ones : 0;
+dst.u32[2] = (a.u32[2] == imm) ? all_ones : 0;
+dst.u32[3] = (a.u32[3] == imm) ? all_ones : 0;
+dst.u32[4] = (a.u32[4] == imm) ? all_ones : 0;
+dst.u32[5] = (a.u32[5] == imm) ? all_ones : 0;
+dst.u32[6] = (a.u32[6] == imm) ? all_ones : 0;
+dst.u32[7] = (a.u32[7] == imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxceqi_w(_1, _2) ((__m256i)__builtin_lasx_mxceqi_w((v8i32)(_1), (_2)))
+#define __lasx_mxceqi_w(a, imm) ((__m256i)__builtin_lasx_mxceqi_w((v8i32)(a), (imm)))
 ```
 
-## __m256i __lasx_mxcle_s_b (__m256i _1, __m256i _2)
+## __m256i __lasx_mxcle_s_b (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxcle_s_b (__m256i _1, __m256i _2)
+__m256i __lasx_mxcle_s_b (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxcle.s.b
 Builtin: __builtin_lasx_mxcle_s_b
@@ -306,32 +466,69 @@ Source: include/loongson-asxintrin.h:738
 
 ### Description
 
-Compare signed 32 x 8-bit byte lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 32 x i8 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxcle.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-b = _2;
-for i in 0..31:
-  dst.byte[i] = (a.byte[i] <= b.byte[i]) ? all_ones : 0;
+dst.i8[0] = (a.i8[0] <= b.i8[0]) ? all_ones : 0;
+dst.i8[1] = (a.i8[1] <= b.i8[1]) ? all_ones : 0;
+dst.i8[2] = (a.i8[2] <= b.i8[2]) ? all_ones : 0;
+dst.i8[3] = (a.i8[3] <= b.i8[3]) ? all_ones : 0;
+dst.i8[4] = (a.i8[4] <= b.i8[4]) ? all_ones : 0;
+dst.i8[5] = (a.i8[5] <= b.i8[5]) ? all_ones : 0;
+dst.i8[6] = (a.i8[6] <= b.i8[6]) ? all_ones : 0;
+dst.i8[7] = (a.i8[7] <= b.i8[7]) ? all_ones : 0;
+dst.i8[8] = (a.i8[8] <= b.i8[8]) ? all_ones : 0;
+dst.i8[9] = (a.i8[9] <= b.i8[9]) ? all_ones : 0;
+dst.i8[10] = (a.i8[10] <= b.i8[10]) ? all_ones : 0;
+dst.i8[11] = (a.i8[11] <= b.i8[11]) ? all_ones : 0;
+dst.i8[12] = (a.i8[12] <= b.i8[12]) ? all_ones : 0;
+dst.i8[13] = (a.i8[13] <= b.i8[13]) ? all_ones : 0;
+dst.i8[14] = (a.i8[14] <= b.i8[14]) ? all_ones : 0;
+dst.i8[15] = (a.i8[15] <= b.i8[15]) ? all_ones : 0;
+dst.i8[16] = (a.i8[16] <= b.i8[16]) ? all_ones : 0;
+dst.i8[17] = (a.i8[17] <= b.i8[17]) ? all_ones : 0;
+dst.i8[18] = (a.i8[18] <= b.i8[18]) ? all_ones : 0;
+dst.i8[19] = (a.i8[19] <= b.i8[19]) ? all_ones : 0;
+dst.i8[20] = (a.i8[20] <= b.i8[20]) ? all_ones : 0;
+dst.i8[21] = (a.i8[21] <= b.i8[21]) ? all_ones : 0;
+dst.i8[22] = (a.i8[22] <= b.i8[22]) ? all_ones : 0;
+dst.i8[23] = (a.i8[23] <= b.i8[23]) ? all_ones : 0;
+dst.i8[24] = (a.i8[24] <= b.i8[24]) ? all_ones : 0;
+dst.i8[25] = (a.i8[25] <= b.i8[25]) ? all_ones : 0;
+dst.i8[26] = (a.i8[26] <= b.i8[26]) ? all_ones : 0;
+dst.i8[27] = (a.i8[27] <= b.i8[27]) ? all_ones : 0;
+dst.i8[28] = (a.i8[28] <= b.i8[28]) ? all_ones : 0;
+dst.i8[29] = (a.i8[29] <= b.i8[29]) ? all_ones : 0;
+dst.i8[30] = (a.i8[30] <= b.i8[30]) ? all_ones : 0;
+dst.i8[31] = (a.i8[31] <= b.i8[31]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxcle_s_b((v32i8)_1, (v32i8)_2);
+return (__m256i)__builtin_lasx_mxcle_s_b((v32i8)a, (v32i8)b);
 ```
 
-## __m256i __lasx_mxcle_s_d (__m256i _1, __m256i _2)
+## __m256i __lasx_mxcle_s_d (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxcle_s_d (__m256i _1, __m256i _2)
+__m256i __lasx_mxcle_s_d (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxcle.s.d
 Builtin: __builtin_lasx_mxcle_s_d
@@ -342,32 +539,41 @@ Source: include/loongson-asxintrin.h:759
 
 ### Description
 
-Compare signed 4 x 64-bit dword lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 4 x i64 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxcle.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-b = _2;
-for i in 0..3:
-  dst.dword[i] = (a.dword[i] <= b.dword[i]) ? all_ones : 0;
+dst.i64[0] = (a.i64[0] <= b.i64[0]) ? all_ones : 0;
+dst.i64[1] = (a.i64[1] <= b.i64[1]) ? all_ones : 0;
+dst.i64[2] = (a.i64[2] <= b.i64[2]) ? all_ones : 0;
+dst.i64[3] = (a.i64[3] <= b.i64[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxcle_s_d((v4i64)_1, (v4i64)_2);
+return (__m256i)__builtin_lasx_mxcle_s_d((v4i64)a, (v4i64)b);
 ```
 
-## __m256i __lasx_mxcle_s_h (__m256i _1, __m256i _2)
+## __m256i __lasx_mxcle_s_h (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxcle_s_h (__m256i _1, __m256i _2)
+__m256i __lasx_mxcle_s_h (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxcle.s.h
 Builtin: __builtin_lasx_mxcle_s_h
@@ -378,32 +584,53 @@ Source: include/loongson-asxintrin.h:745
 
 ### Description
 
-Compare signed 16 x 16-bit half lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 16 x i16 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxcle.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-b = _2;
-for i in 0..15:
-  dst.half[i] = (a.half[i] <= b.half[i]) ? all_ones : 0;
+dst.i16[0] = (a.i16[0] <= b.i16[0]) ? all_ones : 0;
+dst.i16[1] = (a.i16[1] <= b.i16[1]) ? all_ones : 0;
+dst.i16[2] = (a.i16[2] <= b.i16[2]) ? all_ones : 0;
+dst.i16[3] = (a.i16[3] <= b.i16[3]) ? all_ones : 0;
+dst.i16[4] = (a.i16[4] <= b.i16[4]) ? all_ones : 0;
+dst.i16[5] = (a.i16[5] <= b.i16[5]) ? all_ones : 0;
+dst.i16[6] = (a.i16[6] <= b.i16[6]) ? all_ones : 0;
+dst.i16[7] = (a.i16[7] <= b.i16[7]) ? all_ones : 0;
+dst.i16[8] = (a.i16[8] <= b.i16[8]) ? all_ones : 0;
+dst.i16[9] = (a.i16[9] <= b.i16[9]) ? all_ones : 0;
+dst.i16[10] = (a.i16[10] <= b.i16[10]) ? all_ones : 0;
+dst.i16[11] = (a.i16[11] <= b.i16[11]) ? all_ones : 0;
+dst.i16[12] = (a.i16[12] <= b.i16[12]) ? all_ones : 0;
+dst.i16[13] = (a.i16[13] <= b.i16[13]) ? all_ones : 0;
+dst.i16[14] = (a.i16[14] <= b.i16[14]) ? all_ones : 0;
+dst.i16[15] = (a.i16[15] <= b.i16[15]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxcle_s_h((v16i16)_1, (v16i16)_2);
+return (__m256i)__builtin_lasx_mxcle_s_h((v16i16)a, (v16i16)b);
 ```
 
-## __m256i __lasx_mxcle_s_w (__m256i _1, __m256i _2)
+## __m256i __lasx_mxcle_s_w (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxcle_s_w (__m256i _1, __m256i _2)
+__m256i __lasx_mxcle_s_w (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxcle.s.w
 Builtin: __builtin_lasx_mxcle_s_w
@@ -414,32 +641,45 @@ Source: include/loongson-asxintrin.h:752
 
 ### Description
 
-Compare signed 8 x 32-bit word lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 8 x i32 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxcle.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-b = _2;
-for i in 0..7:
-  dst.word[i] = (a.word[i] <= b.word[i]) ? all_ones : 0;
+dst.i32[0] = (a.i32[0] <= b.i32[0]) ? all_ones : 0;
+dst.i32[1] = (a.i32[1] <= b.i32[1]) ? all_ones : 0;
+dst.i32[2] = (a.i32[2] <= b.i32[2]) ? all_ones : 0;
+dst.i32[3] = (a.i32[3] <= b.i32[3]) ? all_ones : 0;
+dst.i32[4] = (a.i32[4] <= b.i32[4]) ? all_ones : 0;
+dst.i32[5] = (a.i32[5] <= b.i32[5]) ? all_ones : 0;
+dst.i32[6] = (a.i32[6] <= b.i32[6]) ? all_ones : 0;
+dst.i32[7] = (a.i32[7] <= b.i32[7]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxcle_s_w((v8i32)_1, (v8i32)_2);
+return (__m256i)__builtin_lasx_mxcle_s_w((v8i32)a, (v8i32)b);
 ```
 
-## __m256i __lasx_mxcle_u_b (__m256i _1, __m256i _2)
+## __m256i __lasx_mxcle_u_b (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxcle_u_b (__m256i _1, __m256i _2)
+__m256i __lasx_mxcle_u_b (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxcle.u.b
 Builtin: __builtin_lasx_mxcle_u_b
@@ -450,32 +690,69 @@ Source: include/loongson-asxintrin.h:770
 
 ### Description
 
-Compare unsigned 32 x 8-bit byte lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 32 x u8 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxcle.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-b = _2;
-for i in 0..31:
-  dst.byte[i] = (a.byte[i] <= b.byte[i]) ? all_ones : 0;
+dst.u8[0] = (a.u8[0] <= b.u8[0]) ? all_ones : 0;
+dst.u8[1] = (a.u8[1] <= b.u8[1]) ? all_ones : 0;
+dst.u8[2] = (a.u8[2] <= b.u8[2]) ? all_ones : 0;
+dst.u8[3] = (a.u8[3] <= b.u8[3]) ? all_ones : 0;
+dst.u8[4] = (a.u8[4] <= b.u8[4]) ? all_ones : 0;
+dst.u8[5] = (a.u8[5] <= b.u8[5]) ? all_ones : 0;
+dst.u8[6] = (a.u8[6] <= b.u8[6]) ? all_ones : 0;
+dst.u8[7] = (a.u8[7] <= b.u8[7]) ? all_ones : 0;
+dst.u8[8] = (a.u8[8] <= b.u8[8]) ? all_ones : 0;
+dst.u8[9] = (a.u8[9] <= b.u8[9]) ? all_ones : 0;
+dst.u8[10] = (a.u8[10] <= b.u8[10]) ? all_ones : 0;
+dst.u8[11] = (a.u8[11] <= b.u8[11]) ? all_ones : 0;
+dst.u8[12] = (a.u8[12] <= b.u8[12]) ? all_ones : 0;
+dst.u8[13] = (a.u8[13] <= b.u8[13]) ? all_ones : 0;
+dst.u8[14] = (a.u8[14] <= b.u8[14]) ? all_ones : 0;
+dst.u8[15] = (a.u8[15] <= b.u8[15]) ? all_ones : 0;
+dst.u8[16] = (a.u8[16] <= b.u8[16]) ? all_ones : 0;
+dst.u8[17] = (a.u8[17] <= b.u8[17]) ? all_ones : 0;
+dst.u8[18] = (a.u8[18] <= b.u8[18]) ? all_ones : 0;
+dst.u8[19] = (a.u8[19] <= b.u8[19]) ? all_ones : 0;
+dst.u8[20] = (a.u8[20] <= b.u8[20]) ? all_ones : 0;
+dst.u8[21] = (a.u8[21] <= b.u8[21]) ? all_ones : 0;
+dst.u8[22] = (a.u8[22] <= b.u8[22]) ? all_ones : 0;
+dst.u8[23] = (a.u8[23] <= b.u8[23]) ? all_ones : 0;
+dst.u8[24] = (a.u8[24] <= b.u8[24]) ? all_ones : 0;
+dst.u8[25] = (a.u8[25] <= b.u8[25]) ? all_ones : 0;
+dst.u8[26] = (a.u8[26] <= b.u8[26]) ? all_ones : 0;
+dst.u8[27] = (a.u8[27] <= b.u8[27]) ? all_ones : 0;
+dst.u8[28] = (a.u8[28] <= b.u8[28]) ? all_ones : 0;
+dst.u8[29] = (a.u8[29] <= b.u8[29]) ? all_ones : 0;
+dst.u8[30] = (a.u8[30] <= b.u8[30]) ? all_ones : 0;
+dst.u8[31] = (a.u8[31] <= b.u8[31]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxcle_u_b((v32u8)_1, (v32u8)_2);
+return (__m256i)__builtin_lasx_mxcle_u_b((v32u8)a, (v32u8)b);
 ```
 
-## __m256i __lasx_mxcle_u_d (__m256i _1, __m256i _2)
+## __m256i __lasx_mxcle_u_d (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxcle_u_d (__m256i _1, __m256i _2)
+__m256i __lasx_mxcle_u_d (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxcle.u.d
 Builtin: __builtin_lasx_mxcle_u_d
@@ -486,32 +763,41 @@ Source: include/loongson-asxintrin.h:791
 
 ### Description
 
-Compare unsigned 4 x 64-bit dword lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 4 x u64 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxcle.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-b = _2;
-for i in 0..3:
-  dst.dword[i] = (a.dword[i] <= b.dword[i]) ? all_ones : 0;
+dst.u64[0] = (a.u64[0] <= b.u64[0]) ? all_ones : 0;
+dst.u64[1] = (a.u64[1] <= b.u64[1]) ? all_ones : 0;
+dst.u64[2] = (a.u64[2] <= b.u64[2]) ? all_ones : 0;
+dst.u64[3] = (a.u64[3] <= b.u64[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxcle_u_d((v4u64)_1, (v4u64)_2);
+return (__m256i)__builtin_lasx_mxcle_u_d((v4u64)a, (v4u64)b);
 ```
 
-## __m256i __lasx_mxcle_u_h (__m256i _1, __m256i _2)
+## __m256i __lasx_mxcle_u_h (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxcle_u_h (__m256i _1, __m256i _2)
+__m256i __lasx_mxcle_u_h (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxcle.u.h
 Builtin: __builtin_lasx_mxcle_u_h
@@ -522,32 +808,53 @@ Source: include/loongson-asxintrin.h:777
 
 ### Description
 
-Compare unsigned 16 x 16-bit half lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 16 x u16 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxcle.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-b = _2;
-for i in 0..15:
-  dst.half[i] = (a.half[i] <= b.half[i]) ? all_ones : 0;
+dst.u16[0] = (a.u16[0] <= b.u16[0]) ? all_ones : 0;
+dst.u16[1] = (a.u16[1] <= b.u16[1]) ? all_ones : 0;
+dst.u16[2] = (a.u16[2] <= b.u16[2]) ? all_ones : 0;
+dst.u16[3] = (a.u16[3] <= b.u16[3]) ? all_ones : 0;
+dst.u16[4] = (a.u16[4] <= b.u16[4]) ? all_ones : 0;
+dst.u16[5] = (a.u16[5] <= b.u16[5]) ? all_ones : 0;
+dst.u16[6] = (a.u16[6] <= b.u16[6]) ? all_ones : 0;
+dst.u16[7] = (a.u16[7] <= b.u16[7]) ? all_ones : 0;
+dst.u16[8] = (a.u16[8] <= b.u16[8]) ? all_ones : 0;
+dst.u16[9] = (a.u16[9] <= b.u16[9]) ? all_ones : 0;
+dst.u16[10] = (a.u16[10] <= b.u16[10]) ? all_ones : 0;
+dst.u16[11] = (a.u16[11] <= b.u16[11]) ? all_ones : 0;
+dst.u16[12] = (a.u16[12] <= b.u16[12]) ? all_ones : 0;
+dst.u16[13] = (a.u16[13] <= b.u16[13]) ? all_ones : 0;
+dst.u16[14] = (a.u16[14] <= b.u16[14]) ? all_ones : 0;
+dst.u16[15] = (a.u16[15] <= b.u16[15]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxcle_u_h((v16u16)_1, (v16u16)_2);
+return (__m256i)__builtin_lasx_mxcle_u_h((v16u16)a, (v16u16)b);
 ```
 
-## __m256i __lasx_mxcle_u_w (__m256i _1, __m256i _2)
+## __m256i __lasx_mxcle_u_w (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxcle_u_w (__m256i _1, __m256i _2)
+__m256i __lasx_mxcle_u_w (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxcle.u.w
 Builtin: __builtin_lasx_mxcle_u_w
@@ -558,32 +865,45 @@ Source: include/loongson-asxintrin.h:784
 
 ### Description
 
-Compare unsigned 8 x 32-bit word lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 8 x u32 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxcle.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-b = _2;
-for i in 0..7:
-  dst.word[i] = (a.word[i] <= b.word[i]) ? all_ones : 0;
+dst.u32[0] = (a.u32[0] <= b.u32[0]) ? all_ones : 0;
+dst.u32[1] = (a.u32[1] <= b.u32[1]) ? all_ones : 0;
+dst.u32[2] = (a.u32[2] <= b.u32[2]) ? all_ones : 0;
+dst.u32[3] = (a.u32[3] <= b.u32[3]) ? all_ones : 0;
+dst.u32[4] = (a.u32[4] <= b.u32[4]) ? all_ones : 0;
+dst.u32[5] = (a.u32[5] <= b.u32[5]) ? all_ones : 0;
+dst.u32[6] = (a.u32[6] <= b.u32[6]) ? all_ones : 0;
+dst.u32[7] = (a.u32[7] <= b.u32[7]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxcle_u_w((v8u32)_1, (v8u32)_2);
+return (__m256i)__builtin_lasx_mxcle_u_w((v8u32)a, (v8u32)b);
 ```
 
-## __m256i __lasx_mxclei_s_b (__m256i _1, signed char _2)
+## __m256i __lasx_mxclei_s_b (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclei_s_b (__m256i _1, signed char _2)
+__m256i __lasx_mxclei_s_b (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxclei.s.b
 Builtin: __builtin_lasx_mxclei_s_b
@@ -594,32 +914,69 @@ Source: include/loongson-asxintrin.h:765
 
 ### Description
 
-Compare signed 32 x 8-bit byte lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 32 x i8 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclei.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-imm = _2;
-for i in 0..31:
-  dst.byte[i] = (a.byte[i] <= imm) ? all_ones : 0;
+dst.i8[0] = (a.i8[0] <= imm) ? all_ones : 0;
+dst.i8[1] = (a.i8[1] <= imm) ? all_ones : 0;
+dst.i8[2] = (a.i8[2] <= imm) ? all_ones : 0;
+dst.i8[3] = (a.i8[3] <= imm) ? all_ones : 0;
+dst.i8[4] = (a.i8[4] <= imm) ? all_ones : 0;
+dst.i8[5] = (a.i8[5] <= imm) ? all_ones : 0;
+dst.i8[6] = (a.i8[6] <= imm) ? all_ones : 0;
+dst.i8[7] = (a.i8[7] <= imm) ? all_ones : 0;
+dst.i8[8] = (a.i8[8] <= imm) ? all_ones : 0;
+dst.i8[9] = (a.i8[9] <= imm) ? all_ones : 0;
+dst.i8[10] = (a.i8[10] <= imm) ? all_ones : 0;
+dst.i8[11] = (a.i8[11] <= imm) ? all_ones : 0;
+dst.i8[12] = (a.i8[12] <= imm) ? all_ones : 0;
+dst.i8[13] = (a.i8[13] <= imm) ? all_ones : 0;
+dst.i8[14] = (a.i8[14] <= imm) ? all_ones : 0;
+dst.i8[15] = (a.i8[15] <= imm) ? all_ones : 0;
+dst.i8[16] = (a.i8[16] <= imm) ? all_ones : 0;
+dst.i8[17] = (a.i8[17] <= imm) ? all_ones : 0;
+dst.i8[18] = (a.i8[18] <= imm) ? all_ones : 0;
+dst.i8[19] = (a.i8[19] <= imm) ? all_ones : 0;
+dst.i8[20] = (a.i8[20] <= imm) ? all_ones : 0;
+dst.i8[21] = (a.i8[21] <= imm) ? all_ones : 0;
+dst.i8[22] = (a.i8[22] <= imm) ? all_ones : 0;
+dst.i8[23] = (a.i8[23] <= imm) ? all_ones : 0;
+dst.i8[24] = (a.i8[24] <= imm) ? all_ones : 0;
+dst.i8[25] = (a.i8[25] <= imm) ? all_ones : 0;
+dst.i8[26] = (a.i8[26] <= imm) ? all_ones : 0;
+dst.i8[27] = (a.i8[27] <= imm) ? all_ones : 0;
+dst.i8[28] = (a.i8[28] <= imm) ? all_ones : 0;
+dst.i8[29] = (a.i8[29] <= imm) ? all_ones : 0;
+dst.i8[30] = (a.i8[30] <= imm) ? all_ones : 0;
+dst.i8[31] = (a.i8[31] <= imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxclei_s_b(_1, _2) ((__m256i)__builtin_lasx_mxclei_s_b((v32i8)(_1), (_2)))
+#define __lasx_mxclei_s_b(a, imm) ((__m256i)__builtin_lasx_mxclei_s_b((v32i8)(a), (imm)))
 ```
 
-## __m256i __lasx_mxclei_s_d (__m256i _1, signed char _2)
+## __m256i __lasx_mxclei_s_d (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclei_s_d (__m256i _1, signed char _2)
+__m256i __lasx_mxclei_s_d (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxclei.s.d
 Builtin: __builtin_lasx_mxclei_s_d
@@ -630,32 +987,41 @@ Source: include/loongson-asxintrin.h:768
 
 ### Description
 
-Compare signed 4 x 64-bit dword lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 4 x i64 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclei.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-imm = _2;
-for i in 0..3:
-  dst.dword[i] = (a.dword[i] <= imm) ? all_ones : 0;
+dst.i64[0] = (a.i64[0] <= imm) ? all_ones : 0;
+dst.i64[1] = (a.i64[1] <= imm) ? all_ones : 0;
+dst.i64[2] = (a.i64[2] <= imm) ? all_ones : 0;
+dst.i64[3] = (a.i64[3] <= imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxclei_s_d(_1, _2) ((__m256i)__builtin_lasx_mxclei_s_d((v4i64)(_1), (_2)))
+#define __lasx_mxclei_s_d(a, imm) ((__m256i)__builtin_lasx_mxclei_s_d((v4i64)(a), (imm)))
 ```
 
-## __m256i __lasx_mxclei_s_h (__m256i _1, signed char _2)
+## __m256i __lasx_mxclei_s_h (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclei_s_h (__m256i _1, signed char _2)
+__m256i __lasx_mxclei_s_h (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxclei.s.h
 Builtin: __builtin_lasx_mxclei_s_h
@@ -666,32 +1032,53 @@ Source: include/loongson-asxintrin.h:766
 
 ### Description
 
-Compare signed 16 x 16-bit half lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 16 x i16 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclei.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-imm = _2;
-for i in 0..15:
-  dst.half[i] = (a.half[i] <= imm) ? all_ones : 0;
+dst.i16[0] = (a.i16[0] <= imm) ? all_ones : 0;
+dst.i16[1] = (a.i16[1] <= imm) ? all_ones : 0;
+dst.i16[2] = (a.i16[2] <= imm) ? all_ones : 0;
+dst.i16[3] = (a.i16[3] <= imm) ? all_ones : 0;
+dst.i16[4] = (a.i16[4] <= imm) ? all_ones : 0;
+dst.i16[5] = (a.i16[5] <= imm) ? all_ones : 0;
+dst.i16[6] = (a.i16[6] <= imm) ? all_ones : 0;
+dst.i16[7] = (a.i16[7] <= imm) ? all_ones : 0;
+dst.i16[8] = (a.i16[8] <= imm) ? all_ones : 0;
+dst.i16[9] = (a.i16[9] <= imm) ? all_ones : 0;
+dst.i16[10] = (a.i16[10] <= imm) ? all_ones : 0;
+dst.i16[11] = (a.i16[11] <= imm) ? all_ones : 0;
+dst.i16[12] = (a.i16[12] <= imm) ? all_ones : 0;
+dst.i16[13] = (a.i16[13] <= imm) ? all_ones : 0;
+dst.i16[14] = (a.i16[14] <= imm) ? all_ones : 0;
+dst.i16[15] = (a.i16[15] <= imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxclei_s_h(_1, _2) ((__m256i)__builtin_lasx_mxclei_s_h((v16i16)(_1), (_2)))
+#define __lasx_mxclei_s_h(a, imm) ((__m256i)__builtin_lasx_mxclei_s_h((v16i16)(a), (imm)))
 ```
 
-## __m256i __lasx_mxclei_s_w (__m256i _1, signed char _2)
+## __m256i __lasx_mxclei_s_w (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclei_s_w (__m256i _1, signed char _2)
+__m256i __lasx_mxclei_s_w (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxclei.s.w
 Builtin: __builtin_lasx_mxclei_s_w
@@ -702,32 +1089,45 @@ Source: include/loongson-asxintrin.h:767
 
 ### Description
 
-Compare signed 8 x 32-bit word lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 8 x i32 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclei.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-imm = _2;
-for i in 0..7:
-  dst.word[i] = (a.word[i] <= imm) ? all_ones : 0;
+dst.i32[0] = (a.i32[0] <= imm) ? all_ones : 0;
+dst.i32[1] = (a.i32[1] <= imm) ? all_ones : 0;
+dst.i32[2] = (a.i32[2] <= imm) ? all_ones : 0;
+dst.i32[3] = (a.i32[3] <= imm) ? all_ones : 0;
+dst.i32[4] = (a.i32[4] <= imm) ? all_ones : 0;
+dst.i32[5] = (a.i32[5] <= imm) ? all_ones : 0;
+dst.i32[6] = (a.i32[6] <= imm) ? all_ones : 0;
+dst.i32[7] = (a.i32[7] <= imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxclei_s_w(_1, _2) ((__m256i)__builtin_lasx_mxclei_s_w((v8i32)(_1), (_2)))
+#define __lasx_mxclei_s_w(a, imm) ((__m256i)__builtin_lasx_mxclei_s_w((v8i32)(a), (imm)))
 ```
 
-## __m256i __lasx_mxclei_u_b (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxclei_u_b (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclei_u_b (__m256i _1, unsigned char _2)
+__m256i __lasx_mxclei_u_b (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxclei.u.b
 Builtin: __builtin_lasx_mxclei_u_b
@@ -738,32 +1138,69 @@ Source: include/loongson-asxintrin.h:797
 
 ### Description
 
-Compare unsigned 32 x 8-bit byte lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 32 x u8 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclei.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-imm = _2;
-for i in 0..31:
-  dst.byte[i] = (a.byte[i] <= imm) ? all_ones : 0;
+dst.u8[0] = (a.u8[0] <= imm) ? all_ones : 0;
+dst.u8[1] = (a.u8[1] <= imm) ? all_ones : 0;
+dst.u8[2] = (a.u8[2] <= imm) ? all_ones : 0;
+dst.u8[3] = (a.u8[3] <= imm) ? all_ones : 0;
+dst.u8[4] = (a.u8[4] <= imm) ? all_ones : 0;
+dst.u8[5] = (a.u8[5] <= imm) ? all_ones : 0;
+dst.u8[6] = (a.u8[6] <= imm) ? all_ones : 0;
+dst.u8[7] = (a.u8[7] <= imm) ? all_ones : 0;
+dst.u8[8] = (a.u8[8] <= imm) ? all_ones : 0;
+dst.u8[9] = (a.u8[9] <= imm) ? all_ones : 0;
+dst.u8[10] = (a.u8[10] <= imm) ? all_ones : 0;
+dst.u8[11] = (a.u8[11] <= imm) ? all_ones : 0;
+dst.u8[12] = (a.u8[12] <= imm) ? all_ones : 0;
+dst.u8[13] = (a.u8[13] <= imm) ? all_ones : 0;
+dst.u8[14] = (a.u8[14] <= imm) ? all_ones : 0;
+dst.u8[15] = (a.u8[15] <= imm) ? all_ones : 0;
+dst.u8[16] = (a.u8[16] <= imm) ? all_ones : 0;
+dst.u8[17] = (a.u8[17] <= imm) ? all_ones : 0;
+dst.u8[18] = (a.u8[18] <= imm) ? all_ones : 0;
+dst.u8[19] = (a.u8[19] <= imm) ? all_ones : 0;
+dst.u8[20] = (a.u8[20] <= imm) ? all_ones : 0;
+dst.u8[21] = (a.u8[21] <= imm) ? all_ones : 0;
+dst.u8[22] = (a.u8[22] <= imm) ? all_ones : 0;
+dst.u8[23] = (a.u8[23] <= imm) ? all_ones : 0;
+dst.u8[24] = (a.u8[24] <= imm) ? all_ones : 0;
+dst.u8[25] = (a.u8[25] <= imm) ? all_ones : 0;
+dst.u8[26] = (a.u8[26] <= imm) ? all_ones : 0;
+dst.u8[27] = (a.u8[27] <= imm) ? all_ones : 0;
+dst.u8[28] = (a.u8[28] <= imm) ? all_ones : 0;
+dst.u8[29] = (a.u8[29] <= imm) ? all_ones : 0;
+dst.u8[30] = (a.u8[30] <= imm) ? all_ones : 0;
+dst.u8[31] = (a.u8[31] <= imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxclei_u_b(_1, _2) ((__m256i)__builtin_lasx_mxclei_u_b((v32u8)(_1), (_2)))
+#define __lasx_mxclei_u_b(a, imm) ((__m256i)__builtin_lasx_mxclei_u_b((v32u8)(a), (imm)))
 ```
 
-## __m256i __lasx_mxclei_u_d (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxclei_u_d (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclei_u_d (__m256i _1, unsigned char _2)
+__m256i __lasx_mxclei_u_d (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxclei.u.d
 Builtin: __builtin_lasx_mxclei_u_d
@@ -774,32 +1211,41 @@ Source: include/loongson-asxintrin.h:800
 
 ### Description
 
-Compare unsigned 4 x 64-bit dword lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 4 x u64 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclei.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-imm = _2;
-for i in 0..3:
-  dst.dword[i] = (a.dword[i] <= imm) ? all_ones : 0;
+dst.u64[0] = (a.u64[0] <= imm) ? all_ones : 0;
+dst.u64[1] = (a.u64[1] <= imm) ? all_ones : 0;
+dst.u64[2] = (a.u64[2] <= imm) ? all_ones : 0;
+dst.u64[3] = (a.u64[3] <= imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxclei_u_d(_1, _2) ((__m256i)__builtin_lasx_mxclei_u_d((v4u64)(_1), (_2)))
+#define __lasx_mxclei_u_d(a, imm) ((__m256i)__builtin_lasx_mxclei_u_d((v4u64)(a), (imm)))
 ```
 
-## __m256i __lasx_mxclei_u_h (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxclei_u_h (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclei_u_h (__m256i _1, unsigned char _2)
+__m256i __lasx_mxclei_u_h (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxclei.u.h
 Builtin: __builtin_lasx_mxclei_u_h
@@ -810,32 +1256,53 @@ Source: include/loongson-asxintrin.h:798
 
 ### Description
 
-Compare unsigned 16 x 16-bit half lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 16 x u16 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclei.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-imm = _2;
-for i in 0..15:
-  dst.half[i] = (a.half[i] <= imm) ? all_ones : 0;
+dst.u16[0] = (a.u16[0] <= imm) ? all_ones : 0;
+dst.u16[1] = (a.u16[1] <= imm) ? all_ones : 0;
+dst.u16[2] = (a.u16[2] <= imm) ? all_ones : 0;
+dst.u16[3] = (a.u16[3] <= imm) ? all_ones : 0;
+dst.u16[4] = (a.u16[4] <= imm) ? all_ones : 0;
+dst.u16[5] = (a.u16[5] <= imm) ? all_ones : 0;
+dst.u16[6] = (a.u16[6] <= imm) ? all_ones : 0;
+dst.u16[7] = (a.u16[7] <= imm) ? all_ones : 0;
+dst.u16[8] = (a.u16[8] <= imm) ? all_ones : 0;
+dst.u16[9] = (a.u16[9] <= imm) ? all_ones : 0;
+dst.u16[10] = (a.u16[10] <= imm) ? all_ones : 0;
+dst.u16[11] = (a.u16[11] <= imm) ? all_ones : 0;
+dst.u16[12] = (a.u16[12] <= imm) ? all_ones : 0;
+dst.u16[13] = (a.u16[13] <= imm) ? all_ones : 0;
+dst.u16[14] = (a.u16[14] <= imm) ? all_ones : 0;
+dst.u16[15] = (a.u16[15] <= imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxclei_u_h(_1, _2) ((__m256i)__builtin_lasx_mxclei_u_h((v16u16)(_1), (_2)))
+#define __lasx_mxclei_u_h(a, imm) ((__m256i)__builtin_lasx_mxclei_u_h((v16u16)(a), (imm)))
 ```
 
-## __m256i __lasx_mxclei_u_w (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxclei_u_w (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclei_u_w (__m256i _1, unsigned char _2)
+__m256i __lasx_mxclei_u_w (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxclei.u.w
 Builtin: __builtin_lasx_mxclei_u_w
@@ -846,32 +1313,45 @@ Source: include/loongson-asxintrin.h:799
 
 ### Description
 
-Compare unsigned 8 x 32-bit word lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 8 x u32 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclei.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-imm = _2;
-for i in 0..7:
-  dst.word[i] = (a.word[i] <= imm) ? all_ones : 0;
+dst.u32[0] = (a.u32[0] <= imm) ? all_ones : 0;
+dst.u32[1] = (a.u32[1] <= imm) ? all_ones : 0;
+dst.u32[2] = (a.u32[2] <= imm) ? all_ones : 0;
+dst.u32[3] = (a.u32[3] <= imm) ? all_ones : 0;
+dst.u32[4] = (a.u32[4] <= imm) ? all_ones : 0;
+dst.u32[5] = (a.u32[5] <= imm) ? all_ones : 0;
+dst.u32[6] = (a.u32[6] <= imm) ? all_ones : 0;
+dst.u32[7] = (a.u32[7] <= imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxclei_u_w(_1, _2) ((__m256i)__builtin_lasx_mxclei_u_w((v8u32)(_1), (_2)))
+#define __lasx_mxclei_u_w(a, imm) ((__m256i)__builtin_lasx_mxclei_u_w((v8u32)(a), (imm)))
 ```
 
-## __m256i __lasx_mxclt_s_b (__m256i _1, __m256i _2)
+## __m256i __lasx_mxclt_s_b (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclt_s_b (__m256i _1, __m256i _2)
+__m256i __lasx_mxclt_s_b (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxclt.s.b
 Builtin: __builtin_lasx_mxclt_s_b
@@ -882,32 +1362,69 @@ Source: include/loongson-asxintrin.h:674
 
 ### Description
 
-Compare signed 32 x 8-bit byte lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 32 x i8 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclt.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-b = _2;
-for i in 0..31:
-  dst.byte[i] = (a.byte[i] < b.byte[i]) ? all_ones : 0;
+dst.i8[0] = (a.i8[0] < b.i8[0]) ? all_ones : 0;
+dst.i8[1] = (a.i8[1] < b.i8[1]) ? all_ones : 0;
+dst.i8[2] = (a.i8[2] < b.i8[2]) ? all_ones : 0;
+dst.i8[3] = (a.i8[3] < b.i8[3]) ? all_ones : 0;
+dst.i8[4] = (a.i8[4] < b.i8[4]) ? all_ones : 0;
+dst.i8[5] = (a.i8[5] < b.i8[5]) ? all_ones : 0;
+dst.i8[6] = (a.i8[6] < b.i8[6]) ? all_ones : 0;
+dst.i8[7] = (a.i8[7] < b.i8[7]) ? all_ones : 0;
+dst.i8[8] = (a.i8[8] < b.i8[8]) ? all_ones : 0;
+dst.i8[9] = (a.i8[9] < b.i8[9]) ? all_ones : 0;
+dst.i8[10] = (a.i8[10] < b.i8[10]) ? all_ones : 0;
+dst.i8[11] = (a.i8[11] < b.i8[11]) ? all_ones : 0;
+dst.i8[12] = (a.i8[12] < b.i8[12]) ? all_ones : 0;
+dst.i8[13] = (a.i8[13] < b.i8[13]) ? all_ones : 0;
+dst.i8[14] = (a.i8[14] < b.i8[14]) ? all_ones : 0;
+dst.i8[15] = (a.i8[15] < b.i8[15]) ? all_ones : 0;
+dst.i8[16] = (a.i8[16] < b.i8[16]) ? all_ones : 0;
+dst.i8[17] = (a.i8[17] < b.i8[17]) ? all_ones : 0;
+dst.i8[18] = (a.i8[18] < b.i8[18]) ? all_ones : 0;
+dst.i8[19] = (a.i8[19] < b.i8[19]) ? all_ones : 0;
+dst.i8[20] = (a.i8[20] < b.i8[20]) ? all_ones : 0;
+dst.i8[21] = (a.i8[21] < b.i8[21]) ? all_ones : 0;
+dst.i8[22] = (a.i8[22] < b.i8[22]) ? all_ones : 0;
+dst.i8[23] = (a.i8[23] < b.i8[23]) ? all_ones : 0;
+dst.i8[24] = (a.i8[24] < b.i8[24]) ? all_ones : 0;
+dst.i8[25] = (a.i8[25] < b.i8[25]) ? all_ones : 0;
+dst.i8[26] = (a.i8[26] < b.i8[26]) ? all_ones : 0;
+dst.i8[27] = (a.i8[27] < b.i8[27]) ? all_ones : 0;
+dst.i8[28] = (a.i8[28] < b.i8[28]) ? all_ones : 0;
+dst.i8[29] = (a.i8[29] < b.i8[29]) ? all_ones : 0;
+dst.i8[30] = (a.i8[30] < b.i8[30]) ? all_ones : 0;
+dst.i8[31] = (a.i8[31] < b.i8[31]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxclt_s_b((v32i8)_1, (v32i8)_2);
+return (__m256i)__builtin_lasx_mxclt_s_b((v32i8)a, (v32i8)b);
 ```
 
-## __m256i __lasx_mxclt_s_d (__m256i _1, __m256i _2)
+## __m256i __lasx_mxclt_s_d (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclt_s_d (__m256i _1, __m256i _2)
+__m256i __lasx_mxclt_s_d (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxclt.s.d
 Builtin: __builtin_lasx_mxclt_s_d
@@ -918,32 +1435,41 @@ Source: include/loongson-asxintrin.h:695
 
 ### Description
 
-Compare signed 4 x 64-bit dword lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 4 x i64 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclt.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-b = _2;
-for i in 0..3:
-  dst.dword[i] = (a.dword[i] < b.dword[i]) ? all_ones : 0;
+dst.i64[0] = (a.i64[0] < b.i64[0]) ? all_ones : 0;
+dst.i64[1] = (a.i64[1] < b.i64[1]) ? all_ones : 0;
+dst.i64[2] = (a.i64[2] < b.i64[2]) ? all_ones : 0;
+dst.i64[3] = (a.i64[3] < b.i64[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxclt_s_d((v4i64)_1, (v4i64)_2);
+return (__m256i)__builtin_lasx_mxclt_s_d((v4i64)a, (v4i64)b);
 ```
 
-## __m256i __lasx_mxclt_s_h (__m256i _1, __m256i _2)
+## __m256i __lasx_mxclt_s_h (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclt_s_h (__m256i _1, __m256i _2)
+__m256i __lasx_mxclt_s_h (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxclt.s.h
 Builtin: __builtin_lasx_mxclt_s_h
@@ -954,32 +1480,53 @@ Source: include/loongson-asxintrin.h:681
 
 ### Description
 
-Compare signed 16 x 16-bit half lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 16 x i16 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclt.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-b = _2;
-for i in 0..15:
-  dst.half[i] = (a.half[i] < b.half[i]) ? all_ones : 0;
+dst.i16[0] = (a.i16[0] < b.i16[0]) ? all_ones : 0;
+dst.i16[1] = (a.i16[1] < b.i16[1]) ? all_ones : 0;
+dst.i16[2] = (a.i16[2] < b.i16[2]) ? all_ones : 0;
+dst.i16[3] = (a.i16[3] < b.i16[3]) ? all_ones : 0;
+dst.i16[4] = (a.i16[4] < b.i16[4]) ? all_ones : 0;
+dst.i16[5] = (a.i16[5] < b.i16[5]) ? all_ones : 0;
+dst.i16[6] = (a.i16[6] < b.i16[6]) ? all_ones : 0;
+dst.i16[7] = (a.i16[7] < b.i16[7]) ? all_ones : 0;
+dst.i16[8] = (a.i16[8] < b.i16[8]) ? all_ones : 0;
+dst.i16[9] = (a.i16[9] < b.i16[9]) ? all_ones : 0;
+dst.i16[10] = (a.i16[10] < b.i16[10]) ? all_ones : 0;
+dst.i16[11] = (a.i16[11] < b.i16[11]) ? all_ones : 0;
+dst.i16[12] = (a.i16[12] < b.i16[12]) ? all_ones : 0;
+dst.i16[13] = (a.i16[13] < b.i16[13]) ? all_ones : 0;
+dst.i16[14] = (a.i16[14] < b.i16[14]) ? all_ones : 0;
+dst.i16[15] = (a.i16[15] < b.i16[15]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxclt_s_h((v16i16)_1, (v16i16)_2);
+return (__m256i)__builtin_lasx_mxclt_s_h((v16i16)a, (v16i16)b);
 ```
 
-## __m256i __lasx_mxclt_s_w (__m256i _1, __m256i _2)
+## __m256i __lasx_mxclt_s_w (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclt_s_w (__m256i _1, __m256i _2)
+__m256i __lasx_mxclt_s_w (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxclt.s.w
 Builtin: __builtin_lasx_mxclt_s_w
@@ -990,32 +1537,45 @@ Source: include/loongson-asxintrin.h:688
 
 ### Description
 
-Compare signed 8 x 32-bit word lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 8 x i32 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclt.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-b = _2;
-for i in 0..7:
-  dst.word[i] = (a.word[i] < b.word[i]) ? all_ones : 0;
+dst.i32[0] = (a.i32[0] < b.i32[0]) ? all_ones : 0;
+dst.i32[1] = (a.i32[1] < b.i32[1]) ? all_ones : 0;
+dst.i32[2] = (a.i32[2] < b.i32[2]) ? all_ones : 0;
+dst.i32[3] = (a.i32[3] < b.i32[3]) ? all_ones : 0;
+dst.i32[4] = (a.i32[4] < b.i32[4]) ? all_ones : 0;
+dst.i32[5] = (a.i32[5] < b.i32[5]) ? all_ones : 0;
+dst.i32[6] = (a.i32[6] < b.i32[6]) ? all_ones : 0;
+dst.i32[7] = (a.i32[7] < b.i32[7]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxclt_s_w((v8i32)_1, (v8i32)_2);
+return (__m256i)__builtin_lasx_mxclt_s_w((v8i32)a, (v8i32)b);
 ```
 
-## __m256i __lasx_mxclt_u_b (__m256i _1, __m256i _2)
+## __m256i __lasx_mxclt_u_b (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclt_u_b (__m256i _1, __m256i _2)
+__m256i __lasx_mxclt_u_b (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxclt.u.b
 Builtin: __builtin_lasx_mxclt_u_b
@@ -1026,32 +1586,69 @@ Source: include/loongson-asxintrin.h:706
 
 ### Description
 
-Compare unsigned 32 x 8-bit byte lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 32 x u8 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclt.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-b = _2;
-for i in 0..31:
-  dst.byte[i] = (a.byte[i] < b.byte[i]) ? all_ones : 0;
+dst.u8[0] = (a.u8[0] < b.u8[0]) ? all_ones : 0;
+dst.u8[1] = (a.u8[1] < b.u8[1]) ? all_ones : 0;
+dst.u8[2] = (a.u8[2] < b.u8[2]) ? all_ones : 0;
+dst.u8[3] = (a.u8[3] < b.u8[3]) ? all_ones : 0;
+dst.u8[4] = (a.u8[4] < b.u8[4]) ? all_ones : 0;
+dst.u8[5] = (a.u8[5] < b.u8[5]) ? all_ones : 0;
+dst.u8[6] = (a.u8[6] < b.u8[6]) ? all_ones : 0;
+dst.u8[7] = (a.u8[7] < b.u8[7]) ? all_ones : 0;
+dst.u8[8] = (a.u8[8] < b.u8[8]) ? all_ones : 0;
+dst.u8[9] = (a.u8[9] < b.u8[9]) ? all_ones : 0;
+dst.u8[10] = (a.u8[10] < b.u8[10]) ? all_ones : 0;
+dst.u8[11] = (a.u8[11] < b.u8[11]) ? all_ones : 0;
+dst.u8[12] = (a.u8[12] < b.u8[12]) ? all_ones : 0;
+dst.u8[13] = (a.u8[13] < b.u8[13]) ? all_ones : 0;
+dst.u8[14] = (a.u8[14] < b.u8[14]) ? all_ones : 0;
+dst.u8[15] = (a.u8[15] < b.u8[15]) ? all_ones : 0;
+dst.u8[16] = (a.u8[16] < b.u8[16]) ? all_ones : 0;
+dst.u8[17] = (a.u8[17] < b.u8[17]) ? all_ones : 0;
+dst.u8[18] = (a.u8[18] < b.u8[18]) ? all_ones : 0;
+dst.u8[19] = (a.u8[19] < b.u8[19]) ? all_ones : 0;
+dst.u8[20] = (a.u8[20] < b.u8[20]) ? all_ones : 0;
+dst.u8[21] = (a.u8[21] < b.u8[21]) ? all_ones : 0;
+dst.u8[22] = (a.u8[22] < b.u8[22]) ? all_ones : 0;
+dst.u8[23] = (a.u8[23] < b.u8[23]) ? all_ones : 0;
+dst.u8[24] = (a.u8[24] < b.u8[24]) ? all_ones : 0;
+dst.u8[25] = (a.u8[25] < b.u8[25]) ? all_ones : 0;
+dst.u8[26] = (a.u8[26] < b.u8[26]) ? all_ones : 0;
+dst.u8[27] = (a.u8[27] < b.u8[27]) ? all_ones : 0;
+dst.u8[28] = (a.u8[28] < b.u8[28]) ? all_ones : 0;
+dst.u8[29] = (a.u8[29] < b.u8[29]) ? all_ones : 0;
+dst.u8[30] = (a.u8[30] < b.u8[30]) ? all_ones : 0;
+dst.u8[31] = (a.u8[31] < b.u8[31]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxclt_u_b((v32u8)_1, (v32u8)_2);
+return (__m256i)__builtin_lasx_mxclt_u_b((v32u8)a, (v32u8)b);
 ```
 
-## __m256i __lasx_mxclt_u_d (__m256i _1, __m256i _2)
+## __m256i __lasx_mxclt_u_d (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclt_u_d (__m256i _1, __m256i _2)
+__m256i __lasx_mxclt_u_d (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxclt.u.d
 Builtin: __builtin_lasx_mxclt_u_d
@@ -1062,32 +1659,41 @@ Source: include/loongson-asxintrin.h:727
 
 ### Description
 
-Compare unsigned 4 x 64-bit dword lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 4 x u64 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclt.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-b = _2;
-for i in 0..3:
-  dst.dword[i] = (a.dword[i] < b.dword[i]) ? all_ones : 0;
+dst.u64[0] = (a.u64[0] < b.u64[0]) ? all_ones : 0;
+dst.u64[1] = (a.u64[1] < b.u64[1]) ? all_ones : 0;
+dst.u64[2] = (a.u64[2] < b.u64[2]) ? all_ones : 0;
+dst.u64[3] = (a.u64[3] < b.u64[3]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxclt_u_d((v4u64)_1, (v4u64)_2);
+return (__m256i)__builtin_lasx_mxclt_u_d((v4u64)a, (v4u64)b);
 ```
 
-## __m256i __lasx_mxclt_u_h (__m256i _1, __m256i _2)
+## __m256i __lasx_mxclt_u_h (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclt_u_h (__m256i _1, __m256i _2)
+__m256i __lasx_mxclt_u_h (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxclt.u.h
 Builtin: __builtin_lasx_mxclt_u_h
@@ -1098,32 +1704,53 @@ Source: include/loongson-asxintrin.h:713
 
 ### Description
 
-Compare unsigned 16 x 16-bit half lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 16 x u16 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclt.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-b = _2;
-for i in 0..15:
-  dst.half[i] = (a.half[i] < b.half[i]) ? all_ones : 0;
+dst.u16[0] = (a.u16[0] < b.u16[0]) ? all_ones : 0;
+dst.u16[1] = (a.u16[1] < b.u16[1]) ? all_ones : 0;
+dst.u16[2] = (a.u16[2] < b.u16[2]) ? all_ones : 0;
+dst.u16[3] = (a.u16[3] < b.u16[3]) ? all_ones : 0;
+dst.u16[4] = (a.u16[4] < b.u16[4]) ? all_ones : 0;
+dst.u16[5] = (a.u16[5] < b.u16[5]) ? all_ones : 0;
+dst.u16[6] = (a.u16[6] < b.u16[6]) ? all_ones : 0;
+dst.u16[7] = (a.u16[7] < b.u16[7]) ? all_ones : 0;
+dst.u16[8] = (a.u16[8] < b.u16[8]) ? all_ones : 0;
+dst.u16[9] = (a.u16[9] < b.u16[9]) ? all_ones : 0;
+dst.u16[10] = (a.u16[10] < b.u16[10]) ? all_ones : 0;
+dst.u16[11] = (a.u16[11] < b.u16[11]) ? all_ones : 0;
+dst.u16[12] = (a.u16[12] < b.u16[12]) ? all_ones : 0;
+dst.u16[13] = (a.u16[13] < b.u16[13]) ? all_ones : 0;
+dst.u16[14] = (a.u16[14] < b.u16[14]) ? all_ones : 0;
+dst.u16[15] = (a.u16[15] < b.u16[15]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxclt_u_h((v16u16)_1, (v16u16)_2);
+return (__m256i)__builtin_lasx_mxclt_u_h((v16u16)a, (v16u16)b);
 ```
 
-## __m256i __lasx_mxclt_u_w (__m256i _1, __m256i _2)
+## __m256i __lasx_mxclt_u_w (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclt_u_w (__m256i _1, __m256i _2)
+__m256i __lasx_mxclt_u_w (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxclt.u.w
 Builtin: __builtin_lasx_mxclt_u_w
@@ -1134,32 +1761,45 @@ Source: include/loongson-asxintrin.h:720
 
 ### Description
 
-Compare unsigned 8 x 32-bit word lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 8 x u32 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclt.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-b = _2;
-for i in 0..7:
-  dst.word[i] = (a.word[i] < b.word[i]) ? all_ones : 0;
+dst.u32[0] = (a.u32[0] < b.u32[0]) ? all_ones : 0;
+dst.u32[1] = (a.u32[1] < b.u32[1]) ? all_ones : 0;
+dst.u32[2] = (a.u32[2] < b.u32[2]) ? all_ones : 0;
+dst.u32[3] = (a.u32[3] < b.u32[3]) ? all_ones : 0;
+dst.u32[4] = (a.u32[4] < b.u32[4]) ? all_ones : 0;
+dst.u32[5] = (a.u32[5] < b.u32[5]) ? all_ones : 0;
+dst.u32[6] = (a.u32[6] < b.u32[6]) ? all_ones : 0;
+dst.u32[7] = (a.u32[7] < b.u32[7]) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxclt_u_w((v8u32)_1, (v8u32)_2);
+return (__m256i)__builtin_lasx_mxclt_u_w((v8u32)a, (v8u32)b);
 ```
 
-## __m256i __lasx_mxclti_s_b (__m256i _1, signed char _2)
+## __m256i __lasx_mxclti_s_b (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclti_s_b (__m256i _1, signed char _2)
+__m256i __lasx_mxclti_s_b (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxclti.s.b
 Builtin: __builtin_lasx_mxclti_s_b
@@ -1170,32 +1810,69 @@ Source: include/loongson-asxintrin.h:701
 
 ### Description
 
-Compare signed 32 x 8-bit byte lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 32 x i8 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclti.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-imm = _2;
-for i in 0..31:
-  dst.byte[i] = (a.byte[i] < imm) ? all_ones : 0;
+dst.i8[0] = (a.i8[0] < imm) ? all_ones : 0;
+dst.i8[1] = (a.i8[1] < imm) ? all_ones : 0;
+dst.i8[2] = (a.i8[2] < imm) ? all_ones : 0;
+dst.i8[3] = (a.i8[3] < imm) ? all_ones : 0;
+dst.i8[4] = (a.i8[4] < imm) ? all_ones : 0;
+dst.i8[5] = (a.i8[5] < imm) ? all_ones : 0;
+dst.i8[6] = (a.i8[6] < imm) ? all_ones : 0;
+dst.i8[7] = (a.i8[7] < imm) ? all_ones : 0;
+dst.i8[8] = (a.i8[8] < imm) ? all_ones : 0;
+dst.i8[9] = (a.i8[9] < imm) ? all_ones : 0;
+dst.i8[10] = (a.i8[10] < imm) ? all_ones : 0;
+dst.i8[11] = (a.i8[11] < imm) ? all_ones : 0;
+dst.i8[12] = (a.i8[12] < imm) ? all_ones : 0;
+dst.i8[13] = (a.i8[13] < imm) ? all_ones : 0;
+dst.i8[14] = (a.i8[14] < imm) ? all_ones : 0;
+dst.i8[15] = (a.i8[15] < imm) ? all_ones : 0;
+dst.i8[16] = (a.i8[16] < imm) ? all_ones : 0;
+dst.i8[17] = (a.i8[17] < imm) ? all_ones : 0;
+dst.i8[18] = (a.i8[18] < imm) ? all_ones : 0;
+dst.i8[19] = (a.i8[19] < imm) ? all_ones : 0;
+dst.i8[20] = (a.i8[20] < imm) ? all_ones : 0;
+dst.i8[21] = (a.i8[21] < imm) ? all_ones : 0;
+dst.i8[22] = (a.i8[22] < imm) ? all_ones : 0;
+dst.i8[23] = (a.i8[23] < imm) ? all_ones : 0;
+dst.i8[24] = (a.i8[24] < imm) ? all_ones : 0;
+dst.i8[25] = (a.i8[25] < imm) ? all_ones : 0;
+dst.i8[26] = (a.i8[26] < imm) ? all_ones : 0;
+dst.i8[27] = (a.i8[27] < imm) ? all_ones : 0;
+dst.i8[28] = (a.i8[28] < imm) ? all_ones : 0;
+dst.i8[29] = (a.i8[29] < imm) ? all_ones : 0;
+dst.i8[30] = (a.i8[30] < imm) ? all_ones : 0;
+dst.i8[31] = (a.i8[31] < imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxclti_s_b(_1, _2) ((__m256i)__builtin_lasx_mxclti_s_b((v32i8)(_1), (_2)))
+#define __lasx_mxclti_s_b(a, imm) ((__m256i)__builtin_lasx_mxclti_s_b((v32i8)(a), (imm)))
 ```
 
-## __m256i __lasx_mxclti_s_d (__m256i _1, signed char _2)
+## __m256i __lasx_mxclti_s_d (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclti_s_d (__m256i _1, signed char _2)
+__m256i __lasx_mxclti_s_d (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxclti.s.d
 Builtin: __builtin_lasx_mxclti_s_d
@@ -1206,32 +1883,41 @@ Source: include/loongson-asxintrin.h:704
 
 ### Description
 
-Compare signed 4 x 64-bit dword lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 4 x i64 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclti.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-imm = _2;
-for i in 0..3:
-  dst.dword[i] = (a.dword[i] < imm) ? all_ones : 0;
+dst.i64[0] = (a.i64[0] < imm) ? all_ones : 0;
+dst.i64[1] = (a.i64[1] < imm) ? all_ones : 0;
+dst.i64[2] = (a.i64[2] < imm) ? all_ones : 0;
+dst.i64[3] = (a.i64[3] < imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxclti_s_d(_1, _2) ((__m256i)__builtin_lasx_mxclti_s_d((v4i64)(_1), (_2)))
+#define __lasx_mxclti_s_d(a, imm) ((__m256i)__builtin_lasx_mxclti_s_d((v4i64)(a), (imm)))
 ```
 
-## __m256i __lasx_mxclti_s_h (__m256i _1, signed char _2)
+## __m256i __lasx_mxclti_s_h (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclti_s_h (__m256i _1, signed char _2)
+__m256i __lasx_mxclti_s_h (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxclti.s.h
 Builtin: __builtin_lasx_mxclti_s_h
@@ -1242,32 +1928,53 @@ Source: include/loongson-asxintrin.h:702
 
 ### Description
 
-Compare signed 16 x 16-bit half lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 16 x i16 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclti.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-imm = _2;
-for i in 0..15:
-  dst.half[i] = (a.half[i] < imm) ? all_ones : 0;
+dst.i16[0] = (a.i16[0] < imm) ? all_ones : 0;
+dst.i16[1] = (a.i16[1] < imm) ? all_ones : 0;
+dst.i16[2] = (a.i16[2] < imm) ? all_ones : 0;
+dst.i16[3] = (a.i16[3] < imm) ? all_ones : 0;
+dst.i16[4] = (a.i16[4] < imm) ? all_ones : 0;
+dst.i16[5] = (a.i16[5] < imm) ? all_ones : 0;
+dst.i16[6] = (a.i16[6] < imm) ? all_ones : 0;
+dst.i16[7] = (a.i16[7] < imm) ? all_ones : 0;
+dst.i16[8] = (a.i16[8] < imm) ? all_ones : 0;
+dst.i16[9] = (a.i16[9] < imm) ? all_ones : 0;
+dst.i16[10] = (a.i16[10] < imm) ? all_ones : 0;
+dst.i16[11] = (a.i16[11] < imm) ? all_ones : 0;
+dst.i16[12] = (a.i16[12] < imm) ? all_ones : 0;
+dst.i16[13] = (a.i16[13] < imm) ? all_ones : 0;
+dst.i16[14] = (a.i16[14] < imm) ? all_ones : 0;
+dst.i16[15] = (a.i16[15] < imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxclti_s_h(_1, _2) ((__m256i)__builtin_lasx_mxclti_s_h((v16i16)(_1), (_2)))
+#define __lasx_mxclti_s_h(a, imm) ((__m256i)__builtin_lasx_mxclti_s_h((v16i16)(a), (imm)))
 ```
 
-## __m256i __lasx_mxclti_s_w (__m256i _1, signed char _2)
+## __m256i __lasx_mxclti_s_w (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclti_s_w (__m256i _1, signed char _2)
+__m256i __lasx_mxclti_s_w (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxclti.s.w
 Builtin: __builtin_lasx_mxclti_s_w
@@ -1278,32 +1985,45 @@ Source: include/loongson-asxintrin.h:703
 
 ### Description
 
-Compare signed 8 x 32-bit word lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare signed 8 x i32 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclti.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-imm = _2;
-for i in 0..7:
-  dst.word[i] = (a.word[i] < imm) ? all_ones : 0;
+dst.i32[0] = (a.i32[0] < imm) ? all_ones : 0;
+dst.i32[1] = (a.i32[1] < imm) ? all_ones : 0;
+dst.i32[2] = (a.i32[2] < imm) ? all_ones : 0;
+dst.i32[3] = (a.i32[3] < imm) ? all_ones : 0;
+dst.i32[4] = (a.i32[4] < imm) ? all_ones : 0;
+dst.i32[5] = (a.i32[5] < imm) ? all_ones : 0;
+dst.i32[6] = (a.i32[6] < imm) ? all_ones : 0;
+dst.i32[7] = (a.i32[7] < imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxclti_s_w(_1, _2) ((__m256i)__builtin_lasx_mxclti_s_w((v8i32)(_1), (_2)))
+#define __lasx_mxclti_s_w(a, imm) ((__m256i)__builtin_lasx_mxclti_s_w((v8i32)(a), (imm)))
 ```
 
-## __m256i __lasx_mxclti_u_b (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxclti_u_b (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclti_u_b (__m256i _1, unsigned char _2)
+__m256i __lasx_mxclti_u_b (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxclti.u.b
 Builtin: __builtin_lasx_mxclti_u_b
@@ -1314,32 +2034,69 @@ Source: include/loongson-asxintrin.h:733
 
 ### Description
 
-Compare unsigned 32 x 8-bit byte lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 32 x u8 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclti.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-imm = _2;
-for i in 0..31:
-  dst.byte[i] = (a.byte[i] < imm) ? all_ones : 0;
+dst.u8[0] = (a.u8[0] < imm) ? all_ones : 0;
+dst.u8[1] = (a.u8[1] < imm) ? all_ones : 0;
+dst.u8[2] = (a.u8[2] < imm) ? all_ones : 0;
+dst.u8[3] = (a.u8[3] < imm) ? all_ones : 0;
+dst.u8[4] = (a.u8[4] < imm) ? all_ones : 0;
+dst.u8[5] = (a.u8[5] < imm) ? all_ones : 0;
+dst.u8[6] = (a.u8[6] < imm) ? all_ones : 0;
+dst.u8[7] = (a.u8[7] < imm) ? all_ones : 0;
+dst.u8[8] = (a.u8[8] < imm) ? all_ones : 0;
+dst.u8[9] = (a.u8[9] < imm) ? all_ones : 0;
+dst.u8[10] = (a.u8[10] < imm) ? all_ones : 0;
+dst.u8[11] = (a.u8[11] < imm) ? all_ones : 0;
+dst.u8[12] = (a.u8[12] < imm) ? all_ones : 0;
+dst.u8[13] = (a.u8[13] < imm) ? all_ones : 0;
+dst.u8[14] = (a.u8[14] < imm) ? all_ones : 0;
+dst.u8[15] = (a.u8[15] < imm) ? all_ones : 0;
+dst.u8[16] = (a.u8[16] < imm) ? all_ones : 0;
+dst.u8[17] = (a.u8[17] < imm) ? all_ones : 0;
+dst.u8[18] = (a.u8[18] < imm) ? all_ones : 0;
+dst.u8[19] = (a.u8[19] < imm) ? all_ones : 0;
+dst.u8[20] = (a.u8[20] < imm) ? all_ones : 0;
+dst.u8[21] = (a.u8[21] < imm) ? all_ones : 0;
+dst.u8[22] = (a.u8[22] < imm) ? all_ones : 0;
+dst.u8[23] = (a.u8[23] < imm) ? all_ones : 0;
+dst.u8[24] = (a.u8[24] < imm) ? all_ones : 0;
+dst.u8[25] = (a.u8[25] < imm) ? all_ones : 0;
+dst.u8[26] = (a.u8[26] < imm) ? all_ones : 0;
+dst.u8[27] = (a.u8[27] < imm) ? all_ones : 0;
+dst.u8[28] = (a.u8[28] < imm) ? all_ones : 0;
+dst.u8[29] = (a.u8[29] < imm) ? all_ones : 0;
+dst.u8[30] = (a.u8[30] < imm) ? all_ones : 0;
+dst.u8[31] = (a.u8[31] < imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxclti_u_b(_1, _2) ((__m256i)__builtin_lasx_mxclti_u_b((v32u8)(_1), (_2)))
+#define __lasx_mxclti_u_b(a, imm) ((__m256i)__builtin_lasx_mxclti_u_b((v32u8)(a), (imm)))
 ```
 
-## __m256i __lasx_mxclti_u_d (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxclti_u_d (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclti_u_d (__m256i _1, unsigned char _2)
+__m256i __lasx_mxclti_u_d (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxclti.u.d
 Builtin: __builtin_lasx_mxclti_u_d
@@ -1350,32 +2107,41 @@ Source: include/loongson-asxintrin.h:736
 
 ### Description
 
-Compare unsigned 4 x 64-bit dword lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 4 x u64 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclti.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-imm = _2;
-for i in 0..3:
-  dst.dword[i] = (a.dword[i] < imm) ? all_ones : 0;
+dst.u64[0] = (a.u64[0] < imm) ? all_ones : 0;
+dst.u64[1] = (a.u64[1] < imm) ? all_ones : 0;
+dst.u64[2] = (a.u64[2] < imm) ? all_ones : 0;
+dst.u64[3] = (a.u64[3] < imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxclti_u_d(_1, _2) ((__m256i)__builtin_lasx_mxclti_u_d((v4u64)(_1), (_2)))
+#define __lasx_mxclti_u_d(a, imm) ((__m256i)__builtin_lasx_mxclti_u_d((v4u64)(a), (imm)))
 ```
 
-## __m256i __lasx_mxclti_u_h (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxclti_u_h (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclti_u_h (__m256i _1, unsigned char _2)
+__m256i __lasx_mxclti_u_h (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxclti.u.h
 Builtin: __builtin_lasx_mxclti_u_h
@@ -1386,32 +2152,53 @@ Source: include/loongson-asxintrin.h:734
 
 ### Description
 
-Compare unsigned 16 x 16-bit half lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 16 x u16 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclti.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-imm = _2;
-for i in 0..15:
-  dst.half[i] = (a.half[i] < imm) ? all_ones : 0;
+dst.u16[0] = (a.u16[0] < imm) ? all_ones : 0;
+dst.u16[1] = (a.u16[1] < imm) ? all_ones : 0;
+dst.u16[2] = (a.u16[2] < imm) ? all_ones : 0;
+dst.u16[3] = (a.u16[3] < imm) ? all_ones : 0;
+dst.u16[4] = (a.u16[4] < imm) ? all_ones : 0;
+dst.u16[5] = (a.u16[5] < imm) ? all_ones : 0;
+dst.u16[6] = (a.u16[6] < imm) ? all_ones : 0;
+dst.u16[7] = (a.u16[7] < imm) ? all_ones : 0;
+dst.u16[8] = (a.u16[8] < imm) ? all_ones : 0;
+dst.u16[9] = (a.u16[9] < imm) ? all_ones : 0;
+dst.u16[10] = (a.u16[10] < imm) ? all_ones : 0;
+dst.u16[11] = (a.u16[11] < imm) ? all_ones : 0;
+dst.u16[12] = (a.u16[12] < imm) ? all_ones : 0;
+dst.u16[13] = (a.u16[13] < imm) ? all_ones : 0;
+dst.u16[14] = (a.u16[14] < imm) ? all_ones : 0;
+dst.u16[15] = (a.u16[15] < imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxclti_u_h(_1, _2) ((__m256i)__builtin_lasx_mxclti_u_h((v16u16)(_1), (_2)))
+#define __lasx_mxclti_u_h(a, imm) ((__m256i)__builtin_lasx_mxclti_u_h((v16u16)(a), (imm)))
 ```
 
-## __m256i __lasx_mxclti_u_w (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxclti_u_w (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxclti_u_w (__m256i _1, unsigned char _2)
+__m256i __lasx_mxclti_u_w (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxclti.u.w
 Builtin: __builtin_lasx_mxclti_u_w
@@ -1422,32 +2209,45 @@ Source: include/loongson-asxintrin.h:735
 
 ### Description
 
-Compare unsigned 8 x 32-bit word lanes and produce all-ones elements for true lanes, zero for false lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Compare unsigned 8 x u32 lanes and produce all-ones elements for true lanes, zero for false lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxclti.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-imm = _2;
-for i in 0..7:
-  dst.word[i] = (a.word[i] < imm) ? all_ones : 0;
+dst.u32[0] = (a.u32[0] < imm) ? all_ones : 0;
+dst.u32[1] = (a.u32[1] < imm) ? all_ones : 0;
+dst.u32[2] = (a.u32[2] < imm) ? all_ones : 0;
+dst.u32[3] = (a.u32[3] < imm) ? all_ones : 0;
+dst.u32[4] = (a.u32[4] < imm) ? all_ones : 0;
+dst.u32[5] = (a.u32[5] < imm) ? all_ones : 0;
+dst.u32[6] = (a.u32[6] < imm) ? all_ones : 0;
+dst.u32[7] = (a.u32[7] < imm) ? all_ones : 0;
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxclti_u_w(_1, _2) ((__m256i)__builtin_lasx_mxclti_u_w((v8u32)(_1), (_2)))
+#define __lasx_mxclti_u_w(a, imm) ((__m256i)__builtin_lasx_mxclti_u_w((v8u32)(a), (imm)))
 ```
 
-## __m256i __lasx_mxmax_a_b (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmax_a_b (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmax_a_b (__m256i _1, __m256i _2)
+__m256i __lasx_mxmax_a_b (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmax.a.b
 Builtin: __builtin_lasx_mxmax_a_b
@@ -1458,32 +2258,69 @@ Source: include/loongson-asxintrin.h:586
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 32 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of modular integer operands on 32 x u8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmax.a.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-b = _2;
-for i in 0..31:
-  dst.byte[i] = max(a.byte[i], b.byte[i]);
+dst.u8[0] = max(a.i8[0], b.i8[0]);
+dst.u8[1] = max(a.i8[1], b.i8[1]);
+dst.u8[2] = max(a.i8[2], b.i8[2]);
+dst.u8[3] = max(a.i8[3], b.i8[3]);
+dst.u8[4] = max(a.i8[4], b.i8[4]);
+dst.u8[5] = max(a.i8[5], b.i8[5]);
+dst.u8[6] = max(a.i8[6], b.i8[6]);
+dst.u8[7] = max(a.i8[7], b.i8[7]);
+dst.u8[8] = max(a.i8[8], b.i8[8]);
+dst.u8[9] = max(a.i8[9], b.i8[9]);
+dst.u8[10] = max(a.i8[10], b.i8[10]);
+dst.u8[11] = max(a.i8[11], b.i8[11]);
+dst.u8[12] = max(a.i8[12], b.i8[12]);
+dst.u8[13] = max(a.i8[13], b.i8[13]);
+dst.u8[14] = max(a.i8[14], b.i8[14]);
+dst.u8[15] = max(a.i8[15], b.i8[15]);
+dst.u8[16] = max(a.i8[16], b.i8[16]);
+dst.u8[17] = max(a.i8[17], b.i8[17]);
+dst.u8[18] = max(a.i8[18], b.i8[18]);
+dst.u8[19] = max(a.i8[19], b.i8[19]);
+dst.u8[20] = max(a.i8[20], b.i8[20]);
+dst.u8[21] = max(a.i8[21], b.i8[21]);
+dst.u8[22] = max(a.i8[22], b.i8[22]);
+dst.u8[23] = max(a.i8[23], b.i8[23]);
+dst.u8[24] = max(a.i8[24], b.i8[24]);
+dst.u8[25] = max(a.i8[25], b.i8[25]);
+dst.u8[26] = max(a.i8[26], b.i8[26]);
+dst.u8[27] = max(a.i8[27], b.i8[27]);
+dst.u8[28] = max(a.i8[28], b.i8[28]);
+dst.u8[29] = max(a.i8[29], b.i8[29]);
+dst.u8[30] = max(a.i8[30], b.i8[30]);
+dst.u8[31] = max(a.i8[31], b.i8[31]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmax_a_b((v32i8)_1, (v32i8)_2);
+return (__m256i)__builtin_lasx_mxmax_a_b((v32i8)a, (v32i8)b);
 ```
 
-## __m256i __lasx_mxmax_a_d (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmax_a_d (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmax_a_d (__m256i _1, __m256i _2)
+__m256i __lasx_mxmax_a_d (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmax.a.d
 Builtin: __builtin_lasx_mxmax_a_d
@@ -1494,32 +2331,41 @@ Source: include/loongson-asxintrin.h:607
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of modular integer operands on 4 x u64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmax.a.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-b = _2;
-for i in 0..3:
-  dst.dword[i] = max(a.dword[i], b.dword[i]);
+dst.u64[0] = max(a.i64[0], b.i64[0]);
+dst.u64[1] = max(a.i64[1], b.i64[1]);
+dst.u64[2] = max(a.i64[2], b.i64[2]);
+dst.u64[3] = max(a.i64[3], b.i64[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmax_a_d((v4i64)_1, (v4i64)_2);
+return (__m256i)__builtin_lasx_mxmax_a_d((v4i64)a, (v4i64)b);
 ```
 
-## __m256i __lasx_mxmax_a_h (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmax_a_h (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmax_a_h (__m256i _1, __m256i _2)
+__m256i __lasx_mxmax_a_h (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmax.a.h
 Builtin: __builtin_lasx_mxmax_a_h
@@ -1530,32 +2376,53 @@ Source: include/loongson-asxintrin.h:593
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 16 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of modular integer operands on 16 x u16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmax.a.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-b = _2;
-for i in 0..15:
-  dst.half[i] = max(a.half[i], b.half[i]);
+dst.u16[0] = max(a.i16[0], b.i16[0]);
+dst.u16[1] = max(a.i16[1], b.i16[1]);
+dst.u16[2] = max(a.i16[2], b.i16[2]);
+dst.u16[3] = max(a.i16[3], b.i16[3]);
+dst.u16[4] = max(a.i16[4], b.i16[4]);
+dst.u16[5] = max(a.i16[5], b.i16[5]);
+dst.u16[6] = max(a.i16[6], b.i16[6]);
+dst.u16[7] = max(a.i16[7], b.i16[7]);
+dst.u16[8] = max(a.i16[8], b.i16[8]);
+dst.u16[9] = max(a.i16[9], b.i16[9]);
+dst.u16[10] = max(a.i16[10], b.i16[10]);
+dst.u16[11] = max(a.i16[11], b.i16[11]);
+dst.u16[12] = max(a.i16[12], b.i16[12]);
+dst.u16[13] = max(a.i16[13], b.i16[13]);
+dst.u16[14] = max(a.i16[14], b.i16[14]);
+dst.u16[15] = max(a.i16[15], b.i16[15]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmax_a_h((v16i16)_1, (v16i16)_2);
+return (__m256i)__builtin_lasx_mxmax_a_h((v16i16)a, (v16i16)b);
 ```
 
-## __m256i __lasx_mxmax_a_w (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmax_a_w (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmax_a_w (__m256i _1, __m256i _2)
+__m256i __lasx_mxmax_a_w (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmax.a.w
 Builtin: __builtin_lasx_mxmax_a_w
@@ -1566,32 +2433,45 @@ Source: include/loongson-asxintrin.h:600
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of modular integer operands on 8 x u32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmax.a.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-b = _2;
-for i in 0..7:
-  dst.word[i] = max(a.word[i], b.word[i]);
+dst.u32[0] = max(a.i32[0], b.i32[0]);
+dst.u32[1] = max(a.i32[1], b.i32[1]);
+dst.u32[2] = max(a.i32[2], b.i32[2]);
+dst.u32[3] = max(a.i32[3], b.i32[3]);
+dst.u32[4] = max(a.i32[4], b.i32[4]);
+dst.u32[5] = max(a.i32[5], b.i32[5]);
+dst.u32[6] = max(a.i32[6], b.i32[6]);
+dst.u32[7] = max(a.i32[7], b.i32[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmax_a_w((v8i32)_1, (v8i32)_2);
+return (__m256i)__builtin_lasx_mxmax_a_w((v8i32)a, (v8i32)b);
 ```
 
-## __m256i __lasx_mxmax_s_b (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmax_s_b (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmax_s_b (__m256i _1, __m256i _2)
+__m256i __lasx_mxmax_s_b (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmax.s.b
 Builtin: __builtin_lasx_mxmax_s_b
@@ -1602,32 +2482,69 @@ Source: include/loongson-asxintrin.h:458
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 32 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of signed integer operands on 32 x i8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmax.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-b = _2;
-for i in 0..31:
-  dst.byte[i] = max(a.byte[i], b.byte[i]);
+dst.i8[0] = max(a.i8[0], b.i8[0]);
+dst.i8[1] = max(a.i8[1], b.i8[1]);
+dst.i8[2] = max(a.i8[2], b.i8[2]);
+dst.i8[3] = max(a.i8[3], b.i8[3]);
+dst.i8[4] = max(a.i8[4], b.i8[4]);
+dst.i8[5] = max(a.i8[5], b.i8[5]);
+dst.i8[6] = max(a.i8[6], b.i8[6]);
+dst.i8[7] = max(a.i8[7], b.i8[7]);
+dst.i8[8] = max(a.i8[8], b.i8[8]);
+dst.i8[9] = max(a.i8[9], b.i8[9]);
+dst.i8[10] = max(a.i8[10], b.i8[10]);
+dst.i8[11] = max(a.i8[11], b.i8[11]);
+dst.i8[12] = max(a.i8[12], b.i8[12]);
+dst.i8[13] = max(a.i8[13], b.i8[13]);
+dst.i8[14] = max(a.i8[14], b.i8[14]);
+dst.i8[15] = max(a.i8[15], b.i8[15]);
+dst.i8[16] = max(a.i8[16], b.i8[16]);
+dst.i8[17] = max(a.i8[17], b.i8[17]);
+dst.i8[18] = max(a.i8[18], b.i8[18]);
+dst.i8[19] = max(a.i8[19], b.i8[19]);
+dst.i8[20] = max(a.i8[20], b.i8[20]);
+dst.i8[21] = max(a.i8[21], b.i8[21]);
+dst.i8[22] = max(a.i8[22], b.i8[22]);
+dst.i8[23] = max(a.i8[23], b.i8[23]);
+dst.i8[24] = max(a.i8[24], b.i8[24]);
+dst.i8[25] = max(a.i8[25], b.i8[25]);
+dst.i8[26] = max(a.i8[26], b.i8[26]);
+dst.i8[27] = max(a.i8[27], b.i8[27]);
+dst.i8[28] = max(a.i8[28], b.i8[28]);
+dst.i8[29] = max(a.i8[29], b.i8[29]);
+dst.i8[30] = max(a.i8[30], b.i8[30]);
+dst.i8[31] = max(a.i8[31], b.i8[31]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmax_s_b((v32i8)_1, (v32i8)_2);
+return (__m256i)__builtin_lasx_mxmax_s_b((v32i8)a, (v32i8)b);
 ```
 
-## __m256i __lasx_mxmax_s_d (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmax_s_d (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmax_s_d (__m256i _1, __m256i _2)
+__m256i __lasx_mxmax_s_d (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmax.s.d
 Builtin: __builtin_lasx_mxmax_s_d
@@ -1638,32 +2555,41 @@ Source: include/loongson-asxintrin.h:479
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 4 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of signed integer operands on 4 x i64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmax.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-b = _2;
-for i in 0..3:
-  dst.dword[i] = max(a.dword[i], b.dword[i]);
+dst.i64[0] = max(a.i64[0], b.i64[0]);
+dst.i64[1] = max(a.i64[1], b.i64[1]);
+dst.i64[2] = max(a.i64[2], b.i64[2]);
+dst.i64[3] = max(a.i64[3], b.i64[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmax_s_d((v4i64)_1, (v4i64)_2);
+return (__m256i)__builtin_lasx_mxmax_s_d((v4i64)a, (v4i64)b);
 ```
 
-## __m256i __lasx_mxmax_s_h (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmax_s_h (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmax_s_h (__m256i _1, __m256i _2)
+__m256i __lasx_mxmax_s_h (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmax.s.h
 Builtin: __builtin_lasx_mxmax_s_h
@@ -1674,32 +2600,53 @@ Source: include/loongson-asxintrin.h:465
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 16 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of signed integer operands on 16 x i16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmax.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-b = _2;
-for i in 0..15:
-  dst.half[i] = max(a.half[i], b.half[i]);
+dst.i16[0] = max(a.i16[0], b.i16[0]);
+dst.i16[1] = max(a.i16[1], b.i16[1]);
+dst.i16[2] = max(a.i16[2], b.i16[2]);
+dst.i16[3] = max(a.i16[3], b.i16[3]);
+dst.i16[4] = max(a.i16[4], b.i16[4]);
+dst.i16[5] = max(a.i16[5], b.i16[5]);
+dst.i16[6] = max(a.i16[6], b.i16[6]);
+dst.i16[7] = max(a.i16[7], b.i16[7]);
+dst.i16[8] = max(a.i16[8], b.i16[8]);
+dst.i16[9] = max(a.i16[9], b.i16[9]);
+dst.i16[10] = max(a.i16[10], b.i16[10]);
+dst.i16[11] = max(a.i16[11], b.i16[11]);
+dst.i16[12] = max(a.i16[12], b.i16[12]);
+dst.i16[13] = max(a.i16[13], b.i16[13]);
+dst.i16[14] = max(a.i16[14], b.i16[14]);
+dst.i16[15] = max(a.i16[15], b.i16[15]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmax_s_h((v16i16)_1, (v16i16)_2);
+return (__m256i)__builtin_lasx_mxmax_s_h((v16i16)a, (v16i16)b);
 ```
 
-## __m256i __lasx_mxmax_s_w (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmax_s_w (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmax_s_w (__m256i _1, __m256i _2)
+__m256i __lasx_mxmax_s_w (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmax.s.w
 Builtin: __builtin_lasx_mxmax_s_w
@@ -1710,32 +2657,45 @@ Source: include/loongson-asxintrin.h:472
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 8 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of signed integer operands on 8 x i32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmax.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-b = _2;
-for i in 0..7:
-  dst.word[i] = max(a.word[i], b.word[i]);
+dst.i32[0] = max(a.i32[0], b.i32[0]);
+dst.i32[1] = max(a.i32[1], b.i32[1]);
+dst.i32[2] = max(a.i32[2], b.i32[2]);
+dst.i32[3] = max(a.i32[3], b.i32[3]);
+dst.i32[4] = max(a.i32[4], b.i32[4]);
+dst.i32[5] = max(a.i32[5], b.i32[5]);
+dst.i32[6] = max(a.i32[6], b.i32[6]);
+dst.i32[7] = max(a.i32[7], b.i32[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmax_s_w((v8i32)_1, (v8i32)_2);
+return (__m256i)__builtin_lasx_mxmax_s_w((v8i32)a, (v8i32)b);
 ```
 
-## __m256i __lasx_mxmax_u_b (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmax_u_b (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmax_u_b (__m256i _1, __m256i _2)
+__m256i __lasx_mxmax_u_b (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmax.u.b
 Builtin: __builtin_lasx_mxmax_u_b
@@ -1746,32 +2706,69 @@ Source: include/loongson-asxintrin.h:490
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 32 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of unsigned integer operands on 32 x u8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmax.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-b = _2;
-for i in 0..31:
-  dst.byte[i] = max(a.byte[i], b.byte[i]);
+dst.u8[0] = max(a.u8[0], b.u8[0]);
+dst.u8[1] = max(a.u8[1], b.u8[1]);
+dst.u8[2] = max(a.u8[2], b.u8[2]);
+dst.u8[3] = max(a.u8[3], b.u8[3]);
+dst.u8[4] = max(a.u8[4], b.u8[4]);
+dst.u8[5] = max(a.u8[5], b.u8[5]);
+dst.u8[6] = max(a.u8[6], b.u8[6]);
+dst.u8[7] = max(a.u8[7], b.u8[7]);
+dst.u8[8] = max(a.u8[8], b.u8[8]);
+dst.u8[9] = max(a.u8[9], b.u8[9]);
+dst.u8[10] = max(a.u8[10], b.u8[10]);
+dst.u8[11] = max(a.u8[11], b.u8[11]);
+dst.u8[12] = max(a.u8[12], b.u8[12]);
+dst.u8[13] = max(a.u8[13], b.u8[13]);
+dst.u8[14] = max(a.u8[14], b.u8[14]);
+dst.u8[15] = max(a.u8[15], b.u8[15]);
+dst.u8[16] = max(a.u8[16], b.u8[16]);
+dst.u8[17] = max(a.u8[17], b.u8[17]);
+dst.u8[18] = max(a.u8[18], b.u8[18]);
+dst.u8[19] = max(a.u8[19], b.u8[19]);
+dst.u8[20] = max(a.u8[20], b.u8[20]);
+dst.u8[21] = max(a.u8[21], b.u8[21]);
+dst.u8[22] = max(a.u8[22], b.u8[22]);
+dst.u8[23] = max(a.u8[23], b.u8[23]);
+dst.u8[24] = max(a.u8[24], b.u8[24]);
+dst.u8[25] = max(a.u8[25], b.u8[25]);
+dst.u8[26] = max(a.u8[26], b.u8[26]);
+dst.u8[27] = max(a.u8[27], b.u8[27]);
+dst.u8[28] = max(a.u8[28], b.u8[28]);
+dst.u8[29] = max(a.u8[29], b.u8[29]);
+dst.u8[30] = max(a.u8[30], b.u8[30]);
+dst.u8[31] = max(a.u8[31], b.u8[31]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmax_u_b((v32u8)_1, (v32u8)_2);
+return (__m256i)__builtin_lasx_mxmax_u_b((v32u8)a, (v32u8)b);
 ```
 
-## __m256i __lasx_mxmax_u_d (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmax_u_d (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmax_u_d (__m256i _1, __m256i _2)
+__m256i __lasx_mxmax_u_d (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmax.u.d
 Builtin: __builtin_lasx_mxmax_u_d
@@ -1782,32 +2779,41 @@ Source: include/loongson-asxintrin.h:511
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 4 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of unsigned integer operands on 4 x u64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmax.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-b = _2;
-for i in 0..3:
-  dst.dword[i] = max(a.dword[i], b.dword[i]);
+dst.u64[0] = max(a.u64[0], b.u64[0]);
+dst.u64[1] = max(a.u64[1], b.u64[1]);
+dst.u64[2] = max(a.u64[2], b.u64[2]);
+dst.u64[3] = max(a.u64[3], b.u64[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmax_u_d((v4u64)_1, (v4u64)_2);
+return (__m256i)__builtin_lasx_mxmax_u_d((v4u64)a, (v4u64)b);
 ```
 
-## __m256i __lasx_mxmax_u_h (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmax_u_h (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmax_u_h (__m256i _1, __m256i _2)
+__m256i __lasx_mxmax_u_h (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmax.u.h
 Builtin: __builtin_lasx_mxmax_u_h
@@ -1818,32 +2824,53 @@ Source: include/loongson-asxintrin.h:497
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 16 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of unsigned integer operands on 16 x u16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmax.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-b = _2;
-for i in 0..15:
-  dst.half[i] = max(a.half[i], b.half[i]);
+dst.u16[0] = max(a.u16[0], b.u16[0]);
+dst.u16[1] = max(a.u16[1], b.u16[1]);
+dst.u16[2] = max(a.u16[2], b.u16[2]);
+dst.u16[3] = max(a.u16[3], b.u16[3]);
+dst.u16[4] = max(a.u16[4], b.u16[4]);
+dst.u16[5] = max(a.u16[5], b.u16[5]);
+dst.u16[6] = max(a.u16[6], b.u16[6]);
+dst.u16[7] = max(a.u16[7], b.u16[7]);
+dst.u16[8] = max(a.u16[8], b.u16[8]);
+dst.u16[9] = max(a.u16[9], b.u16[9]);
+dst.u16[10] = max(a.u16[10], b.u16[10]);
+dst.u16[11] = max(a.u16[11], b.u16[11]);
+dst.u16[12] = max(a.u16[12], b.u16[12]);
+dst.u16[13] = max(a.u16[13], b.u16[13]);
+dst.u16[14] = max(a.u16[14], b.u16[14]);
+dst.u16[15] = max(a.u16[15], b.u16[15]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmax_u_h((v16u16)_1, (v16u16)_2);
+return (__m256i)__builtin_lasx_mxmax_u_h((v16u16)a, (v16u16)b);
 ```
 
-## __m256i __lasx_mxmax_u_w (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmax_u_w (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmax_u_w (__m256i _1, __m256i _2)
+__m256i __lasx_mxmax_u_w (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmax.u.w
 Builtin: __builtin_lasx_mxmax_u_w
@@ -1854,32 +2881,45 @@ Source: include/loongson-asxintrin.h:504
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 8 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of unsigned integer operands on 8 x u32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmax.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-b = _2;
-for i in 0..7:
-  dst.word[i] = max(a.word[i], b.word[i]);
+dst.u32[0] = max(a.u32[0], b.u32[0]);
+dst.u32[1] = max(a.u32[1], b.u32[1]);
+dst.u32[2] = max(a.u32[2], b.u32[2]);
+dst.u32[3] = max(a.u32[3], b.u32[3]);
+dst.u32[4] = max(a.u32[4], b.u32[4]);
+dst.u32[5] = max(a.u32[5], b.u32[5]);
+dst.u32[6] = max(a.u32[6], b.u32[6]);
+dst.u32[7] = max(a.u32[7], b.u32[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmax_u_w((v8u32)_1, (v8u32)_2);
+return (__m256i)__builtin_lasx_mxmax_u_w((v8u32)a, (v8u32)b);
 ```
 
-## __m256i __lasx_mxmaxi_s_b (__m256i _1, signed char _2)
+## __m256i __lasx_mxmaxi_s_b (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmaxi_s_b (__m256i _1, signed char _2)
+__m256i __lasx_mxmaxi_s_b (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxmaxi.s.b
 Builtin: __builtin_lasx_mxmaxi_s_b
@@ -1890,32 +2930,69 @@ Source: include/loongson-asxintrin.h:485
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 32 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of signed integer operands on 32 x i8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmaxi.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-imm = _2;
-for i in 0..31:
-  dst.byte[i] = max(a.byte[i], imm);
+dst.i8[0] = max(a.i8[0], imm);
+dst.i8[1] = max(a.i8[1], imm);
+dst.i8[2] = max(a.i8[2], imm);
+dst.i8[3] = max(a.i8[3], imm);
+dst.i8[4] = max(a.i8[4], imm);
+dst.i8[5] = max(a.i8[5], imm);
+dst.i8[6] = max(a.i8[6], imm);
+dst.i8[7] = max(a.i8[7], imm);
+dst.i8[8] = max(a.i8[8], imm);
+dst.i8[9] = max(a.i8[9], imm);
+dst.i8[10] = max(a.i8[10], imm);
+dst.i8[11] = max(a.i8[11], imm);
+dst.i8[12] = max(a.i8[12], imm);
+dst.i8[13] = max(a.i8[13], imm);
+dst.i8[14] = max(a.i8[14], imm);
+dst.i8[15] = max(a.i8[15], imm);
+dst.i8[16] = max(a.i8[16], imm);
+dst.i8[17] = max(a.i8[17], imm);
+dst.i8[18] = max(a.i8[18], imm);
+dst.i8[19] = max(a.i8[19], imm);
+dst.i8[20] = max(a.i8[20], imm);
+dst.i8[21] = max(a.i8[21], imm);
+dst.i8[22] = max(a.i8[22], imm);
+dst.i8[23] = max(a.i8[23], imm);
+dst.i8[24] = max(a.i8[24], imm);
+dst.i8[25] = max(a.i8[25], imm);
+dst.i8[26] = max(a.i8[26], imm);
+dst.i8[27] = max(a.i8[27], imm);
+dst.i8[28] = max(a.i8[28], imm);
+dst.i8[29] = max(a.i8[29], imm);
+dst.i8[30] = max(a.i8[30], imm);
+dst.i8[31] = max(a.i8[31], imm);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxmaxi_s_b(_1, _2) ((__m256i)__builtin_lasx_mxmaxi_s_b((v32i8)(_1), (_2)))
+#define __lasx_mxmaxi_s_b(a, imm) ((__m256i)__builtin_lasx_mxmaxi_s_b((v32i8)(a), (imm)))
 ```
 
-## __m256i __lasx_mxmaxi_s_d (__m256i _1, signed char _2)
+## __m256i __lasx_mxmaxi_s_d (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmaxi_s_d (__m256i _1, signed char _2)
+__m256i __lasx_mxmaxi_s_d (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxmaxi.s.d
 Builtin: __builtin_lasx_mxmaxi_s_d
@@ -1926,32 +3003,41 @@ Source: include/loongson-asxintrin.h:488
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 4 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of signed integer operands on 4 x i64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmaxi.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-imm = _2;
-for i in 0..3:
-  dst.dword[i] = max(a.dword[i], imm);
+dst.i64[0] = max(a.i64[0], imm);
+dst.i64[1] = max(a.i64[1], imm);
+dst.i64[2] = max(a.i64[2], imm);
+dst.i64[3] = max(a.i64[3], imm);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxmaxi_s_d(_1, _2) ((__m256i)__builtin_lasx_mxmaxi_s_d((v4i64)(_1), (_2)))
+#define __lasx_mxmaxi_s_d(a, imm) ((__m256i)__builtin_lasx_mxmaxi_s_d((v4i64)(a), (imm)))
 ```
 
-## __m256i __lasx_mxmaxi_s_h (__m256i _1, signed char _2)
+## __m256i __lasx_mxmaxi_s_h (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmaxi_s_h (__m256i _1, signed char _2)
+__m256i __lasx_mxmaxi_s_h (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxmaxi.s.h
 Builtin: __builtin_lasx_mxmaxi_s_h
@@ -1962,32 +3048,53 @@ Source: include/loongson-asxintrin.h:486
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 16 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of signed integer operands on 16 x i16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmaxi.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-imm = _2;
-for i in 0..15:
-  dst.half[i] = max(a.half[i], imm);
+dst.i16[0] = max(a.i16[0], imm);
+dst.i16[1] = max(a.i16[1], imm);
+dst.i16[2] = max(a.i16[2], imm);
+dst.i16[3] = max(a.i16[3], imm);
+dst.i16[4] = max(a.i16[4], imm);
+dst.i16[5] = max(a.i16[5], imm);
+dst.i16[6] = max(a.i16[6], imm);
+dst.i16[7] = max(a.i16[7], imm);
+dst.i16[8] = max(a.i16[8], imm);
+dst.i16[9] = max(a.i16[9], imm);
+dst.i16[10] = max(a.i16[10], imm);
+dst.i16[11] = max(a.i16[11], imm);
+dst.i16[12] = max(a.i16[12], imm);
+dst.i16[13] = max(a.i16[13], imm);
+dst.i16[14] = max(a.i16[14], imm);
+dst.i16[15] = max(a.i16[15], imm);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxmaxi_s_h(_1, _2) ((__m256i)__builtin_lasx_mxmaxi_s_h((v16i16)(_1), (_2)))
+#define __lasx_mxmaxi_s_h(a, imm) ((__m256i)__builtin_lasx_mxmaxi_s_h((v16i16)(a), (imm)))
 ```
 
-## __m256i __lasx_mxmaxi_s_w (__m256i _1, signed char _2)
+## __m256i __lasx_mxmaxi_s_w (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmaxi_s_w (__m256i _1, signed char _2)
+__m256i __lasx_mxmaxi_s_w (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxmaxi.s.w
 Builtin: __builtin_lasx_mxmaxi_s_w
@@ -1998,32 +3105,45 @@ Source: include/loongson-asxintrin.h:487
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 8 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of signed integer operands on 8 x i32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmaxi.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-imm = _2;
-for i in 0..7:
-  dst.word[i] = max(a.word[i], imm);
+dst.i32[0] = max(a.i32[0], imm);
+dst.i32[1] = max(a.i32[1], imm);
+dst.i32[2] = max(a.i32[2], imm);
+dst.i32[3] = max(a.i32[3], imm);
+dst.i32[4] = max(a.i32[4], imm);
+dst.i32[5] = max(a.i32[5], imm);
+dst.i32[6] = max(a.i32[6], imm);
+dst.i32[7] = max(a.i32[7], imm);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxmaxi_s_w(_1, _2) ((__m256i)__builtin_lasx_mxmaxi_s_w((v8i32)(_1), (_2)))
+#define __lasx_mxmaxi_s_w(a, imm) ((__m256i)__builtin_lasx_mxmaxi_s_w((v8i32)(a), (imm)))
 ```
 
-## __m256i __lasx_mxmaxi_u_b (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxmaxi_u_b (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmaxi_u_b (__m256i _1, unsigned char _2)
+__m256i __lasx_mxmaxi_u_b (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxmaxi.u.b
 Builtin: __builtin_lasx_mxmaxi_u_b
@@ -2034,32 +3154,69 @@ Source: include/loongson-asxintrin.h:517
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 32 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of unsigned integer operands on 32 x u8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmaxi.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-imm = _2;
-for i in 0..31:
-  dst.byte[i] = max(a.byte[i], imm);
+dst.u8[0] = max(a.u8[0], imm);
+dst.u8[1] = max(a.u8[1], imm);
+dst.u8[2] = max(a.u8[2], imm);
+dst.u8[3] = max(a.u8[3], imm);
+dst.u8[4] = max(a.u8[4], imm);
+dst.u8[5] = max(a.u8[5], imm);
+dst.u8[6] = max(a.u8[6], imm);
+dst.u8[7] = max(a.u8[7], imm);
+dst.u8[8] = max(a.u8[8], imm);
+dst.u8[9] = max(a.u8[9], imm);
+dst.u8[10] = max(a.u8[10], imm);
+dst.u8[11] = max(a.u8[11], imm);
+dst.u8[12] = max(a.u8[12], imm);
+dst.u8[13] = max(a.u8[13], imm);
+dst.u8[14] = max(a.u8[14], imm);
+dst.u8[15] = max(a.u8[15], imm);
+dst.u8[16] = max(a.u8[16], imm);
+dst.u8[17] = max(a.u8[17], imm);
+dst.u8[18] = max(a.u8[18], imm);
+dst.u8[19] = max(a.u8[19], imm);
+dst.u8[20] = max(a.u8[20], imm);
+dst.u8[21] = max(a.u8[21], imm);
+dst.u8[22] = max(a.u8[22], imm);
+dst.u8[23] = max(a.u8[23], imm);
+dst.u8[24] = max(a.u8[24], imm);
+dst.u8[25] = max(a.u8[25], imm);
+dst.u8[26] = max(a.u8[26], imm);
+dst.u8[27] = max(a.u8[27], imm);
+dst.u8[28] = max(a.u8[28], imm);
+dst.u8[29] = max(a.u8[29], imm);
+dst.u8[30] = max(a.u8[30], imm);
+dst.u8[31] = max(a.u8[31], imm);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxmaxi_u_b(_1, _2) ((__m256i)__builtin_lasx_mxmaxi_u_b((v32u8)(_1), (_2)))
+#define __lasx_mxmaxi_u_b(a, imm) ((__m256i)__builtin_lasx_mxmaxi_u_b((v32u8)(a), (imm)))
 ```
 
-## __m256i __lasx_mxmaxi_u_d (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxmaxi_u_d (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmaxi_u_d (__m256i _1, unsigned char _2)
+__m256i __lasx_mxmaxi_u_d (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxmaxi.u.d
 Builtin: __builtin_lasx_mxmaxi_u_d
@@ -2070,32 +3227,41 @@ Source: include/loongson-asxintrin.h:520
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 4 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of unsigned integer operands on 4 x u64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmaxi.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-imm = _2;
-for i in 0..3:
-  dst.dword[i] = max(a.dword[i], imm);
+dst.u64[0] = max(a.u64[0], imm);
+dst.u64[1] = max(a.u64[1], imm);
+dst.u64[2] = max(a.u64[2], imm);
+dst.u64[3] = max(a.u64[3], imm);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxmaxi_u_d(_1, _2) ((__m256i)__builtin_lasx_mxmaxi_u_d((v4u64)(_1), (_2)))
+#define __lasx_mxmaxi_u_d(a, imm) ((__m256i)__builtin_lasx_mxmaxi_u_d((v4u64)(a), (imm)))
 ```
 
-## __m256i __lasx_mxmaxi_u_h (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxmaxi_u_h (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmaxi_u_h (__m256i _1, unsigned char _2)
+__m256i __lasx_mxmaxi_u_h (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxmaxi.u.h
 Builtin: __builtin_lasx_mxmaxi_u_h
@@ -2106,32 +3272,53 @@ Source: include/loongson-asxintrin.h:518
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 16 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of unsigned integer operands on 16 x u16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmaxi.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-imm = _2;
-for i in 0..15:
-  dst.half[i] = max(a.half[i], imm);
+dst.u16[0] = max(a.u16[0], imm);
+dst.u16[1] = max(a.u16[1], imm);
+dst.u16[2] = max(a.u16[2], imm);
+dst.u16[3] = max(a.u16[3], imm);
+dst.u16[4] = max(a.u16[4], imm);
+dst.u16[5] = max(a.u16[5], imm);
+dst.u16[6] = max(a.u16[6], imm);
+dst.u16[7] = max(a.u16[7], imm);
+dst.u16[8] = max(a.u16[8], imm);
+dst.u16[9] = max(a.u16[9], imm);
+dst.u16[10] = max(a.u16[10], imm);
+dst.u16[11] = max(a.u16[11], imm);
+dst.u16[12] = max(a.u16[12], imm);
+dst.u16[13] = max(a.u16[13], imm);
+dst.u16[14] = max(a.u16[14], imm);
+dst.u16[15] = max(a.u16[15], imm);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxmaxi_u_h(_1, _2) ((__m256i)__builtin_lasx_mxmaxi_u_h((v16u16)(_1), (_2)))
+#define __lasx_mxmaxi_u_h(a, imm) ((__m256i)__builtin_lasx_mxmaxi_u_h((v16u16)(a), (imm)))
 ```
 
-## __m256i __lasx_mxmaxi_u_w (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxmaxi_u_w (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmaxi_u_w (__m256i _1, unsigned char _2)
+__m256i __lasx_mxmaxi_u_w (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxmaxi.u.w
 Builtin: __builtin_lasx_mxmaxi_u_w
@@ -2142,32 +3329,45 @@ Source: include/loongson-asxintrin.h:519
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 8 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise maximum of unsigned integer operands on 8 x u32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmaxi.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-imm = _2;
-for i in 0..7:
-  dst.word[i] = max(a.word[i], imm);
+dst.u32[0] = max(a.u32[0], imm);
+dst.u32[1] = max(a.u32[1], imm);
+dst.u32[2] = max(a.u32[2], imm);
+dst.u32[3] = max(a.u32[3], imm);
+dst.u32[4] = max(a.u32[4], imm);
+dst.u32[5] = max(a.u32[5], imm);
+dst.u32[6] = max(a.u32[6], imm);
+dst.u32[7] = max(a.u32[7], imm);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxmaxi_u_w(_1, _2) ((__m256i)__builtin_lasx_mxmaxi_u_w((v8u32)(_1), (_2)))
+#define __lasx_mxmaxi_u_w(a, imm) ((__m256i)__builtin_lasx_mxmaxi_u_w((v8u32)(a), (imm)))
 ```
 
-## __m256i __lasx_mxmin_a_b (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmin_a_b (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmin_a_b (__m256i _1, __m256i _2)
+__m256i __lasx_mxmin_a_b (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmin.a.b
 Builtin: __builtin_lasx_mxmin_a_b
@@ -2178,32 +3378,69 @@ Source: include/loongson-asxintrin.h:614
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 32 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of modular integer operands on 32 x u8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmin.a.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-b = _2;
-for i in 0..31:
-  dst.byte[i] = min(a.byte[i], b.byte[i]);
+dst.u8[0] = min(a.i8[0], b.i8[0]);
+dst.u8[1] = min(a.i8[1], b.i8[1]);
+dst.u8[2] = min(a.i8[2], b.i8[2]);
+dst.u8[3] = min(a.i8[3], b.i8[3]);
+dst.u8[4] = min(a.i8[4], b.i8[4]);
+dst.u8[5] = min(a.i8[5], b.i8[5]);
+dst.u8[6] = min(a.i8[6], b.i8[6]);
+dst.u8[7] = min(a.i8[7], b.i8[7]);
+dst.u8[8] = min(a.i8[8], b.i8[8]);
+dst.u8[9] = min(a.i8[9], b.i8[9]);
+dst.u8[10] = min(a.i8[10], b.i8[10]);
+dst.u8[11] = min(a.i8[11], b.i8[11]);
+dst.u8[12] = min(a.i8[12], b.i8[12]);
+dst.u8[13] = min(a.i8[13], b.i8[13]);
+dst.u8[14] = min(a.i8[14], b.i8[14]);
+dst.u8[15] = min(a.i8[15], b.i8[15]);
+dst.u8[16] = min(a.i8[16], b.i8[16]);
+dst.u8[17] = min(a.i8[17], b.i8[17]);
+dst.u8[18] = min(a.i8[18], b.i8[18]);
+dst.u8[19] = min(a.i8[19], b.i8[19]);
+dst.u8[20] = min(a.i8[20], b.i8[20]);
+dst.u8[21] = min(a.i8[21], b.i8[21]);
+dst.u8[22] = min(a.i8[22], b.i8[22]);
+dst.u8[23] = min(a.i8[23], b.i8[23]);
+dst.u8[24] = min(a.i8[24], b.i8[24]);
+dst.u8[25] = min(a.i8[25], b.i8[25]);
+dst.u8[26] = min(a.i8[26], b.i8[26]);
+dst.u8[27] = min(a.i8[27], b.i8[27]);
+dst.u8[28] = min(a.i8[28], b.i8[28]);
+dst.u8[29] = min(a.i8[29], b.i8[29]);
+dst.u8[30] = min(a.i8[30], b.i8[30]);
+dst.u8[31] = min(a.i8[31], b.i8[31]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmin_a_b((v32i8)_1, (v32i8)_2);
+return (__m256i)__builtin_lasx_mxmin_a_b((v32i8)a, (v32i8)b);
 ```
 
-## __m256i __lasx_mxmin_a_d (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmin_a_d (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmin_a_d (__m256i _1, __m256i _2)
+__m256i __lasx_mxmin_a_d (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmin.a.d
 Builtin: __builtin_lasx_mxmin_a_d
@@ -2214,32 +3451,41 @@ Source: include/loongson-asxintrin.h:635
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 4 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of modular integer operands on 4 x u64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmin.a.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-b = _2;
-for i in 0..3:
-  dst.dword[i] = min(a.dword[i], b.dword[i]);
+dst.u64[0] = min(a.i64[0], b.i64[0]);
+dst.u64[1] = min(a.i64[1], b.i64[1]);
+dst.u64[2] = min(a.i64[2], b.i64[2]);
+dst.u64[3] = min(a.i64[3], b.i64[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmin_a_d((v4i64)_1, (v4i64)_2);
+return (__m256i)__builtin_lasx_mxmin_a_d((v4i64)a, (v4i64)b);
 ```
 
-## __m256i __lasx_mxmin_a_h (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmin_a_h (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmin_a_h (__m256i _1, __m256i _2)
+__m256i __lasx_mxmin_a_h (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmin.a.h
 Builtin: __builtin_lasx_mxmin_a_h
@@ -2250,32 +3496,53 @@ Source: include/loongson-asxintrin.h:621
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 16 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of modular integer operands on 16 x u16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmin.a.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-b = _2;
-for i in 0..15:
-  dst.half[i] = min(a.half[i], b.half[i]);
+dst.u16[0] = min(a.i16[0], b.i16[0]);
+dst.u16[1] = min(a.i16[1], b.i16[1]);
+dst.u16[2] = min(a.i16[2], b.i16[2]);
+dst.u16[3] = min(a.i16[3], b.i16[3]);
+dst.u16[4] = min(a.i16[4], b.i16[4]);
+dst.u16[5] = min(a.i16[5], b.i16[5]);
+dst.u16[6] = min(a.i16[6], b.i16[6]);
+dst.u16[7] = min(a.i16[7], b.i16[7]);
+dst.u16[8] = min(a.i16[8], b.i16[8]);
+dst.u16[9] = min(a.i16[9], b.i16[9]);
+dst.u16[10] = min(a.i16[10], b.i16[10]);
+dst.u16[11] = min(a.i16[11], b.i16[11]);
+dst.u16[12] = min(a.i16[12], b.i16[12]);
+dst.u16[13] = min(a.i16[13], b.i16[13]);
+dst.u16[14] = min(a.i16[14], b.i16[14]);
+dst.u16[15] = min(a.i16[15], b.i16[15]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmin_a_h((v16i16)_1, (v16i16)_2);
+return (__m256i)__builtin_lasx_mxmin_a_h((v16i16)a, (v16i16)b);
 ```
 
-## __m256i __lasx_mxmin_a_w (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmin_a_w (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmin_a_w (__m256i _1, __m256i _2)
+__m256i __lasx_mxmin_a_w (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmin.a.w
 Builtin: __builtin_lasx_mxmin_a_w
@@ -2286,32 +3553,45 @@ Source: include/loongson-asxintrin.h:628
 
 ### Description
 
-Compute lane-wise modular integer arithmetic on 8 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of modular integer operands on 8 x u32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmin.a.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-b = _2;
-for i in 0..7:
-  dst.word[i] = min(a.word[i], b.word[i]);
+dst.u32[0] = min(a.i32[0], b.i32[0]);
+dst.u32[1] = min(a.i32[1], b.i32[1]);
+dst.u32[2] = min(a.i32[2], b.i32[2]);
+dst.u32[3] = min(a.i32[3], b.i32[3]);
+dst.u32[4] = min(a.i32[4], b.i32[4]);
+dst.u32[5] = min(a.i32[5], b.i32[5]);
+dst.u32[6] = min(a.i32[6], b.i32[6]);
+dst.u32[7] = min(a.i32[7], b.i32[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmin_a_w((v8i32)_1, (v8i32)_2);
+return (__m256i)__builtin_lasx_mxmin_a_w((v8i32)a, (v8i32)b);
 ```
 
-## __m256i __lasx_mxmin_s_b (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmin_s_b (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmin_s_b (__m256i _1, __m256i _2)
+__m256i __lasx_mxmin_s_b (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmin.s.b
 Builtin: __builtin_lasx_mxmin_s_b
@@ -2322,32 +3602,69 @@ Source: include/loongson-asxintrin.h:522
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 32 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of signed integer operands on 32 x i8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmin.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-b = _2;
-for i in 0..31:
-  dst.byte[i] = min(a.byte[i], b.byte[i]);
+dst.i8[0] = min(a.i8[0], b.i8[0]);
+dst.i8[1] = min(a.i8[1], b.i8[1]);
+dst.i8[2] = min(a.i8[2], b.i8[2]);
+dst.i8[3] = min(a.i8[3], b.i8[3]);
+dst.i8[4] = min(a.i8[4], b.i8[4]);
+dst.i8[5] = min(a.i8[5], b.i8[5]);
+dst.i8[6] = min(a.i8[6], b.i8[6]);
+dst.i8[7] = min(a.i8[7], b.i8[7]);
+dst.i8[8] = min(a.i8[8], b.i8[8]);
+dst.i8[9] = min(a.i8[9], b.i8[9]);
+dst.i8[10] = min(a.i8[10], b.i8[10]);
+dst.i8[11] = min(a.i8[11], b.i8[11]);
+dst.i8[12] = min(a.i8[12], b.i8[12]);
+dst.i8[13] = min(a.i8[13], b.i8[13]);
+dst.i8[14] = min(a.i8[14], b.i8[14]);
+dst.i8[15] = min(a.i8[15], b.i8[15]);
+dst.i8[16] = min(a.i8[16], b.i8[16]);
+dst.i8[17] = min(a.i8[17], b.i8[17]);
+dst.i8[18] = min(a.i8[18], b.i8[18]);
+dst.i8[19] = min(a.i8[19], b.i8[19]);
+dst.i8[20] = min(a.i8[20], b.i8[20]);
+dst.i8[21] = min(a.i8[21], b.i8[21]);
+dst.i8[22] = min(a.i8[22], b.i8[22]);
+dst.i8[23] = min(a.i8[23], b.i8[23]);
+dst.i8[24] = min(a.i8[24], b.i8[24]);
+dst.i8[25] = min(a.i8[25], b.i8[25]);
+dst.i8[26] = min(a.i8[26], b.i8[26]);
+dst.i8[27] = min(a.i8[27], b.i8[27]);
+dst.i8[28] = min(a.i8[28], b.i8[28]);
+dst.i8[29] = min(a.i8[29], b.i8[29]);
+dst.i8[30] = min(a.i8[30], b.i8[30]);
+dst.i8[31] = min(a.i8[31], b.i8[31]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmin_s_b((v32i8)_1, (v32i8)_2);
+return (__m256i)__builtin_lasx_mxmin_s_b((v32i8)a, (v32i8)b);
 ```
 
-## __m256i __lasx_mxmin_s_d (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmin_s_d (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmin_s_d (__m256i _1, __m256i _2)
+__m256i __lasx_mxmin_s_d (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmin.s.d
 Builtin: __builtin_lasx_mxmin_s_d
@@ -2358,32 +3675,41 @@ Source: include/loongson-asxintrin.h:543
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 4 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of signed integer operands on 4 x i64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmin.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-b = _2;
-for i in 0..3:
-  dst.dword[i] = min(a.dword[i], b.dword[i]);
+dst.i64[0] = min(a.i64[0], b.i64[0]);
+dst.i64[1] = min(a.i64[1], b.i64[1]);
+dst.i64[2] = min(a.i64[2], b.i64[2]);
+dst.i64[3] = min(a.i64[3], b.i64[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmin_s_d((v4i64)_1, (v4i64)_2);
+return (__m256i)__builtin_lasx_mxmin_s_d((v4i64)a, (v4i64)b);
 ```
 
-## __m256i __lasx_mxmin_s_h (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmin_s_h (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmin_s_h (__m256i _1, __m256i _2)
+__m256i __lasx_mxmin_s_h (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmin.s.h
 Builtin: __builtin_lasx_mxmin_s_h
@@ -2394,32 +3720,53 @@ Source: include/loongson-asxintrin.h:529
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 16 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of signed integer operands on 16 x i16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmin.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-b = _2;
-for i in 0..15:
-  dst.half[i] = min(a.half[i], b.half[i]);
+dst.i16[0] = min(a.i16[0], b.i16[0]);
+dst.i16[1] = min(a.i16[1], b.i16[1]);
+dst.i16[2] = min(a.i16[2], b.i16[2]);
+dst.i16[3] = min(a.i16[3], b.i16[3]);
+dst.i16[4] = min(a.i16[4], b.i16[4]);
+dst.i16[5] = min(a.i16[5], b.i16[5]);
+dst.i16[6] = min(a.i16[6], b.i16[6]);
+dst.i16[7] = min(a.i16[7], b.i16[7]);
+dst.i16[8] = min(a.i16[8], b.i16[8]);
+dst.i16[9] = min(a.i16[9], b.i16[9]);
+dst.i16[10] = min(a.i16[10], b.i16[10]);
+dst.i16[11] = min(a.i16[11], b.i16[11]);
+dst.i16[12] = min(a.i16[12], b.i16[12]);
+dst.i16[13] = min(a.i16[13], b.i16[13]);
+dst.i16[14] = min(a.i16[14], b.i16[14]);
+dst.i16[15] = min(a.i16[15], b.i16[15]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmin_s_h((v16i16)_1, (v16i16)_2);
+return (__m256i)__builtin_lasx_mxmin_s_h((v16i16)a, (v16i16)b);
 ```
 
-## __m256i __lasx_mxmin_s_w (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmin_s_w (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmin_s_w (__m256i _1, __m256i _2)
+__m256i __lasx_mxmin_s_w (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmin.s.w
 Builtin: __builtin_lasx_mxmin_s_w
@@ -2430,32 +3777,45 @@ Source: include/loongson-asxintrin.h:536
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 8 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of signed integer operands on 8 x i32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmin.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-b = _2;
-for i in 0..7:
-  dst.word[i] = min(a.word[i], b.word[i]);
+dst.i32[0] = min(a.i32[0], b.i32[0]);
+dst.i32[1] = min(a.i32[1], b.i32[1]);
+dst.i32[2] = min(a.i32[2], b.i32[2]);
+dst.i32[3] = min(a.i32[3], b.i32[3]);
+dst.i32[4] = min(a.i32[4], b.i32[4]);
+dst.i32[5] = min(a.i32[5], b.i32[5]);
+dst.i32[6] = min(a.i32[6], b.i32[6]);
+dst.i32[7] = min(a.i32[7], b.i32[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmin_s_w((v8i32)_1, (v8i32)_2);
+return (__m256i)__builtin_lasx_mxmin_s_w((v8i32)a, (v8i32)b);
 ```
 
-## __m256i __lasx_mxmin_u_b (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmin_u_b (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmin_u_b (__m256i _1, __m256i _2)
+__m256i __lasx_mxmin_u_b (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmin.u.b
 Builtin: __builtin_lasx_mxmin_u_b
@@ -2466,32 +3826,69 @@ Source: include/loongson-asxintrin.h:554
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 32 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of unsigned integer operands on 32 x u8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmin.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-b = _2;
-for i in 0..31:
-  dst.byte[i] = min(a.byte[i], b.byte[i]);
+dst.u8[0] = min(a.u8[0], b.u8[0]);
+dst.u8[1] = min(a.u8[1], b.u8[1]);
+dst.u8[2] = min(a.u8[2], b.u8[2]);
+dst.u8[3] = min(a.u8[3], b.u8[3]);
+dst.u8[4] = min(a.u8[4], b.u8[4]);
+dst.u8[5] = min(a.u8[5], b.u8[5]);
+dst.u8[6] = min(a.u8[6], b.u8[6]);
+dst.u8[7] = min(a.u8[7], b.u8[7]);
+dst.u8[8] = min(a.u8[8], b.u8[8]);
+dst.u8[9] = min(a.u8[9], b.u8[9]);
+dst.u8[10] = min(a.u8[10], b.u8[10]);
+dst.u8[11] = min(a.u8[11], b.u8[11]);
+dst.u8[12] = min(a.u8[12], b.u8[12]);
+dst.u8[13] = min(a.u8[13], b.u8[13]);
+dst.u8[14] = min(a.u8[14], b.u8[14]);
+dst.u8[15] = min(a.u8[15], b.u8[15]);
+dst.u8[16] = min(a.u8[16], b.u8[16]);
+dst.u8[17] = min(a.u8[17], b.u8[17]);
+dst.u8[18] = min(a.u8[18], b.u8[18]);
+dst.u8[19] = min(a.u8[19], b.u8[19]);
+dst.u8[20] = min(a.u8[20], b.u8[20]);
+dst.u8[21] = min(a.u8[21], b.u8[21]);
+dst.u8[22] = min(a.u8[22], b.u8[22]);
+dst.u8[23] = min(a.u8[23], b.u8[23]);
+dst.u8[24] = min(a.u8[24], b.u8[24]);
+dst.u8[25] = min(a.u8[25], b.u8[25]);
+dst.u8[26] = min(a.u8[26], b.u8[26]);
+dst.u8[27] = min(a.u8[27], b.u8[27]);
+dst.u8[28] = min(a.u8[28], b.u8[28]);
+dst.u8[29] = min(a.u8[29], b.u8[29]);
+dst.u8[30] = min(a.u8[30], b.u8[30]);
+dst.u8[31] = min(a.u8[31], b.u8[31]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmin_u_b((v32u8)_1, (v32u8)_2);
+return (__m256i)__builtin_lasx_mxmin_u_b((v32u8)a, (v32u8)b);
 ```
 
-## __m256i __lasx_mxmin_u_d (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmin_u_d (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmin_u_d (__m256i _1, __m256i _2)
+__m256i __lasx_mxmin_u_d (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmin.u.d
 Builtin: __builtin_lasx_mxmin_u_d
@@ -2502,32 +3899,41 @@ Source: include/loongson-asxintrin.h:575
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 4 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of unsigned integer operands on 4 x u64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmin.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-b = _2;
-for i in 0..3:
-  dst.dword[i] = min(a.dword[i], b.dword[i]);
+dst.u64[0] = min(a.u64[0], b.u64[0]);
+dst.u64[1] = min(a.u64[1], b.u64[1]);
+dst.u64[2] = min(a.u64[2], b.u64[2]);
+dst.u64[3] = min(a.u64[3], b.u64[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmin_u_d((v4u64)_1, (v4u64)_2);
+return (__m256i)__builtin_lasx_mxmin_u_d((v4u64)a, (v4u64)b);
 ```
 
-## __m256i __lasx_mxmin_u_h (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmin_u_h (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmin_u_h (__m256i _1, __m256i _2)
+__m256i __lasx_mxmin_u_h (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmin.u.h
 Builtin: __builtin_lasx_mxmin_u_h
@@ -2538,32 +3944,53 @@ Source: include/loongson-asxintrin.h:561
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 16 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of unsigned integer operands on 16 x u16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmin.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-b = _2;
-for i in 0..15:
-  dst.half[i] = min(a.half[i], b.half[i]);
+dst.u16[0] = min(a.u16[0], b.u16[0]);
+dst.u16[1] = min(a.u16[1], b.u16[1]);
+dst.u16[2] = min(a.u16[2], b.u16[2]);
+dst.u16[3] = min(a.u16[3], b.u16[3]);
+dst.u16[4] = min(a.u16[4], b.u16[4]);
+dst.u16[5] = min(a.u16[5], b.u16[5]);
+dst.u16[6] = min(a.u16[6], b.u16[6]);
+dst.u16[7] = min(a.u16[7], b.u16[7]);
+dst.u16[8] = min(a.u16[8], b.u16[8]);
+dst.u16[9] = min(a.u16[9], b.u16[9]);
+dst.u16[10] = min(a.u16[10], b.u16[10]);
+dst.u16[11] = min(a.u16[11], b.u16[11]);
+dst.u16[12] = min(a.u16[12], b.u16[12]);
+dst.u16[13] = min(a.u16[13], b.u16[13]);
+dst.u16[14] = min(a.u16[14], b.u16[14]);
+dst.u16[15] = min(a.u16[15], b.u16[15]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmin_u_h((v16u16)_1, (v16u16)_2);
+return (__m256i)__builtin_lasx_mxmin_u_h((v16u16)a, (v16u16)b);
 ```
 
-## __m256i __lasx_mxmin_u_w (__m256i _1, __m256i _2)
+## __m256i __lasx_mxmin_u_w (__m256i a, __m256i b)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmin_u_w (__m256i _1, __m256i _2)
+__m256i __lasx_mxmin_u_w (__m256i a, __m256i b)
 #include <loongson-asxintrin.h>
 Instruction: mxmin.u.w
 Builtin: __builtin_lasx_mxmin_u_w
@@ -2574,32 +4001,45 @@ Source: include/loongson-asxintrin.h:568
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 8 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of unsigned integer operands on 8 x u32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmin.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-b = _2;
-for i in 0..7:
-  dst.word[i] = min(a.word[i], b.word[i]);
+dst.u32[0] = min(a.u32[0], b.u32[0]);
+dst.u32[1] = min(a.u32[1], b.u32[1]);
+dst.u32[2] = min(a.u32[2], b.u32[2]);
+dst.u32[3] = min(a.u32[3], b.u32[3]);
+dst.u32[4] = min(a.u32[4], b.u32[4]);
+dst.u32[5] = min(a.u32[5], b.u32[5]);
+dst.u32[6] = min(a.u32[6], b.u32[6]);
+dst.u32[7] = min(a.u32[7], b.u32[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxmin_u_w((v8u32)_1, (v8u32)_2);
+return (__m256i)__builtin_lasx_mxmin_u_w((v8u32)a, (v8u32)b);
 ```
 
-## __m256i __lasx_mxmini_s_b (__m256i _1, signed char _2)
+## __m256i __lasx_mxmini_s_b (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmini_s_b (__m256i _1, signed char _2)
+__m256i __lasx_mxmini_s_b (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxmini.s.b
 Builtin: __builtin_lasx_mxmini_s_b
@@ -2610,32 +4050,69 @@ Source: include/loongson-asxintrin.h:549
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 32 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of signed integer operands on 32 x i8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmini.s.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-imm = _2;
-for i in 0..31:
-  dst.byte[i] = min(a.byte[i], imm);
+dst.i8[0] = min(a.i8[0], imm);
+dst.i8[1] = min(a.i8[1], imm);
+dst.i8[2] = min(a.i8[2], imm);
+dst.i8[3] = min(a.i8[3], imm);
+dst.i8[4] = min(a.i8[4], imm);
+dst.i8[5] = min(a.i8[5], imm);
+dst.i8[6] = min(a.i8[6], imm);
+dst.i8[7] = min(a.i8[7], imm);
+dst.i8[8] = min(a.i8[8], imm);
+dst.i8[9] = min(a.i8[9], imm);
+dst.i8[10] = min(a.i8[10], imm);
+dst.i8[11] = min(a.i8[11], imm);
+dst.i8[12] = min(a.i8[12], imm);
+dst.i8[13] = min(a.i8[13], imm);
+dst.i8[14] = min(a.i8[14], imm);
+dst.i8[15] = min(a.i8[15], imm);
+dst.i8[16] = min(a.i8[16], imm);
+dst.i8[17] = min(a.i8[17], imm);
+dst.i8[18] = min(a.i8[18], imm);
+dst.i8[19] = min(a.i8[19], imm);
+dst.i8[20] = min(a.i8[20], imm);
+dst.i8[21] = min(a.i8[21], imm);
+dst.i8[22] = min(a.i8[22], imm);
+dst.i8[23] = min(a.i8[23], imm);
+dst.i8[24] = min(a.i8[24], imm);
+dst.i8[25] = min(a.i8[25], imm);
+dst.i8[26] = min(a.i8[26], imm);
+dst.i8[27] = min(a.i8[27], imm);
+dst.i8[28] = min(a.i8[28], imm);
+dst.i8[29] = min(a.i8[29], imm);
+dst.i8[30] = min(a.i8[30], imm);
+dst.i8[31] = min(a.i8[31], imm);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxmini_s_b(_1, _2) ((__m256i)__builtin_lasx_mxmini_s_b((v32i8)(_1), (_2)))
+#define __lasx_mxmini_s_b(a, imm) ((__m256i)__builtin_lasx_mxmini_s_b((v32i8)(a), (imm)))
 ```
 
-## __m256i __lasx_mxmini_s_d (__m256i _1, signed char _2)
+## __m256i __lasx_mxmini_s_d (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmini_s_d (__m256i _1, signed char _2)
+__m256i __lasx_mxmini_s_d (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxmini.s.d
 Builtin: __builtin_lasx_mxmini_s_d
@@ -2646,32 +4123,41 @@ Source: include/loongson-asxintrin.h:552
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 4 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of signed integer operands on 4 x i64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmini.s.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-imm = _2;
-for i in 0..3:
-  dst.dword[i] = min(a.dword[i], imm);
+dst.i64[0] = min(a.i64[0], imm);
+dst.i64[1] = min(a.i64[1], imm);
+dst.i64[2] = min(a.i64[2], imm);
+dst.i64[3] = min(a.i64[3], imm);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxmini_s_d(_1, _2) ((__m256i)__builtin_lasx_mxmini_s_d((v4i64)(_1), (_2)))
+#define __lasx_mxmini_s_d(a, imm) ((__m256i)__builtin_lasx_mxmini_s_d((v4i64)(a), (imm)))
 ```
 
-## __m256i __lasx_mxmini_s_h (__m256i _1, signed char _2)
+## __m256i __lasx_mxmini_s_h (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmini_s_h (__m256i _1, signed char _2)
+__m256i __lasx_mxmini_s_h (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxmini.s.h
 Builtin: __builtin_lasx_mxmini_s_h
@@ -2682,32 +4168,53 @@ Source: include/loongson-asxintrin.h:550
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 16 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of signed integer operands on 16 x i16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmini.s.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-imm = _2;
-for i in 0..15:
-  dst.half[i] = min(a.half[i], imm);
+dst.i16[0] = min(a.i16[0], imm);
+dst.i16[1] = min(a.i16[1], imm);
+dst.i16[2] = min(a.i16[2], imm);
+dst.i16[3] = min(a.i16[3], imm);
+dst.i16[4] = min(a.i16[4], imm);
+dst.i16[5] = min(a.i16[5], imm);
+dst.i16[6] = min(a.i16[6], imm);
+dst.i16[7] = min(a.i16[7], imm);
+dst.i16[8] = min(a.i16[8], imm);
+dst.i16[9] = min(a.i16[9], imm);
+dst.i16[10] = min(a.i16[10], imm);
+dst.i16[11] = min(a.i16[11], imm);
+dst.i16[12] = min(a.i16[12], imm);
+dst.i16[13] = min(a.i16[13], imm);
+dst.i16[14] = min(a.i16[14], imm);
+dst.i16[15] = min(a.i16[15], imm);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxmini_s_h(_1, _2) ((__m256i)__builtin_lasx_mxmini_s_h((v16i16)(_1), (_2)))
+#define __lasx_mxmini_s_h(a, imm) ((__m256i)__builtin_lasx_mxmini_s_h((v16i16)(a), (imm)))
 ```
 
-## __m256i __lasx_mxmini_s_w (__m256i _1, signed char _2)
+## __m256i __lasx_mxmini_s_w (__m256i a, signed char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmini_s_w (__m256i _1, signed char _2)
+__m256i __lasx_mxmini_s_w (__m256i a, signed char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxmini.s.w
 Builtin: __builtin_lasx_mxmini_s_w
@@ -2718,32 +4225,45 @@ Source: include/loongson-asxintrin.h:551
 
 ### Description
 
-Compute lane-wise signed integer arithmetic on 8 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of signed integer operands on 8 x i32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmini.s.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-imm = _2;
-for i in 0..7:
-  dst.word[i] = min(a.word[i], imm);
+dst.i32[0] = min(a.i32[0], imm);
+dst.i32[1] = min(a.i32[1], imm);
+dst.i32[2] = min(a.i32[2], imm);
+dst.i32[3] = min(a.i32[3], imm);
+dst.i32[4] = min(a.i32[4], imm);
+dst.i32[5] = min(a.i32[5], imm);
+dst.i32[6] = min(a.i32[6], imm);
+dst.i32[7] = min(a.i32[7], imm);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxmini_s_w(_1, _2) ((__m256i)__builtin_lasx_mxmini_s_w((v8i32)(_1), (_2)))
+#define __lasx_mxmini_s_w(a, imm) ((__m256i)__builtin_lasx_mxmini_s_w((v8i32)(a), (imm)))
 ```
 
-## __m256i __lasx_mxmini_u_b (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxmini_u_b (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmini_u_b (__m256i _1, unsigned char _2)
+__m256i __lasx_mxmini_u_b (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxmini.u.b
 Builtin: __builtin_lasx_mxmini_u_b
@@ -2754,32 +4274,69 @@ Source: include/loongson-asxintrin.h:581
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 32 x 8-bit byte lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of unsigned integer operands on 32 x u8 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmini.u.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 32 lanes of 8-bit elements.
-a = _1;
-imm = _2;
-for i in 0..31:
-  dst.byte[i] = min(a.byte[i], imm);
+dst.u8[0] = min(a.u8[0], imm);
+dst.u8[1] = min(a.u8[1], imm);
+dst.u8[2] = min(a.u8[2], imm);
+dst.u8[3] = min(a.u8[3], imm);
+dst.u8[4] = min(a.u8[4], imm);
+dst.u8[5] = min(a.u8[5], imm);
+dst.u8[6] = min(a.u8[6], imm);
+dst.u8[7] = min(a.u8[7], imm);
+dst.u8[8] = min(a.u8[8], imm);
+dst.u8[9] = min(a.u8[9], imm);
+dst.u8[10] = min(a.u8[10], imm);
+dst.u8[11] = min(a.u8[11], imm);
+dst.u8[12] = min(a.u8[12], imm);
+dst.u8[13] = min(a.u8[13], imm);
+dst.u8[14] = min(a.u8[14], imm);
+dst.u8[15] = min(a.u8[15], imm);
+dst.u8[16] = min(a.u8[16], imm);
+dst.u8[17] = min(a.u8[17], imm);
+dst.u8[18] = min(a.u8[18], imm);
+dst.u8[19] = min(a.u8[19], imm);
+dst.u8[20] = min(a.u8[20], imm);
+dst.u8[21] = min(a.u8[21], imm);
+dst.u8[22] = min(a.u8[22], imm);
+dst.u8[23] = min(a.u8[23], imm);
+dst.u8[24] = min(a.u8[24], imm);
+dst.u8[25] = min(a.u8[25], imm);
+dst.u8[26] = min(a.u8[26], imm);
+dst.u8[27] = min(a.u8[27], imm);
+dst.u8[28] = min(a.u8[28], imm);
+dst.u8[29] = min(a.u8[29], imm);
+dst.u8[30] = min(a.u8[30], imm);
+dst.u8[31] = min(a.u8[31], imm);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxmini_u_b(_1, _2) ((__m256i)__builtin_lasx_mxmini_u_b((v32u8)(_1), (_2)))
+#define __lasx_mxmini_u_b(a, imm) ((__m256i)__builtin_lasx_mxmini_u_b((v32u8)(a), (imm)))
 ```
 
-## __m256i __lasx_mxmini_u_d (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxmini_u_d (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmini_u_d (__m256i _1, unsigned char _2)
+__m256i __lasx_mxmini_u_d (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxmini.u.d
 Builtin: __builtin_lasx_mxmini_u_d
@@ -2790,32 +4347,41 @@ Source: include/loongson-asxintrin.h:584
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 4 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of unsigned integer operands on 4 x u64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmini.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-imm = _2;
-for i in 0..3:
-  dst.dword[i] = min(a.dword[i], imm);
+dst.u64[0] = min(a.u64[0], imm);
+dst.u64[1] = min(a.u64[1], imm);
+dst.u64[2] = min(a.u64[2], imm);
+dst.u64[3] = min(a.u64[3], imm);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxmini_u_d(_1, _2) ((__m256i)__builtin_lasx_mxmini_u_d((v4u64)(_1), (_2)))
+#define __lasx_mxmini_u_d(a, imm) ((__m256i)__builtin_lasx_mxmini_u_d((v4u64)(a), (imm)))
 ```
 
-## __m256i __lasx_mxmini_u_h (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxmini_u_h (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmini_u_h (__m256i _1, unsigned char _2)
+__m256i __lasx_mxmini_u_h (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxmini.u.h
 Builtin: __builtin_lasx_mxmini_u_h
@@ -2826,32 +4392,53 @@ Source: include/loongson-asxintrin.h:582
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 16 x 16-bit half lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of unsigned integer operands on 16 x u16 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmini.u.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 16-bit elements.
-a = _1;
-imm = _2;
-for i in 0..15:
-  dst.half[i] = min(a.half[i], imm);
+dst.u16[0] = min(a.u16[0], imm);
+dst.u16[1] = min(a.u16[1], imm);
+dst.u16[2] = min(a.u16[2], imm);
+dst.u16[3] = min(a.u16[3], imm);
+dst.u16[4] = min(a.u16[4], imm);
+dst.u16[5] = min(a.u16[5], imm);
+dst.u16[6] = min(a.u16[6], imm);
+dst.u16[7] = min(a.u16[7], imm);
+dst.u16[8] = min(a.u16[8], imm);
+dst.u16[9] = min(a.u16[9], imm);
+dst.u16[10] = min(a.u16[10], imm);
+dst.u16[11] = min(a.u16[11], imm);
+dst.u16[12] = min(a.u16[12], imm);
+dst.u16[13] = min(a.u16[13], imm);
+dst.u16[14] = min(a.u16[14], imm);
+dst.u16[15] = min(a.u16[15], imm);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxmini_u_h(_1, _2) ((__m256i)__builtin_lasx_mxmini_u_h((v16u16)(_1), (_2)))
+#define __lasx_mxmini_u_h(a, imm) ((__m256i)__builtin_lasx_mxmini_u_h((v16u16)(a), (imm)))
 ```
 
-## __m256i __lasx_mxmini_u_w (__m256i _1, unsigned char _2)
+## __m256i __lasx_mxmini_u_w (__m256i a, unsigned char imm)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxmini_u_w (__m256i _1, unsigned char _2)
+__m256i __lasx_mxmini_u_w (__m256i a, unsigned char imm)
 #include <loongson-asxintrin.h>
 Instruction: mxmini.u.w
 Builtin: __builtin_lasx_mxmini_u_w
@@ -2862,32 +4449,45 @@ Source: include/loongson-asxintrin.h:583
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 8 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of unsigned integer operands on 8 x u32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxmini.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-imm = _2;
-for i in 0..7:
-  dst.word[i] = min(a.word[i], imm);
+dst.u32[0] = min(a.u32[0], imm);
+dst.u32[1] = min(a.u32[1], imm);
+dst.u32[2] = min(a.u32[2], imm);
+dst.u32[3] = min(a.u32[3], imm);
+dst.u32[4] = min(a.u32[4], imm);
+dst.u32[5] = min(a.u32[5], imm);
+dst.u32[6] = min(a.u32[6], imm);
+dst.u32[7] = min(a.u32[7], imm);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-#define __lasx_mxmini_u_w(_1, _2) ((__m256i)__builtin_lasx_mxmini_u_w((v8u32)(_1), (_2)))
+#define __lasx_mxmini_u_w(a, imm) ((__m256i)__builtin_lasx_mxmini_u_w((v8u32)(a), (imm)))
 ```
 
-## __m256i __lasx_mxvhminposh_u_d (__m256i _1)
+## __m256i __lasx_mxvhminposh_u_d (__m256i a)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxvhminposh_u_d (__m256i _1)
+__m256i __lasx_mxvhminposh_u_d (__m256i a)
 #include <loongson-asxintrin.h>
 Instruction: mxvhminposh.u.d
 Builtin: __builtin_lasx_mxvhminposh_u_d
@@ -2898,31 +4498,41 @@ Source: include/loongson-asxintrin.h:3524
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 4 x 64-bit dword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of unsigned integer operands on 4 x u64 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxvhminposh.u.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 64-bit elements.
-a = _1;
-for i in 0..3:
-  dst.dword[i] = min(a.dword[i], b.dword[i]);
+dst.u64[0] = min(a.i16[0], b.u64[0]);
+dst.u64[1] = min(a.i16[1], b.u64[1]);
+dst.u64[2] = min(a.i16[2], b.u64[2]);
+dst.u64[3] = min(a.i16[3], b.u64[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxvhminposh_u_d((v16i16)_1);
+return (__m256i)__builtin_lasx_mxvhminposh_u_d((v16i16)a);
 ```
 
-## __m256i __lasx_mxvhminposh_u_q (__m256i _1)
+## __m256i __lasx_mxvhminposh_u_q (__m256i a)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxvhminposh_u_q (__m256i _1)
+__m256i __lasx_mxvhminposh_u_q (__m256i a)
 #include <loongson-asxintrin.h>
 Instruction: mxvhminposh.u.q
 Builtin: __builtin_lasx_mxvhminposh_u_q
@@ -2933,31 +4543,39 @@ Source: include/loongson-asxintrin.h:3538
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 2 x 128-bit qword lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of unsigned integer operands on 2 x u128 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxvhminposh.u.q.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 128-bit elements.
-a = _1;
-for i in 0..1:
-  dst.qword[i] = min(a.qword[i], b.qword[i]);
+dst.u128[0] = min(a.i16[0], b.u128[0]);
+dst.u128[1] = min(a.i16[1], b.u128[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxvhminposh_u_q((v16i16)_1);
+return (__m256i)__builtin_lasx_mxvhminposh_u_q((v16i16)a);
 ```
 
-## __m256i __lasx_mxvhminposh_u_w (__m256i _1)
+## __m256i __lasx_mxvhminposh_u_w (__m256i a)
 
 ### Synopsis
 
 ```c
-__m256i __lasx_mxvhminposh_u_w (__m256i _1)
+__m256i __lasx_mxvhminposh_u_w (__m256i a)
 #include <loongson-asxintrin.h>
 Instruction: mxvhminposh.u.w
 Builtin: __builtin_lasx_mxvhminposh_u_w
@@ -2968,22 +4586,36 @@ Source: include/loongson-asxintrin.h:3531
 
 ### Description
 
-Compute lane-wise unsigned integer arithmetic on 8 x 32-bit word lanes. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Select the lane-wise minimum of unsigned integer operands on 8 x u32 lanes.
 
 ### Operation
 
 ```c
-// Inferred semantics for mxvhminposh.u.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 32-bit elements.
-a = _1;
-for i in 0..7:
-  dst.word[i] = min(a.word[i], b.word[i]);
+dst.u32[0] = min(a.i16[0], b.u32[0]);
+dst.u32[1] = min(a.i16[1], b.u32[1]);
+dst.u32[2] = min(a.i16[2], b.u32[2]);
+dst.u32[3] = min(a.i16[3], b.u32[3]);
+dst.u32[4] = min(a.i16[4], b.u32[4]);
+dst.u32[5] = min(a.i16[5], b.u32[5]);
+dst.u32[6] = min(a.i16[6], b.u32[6]);
+dst.u32[7] = min(a.i16[7], b.u32[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
 ```c
-return (__m256i)__builtin_lasx_mxvhminposh_u_w((v16i16)_1);
+return (__m256i)__builtin_lasx_mxvhminposh_u_w((v16i16)a);
 ```
 

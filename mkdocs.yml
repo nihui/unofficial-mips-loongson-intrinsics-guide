@@ -8,6 +8,7 @@ extra_css:
 nav:
   - Home: index.md
   - Loongson SIMD Basics: loongson_simd_basics.md
+  - Latency and Throughput: latency_throughput.md
   - SX:
       - Integer Computation: sx/integer_computation.md
       - Integer Comparison: sx/integer_comparison.md

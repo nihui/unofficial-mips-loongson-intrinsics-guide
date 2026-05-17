@@ -41,6 +41,14 @@ Check that all public intrinsics parsed from the headers are present in `docs/`:
 python3 check.py
 ```
 
+Generate latency/throughput benchmark sources, compile/run them on target hardware, and fold raw CSV results into the documentation data:
+
+```sh
+python3 tools/measure_latency_throughput.py --extension sx --output-dir /tmp/mips-lt
+python3 tools/collect_latency_throughput.py --cpu 3A4000 --uarch GS464V \
+  --output data/latency_throughput_3A4000.csv /tmp/mips-lt/sx.csv
+```
+
 Serve locally:
 
 ```sh

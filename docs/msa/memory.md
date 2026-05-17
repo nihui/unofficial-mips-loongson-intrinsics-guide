@@ -2,12 +2,12 @@
 
 Generated from `include/msa.h`. This page contains 8 intrinsics.
 
-## v16i8 __msa_ld_b (void * mem, int imm_n512_511)
+## v16i8 __msa_ld_b (void * mem, int offset)
 
 ### Synopsis
 
 ```c
-v16i8 __msa_ld_b (void * mem, int imm_n512_511)
+v16i8 __msa_ld_b (void * mem, int offset)
 #include <msa.h>
 Instruction: ld.b
 Builtin: __builtin_msa_ld_b
@@ -18,17 +18,27 @@ Source: include/msa.h:228
 
 ### Description
 
-Load or store selected vector element data using the memory addressing convention encoded by `ld.b`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Load one full vector from memory at `mem + offset`.
 
 ### Operation
 
 ```c
-// Inferred semantics for ld.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm_n512_511;
-addr = mem + imm_n512_511;
-dst = vector_load_or_lane_broadcast(addr, element_size_from_mnemonic);
+dst.u8[0] = mem.u8[offset + 0];
+dst.u8[1] = mem.u8[offset + 1];
+dst.u8[2] = mem.u8[offset + 2];
+dst.u8[3] = mem.u8[offset + 3];
+dst.u8[4] = mem.u8[offset + 4];
+dst.u8[5] = mem.u8[offset + 5];
+dst.u8[6] = mem.u8[offset + 6];
+dst.u8[7] = mem.u8[offset + 7];
+dst.u8[8] = mem.u8[offset + 8];
+dst.u8[9] = mem.u8[offset + 9];
+dst.u8[10] = mem.u8[offset + 10];
+dst.u8[11] = mem.u8[offset + 11];
+dst.u8[12] = mem.u8[offset + 12];
+dst.u8[13] = mem.u8[offset + 13];
+dst.u8[14] = mem.u8[offset + 14];
+dst.u8[15] = mem.u8[offset + 15];
 ```
 
 ### Header Mapping
@@ -37,12 +47,12 @@ dst = vector_load_or_lane_broadcast(addr, element_size_from_mnemonic);
 #define __msa_ld_b __builtin_msa_ld_b
 ```
 
-## v2i64 __msa_ld_d (void * mem, int imm_n4096_4088)
+## v2i64 __msa_ld_d (void * mem, int offset)
 
 ### Synopsis
 
 ```c
-v2i64 __msa_ld_d (void * mem, int imm_n4096_4088)
+v2i64 __msa_ld_d (void * mem, int offset)
 #include <msa.h>
 Instruction: ld.d
 Builtin: __builtin_msa_ld_d
@@ -53,17 +63,27 @@ Source: include/msa.h:231
 
 ### Description
 
-Load or store selected vector element data using the memory addressing convention encoded by `ld.d`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Load one full vector from memory at `mem + offset`.
 
 ### Operation
 
 ```c
-// Inferred semantics for ld.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm_n4096_4088;
-addr = mem + imm_n4096_4088;
-dst = vector_load_or_lane_broadcast(addr, element_size_from_mnemonic);
+dst.u8[0] = mem.u8[offset + 0];
+dst.u8[1] = mem.u8[offset + 1];
+dst.u8[2] = mem.u8[offset + 2];
+dst.u8[3] = mem.u8[offset + 3];
+dst.u8[4] = mem.u8[offset + 4];
+dst.u8[5] = mem.u8[offset + 5];
+dst.u8[6] = mem.u8[offset + 6];
+dst.u8[7] = mem.u8[offset + 7];
+dst.u8[8] = mem.u8[offset + 8];
+dst.u8[9] = mem.u8[offset + 9];
+dst.u8[10] = mem.u8[offset + 10];
+dst.u8[11] = mem.u8[offset + 11];
+dst.u8[12] = mem.u8[offset + 12];
+dst.u8[13] = mem.u8[offset + 13];
+dst.u8[14] = mem.u8[offset + 14];
+dst.u8[15] = mem.u8[offset + 15];
 ```
 
 ### Header Mapping
@@ -72,12 +92,12 @@ dst = vector_load_or_lane_broadcast(addr, element_size_from_mnemonic);
 #define __msa_ld_d __builtin_msa_ld_d
 ```
 
-## v8i16 __msa_ld_h (void * mem, int imm_n1024_1022)
+## v8i16 __msa_ld_h (void * mem, int offset)
 
 ### Synopsis
 
 ```c
-v8i16 __msa_ld_h (void * mem, int imm_n1024_1022)
+v8i16 __msa_ld_h (void * mem, int offset)
 #include <msa.h>
 Instruction: ld.h
 Builtin: __builtin_msa_ld_h
@@ -88,17 +108,27 @@ Source: include/msa.h:229
 
 ### Description
 
-Load or store selected vector element data using the memory addressing convention encoded by `ld.h`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Load one full vector from memory at `mem + offset`.
 
 ### Operation
 
 ```c
-// Inferred semantics for ld.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm_n1024_1022;
-addr = mem + imm_n1024_1022;
-dst = vector_load_or_lane_broadcast(addr, element_size_from_mnemonic);
+dst.u8[0] = mem.u8[offset + 0];
+dst.u8[1] = mem.u8[offset + 1];
+dst.u8[2] = mem.u8[offset + 2];
+dst.u8[3] = mem.u8[offset + 3];
+dst.u8[4] = mem.u8[offset + 4];
+dst.u8[5] = mem.u8[offset + 5];
+dst.u8[6] = mem.u8[offset + 6];
+dst.u8[7] = mem.u8[offset + 7];
+dst.u8[8] = mem.u8[offset + 8];
+dst.u8[9] = mem.u8[offset + 9];
+dst.u8[10] = mem.u8[offset + 10];
+dst.u8[11] = mem.u8[offset + 11];
+dst.u8[12] = mem.u8[offset + 12];
+dst.u8[13] = mem.u8[offset + 13];
+dst.u8[14] = mem.u8[offset + 14];
+dst.u8[15] = mem.u8[offset + 15];
 ```
 
 ### Header Mapping
@@ -107,12 +137,12 @@ dst = vector_load_or_lane_broadcast(addr, element_size_from_mnemonic);
 #define __msa_ld_h __builtin_msa_ld_h
 ```
 
-## v4i32 __msa_ld_w (void * mem, int imm_n2048_2044)
+## v4i32 __msa_ld_w (void * mem, int offset)
 
 ### Synopsis
 
 ```c
-v4i32 __msa_ld_w (void * mem, int imm_n2048_2044)
+v4i32 __msa_ld_w (void * mem, int offset)
 #include <msa.h>
 Instruction: ld.w
 Builtin: __builtin_msa_ld_w
@@ -123,17 +153,27 @@ Source: include/msa.h:230
 
 ### Description
 
-Load or store selected vector element data using the memory addressing convention encoded by `ld.w`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Load one full vector from memory at `mem + offset`.
 
 ### Operation
 
 ```c
-// Inferred semantics for ld.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm_n2048_2044;
-addr = mem + imm_n2048_2044;
-dst = vector_load_or_lane_broadcast(addr, element_size_from_mnemonic);
+dst.u8[0] = mem.u8[offset + 0];
+dst.u8[1] = mem.u8[offset + 1];
+dst.u8[2] = mem.u8[offset + 2];
+dst.u8[3] = mem.u8[offset + 3];
+dst.u8[4] = mem.u8[offset + 4];
+dst.u8[5] = mem.u8[offset + 5];
+dst.u8[6] = mem.u8[offset + 6];
+dst.u8[7] = mem.u8[offset + 7];
+dst.u8[8] = mem.u8[offset + 8];
+dst.u8[9] = mem.u8[offset + 9];
+dst.u8[10] = mem.u8[offset + 10];
+dst.u8[11] = mem.u8[offset + 11];
+dst.u8[12] = mem.u8[offset + 12];
+dst.u8[13] = mem.u8[offset + 13];
+dst.u8[14] = mem.u8[offset + 14];
+dst.u8[15] = mem.u8[offset + 15];
 ```
 
 ### Header Mapping
@@ -142,12 +182,12 @@ dst = vector_load_or_lane_broadcast(addr, element_size_from_mnemonic);
 #define __msa_ld_w __builtin_msa_ld_w
 ```
 
-## void __msa_st_b (v16i8 a, void * mem, int imm_n512_511)
+## void __msa_st_b (v16i8 a, void * mem, int offset)
 
 ### Synopsis
 
 ```c
-void __msa_st_b (v16i8 a, void * mem, int imm_n512_511)
+void __msa_st_b (v16i8 a, void * mem, int offset)
 #include <msa.h>
 Instruction: st.b
 Builtin: __builtin_msa_st_b
@@ -158,17 +198,27 @@ Source: include/msa.h:232
 
 ### Description
 
-Load or store selected vector element data using the memory addressing convention encoded by `st.b`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Store one full vector to memory at `mem + offset`.
 
 ### Operation
 
 ```c
-// Inferred semantics for st.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm_n512_511;
-addr = mem + imm_n512_511;
-store_selected_element_or_vector(addr, a, element_size_from_mnemonic);
+mem.u8[offset + 0] = a.u8[0];
+mem.u8[offset + 1] = a.u8[1];
+mem.u8[offset + 2] = a.u8[2];
+mem.u8[offset + 3] = a.u8[3];
+mem.u8[offset + 4] = a.u8[4];
+mem.u8[offset + 5] = a.u8[5];
+mem.u8[offset + 6] = a.u8[6];
+mem.u8[offset + 7] = a.u8[7];
+mem.u8[offset + 8] = a.u8[8];
+mem.u8[offset + 9] = a.u8[9];
+mem.u8[offset + 10] = a.u8[10];
+mem.u8[offset + 11] = a.u8[11];
+mem.u8[offset + 12] = a.u8[12];
+mem.u8[offset + 13] = a.u8[13];
+mem.u8[offset + 14] = a.u8[14];
+mem.u8[offset + 15] = a.u8[15];
 ```
 
 ### Header Mapping
@@ -177,12 +227,12 @@ store_selected_element_or_vector(addr, a, element_size_from_mnemonic);
 #define __msa_st_b __builtin_msa_st_b
 ```
 
-## void __msa_st_d (v2i64 a, void * mem, int imm_n4096_4088)
+## void __msa_st_d (v2i64 a, void * mem, int offset)
 
 ### Synopsis
 
 ```c
-void __msa_st_d (v2i64 a, void * mem, int imm_n4096_4088)
+void __msa_st_d (v2i64 a, void * mem, int offset)
 #include <msa.h>
 Instruction: st.d
 Builtin: __builtin_msa_st_d
@@ -193,17 +243,27 @@ Source: include/msa.h:235
 
 ### Description
 
-Load or store selected vector element data using the memory addressing convention encoded by `st.d`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Store one full vector to memory at `mem + offset`.
 
 ### Operation
 
 ```c
-// Inferred semantics for st.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm_n4096_4088;
-addr = mem + imm_n4096_4088;
-store_selected_element_or_vector(addr, a, element_size_from_mnemonic);
+mem.u8[offset + 0] = a.u8[0];
+mem.u8[offset + 1] = a.u8[1];
+mem.u8[offset + 2] = a.u8[2];
+mem.u8[offset + 3] = a.u8[3];
+mem.u8[offset + 4] = a.u8[4];
+mem.u8[offset + 5] = a.u8[5];
+mem.u8[offset + 6] = a.u8[6];
+mem.u8[offset + 7] = a.u8[7];
+mem.u8[offset + 8] = a.u8[8];
+mem.u8[offset + 9] = a.u8[9];
+mem.u8[offset + 10] = a.u8[10];
+mem.u8[offset + 11] = a.u8[11];
+mem.u8[offset + 12] = a.u8[12];
+mem.u8[offset + 13] = a.u8[13];
+mem.u8[offset + 14] = a.u8[14];
+mem.u8[offset + 15] = a.u8[15];
 ```
 
 ### Header Mapping
@@ -212,12 +272,12 @@ store_selected_element_or_vector(addr, a, element_size_from_mnemonic);
 #define __msa_st_d __builtin_msa_st_d
 ```
 
-## void __msa_st_h (v8i16 a, void * mem, int imm_n1024_1022)
+## void __msa_st_h (v8i16 a, void * mem, int offset)
 
 ### Synopsis
 
 ```c
-void __msa_st_h (v8i16 a, void * mem, int imm_n1024_1022)
+void __msa_st_h (v8i16 a, void * mem, int offset)
 #include <msa.h>
 Instruction: st.h
 Builtin: __builtin_msa_st_h
@@ -228,17 +288,27 @@ Source: include/msa.h:233
 
 ### Description
 
-Load or store selected vector element data using the memory addressing convention encoded by `st.h`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Store one full vector to memory at `mem + offset`.
 
 ### Operation
 
 ```c
-// Inferred semantics for st.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm_n1024_1022;
-addr = mem + imm_n1024_1022;
-store_selected_element_or_vector(addr, a, element_size_from_mnemonic);
+mem.u8[offset + 0] = a.u8[0];
+mem.u8[offset + 1] = a.u8[1];
+mem.u8[offset + 2] = a.u8[2];
+mem.u8[offset + 3] = a.u8[3];
+mem.u8[offset + 4] = a.u8[4];
+mem.u8[offset + 5] = a.u8[5];
+mem.u8[offset + 6] = a.u8[6];
+mem.u8[offset + 7] = a.u8[7];
+mem.u8[offset + 8] = a.u8[8];
+mem.u8[offset + 9] = a.u8[9];
+mem.u8[offset + 10] = a.u8[10];
+mem.u8[offset + 11] = a.u8[11];
+mem.u8[offset + 12] = a.u8[12];
+mem.u8[offset + 13] = a.u8[13];
+mem.u8[offset + 14] = a.u8[14];
+mem.u8[offset + 15] = a.u8[15];
 ```
 
 ### Header Mapping
@@ -247,12 +317,12 @@ store_selected_element_or_vector(addr, a, element_size_from_mnemonic);
 #define __msa_st_h __builtin_msa_st_h
 ```
 
-## void __msa_st_w (v4i32 a, void * mem, int imm_n2048_2044)
+## void __msa_st_w (v4i32 a, void * mem, int offset)
 
 ### Synopsis
 
 ```c
-void __msa_st_w (v4i32 a, void * mem, int imm_n2048_2044)
+void __msa_st_w (v4i32 a, void * mem, int offset)
 #include <msa.h>
 Instruction: st.w
 Builtin: __builtin_msa_st_w
@@ -263,17 +333,27 @@ Source: include/msa.h:234
 
 ### Description
 
-Load or store selected vector element data using the memory addressing convention encoded by `st.w`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Store one full vector to memory at `mem + offset`.
 
 ### Operation
 
 ```c
-// Inferred semantics for st.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm_n2048_2044;
-addr = mem + imm_n2048_2044;
-store_selected_element_or_vector(addr, a, element_size_from_mnemonic);
+mem.u8[offset + 0] = a.u8[0];
+mem.u8[offset + 1] = a.u8[1];
+mem.u8[offset + 2] = a.u8[2];
+mem.u8[offset + 3] = a.u8[3];
+mem.u8[offset + 4] = a.u8[4];
+mem.u8[offset + 5] = a.u8[5];
+mem.u8[offset + 6] = a.u8[6];
+mem.u8[offset + 7] = a.u8[7];
+mem.u8[offset + 8] = a.u8[8];
+mem.u8[offset + 9] = a.u8[9];
+mem.u8[offset + 10] = a.u8[10];
+mem.u8[offset + 11] = a.u8[11];
+mem.u8[offset + 12] = a.u8[12];
+mem.u8[offset + 13] = a.u8[13];
+mem.u8[offset + 14] = a.u8[14];
+mem.u8[offset + 15] = a.u8[15];
 ```
 
 ### Header Mapping

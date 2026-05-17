@@ -18,16 +18,27 @@ Source: include/msa.h:92
 
 ### Description
 
-Manipulate or summarize bits in each 16 x 8-bit byte lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear one selected bit in each u8 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bclr.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = a.byte[i] & ~(1 << (b.byte[i] & 7));
+dst.u8[0] = a.u8[0] & ~(1 << (b.u8[0] & 7));
+dst.u8[1] = a.u8[1] & ~(1 << (b.u8[1] & 7));
+dst.u8[2] = a.u8[2] & ~(1 << (b.u8[2] & 7));
+dst.u8[3] = a.u8[3] & ~(1 << (b.u8[3] & 7));
+dst.u8[4] = a.u8[4] & ~(1 << (b.u8[4] & 7));
+dst.u8[5] = a.u8[5] & ~(1 << (b.u8[5] & 7));
+dst.u8[6] = a.u8[6] & ~(1 << (b.u8[6] & 7));
+dst.u8[7] = a.u8[7] & ~(1 << (b.u8[7] & 7));
+dst.u8[8] = a.u8[8] & ~(1 << (b.u8[8] & 7));
+dst.u8[9] = a.u8[9] & ~(1 << (b.u8[9] & 7));
+dst.u8[10] = a.u8[10] & ~(1 << (b.u8[10] & 7));
+dst.u8[11] = a.u8[11] & ~(1 << (b.u8[11] & 7));
+dst.u8[12] = a.u8[12] & ~(1 << (b.u8[12] & 7));
+dst.u8[13] = a.u8[13] & ~(1 << (b.u8[13] & 7));
+dst.u8[14] = a.u8[14] & ~(1 << (b.u8[14] & 7));
+dst.u8[15] = a.u8[15] & ~(1 << (b.u8[15] & 7));
 ```
 
 ### Header Mapping
@@ -52,16 +63,13 @@ Source: include/msa.h:95
 
 ### Description
 
-Manipulate or summarize bits in each 2 x 64-bit dword lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear one selected bit in each u64 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bclr.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = a.dword[i] & ~(1 << (b.dword[i] & 63));
+dst.u64[0] = a.u64[0] & ~(1 << (b.u64[0] & 63));
+dst.u64[1] = a.u64[1] & ~(1 << (b.u64[1] & 63));
 ```
 
 ### Header Mapping
@@ -86,16 +94,19 @@ Source: include/msa.h:93
 
 ### Description
 
-Manipulate or summarize bits in each 8 x 16-bit half lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear one selected bit in each u16 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bclr.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = a.half[i] & ~(1 << (b.half[i] & 15));
+dst.u16[0] = a.u16[0] & ~(1 << (b.u16[0] & 15));
+dst.u16[1] = a.u16[1] & ~(1 << (b.u16[1] & 15));
+dst.u16[2] = a.u16[2] & ~(1 << (b.u16[2] & 15));
+dst.u16[3] = a.u16[3] & ~(1 << (b.u16[3] & 15));
+dst.u16[4] = a.u16[4] & ~(1 << (b.u16[4] & 15));
+dst.u16[5] = a.u16[5] & ~(1 << (b.u16[5] & 15));
+dst.u16[6] = a.u16[6] & ~(1 << (b.u16[6] & 15));
+dst.u16[7] = a.u16[7] & ~(1 << (b.u16[7] & 15));
 ```
 
 ### Header Mapping
@@ -120,16 +131,15 @@ Source: include/msa.h:94
 
 ### Description
 
-Manipulate or summarize bits in each 4 x 32-bit word lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear one selected bit in each u32 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bclr.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = a.word[i] & ~(1 << (b.word[i] & 31));
+dst.u32[0] = a.u32[0] & ~(1 << (b.u32[0] & 31));
+dst.u32[1] = a.u32[1] & ~(1 << (b.u32[1] & 31));
+dst.u32[2] = a.u32[2] & ~(1 << (b.u32[2] & 31));
+dst.u32[3] = a.u32[3] & ~(1 << (b.u32[3] & 31));
 ```
 
 ### Header Mapping
@@ -138,12 +148,12 @@ for i in 0..3:
 #define __msa_bclr_w __builtin_msa_bclr_w
 ```
 
-## v16u8 __msa_bclri_b (v16u8 a, int imm0_7)
+## v16u8 __msa_bclri_b (v16u8 a, int imm)
 
 ### Synopsis
 
 ```c
-v16u8 __msa_bclri_b (v16u8 a, int imm0_7)
+v16u8 __msa_bclri_b (v16u8 a, int imm)
 #include <msa.h>
 Instruction: bclri.b
 Builtin: __builtin_msa_bclri_b
@@ -154,17 +164,27 @@ Source: include/msa.h:96
 
 ### Description
 
-Manipulate or summarize bits in each 16 x 8-bit byte lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear one selected bit in each u8 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bclri.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_7;
-for i in 0..15:
-  dst.byte[i] = a.byte[i] & ~(1 << (imm));
+dst.u8[0] = a.u8[0] & ~(1 << (imm));
+dst.u8[1] = a.u8[1] & ~(1 << (imm));
+dst.u8[2] = a.u8[2] & ~(1 << (imm));
+dst.u8[3] = a.u8[3] & ~(1 << (imm));
+dst.u8[4] = a.u8[4] & ~(1 << (imm));
+dst.u8[5] = a.u8[5] & ~(1 << (imm));
+dst.u8[6] = a.u8[6] & ~(1 << (imm));
+dst.u8[7] = a.u8[7] & ~(1 << (imm));
+dst.u8[8] = a.u8[8] & ~(1 << (imm));
+dst.u8[9] = a.u8[9] & ~(1 << (imm));
+dst.u8[10] = a.u8[10] & ~(1 << (imm));
+dst.u8[11] = a.u8[11] & ~(1 << (imm));
+dst.u8[12] = a.u8[12] & ~(1 << (imm));
+dst.u8[13] = a.u8[13] & ~(1 << (imm));
+dst.u8[14] = a.u8[14] & ~(1 << (imm));
+dst.u8[15] = a.u8[15] & ~(1 << (imm));
 ```
 
 ### Header Mapping
@@ -173,12 +193,12 @@ for i in 0..15:
 #define __msa_bclri_b __builtin_msa_bclri_b
 ```
 
-## v2u64 __msa_bclri_d (v2u64 a, int imm0_63)
+## v2u64 __msa_bclri_d (v2u64 a, int imm)
 
 ### Synopsis
 
 ```c
-v2u64 __msa_bclri_d (v2u64 a, int imm0_63)
+v2u64 __msa_bclri_d (v2u64 a, int imm)
 #include <msa.h>
 Instruction: bclri.d
 Builtin: __builtin_msa_bclri_d
@@ -189,17 +209,13 @@ Source: include/msa.h:99
 
 ### Description
 
-Manipulate or summarize bits in each 2 x 64-bit dword lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear one selected bit in each u64 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bclri.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm0_63;
-for i in 0..1:
-  dst.dword[i] = a.dword[i] & ~(1 << (imm));
+dst.u64[0] = a.u64[0] & ~(1 << (imm));
+dst.u64[1] = a.u64[1] & ~(1 << (imm));
 ```
 
 ### Header Mapping
@@ -208,12 +224,12 @@ for i in 0..1:
 #define __msa_bclri_d __builtin_msa_bclri_d
 ```
 
-## v8u16 __msa_bclri_h (v8u16 a, int imm0_15)
+## v8u16 __msa_bclri_h (v8u16 a, int imm)
 
 ### Synopsis
 
 ```c
-v8u16 __msa_bclri_h (v8u16 a, int imm0_15)
+v8u16 __msa_bclri_h (v8u16 a, int imm)
 #include <msa.h>
 Instruction: bclri.h
 Builtin: __builtin_msa_bclri_h
@@ -224,17 +240,19 @@ Source: include/msa.h:97
 
 ### Description
 
-Manipulate or summarize bits in each 8 x 16-bit half lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear one selected bit in each u16 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bclri.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm0_15;
-for i in 0..7:
-  dst.half[i] = a.half[i] & ~(1 << (imm));
+dst.u16[0] = a.u16[0] & ~(1 << (imm));
+dst.u16[1] = a.u16[1] & ~(1 << (imm));
+dst.u16[2] = a.u16[2] & ~(1 << (imm));
+dst.u16[3] = a.u16[3] & ~(1 << (imm));
+dst.u16[4] = a.u16[4] & ~(1 << (imm));
+dst.u16[5] = a.u16[5] & ~(1 << (imm));
+dst.u16[6] = a.u16[6] & ~(1 << (imm));
+dst.u16[7] = a.u16[7] & ~(1 << (imm));
 ```
 
 ### Header Mapping
@@ -243,12 +261,12 @@ for i in 0..7:
 #define __msa_bclri_h __builtin_msa_bclri_h
 ```
 
-## v4u32 __msa_bclri_w (v4u32 a, int imm0_31)
+## v4u32 __msa_bclri_w (v4u32 a, int imm)
 
 ### Synopsis
 
 ```c
-v4u32 __msa_bclri_w (v4u32 a, int imm0_31)
+v4u32 __msa_bclri_w (v4u32 a, int imm)
 #include <msa.h>
 Instruction: bclri.w
 Builtin: __builtin_msa_bclri_w
@@ -259,17 +277,15 @@ Source: include/msa.h:98
 
 ### Description
 
-Manipulate or summarize bits in each 4 x 32-bit word lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Clear one selected bit in each u32 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bclri.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm0_31;
-for i in 0..3:
-  dst.word[i] = a.word[i] & ~(1 << (imm));
+dst.u32[0] = a.u32[0] & ~(1 << (imm));
+dst.u32[1] = a.u32[1] & ~(1 << (imm));
+dst.u32[2] = a.u32[2] & ~(1 << (imm));
+dst.u32[3] = a.u32[3] & ~(1 << (imm));
 ```
 
 ### Header Mapping
@@ -294,17 +310,27 @@ Source: include/msa.h:116
 
 ### Description
 
-Manipulate or summarize bits in each 16 x 8-bit byte lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert a run of most-significant bits from `b` into each lane of `a`, with the run length selected by `b` or the immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for binsl.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  mask = most-significant_bits_mask(8, (b.byte[i] & 7) + 1);
-  dst.byte[i] = (a.byte[i] & ~mask) | (b.byte[i] & mask);
+dst.u8[0] = insert_bits(a.u8[0], b.u8[0], most-significant_bits_mask(8, (b.u8[0] & 7) + 1));
+dst.u8[1] = insert_bits(a.u8[1], b.u8[1], most-significant_bits_mask(8, (b.u8[1] & 7) + 1));
+dst.u8[2] = insert_bits(a.u8[2], b.u8[2], most-significant_bits_mask(8, (b.u8[2] & 7) + 1));
+dst.u8[3] = insert_bits(a.u8[3], b.u8[3], most-significant_bits_mask(8, (b.u8[3] & 7) + 1));
+dst.u8[4] = insert_bits(a.u8[4], b.u8[4], most-significant_bits_mask(8, (b.u8[4] & 7) + 1));
+dst.u8[5] = insert_bits(a.u8[5], b.u8[5], most-significant_bits_mask(8, (b.u8[5] & 7) + 1));
+dst.u8[6] = insert_bits(a.u8[6], b.u8[6], most-significant_bits_mask(8, (b.u8[6] & 7) + 1));
+dst.u8[7] = insert_bits(a.u8[7], b.u8[7], most-significant_bits_mask(8, (b.u8[7] & 7) + 1));
+dst.u8[8] = insert_bits(a.u8[8], b.u8[8], most-significant_bits_mask(8, (b.u8[8] & 7) + 1));
+dst.u8[9] = insert_bits(a.u8[9], b.u8[9], most-significant_bits_mask(8, (b.u8[9] & 7) + 1));
+dst.u8[10] = insert_bits(a.u8[10], b.u8[10], most-significant_bits_mask(8, (b.u8[10] & 7) + 1));
+dst.u8[11] = insert_bits(a.u8[11], b.u8[11], most-significant_bits_mask(8, (b.u8[11] & 7) + 1));
+dst.u8[12] = insert_bits(a.u8[12], b.u8[12], most-significant_bits_mask(8, (b.u8[12] & 7) + 1));
+dst.u8[13] = insert_bits(a.u8[13], b.u8[13], most-significant_bits_mask(8, (b.u8[13] & 7) + 1));
+dst.u8[14] = insert_bits(a.u8[14], b.u8[14], most-significant_bits_mask(8, (b.u8[14] & 7) + 1));
+dst.u8[15] = insert_bits(a.u8[15], b.u8[15], most-significant_bits_mask(8, (b.u8[15] & 7) + 1));
 ```
 
 ### Header Mapping
@@ -329,17 +355,13 @@ Source: include/msa.h:119
 
 ### Description
 
-Manipulate or summarize bits in each 2 x 64-bit dword lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert a run of most-significant bits from `b` into each lane of `a`, with the run length selected by `b` or the immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for binsl.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  mask = most-significant_bits_mask(64, (b.dword[i] & 63) + 1);
-  dst.dword[i] = (a.dword[i] & ~mask) | (b.dword[i] & mask);
+dst.u64[0] = insert_bits(a.u64[0], b.u64[0], most-significant_bits_mask(64, (b.u64[0] & 63) + 1));
+dst.u64[1] = insert_bits(a.u64[1], b.u64[1], most-significant_bits_mask(64, (b.u64[1] & 63) + 1));
 ```
 
 ### Header Mapping
@@ -364,17 +386,19 @@ Source: include/msa.h:117
 
 ### Description
 
-Manipulate or summarize bits in each 8 x 16-bit half lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert a run of most-significant bits from `b` into each lane of `a`, with the run length selected by `b` or the immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for binsl.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  mask = most-significant_bits_mask(16, (b.half[i] & 15) + 1);
-  dst.half[i] = (a.half[i] & ~mask) | (b.half[i] & mask);
+dst.u16[0] = insert_bits(a.u16[0], b.u16[0], most-significant_bits_mask(16, (b.u16[0] & 15) + 1));
+dst.u16[1] = insert_bits(a.u16[1], b.u16[1], most-significant_bits_mask(16, (b.u16[1] & 15) + 1));
+dst.u16[2] = insert_bits(a.u16[2], b.u16[2], most-significant_bits_mask(16, (b.u16[2] & 15) + 1));
+dst.u16[3] = insert_bits(a.u16[3], b.u16[3], most-significant_bits_mask(16, (b.u16[3] & 15) + 1));
+dst.u16[4] = insert_bits(a.u16[4], b.u16[4], most-significant_bits_mask(16, (b.u16[4] & 15) + 1));
+dst.u16[5] = insert_bits(a.u16[5], b.u16[5], most-significant_bits_mask(16, (b.u16[5] & 15) + 1));
+dst.u16[6] = insert_bits(a.u16[6], b.u16[6], most-significant_bits_mask(16, (b.u16[6] & 15) + 1));
+dst.u16[7] = insert_bits(a.u16[7], b.u16[7], most-significant_bits_mask(16, (b.u16[7] & 15) + 1));
 ```
 
 ### Header Mapping
@@ -399,17 +423,15 @@ Source: include/msa.h:118
 
 ### Description
 
-Manipulate or summarize bits in each 4 x 32-bit word lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert a run of most-significant bits from `b` into each lane of `a`, with the run length selected by `b` or the immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for binsl.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  mask = most-significant_bits_mask(32, (b.word[i] & 31) + 1);
-  dst.word[i] = (a.word[i] & ~mask) | (b.word[i] & mask);
+dst.u32[0] = insert_bits(a.u32[0], b.u32[0], most-significant_bits_mask(32, (b.u32[0] & 31) + 1));
+dst.u32[1] = insert_bits(a.u32[1], b.u32[1], most-significant_bits_mask(32, (b.u32[1] & 31) + 1));
+dst.u32[2] = insert_bits(a.u32[2], b.u32[2], most-significant_bits_mask(32, (b.u32[2] & 31) + 1));
+dst.u32[3] = insert_bits(a.u32[3], b.u32[3], most-significant_bits_mask(32, (b.u32[3] & 31) + 1));
 ```
 
 ### Header Mapping
@@ -418,12 +440,12 @@ for i in 0..3:
 #define __msa_binsl_w __builtin_msa_binsl_w
 ```
 
-## v16u8 __msa_binsli_b (v16u8 a, v16u8 b, int imm0_7)
+## v16u8 __msa_binsli_b (v16u8 a, v16u8 b, int imm)
 
 ### Synopsis
 
 ```c
-v16u8 __msa_binsli_b (v16u8 a, v16u8 b, int imm0_7)
+v16u8 __msa_binsli_b (v16u8 a, v16u8 b, int imm)
 #include <msa.h>
 Instruction: binsli.b
 Builtin: __builtin_msa_binsli_b
@@ -434,18 +456,27 @@ Source: include/msa.h:120
 
 ### Description
 
-Manipulate or summarize bits in each 16 x 8-bit byte lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert a run of most-significant bits from `b` into each lane of `a`, with the run length selected by `b` or the immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for binsli.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_7;
-for i in 0..15:
-  mask = most-significant_bits_mask(8, imm + 1);
-  dst.byte[i] = (a.byte[i] & ~mask) | (b.byte[i] & mask);
+dst.u8[0] = insert_bits(a.u8[0], b.u8[0], most-significant_bits_mask(8, imm + 1));
+dst.u8[1] = insert_bits(a.u8[1], b.u8[1], most-significant_bits_mask(8, imm + 1));
+dst.u8[2] = insert_bits(a.u8[2], b.u8[2], most-significant_bits_mask(8, imm + 1));
+dst.u8[3] = insert_bits(a.u8[3], b.u8[3], most-significant_bits_mask(8, imm + 1));
+dst.u8[4] = insert_bits(a.u8[4], b.u8[4], most-significant_bits_mask(8, imm + 1));
+dst.u8[5] = insert_bits(a.u8[5], b.u8[5], most-significant_bits_mask(8, imm + 1));
+dst.u8[6] = insert_bits(a.u8[6], b.u8[6], most-significant_bits_mask(8, imm + 1));
+dst.u8[7] = insert_bits(a.u8[7], b.u8[7], most-significant_bits_mask(8, imm + 1));
+dst.u8[8] = insert_bits(a.u8[8], b.u8[8], most-significant_bits_mask(8, imm + 1));
+dst.u8[9] = insert_bits(a.u8[9], b.u8[9], most-significant_bits_mask(8, imm + 1));
+dst.u8[10] = insert_bits(a.u8[10], b.u8[10], most-significant_bits_mask(8, imm + 1));
+dst.u8[11] = insert_bits(a.u8[11], b.u8[11], most-significant_bits_mask(8, imm + 1));
+dst.u8[12] = insert_bits(a.u8[12], b.u8[12], most-significant_bits_mask(8, imm + 1));
+dst.u8[13] = insert_bits(a.u8[13], b.u8[13], most-significant_bits_mask(8, imm + 1));
+dst.u8[14] = insert_bits(a.u8[14], b.u8[14], most-significant_bits_mask(8, imm + 1));
+dst.u8[15] = insert_bits(a.u8[15], b.u8[15], most-significant_bits_mask(8, imm + 1));
 ```
 
 ### Header Mapping
@@ -454,12 +485,12 @@ for i in 0..15:
 #define __msa_binsli_b __builtin_msa_binsli_b
 ```
 
-## v2u64 __msa_binsli_d (v2u64 a, v2u64 b, int imm0_63)
+## v2u64 __msa_binsli_d (v2u64 a, v2u64 b, int imm)
 
 ### Synopsis
 
 ```c
-v2u64 __msa_binsli_d (v2u64 a, v2u64 b, int imm0_63)
+v2u64 __msa_binsli_d (v2u64 a, v2u64 b, int imm)
 #include <msa.h>
 Instruction: binsli.d
 Builtin: __builtin_msa_binsli_d
@@ -470,18 +501,13 @@ Source: include/msa.h:123
 
 ### Description
 
-Manipulate or summarize bits in each 2 x 64-bit dword lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert a run of most-significant bits from `b` into each lane of `a`, with the run length selected by `b` or the immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for binsli.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm0_63;
-for i in 0..1:
-  mask = most-significant_bits_mask(64, imm + 1);
-  dst.dword[i] = (a.dword[i] & ~mask) | (b.dword[i] & mask);
+dst.u64[0] = insert_bits(a.u64[0], b.u64[0], most-significant_bits_mask(64, imm + 1));
+dst.u64[1] = insert_bits(a.u64[1], b.u64[1], most-significant_bits_mask(64, imm + 1));
 ```
 
 ### Header Mapping
@@ -490,12 +516,12 @@ for i in 0..1:
 #define __msa_binsli_d __builtin_msa_binsli_d
 ```
 
-## v8u16 __msa_binsli_h (v8u16 a, v8u16 b, int imm0_15)
+## v8u16 __msa_binsli_h (v8u16 a, v8u16 b, int imm)
 
 ### Synopsis
 
 ```c
-v8u16 __msa_binsli_h (v8u16 a, v8u16 b, int imm0_15)
+v8u16 __msa_binsli_h (v8u16 a, v8u16 b, int imm)
 #include <msa.h>
 Instruction: binsli.h
 Builtin: __builtin_msa_binsli_h
@@ -506,18 +532,19 @@ Source: include/msa.h:121
 
 ### Description
 
-Manipulate or summarize bits in each 8 x 16-bit half lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert a run of most-significant bits from `b` into each lane of `a`, with the run length selected by `b` or the immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for binsli.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm0_15;
-for i in 0..7:
-  mask = most-significant_bits_mask(16, imm + 1);
-  dst.half[i] = (a.half[i] & ~mask) | (b.half[i] & mask);
+dst.u16[0] = insert_bits(a.u16[0], b.u16[0], most-significant_bits_mask(16, imm + 1));
+dst.u16[1] = insert_bits(a.u16[1], b.u16[1], most-significant_bits_mask(16, imm + 1));
+dst.u16[2] = insert_bits(a.u16[2], b.u16[2], most-significant_bits_mask(16, imm + 1));
+dst.u16[3] = insert_bits(a.u16[3], b.u16[3], most-significant_bits_mask(16, imm + 1));
+dst.u16[4] = insert_bits(a.u16[4], b.u16[4], most-significant_bits_mask(16, imm + 1));
+dst.u16[5] = insert_bits(a.u16[5], b.u16[5], most-significant_bits_mask(16, imm + 1));
+dst.u16[6] = insert_bits(a.u16[6], b.u16[6], most-significant_bits_mask(16, imm + 1));
+dst.u16[7] = insert_bits(a.u16[7], b.u16[7], most-significant_bits_mask(16, imm + 1));
 ```
 
 ### Header Mapping
@@ -526,12 +553,12 @@ for i in 0..7:
 #define __msa_binsli_h __builtin_msa_binsli_h
 ```
 
-## v4u32 __msa_binsli_w (v4u32 a, v4u32 b, int imm0_31)
+## v4u32 __msa_binsli_w (v4u32 a, v4u32 b, int imm)
 
 ### Synopsis
 
 ```c
-v4u32 __msa_binsli_w (v4u32 a, v4u32 b, int imm0_31)
+v4u32 __msa_binsli_w (v4u32 a, v4u32 b, int imm)
 #include <msa.h>
 Instruction: binsli.w
 Builtin: __builtin_msa_binsli_w
@@ -542,18 +569,15 @@ Source: include/msa.h:122
 
 ### Description
 
-Manipulate or summarize bits in each 4 x 32-bit word lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert a run of most-significant bits from `b` into each lane of `a`, with the run length selected by `b` or the immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for binsli.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm0_31;
-for i in 0..3:
-  mask = most-significant_bits_mask(32, imm + 1);
-  dst.word[i] = (a.word[i] & ~mask) | (b.word[i] & mask);
+dst.u32[0] = insert_bits(a.u32[0], b.u32[0], most-significant_bits_mask(32, imm + 1));
+dst.u32[1] = insert_bits(a.u32[1], b.u32[1], most-significant_bits_mask(32, imm + 1));
+dst.u32[2] = insert_bits(a.u32[2], b.u32[2], most-significant_bits_mask(32, imm + 1));
+dst.u32[3] = insert_bits(a.u32[3], b.u32[3], most-significant_bits_mask(32, imm + 1));
 ```
 
 ### Header Mapping
@@ -578,17 +602,27 @@ Source: include/msa.h:124
 
 ### Description
 
-Manipulate or summarize bits in each 16 x 8-bit byte lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert a run of least-significant bits from `b` into each lane of `a`, with the run length selected by `b` or the immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for binsr.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  mask = least-significant_bits_mask(8, (b.byte[i] & 7) + 1);
-  dst.byte[i] = (a.byte[i] & ~mask) | (b.byte[i] & mask);
+dst.u8[0] = insert_bits(a.u8[0], b.u8[0], least-significant_bits_mask(8, (b.u8[0] & 7) + 1));
+dst.u8[1] = insert_bits(a.u8[1], b.u8[1], least-significant_bits_mask(8, (b.u8[1] & 7) + 1));
+dst.u8[2] = insert_bits(a.u8[2], b.u8[2], least-significant_bits_mask(8, (b.u8[2] & 7) + 1));
+dst.u8[3] = insert_bits(a.u8[3], b.u8[3], least-significant_bits_mask(8, (b.u8[3] & 7) + 1));
+dst.u8[4] = insert_bits(a.u8[4], b.u8[4], least-significant_bits_mask(8, (b.u8[4] & 7) + 1));
+dst.u8[5] = insert_bits(a.u8[5], b.u8[5], least-significant_bits_mask(8, (b.u8[5] & 7) + 1));
+dst.u8[6] = insert_bits(a.u8[6], b.u8[6], least-significant_bits_mask(8, (b.u8[6] & 7) + 1));
+dst.u8[7] = insert_bits(a.u8[7], b.u8[7], least-significant_bits_mask(8, (b.u8[7] & 7) + 1));
+dst.u8[8] = insert_bits(a.u8[8], b.u8[8], least-significant_bits_mask(8, (b.u8[8] & 7) + 1));
+dst.u8[9] = insert_bits(a.u8[9], b.u8[9], least-significant_bits_mask(8, (b.u8[9] & 7) + 1));
+dst.u8[10] = insert_bits(a.u8[10], b.u8[10], least-significant_bits_mask(8, (b.u8[10] & 7) + 1));
+dst.u8[11] = insert_bits(a.u8[11], b.u8[11], least-significant_bits_mask(8, (b.u8[11] & 7) + 1));
+dst.u8[12] = insert_bits(a.u8[12], b.u8[12], least-significant_bits_mask(8, (b.u8[12] & 7) + 1));
+dst.u8[13] = insert_bits(a.u8[13], b.u8[13], least-significant_bits_mask(8, (b.u8[13] & 7) + 1));
+dst.u8[14] = insert_bits(a.u8[14], b.u8[14], least-significant_bits_mask(8, (b.u8[14] & 7) + 1));
+dst.u8[15] = insert_bits(a.u8[15], b.u8[15], least-significant_bits_mask(8, (b.u8[15] & 7) + 1));
 ```
 
 ### Header Mapping
@@ -613,17 +647,13 @@ Source: include/msa.h:127
 
 ### Description
 
-Manipulate or summarize bits in each 2 x 64-bit dword lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert a run of least-significant bits from `b` into each lane of `a`, with the run length selected by `b` or the immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for binsr.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  mask = least-significant_bits_mask(64, (b.dword[i] & 63) + 1);
-  dst.dword[i] = (a.dword[i] & ~mask) | (b.dword[i] & mask);
+dst.u64[0] = insert_bits(a.u64[0], b.u64[0], least-significant_bits_mask(64, (b.u64[0] & 63) + 1));
+dst.u64[1] = insert_bits(a.u64[1], b.u64[1], least-significant_bits_mask(64, (b.u64[1] & 63) + 1));
 ```
 
 ### Header Mapping
@@ -648,17 +678,19 @@ Source: include/msa.h:125
 
 ### Description
 
-Manipulate or summarize bits in each 8 x 16-bit half lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert a run of least-significant bits from `b` into each lane of `a`, with the run length selected by `b` or the immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for binsr.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  mask = least-significant_bits_mask(16, (b.half[i] & 15) + 1);
-  dst.half[i] = (a.half[i] & ~mask) | (b.half[i] & mask);
+dst.u16[0] = insert_bits(a.u16[0], b.u16[0], least-significant_bits_mask(16, (b.u16[0] & 15) + 1));
+dst.u16[1] = insert_bits(a.u16[1], b.u16[1], least-significant_bits_mask(16, (b.u16[1] & 15) + 1));
+dst.u16[2] = insert_bits(a.u16[2], b.u16[2], least-significant_bits_mask(16, (b.u16[2] & 15) + 1));
+dst.u16[3] = insert_bits(a.u16[3], b.u16[3], least-significant_bits_mask(16, (b.u16[3] & 15) + 1));
+dst.u16[4] = insert_bits(a.u16[4], b.u16[4], least-significant_bits_mask(16, (b.u16[4] & 15) + 1));
+dst.u16[5] = insert_bits(a.u16[5], b.u16[5], least-significant_bits_mask(16, (b.u16[5] & 15) + 1));
+dst.u16[6] = insert_bits(a.u16[6], b.u16[6], least-significant_bits_mask(16, (b.u16[6] & 15) + 1));
+dst.u16[7] = insert_bits(a.u16[7], b.u16[7], least-significant_bits_mask(16, (b.u16[7] & 15) + 1));
 ```
 
 ### Header Mapping
@@ -683,17 +715,15 @@ Source: include/msa.h:126
 
 ### Description
 
-Manipulate or summarize bits in each 4 x 32-bit word lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert a run of least-significant bits from `b` into each lane of `a`, with the run length selected by `b` or the immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for binsr.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  mask = least-significant_bits_mask(32, (b.word[i] & 31) + 1);
-  dst.word[i] = (a.word[i] & ~mask) | (b.word[i] & mask);
+dst.u32[0] = insert_bits(a.u32[0], b.u32[0], least-significant_bits_mask(32, (b.u32[0] & 31) + 1));
+dst.u32[1] = insert_bits(a.u32[1], b.u32[1], least-significant_bits_mask(32, (b.u32[1] & 31) + 1));
+dst.u32[2] = insert_bits(a.u32[2], b.u32[2], least-significant_bits_mask(32, (b.u32[2] & 31) + 1));
+dst.u32[3] = insert_bits(a.u32[3], b.u32[3], least-significant_bits_mask(32, (b.u32[3] & 31) + 1));
 ```
 
 ### Header Mapping
@@ -702,12 +732,12 @@ for i in 0..3:
 #define __msa_binsr_w __builtin_msa_binsr_w
 ```
 
-## v16u8 __msa_binsri_b (v16u8 a, v16u8 b, int imm0_7)
+## v16u8 __msa_binsri_b (v16u8 a, v16u8 b, int imm)
 
 ### Synopsis
 
 ```c
-v16u8 __msa_binsri_b (v16u8 a, v16u8 b, int imm0_7)
+v16u8 __msa_binsri_b (v16u8 a, v16u8 b, int imm)
 #include <msa.h>
 Instruction: binsri.b
 Builtin: __builtin_msa_binsri_b
@@ -718,18 +748,27 @@ Source: include/msa.h:128
 
 ### Description
 
-Manipulate or summarize bits in each 16 x 8-bit byte lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert a run of least-significant bits from `b` into each lane of `a`, with the run length selected by `b` or the immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for binsri.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_7;
-for i in 0..15:
-  mask = least-significant_bits_mask(8, imm + 1);
-  dst.byte[i] = (a.byte[i] & ~mask) | (b.byte[i] & mask);
+dst.u8[0] = insert_bits(a.u8[0], b.u8[0], least-significant_bits_mask(8, imm + 1));
+dst.u8[1] = insert_bits(a.u8[1], b.u8[1], least-significant_bits_mask(8, imm + 1));
+dst.u8[2] = insert_bits(a.u8[2], b.u8[2], least-significant_bits_mask(8, imm + 1));
+dst.u8[3] = insert_bits(a.u8[3], b.u8[3], least-significant_bits_mask(8, imm + 1));
+dst.u8[4] = insert_bits(a.u8[4], b.u8[4], least-significant_bits_mask(8, imm + 1));
+dst.u8[5] = insert_bits(a.u8[5], b.u8[5], least-significant_bits_mask(8, imm + 1));
+dst.u8[6] = insert_bits(a.u8[6], b.u8[6], least-significant_bits_mask(8, imm + 1));
+dst.u8[7] = insert_bits(a.u8[7], b.u8[7], least-significant_bits_mask(8, imm + 1));
+dst.u8[8] = insert_bits(a.u8[8], b.u8[8], least-significant_bits_mask(8, imm + 1));
+dst.u8[9] = insert_bits(a.u8[9], b.u8[9], least-significant_bits_mask(8, imm + 1));
+dst.u8[10] = insert_bits(a.u8[10], b.u8[10], least-significant_bits_mask(8, imm + 1));
+dst.u8[11] = insert_bits(a.u8[11], b.u8[11], least-significant_bits_mask(8, imm + 1));
+dst.u8[12] = insert_bits(a.u8[12], b.u8[12], least-significant_bits_mask(8, imm + 1));
+dst.u8[13] = insert_bits(a.u8[13], b.u8[13], least-significant_bits_mask(8, imm + 1));
+dst.u8[14] = insert_bits(a.u8[14], b.u8[14], least-significant_bits_mask(8, imm + 1));
+dst.u8[15] = insert_bits(a.u8[15], b.u8[15], least-significant_bits_mask(8, imm + 1));
 ```
 
 ### Header Mapping
@@ -738,12 +777,12 @@ for i in 0..15:
 #define __msa_binsri_b __builtin_msa_binsri_b
 ```
 
-## v2u64 __msa_binsri_d (v2u64 a, v2u64 b, int imm0_63)
+## v2u64 __msa_binsri_d (v2u64 a, v2u64 b, int imm)
 
 ### Synopsis
 
 ```c
-v2u64 __msa_binsri_d (v2u64 a, v2u64 b, int imm0_63)
+v2u64 __msa_binsri_d (v2u64 a, v2u64 b, int imm)
 #include <msa.h>
 Instruction: binsri.d
 Builtin: __builtin_msa_binsri_d
@@ -754,18 +793,13 @@ Source: include/msa.h:131
 
 ### Description
 
-Manipulate or summarize bits in each 2 x 64-bit dword lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert a run of least-significant bits from `b` into each lane of `a`, with the run length selected by `b` or the immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for binsri.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm0_63;
-for i in 0..1:
-  mask = least-significant_bits_mask(64, imm + 1);
-  dst.dword[i] = (a.dword[i] & ~mask) | (b.dword[i] & mask);
+dst.u64[0] = insert_bits(a.u64[0], b.u64[0], least-significant_bits_mask(64, imm + 1));
+dst.u64[1] = insert_bits(a.u64[1], b.u64[1], least-significant_bits_mask(64, imm + 1));
 ```
 
 ### Header Mapping
@@ -774,12 +808,12 @@ for i in 0..1:
 #define __msa_binsri_d __builtin_msa_binsri_d
 ```
 
-## v8u16 __msa_binsri_h (v8u16 a, v8u16 b, int imm0_15)
+## v8u16 __msa_binsri_h (v8u16 a, v8u16 b, int imm)
 
 ### Synopsis
 
 ```c
-v8u16 __msa_binsri_h (v8u16 a, v8u16 b, int imm0_15)
+v8u16 __msa_binsri_h (v8u16 a, v8u16 b, int imm)
 #include <msa.h>
 Instruction: binsri.h
 Builtin: __builtin_msa_binsri_h
@@ -790,18 +824,19 @@ Source: include/msa.h:129
 
 ### Description
 
-Manipulate or summarize bits in each 8 x 16-bit half lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert a run of least-significant bits from `b` into each lane of `a`, with the run length selected by `b` or the immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for binsri.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm0_15;
-for i in 0..7:
-  mask = least-significant_bits_mask(16, imm + 1);
-  dst.half[i] = (a.half[i] & ~mask) | (b.half[i] & mask);
+dst.u16[0] = insert_bits(a.u16[0], b.u16[0], least-significant_bits_mask(16, imm + 1));
+dst.u16[1] = insert_bits(a.u16[1], b.u16[1], least-significant_bits_mask(16, imm + 1));
+dst.u16[2] = insert_bits(a.u16[2], b.u16[2], least-significant_bits_mask(16, imm + 1));
+dst.u16[3] = insert_bits(a.u16[3], b.u16[3], least-significant_bits_mask(16, imm + 1));
+dst.u16[4] = insert_bits(a.u16[4], b.u16[4], least-significant_bits_mask(16, imm + 1));
+dst.u16[5] = insert_bits(a.u16[5], b.u16[5], least-significant_bits_mask(16, imm + 1));
+dst.u16[6] = insert_bits(a.u16[6], b.u16[6], least-significant_bits_mask(16, imm + 1));
+dst.u16[7] = insert_bits(a.u16[7], b.u16[7], least-significant_bits_mask(16, imm + 1));
 ```
 
 ### Header Mapping
@@ -810,12 +845,12 @@ for i in 0..7:
 #define __msa_binsri_h __builtin_msa_binsri_h
 ```
 
-## v4u32 __msa_binsri_w (v4u32 a, v4u32 b, int imm0_31)
+## v4u32 __msa_binsri_w (v4u32 a, v4u32 b, int imm)
 
 ### Synopsis
 
 ```c
-v4u32 __msa_binsri_w (v4u32 a, v4u32 b, int imm0_31)
+v4u32 __msa_binsri_w (v4u32 a, v4u32 b, int imm)
 #include <msa.h>
 Instruction: binsri.w
 Builtin: __builtin_msa_binsri_w
@@ -826,18 +861,15 @@ Source: include/msa.h:130
 
 ### Description
 
-Manipulate or summarize bits in each 4 x 32-bit word lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Insert a run of least-significant bits from `b` into each lane of `a`, with the run length selected by `b` or the immediate.
 
 ### Operation
 
 ```c
-// Inferred semantics for binsri.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm0_31;
-for i in 0..3:
-  mask = least-significant_bits_mask(32, imm + 1);
-  dst.word[i] = (a.word[i] & ~mask) | (b.word[i] & mask);
+dst.u32[0] = insert_bits(a.u32[0], b.u32[0], least-significant_bits_mask(32, imm + 1));
+dst.u32[1] = insert_bits(a.u32[1], b.u32[1], least-significant_bits_mask(32, imm + 1));
+dst.u32[2] = insert_bits(a.u32[2], b.u32[2], least-significant_bits_mask(32, imm + 1));
+dst.u32[3] = insert_bits(a.u32[3], b.u32[3], least-significant_bits_mask(32, imm + 1));
 ```
 
 ### Header Mapping
@@ -862,16 +894,27 @@ Source: include/msa.h:108
 
 ### Description
 
-Manipulate or summarize bits in each 16 x 8-bit byte lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Toggle one selected bit in each u8 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bneg.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = a.byte[i] ^ (1 << (b.byte[i] & 7));
+dst.u8[0] = a.u8[0] ^ (1 << (b.u8[0] & 7));
+dst.u8[1] = a.u8[1] ^ (1 << (b.u8[1] & 7));
+dst.u8[2] = a.u8[2] ^ (1 << (b.u8[2] & 7));
+dst.u8[3] = a.u8[3] ^ (1 << (b.u8[3] & 7));
+dst.u8[4] = a.u8[4] ^ (1 << (b.u8[4] & 7));
+dst.u8[5] = a.u8[5] ^ (1 << (b.u8[5] & 7));
+dst.u8[6] = a.u8[6] ^ (1 << (b.u8[6] & 7));
+dst.u8[7] = a.u8[7] ^ (1 << (b.u8[7] & 7));
+dst.u8[8] = a.u8[8] ^ (1 << (b.u8[8] & 7));
+dst.u8[9] = a.u8[9] ^ (1 << (b.u8[9] & 7));
+dst.u8[10] = a.u8[10] ^ (1 << (b.u8[10] & 7));
+dst.u8[11] = a.u8[11] ^ (1 << (b.u8[11] & 7));
+dst.u8[12] = a.u8[12] ^ (1 << (b.u8[12] & 7));
+dst.u8[13] = a.u8[13] ^ (1 << (b.u8[13] & 7));
+dst.u8[14] = a.u8[14] ^ (1 << (b.u8[14] & 7));
+dst.u8[15] = a.u8[15] ^ (1 << (b.u8[15] & 7));
 ```
 
 ### Header Mapping
@@ -896,16 +939,13 @@ Source: include/msa.h:111
 
 ### Description
 
-Manipulate or summarize bits in each 2 x 64-bit dword lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Toggle one selected bit in each u64 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bneg.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = a.dword[i] ^ (1 << (b.dword[i] & 63));
+dst.u64[0] = a.u64[0] ^ (1 << (b.u64[0] & 63));
+dst.u64[1] = a.u64[1] ^ (1 << (b.u64[1] & 63));
 ```
 
 ### Header Mapping
@@ -930,16 +970,19 @@ Source: include/msa.h:109
 
 ### Description
 
-Manipulate or summarize bits in each 8 x 16-bit half lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Toggle one selected bit in each u16 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bneg.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = a.half[i] ^ (1 << (b.half[i] & 15));
+dst.u16[0] = a.u16[0] ^ (1 << (b.u16[0] & 15));
+dst.u16[1] = a.u16[1] ^ (1 << (b.u16[1] & 15));
+dst.u16[2] = a.u16[2] ^ (1 << (b.u16[2] & 15));
+dst.u16[3] = a.u16[3] ^ (1 << (b.u16[3] & 15));
+dst.u16[4] = a.u16[4] ^ (1 << (b.u16[4] & 15));
+dst.u16[5] = a.u16[5] ^ (1 << (b.u16[5] & 15));
+dst.u16[6] = a.u16[6] ^ (1 << (b.u16[6] & 15));
+dst.u16[7] = a.u16[7] ^ (1 << (b.u16[7] & 15));
 ```
 
 ### Header Mapping
@@ -964,16 +1007,15 @@ Source: include/msa.h:110
 
 ### Description
 
-Manipulate or summarize bits in each 4 x 32-bit word lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Toggle one selected bit in each u32 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bneg.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = a.word[i] ^ (1 << (b.word[i] & 31));
+dst.u32[0] = a.u32[0] ^ (1 << (b.u32[0] & 31));
+dst.u32[1] = a.u32[1] ^ (1 << (b.u32[1] & 31));
+dst.u32[2] = a.u32[2] ^ (1 << (b.u32[2] & 31));
+dst.u32[3] = a.u32[3] ^ (1 << (b.u32[3] & 31));
 ```
 
 ### Header Mapping
@@ -982,12 +1024,12 @@ for i in 0..3:
 #define __msa_bneg_w __builtin_msa_bneg_w
 ```
 
-## v16u8 __msa_bnegi_b (v16u8 a, int imm0_7)
+## v16u8 __msa_bnegi_b (v16u8 a, int imm)
 
 ### Synopsis
 
 ```c
-v16u8 __msa_bnegi_b (v16u8 a, int imm0_7)
+v16u8 __msa_bnegi_b (v16u8 a, int imm)
 #include <msa.h>
 Instruction: bnegi.b
 Builtin: __builtin_msa_bnegi_b
@@ -998,17 +1040,27 @@ Source: include/msa.h:112
 
 ### Description
 
-Manipulate or summarize bits in each 16 x 8-bit byte lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Toggle one selected bit in each u8 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bnegi.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_7;
-for i in 0..15:
-  dst.byte[i] = a.byte[i] ^ (1 << (imm));
+dst.u8[0] = a.u8[0] ^ (1 << (imm));
+dst.u8[1] = a.u8[1] ^ (1 << (imm));
+dst.u8[2] = a.u8[2] ^ (1 << (imm));
+dst.u8[3] = a.u8[3] ^ (1 << (imm));
+dst.u8[4] = a.u8[4] ^ (1 << (imm));
+dst.u8[5] = a.u8[5] ^ (1 << (imm));
+dst.u8[6] = a.u8[6] ^ (1 << (imm));
+dst.u8[7] = a.u8[7] ^ (1 << (imm));
+dst.u8[8] = a.u8[8] ^ (1 << (imm));
+dst.u8[9] = a.u8[9] ^ (1 << (imm));
+dst.u8[10] = a.u8[10] ^ (1 << (imm));
+dst.u8[11] = a.u8[11] ^ (1 << (imm));
+dst.u8[12] = a.u8[12] ^ (1 << (imm));
+dst.u8[13] = a.u8[13] ^ (1 << (imm));
+dst.u8[14] = a.u8[14] ^ (1 << (imm));
+dst.u8[15] = a.u8[15] ^ (1 << (imm));
 ```
 
 ### Header Mapping
@@ -1017,12 +1069,12 @@ for i in 0..15:
 #define __msa_bnegi_b __builtin_msa_bnegi_b
 ```
 
-## v2u64 __msa_bnegi_d (v2u64 a, int imm0_63)
+## v2u64 __msa_bnegi_d (v2u64 a, int imm)
 
 ### Synopsis
 
 ```c
-v2u64 __msa_bnegi_d (v2u64 a, int imm0_63)
+v2u64 __msa_bnegi_d (v2u64 a, int imm)
 #include <msa.h>
 Instruction: bnegi.d
 Builtin: __builtin_msa_bnegi_d
@@ -1033,17 +1085,13 @@ Source: include/msa.h:115
 
 ### Description
 
-Manipulate or summarize bits in each 2 x 64-bit dword lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Toggle one selected bit in each u64 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bnegi.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm0_63;
-for i in 0..1:
-  dst.dword[i] = a.dword[i] ^ (1 << (imm));
+dst.u64[0] = a.u64[0] ^ (1 << (imm));
+dst.u64[1] = a.u64[1] ^ (1 << (imm));
 ```
 
 ### Header Mapping
@@ -1052,12 +1100,12 @@ for i in 0..1:
 #define __msa_bnegi_d __builtin_msa_bnegi_d
 ```
 
-## v8u16 __msa_bnegi_h (v8u16 a, int imm0_15)
+## v8u16 __msa_bnegi_h (v8u16 a, int imm)
 
 ### Synopsis
 
 ```c
-v8u16 __msa_bnegi_h (v8u16 a, int imm0_15)
+v8u16 __msa_bnegi_h (v8u16 a, int imm)
 #include <msa.h>
 Instruction: bnegi.h
 Builtin: __builtin_msa_bnegi_h
@@ -1068,17 +1116,19 @@ Source: include/msa.h:113
 
 ### Description
 
-Manipulate or summarize bits in each 8 x 16-bit half lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Toggle one selected bit in each u16 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bnegi.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm0_15;
-for i in 0..7:
-  dst.half[i] = a.half[i] ^ (1 << (imm));
+dst.u16[0] = a.u16[0] ^ (1 << (imm));
+dst.u16[1] = a.u16[1] ^ (1 << (imm));
+dst.u16[2] = a.u16[2] ^ (1 << (imm));
+dst.u16[3] = a.u16[3] ^ (1 << (imm));
+dst.u16[4] = a.u16[4] ^ (1 << (imm));
+dst.u16[5] = a.u16[5] ^ (1 << (imm));
+dst.u16[6] = a.u16[6] ^ (1 << (imm));
+dst.u16[7] = a.u16[7] ^ (1 << (imm));
 ```
 
 ### Header Mapping
@@ -1087,12 +1137,12 @@ for i in 0..7:
 #define __msa_bnegi_h __builtin_msa_bnegi_h
 ```
 
-## v4u32 __msa_bnegi_w (v4u32 a, int imm0_31)
+## v4u32 __msa_bnegi_w (v4u32 a, int imm)
 
 ### Synopsis
 
 ```c
-v4u32 __msa_bnegi_w (v4u32 a, int imm0_31)
+v4u32 __msa_bnegi_w (v4u32 a, int imm)
 #include <msa.h>
 Instruction: bnegi.w
 Builtin: __builtin_msa_bnegi_w
@@ -1103,17 +1153,15 @@ Source: include/msa.h:114
 
 ### Description
 
-Manipulate or summarize bits in each 4 x 32-bit word lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Toggle one selected bit in each u32 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bnegi.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm0_31;
-for i in 0..3:
-  dst.word[i] = a.word[i] ^ (1 << (imm));
+dst.u32[0] = a.u32[0] ^ (1 << (imm));
+dst.u32[1] = a.u32[1] ^ (1 << (imm));
+dst.u32[2] = a.u32[2] ^ (1 << (imm));
+dst.u32[3] = a.u32[3] ^ (1 << (imm));
 ```
 
 ### Header Mapping
@@ -1138,16 +1186,27 @@ Source: include/msa.h:100
 
 ### Description
 
-Manipulate or summarize bits in each 16 x 8-bit byte lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Set one selected bit in each u8 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bset.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = a.byte[i] | (1 << (b.byte[i] & 7));
+dst.u8[0] = a.u8[0] | (1 << (b.u8[0] & 7));
+dst.u8[1] = a.u8[1] | (1 << (b.u8[1] & 7));
+dst.u8[2] = a.u8[2] | (1 << (b.u8[2] & 7));
+dst.u8[3] = a.u8[3] | (1 << (b.u8[3] & 7));
+dst.u8[4] = a.u8[4] | (1 << (b.u8[4] & 7));
+dst.u8[5] = a.u8[5] | (1 << (b.u8[5] & 7));
+dst.u8[6] = a.u8[6] | (1 << (b.u8[6] & 7));
+dst.u8[7] = a.u8[7] | (1 << (b.u8[7] & 7));
+dst.u8[8] = a.u8[8] | (1 << (b.u8[8] & 7));
+dst.u8[9] = a.u8[9] | (1 << (b.u8[9] & 7));
+dst.u8[10] = a.u8[10] | (1 << (b.u8[10] & 7));
+dst.u8[11] = a.u8[11] | (1 << (b.u8[11] & 7));
+dst.u8[12] = a.u8[12] | (1 << (b.u8[12] & 7));
+dst.u8[13] = a.u8[13] | (1 << (b.u8[13] & 7));
+dst.u8[14] = a.u8[14] | (1 << (b.u8[14] & 7));
+dst.u8[15] = a.u8[15] | (1 << (b.u8[15] & 7));
 ```
 
 ### Header Mapping
@@ -1172,16 +1231,13 @@ Source: include/msa.h:103
 
 ### Description
 
-Manipulate or summarize bits in each 2 x 64-bit dword lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Set one selected bit in each u64 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bset.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = a.dword[i] | (1 << (b.dword[i] & 63));
+dst.u64[0] = a.u64[0] | (1 << (b.u64[0] & 63));
+dst.u64[1] = a.u64[1] | (1 << (b.u64[1] & 63));
 ```
 
 ### Header Mapping
@@ -1206,16 +1262,19 @@ Source: include/msa.h:101
 
 ### Description
 
-Manipulate or summarize bits in each 8 x 16-bit half lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Set one selected bit in each u16 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bset.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = a.half[i] | (1 << (b.half[i] & 15));
+dst.u16[0] = a.u16[0] | (1 << (b.u16[0] & 15));
+dst.u16[1] = a.u16[1] | (1 << (b.u16[1] & 15));
+dst.u16[2] = a.u16[2] | (1 << (b.u16[2] & 15));
+dst.u16[3] = a.u16[3] | (1 << (b.u16[3] & 15));
+dst.u16[4] = a.u16[4] | (1 << (b.u16[4] & 15));
+dst.u16[5] = a.u16[5] | (1 << (b.u16[5] & 15));
+dst.u16[6] = a.u16[6] | (1 << (b.u16[6] & 15));
+dst.u16[7] = a.u16[7] | (1 << (b.u16[7] & 15));
 ```
 
 ### Header Mapping
@@ -1240,16 +1299,15 @@ Source: include/msa.h:102
 
 ### Description
 
-Manipulate or summarize bits in each 4 x 32-bit word lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Set one selected bit in each u32 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bset.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = a.word[i] | (1 << (b.word[i] & 31));
+dst.u32[0] = a.u32[0] | (1 << (b.u32[0] & 31));
+dst.u32[1] = a.u32[1] | (1 << (b.u32[1] & 31));
+dst.u32[2] = a.u32[2] | (1 << (b.u32[2] & 31));
+dst.u32[3] = a.u32[3] | (1 << (b.u32[3] & 31));
 ```
 
 ### Header Mapping
@@ -1258,12 +1316,12 @@ for i in 0..3:
 #define __msa_bset_w __builtin_msa_bset_w
 ```
 
-## v16u8 __msa_bseti_b (v16u8 a, int imm0_7)
+## v16u8 __msa_bseti_b (v16u8 a, int imm)
 
 ### Synopsis
 
 ```c
-v16u8 __msa_bseti_b (v16u8 a, int imm0_7)
+v16u8 __msa_bseti_b (v16u8 a, int imm)
 #include <msa.h>
 Instruction: bseti.b
 Builtin: __builtin_msa_bseti_b
@@ -1274,17 +1332,27 @@ Source: include/msa.h:104
 
 ### Description
 
-Manipulate or summarize bits in each 16 x 8-bit byte lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Set one selected bit in each u8 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bseti.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-imm = imm0_7;
-for i in 0..15:
-  dst.byte[i] = a.byte[i] | (1 << (imm));
+dst.u8[0] = a.u8[0] | (1 << (imm));
+dst.u8[1] = a.u8[1] | (1 << (imm));
+dst.u8[2] = a.u8[2] | (1 << (imm));
+dst.u8[3] = a.u8[3] | (1 << (imm));
+dst.u8[4] = a.u8[4] | (1 << (imm));
+dst.u8[5] = a.u8[5] | (1 << (imm));
+dst.u8[6] = a.u8[6] | (1 << (imm));
+dst.u8[7] = a.u8[7] | (1 << (imm));
+dst.u8[8] = a.u8[8] | (1 << (imm));
+dst.u8[9] = a.u8[9] | (1 << (imm));
+dst.u8[10] = a.u8[10] | (1 << (imm));
+dst.u8[11] = a.u8[11] | (1 << (imm));
+dst.u8[12] = a.u8[12] | (1 << (imm));
+dst.u8[13] = a.u8[13] | (1 << (imm));
+dst.u8[14] = a.u8[14] | (1 << (imm));
+dst.u8[15] = a.u8[15] | (1 << (imm));
 ```
 
 ### Header Mapping
@@ -1293,12 +1361,12 @@ for i in 0..15:
 #define __msa_bseti_b __builtin_msa_bseti_b
 ```
 
-## v2u64 __msa_bseti_d (v2u64 a, int imm0_63)
+## v2u64 __msa_bseti_d (v2u64 a, int imm)
 
 ### Synopsis
 
 ```c
-v2u64 __msa_bseti_d (v2u64 a, int imm0_63)
+v2u64 __msa_bseti_d (v2u64 a, int imm)
 #include <msa.h>
 Instruction: bseti.d
 Builtin: __builtin_msa_bseti_d
@@ -1309,17 +1377,13 @@ Source: include/msa.h:107
 
 ### Description
 
-Manipulate or summarize bits in each 2 x 64-bit dword lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Set one selected bit in each u64 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bseti.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-imm = imm0_63;
-for i in 0..1:
-  dst.dword[i] = a.dword[i] | (1 << (imm));
+dst.u64[0] = a.u64[0] | (1 << (imm));
+dst.u64[1] = a.u64[1] | (1 << (imm));
 ```
 
 ### Header Mapping
@@ -1328,12 +1392,12 @@ for i in 0..1:
 #define __msa_bseti_d __builtin_msa_bseti_d
 ```
 
-## v8u16 __msa_bseti_h (v8u16 a, int imm0_15)
+## v8u16 __msa_bseti_h (v8u16 a, int imm)
 
 ### Synopsis
 
 ```c
-v8u16 __msa_bseti_h (v8u16 a, int imm0_15)
+v8u16 __msa_bseti_h (v8u16 a, int imm)
 #include <msa.h>
 Instruction: bseti.h
 Builtin: __builtin_msa_bseti_h
@@ -1344,17 +1408,19 @@ Source: include/msa.h:105
 
 ### Description
 
-Manipulate or summarize bits in each 8 x 16-bit half lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Set one selected bit in each u16 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bseti.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-imm = imm0_15;
-for i in 0..7:
-  dst.half[i] = a.half[i] | (1 << (imm));
+dst.u16[0] = a.u16[0] | (1 << (imm));
+dst.u16[1] = a.u16[1] | (1 << (imm));
+dst.u16[2] = a.u16[2] | (1 << (imm));
+dst.u16[3] = a.u16[3] | (1 << (imm));
+dst.u16[4] = a.u16[4] | (1 << (imm));
+dst.u16[5] = a.u16[5] | (1 << (imm));
+dst.u16[6] = a.u16[6] | (1 << (imm));
+dst.u16[7] = a.u16[7] | (1 << (imm));
 ```
 
 ### Header Mapping
@@ -1363,12 +1429,12 @@ for i in 0..7:
 #define __msa_bseti_h __builtin_msa_bseti_h
 ```
 
-## v4u32 __msa_bseti_w (v4u32 a, int imm0_31)
+## v4u32 __msa_bseti_w (v4u32 a, int imm)
 
 ### Synopsis
 
 ```c
-v4u32 __msa_bseti_w (v4u32 a, int imm0_31)
+v4u32 __msa_bseti_w (v4u32 a, int imm)
 #include <msa.h>
 Instruction: bseti.w
 Builtin: __builtin_msa_bseti_w
@@ -1379,17 +1445,15 @@ Source: include/msa.h:106
 
 ### Description
 
-Manipulate or summarize bits in each 4 x 32-bit word lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Set one selected bit in each u32 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for bseti.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-imm = imm0_31;
-for i in 0..3:
-  dst.word[i] = a.word[i] | (1 << (imm));
+dst.u32[0] = a.u32[0] | (1 << (imm));
+dst.u32[1] = a.u32[1] | (1 << (imm));
+dst.u32[2] = a.u32[2] | (1 << (imm));
+dst.u32[3] = a.u32[3] | (1 << (imm));
 ```
 
 ### Header Mapping
@@ -1414,17 +1478,40 @@ Source: include/msa.h:429
 
 ### Description
 
-Manipulate or summarize bits in each 16 x 8-bit byte lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Count leading one bits independently in each u8 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for nloc.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = count_leading_ones(a.byte[i]);
+dst.u8[0] = count_leading_ones(a.u8[0]);
+dst.u8[1] = count_leading_ones(a.u8[1]);
+dst.u8[2] = count_leading_ones(a.u8[2]);
+dst.u8[3] = count_leading_ones(a.u8[3]);
+dst.u8[4] = count_leading_ones(a.u8[4]);
+dst.u8[5] = count_leading_ones(a.u8[5]);
+dst.u8[6] = count_leading_ones(a.u8[6]);
+dst.u8[7] = count_leading_ones(a.u8[7]);
+dst.u8[8] = count_leading_ones(a.u8[8]);
+dst.u8[9] = count_leading_ones(a.u8[9]);
+dst.u8[10] = count_leading_ones(a.u8[10]);
+dst.u8[11] = count_leading_ones(a.u8[11]);
+dst.u8[12] = count_leading_ones(a.u8[12]);
+dst.u8[13] = count_leading_ones(a.u8[13]);
+dst.u8[14] = count_leading_ones(a.u8[14]);
+dst.u8[15] = count_leading_ones(a.u8[15]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1448,17 +1535,26 @@ Source: include/msa.h:432
 
 ### Description
 
-Manipulate or summarize bits in each 2 x 64-bit dword lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Count leading one bits independently in each u64 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for nloc.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = count_leading_ones(a.dword[i]);
+dst.u64[0] = count_leading_ones(a.u64[0]);
+dst.u64[1] = count_leading_ones(a.u64[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1482,17 +1578,32 @@ Source: include/msa.h:430
 
 ### Description
 
-Manipulate or summarize bits in each 8 x 16-bit half lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Count leading one bits independently in each u16 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for nloc.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = count_leading_ones(a.half[i]);
+dst.u16[0] = count_leading_ones(a.u16[0]);
+dst.u16[1] = count_leading_ones(a.u16[1]);
+dst.u16[2] = count_leading_ones(a.u16[2]);
+dst.u16[3] = count_leading_ones(a.u16[3]);
+dst.u16[4] = count_leading_ones(a.u16[4]);
+dst.u16[5] = count_leading_ones(a.u16[5]);
+dst.u16[6] = count_leading_ones(a.u16[6]);
+dst.u16[7] = count_leading_ones(a.u16[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1516,17 +1627,28 @@ Source: include/msa.h:431
 
 ### Description
 
-Manipulate or summarize bits in each 4 x 32-bit word lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Count leading one bits independently in each u32 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for nloc.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = count_leading_ones(a.word[i]);
+dst.u32[0] = count_leading_ones(a.u32[0]);
+dst.u32[1] = count_leading_ones(a.u32[1]);
+dst.u32[2] = count_leading_ones(a.u32[2]);
+dst.u32[3] = count_leading_ones(a.u32[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1550,17 +1672,40 @@ Source: include/msa.h:433
 
 ### Description
 
-Manipulate or summarize bits in each 16 x 8-bit byte lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Count leading zero bits independently in each u8 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for nlzc.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = count_leading_zeros(a.byte[i]);
+dst.u8[0] = count_leading_zeros(a.u8[0]);
+dst.u8[1] = count_leading_zeros(a.u8[1]);
+dst.u8[2] = count_leading_zeros(a.u8[2]);
+dst.u8[3] = count_leading_zeros(a.u8[3]);
+dst.u8[4] = count_leading_zeros(a.u8[4]);
+dst.u8[5] = count_leading_zeros(a.u8[5]);
+dst.u8[6] = count_leading_zeros(a.u8[6]);
+dst.u8[7] = count_leading_zeros(a.u8[7]);
+dst.u8[8] = count_leading_zeros(a.u8[8]);
+dst.u8[9] = count_leading_zeros(a.u8[9]);
+dst.u8[10] = count_leading_zeros(a.u8[10]);
+dst.u8[11] = count_leading_zeros(a.u8[11]);
+dst.u8[12] = count_leading_zeros(a.u8[12]);
+dst.u8[13] = count_leading_zeros(a.u8[13]);
+dst.u8[14] = count_leading_zeros(a.u8[14]);
+dst.u8[15] = count_leading_zeros(a.u8[15]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1584,17 +1729,26 @@ Source: include/msa.h:436
 
 ### Description
 
-Manipulate or summarize bits in each 2 x 64-bit dword lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Count leading zero bits independently in each u64 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for nlzc.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = count_leading_zeros(a.dword[i]);
+dst.u64[0] = count_leading_zeros(a.u64[0]);
+dst.u64[1] = count_leading_zeros(a.u64[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1618,17 +1772,32 @@ Source: include/msa.h:434
 
 ### Description
 
-Manipulate or summarize bits in each 8 x 16-bit half lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Count leading zero bits independently in each u16 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for nlzc.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = count_leading_zeros(a.half[i]);
+dst.u16[0] = count_leading_zeros(a.u16[0]);
+dst.u16[1] = count_leading_zeros(a.u16[1]);
+dst.u16[2] = count_leading_zeros(a.u16[2]);
+dst.u16[3] = count_leading_zeros(a.u16[3]);
+dst.u16[4] = count_leading_zeros(a.u16[4]);
+dst.u16[5] = count_leading_zeros(a.u16[5]);
+dst.u16[6] = count_leading_zeros(a.u16[6]);
+dst.u16[7] = count_leading_zeros(a.u16[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1652,17 +1821,28 @@ Source: include/msa.h:435
 
 ### Description
 
-Manipulate or summarize bits in each 4 x 32-bit word lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Count leading zero bits independently in each u32 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for nlzc.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = count_leading_zeros(a.word[i]);
+dst.u32[0] = count_leading_zeros(a.u32[0]);
+dst.u32[1] = count_leading_zeros(a.u32[1]);
+dst.u32[2] = count_leading_zeros(a.u32[2]);
+dst.u32[3] = count_leading_zeros(a.u32[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1686,17 +1866,40 @@ Source: include/msa.h:425
 
 ### Description
 
-Manipulate or summarize bits in each 16 x 8-bit byte lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Count one bits independently in each u8 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for pcnt.b.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 16 lanes of 8-bit elements.
-for i in 0..15:
-  dst.byte[i] = popcount(a.byte[i]);
+dst.u8[0] = popcount(a.u8[0]);
+dst.u8[1] = popcount(a.u8[1]);
+dst.u8[2] = popcount(a.u8[2]);
+dst.u8[3] = popcount(a.u8[3]);
+dst.u8[4] = popcount(a.u8[4]);
+dst.u8[5] = popcount(a.u8[5]);
+dst.u8[6] = popcount(a.u8[6]);
+dst.u8[7] = popcount(a.u8[7]);
+dst.u8[8] = popcount(a.u8[8]);
+dst.u8[9] = popcount(a.u8[9]);
+dst.u8[10] = popcount(a.u8[10]);
+dst.u8[11] = popcount(a.u8[11]);
+dst.u8[12] = popcount(a.u8[12]);
+dst.u8[13] = popcount(a.u8[13]);
+dst.u8[14] = popcount(a.u8[14]);
+dst.u8[15] = popcount(a.u8[15]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1720,17 +1923,26 @@ Source: include/msa.h:428
 
 ### Description
 
-Manipulate or summarize bits in each 2 x 64-bit dword lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Count one bits independently in each u64 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for pcnt.d.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 2 lanes of 64-bit elements.
-for i in 0..1:
-  dst.dword[i] = popcount(a.dword[i]);
+dst.u64[0] = popcount(a.u64[0]);
+dst.u64[1] = popcount(a.u64[1]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1754,17 +1966,32 @@ Source: include/msa.h:426
 
 ### Description
 
-Manipulate or summarize bits in each 8 x 16-bit half lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Count one bits independently in each u16 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for pcnt.h.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 8 lanes of 16-bit elements.
-for i in 0..7:
-  dst.half[i] = popcount(a.half[i]);
+dst.u16[0] = popcount(a.u16[0]);
+dst.u16[1] = popcount(a.u16[1]);
+dst.u16[2] = popcount(a.u16[2]);
+dst.u16[3] = popcount(a.u16[3]);
+dst.u16[4] = popcount(a.u16[4]);
+dst.u16[5] = popcount(a.u16[5]);
+dst.u16[6] = popcount(a.u16[6]);
+dst.u16[7] = popcount(a.u16[7]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 
@@ -1788,17 +2015,28 @@ Source: include/msa.h:427
 
 ### Description
 
-Manipulate or summarize bits in each 4 x 32-bit word lanes element. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Count one bits independently in each u32 lane.
 
 ### Operation
 
 ```c
-// Inferred semantics for pcnt.w.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 32-bit elements.
-for i in 0..3:
-  dst.word[i] = popcount(a.word[i]);
+dst.u32[0] = popcount(a.u32[0]);
+dst.u32[1] = popcount(a.u32[1]);
+dst.u32[2] = popcount(a.u32[2]);
+dst.u32[3] = popcount(a.u32[3]);
 ```
+
+### Latency and Throughput
+
+<table>
+<thead>
+<tr><th colspan="2">3A4000(GS464V)</th></tr>
+<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
+</thead>
+<tbody>
+<tr><td>2</td><td>2</td></tr>
+</tbody>
+</table>
 
 ### Header Mapping
 

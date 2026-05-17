@@ -18,13 +18,11 @@ Source: include/loongson-csr.h:45
 
 ### Description
 
-Read, write, or query a Loongson control/status resource using `cpucfg`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Read a Loongson control/status resource using `cpucfg`.
 
 ### Operation
 
 ```c
-// Inferred semantics for cpucfg.
-// Operand order follows the intrinsic arguments in the header.
 return read_cpu_configuration(selector);
 ```
 
@@ -50,13 +48,11 @@ Source: include/loongson-csr.h:48
 
 ### Description
 
-Read, write, or query a Loongson control/status resource using `drdcsr`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Access a Loongson control/status resource using `drdcsr`. A user-mode attempt on Loongson-3A4000 was isolated in a child process because this read can trap on systems that do not allow CSR access. On the tested machine, the child terminated with SIGILL.
 
 ### Operation
 
 ```c
-// Inferred semantics for drdcsr.
-// Operand order follows the intrinsic arguments in the header.
 return read_loongson_csr(csr);
 ```
 
@@ -82,13 +78,11 @@ Source: include/loongson-csr.h:52
 
 ### Description
 
-Read, write, or query a Loongson control/status resource using `drdgcsr`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Access a Loongson control/status resource using `drdgcsr`. A user-mode attempt on Loongson-3A4000 was isolated in a child process because this read can trap on systems that do not allow CSR access. On the tested machine, the child terminated with SIGILL.
 
 ### Operation
 
 ```c
-// Inferred semantics for drdgcsr.
-// Operand order follows the intrinsic arguments in the header.
 return read_loongson_guest_csr(csr);
 ```
 
@@ -114,16 +108,12 @@ Source: include/loongson-csr.h:54
 
 ### Description
 
-Read, write, or query a Loongson control/status resource using `drdtime`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Read a Loongson control/status resource using `drdtime`.
 
 ### Operation
 
 ```c
-// Inferred semantics for drdtime.
-// Operand order follows the intrinsic arguments in the header.
-result.dvalue = read_64bit_time_counter();
-result.dtimeid = read_time_counter_id();
-return result;
+return { .dvalue = read_64bit_time_counter(), .dtimeid = read_time_counter_id() };
 ```
 
 ### Header Mapping
@@ -148,13 +138,11 @@ Source: include/loongson-csr.h:49
 
 ### Description
 
-Read, write, or query a Loongson control/status resource using `dwrcsr`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Access a privileged Loongson control/status or TLB resource using `dwrcsr`. This helper was compile-checked only; the runtime probe does not execute it in user mode because it can trap or modify privileged machine state.
 
 ### Operation
 
 ```c
-// Inferred semantics for dwrcsr.
-// Operand order follows the intrinsic arguments in the header.
 write_loongson_csr(csr, value);
 ```
 
@@ -180,13 +168,11 @@ Source: include/loongson-csr.h:53
 
 ### Description
 
-Read, write, or query a Loongson control/status resource using `dwrgcsr`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Access a privileged Loongson control/status or TLB resource using `dwrgcsr`. This helper was compile-checked only; the runtime probe does not execute it in user mode because it can trap or modify privileged machine state.
 
 ### Operation
 
 ```c
-// Inferred semantics for dwrgcsr.
-// Operand order follows the intrinsic arguments in the header.
 write_loongson_guest_csr(csr, value);
 ```
 
@@ -212,13 +198,11 @@ Source: include/loongson-csr.h:57
 
 ### Description
 
-Read, write, or query a Loongson control/status resource using `lddir`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Access a privileged Loongson control/status or TLB resource using `lddir`. This helper was not executed in the runtime probe because it can touch privileged TLB state; the bundled GCC 7.3 toolchain also did not produce a runnable user-mode probe for this form.
 
 ### Operation
 
 ```c
-// Inferred semantics for lddir.
-// Operand order follows the intrinsic arguments in the header.
 return load_tlb_directory_entry(base, level);
 ```
 
@@ -244,13 +228,11 @@ Source: include/loongson-csr.h:59
 
 ### Description
 
-Read, write, or query a Loongson control/status resource using `ldpte`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Access a privileged Loongson control/status or TLB resource using `ldpte`. This helper was not executed in the runtime probe because it can touch privileged TLB state; the bundled GCC 7.3 toolchain also did not produce a runnable user-mode probe for this form.
 
 ### Operation
 
 ```c
-// Inferred semantics for ldpte.
-// Operand order follows the intrinsic arguments in the header.
 return load_tlb_page_table_entry(op);
 ```
 
@@ -276,13 +258,11 @@ Source: include/loongson-csr.h:58
 
 ### Description
 
-Read, write, or query a Loongson control/status resource using `lwdir`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Access a privileged Loongson control/status or TLB resource using `lwdir`. This helper was not executed in the runtime probe because it can touch privileged TLB state; the bundled GCC 7.3 toolchain also did not produce a runnable user-mode probe for this form.
 
 ### Operation
 
 ```c
-// Inferred semantics for lwdir.
-// Operand order follows the intrinsic arguments in the header.
 return load_tlb_directory_entry(base, level);
 ```
 
@@ -308,13 +288,11 @@ Source: include/loongson-csr.h:60
 
 ### Description
 
-Read, write, or query a Loongson control/status resource using `lwpte`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Access a privileged Loongson control/status or TLB resource using `lwpte`. This helper was not executed in the runtime probe because it can touch privileged TLB state; the bundled GCC 7.3 toolchain also did not produce a runnable user-mode probe for this form.
 
 ### Operation
 
 ```c
-// Inferred semantics for lwpte.
-// Operand order follows the intrinsic arguments in the header.
 return load_tlb_page_table_entry(op);
 ```
 
@@ -340,13 +318,11 @@ Source: include/loongson-csr.h:46
 
 ### Description
 
-Read, write, or query a Loongson control/status resource using `rdcsr`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Access a Loongson control/status resource using `rdcsr`. A user-mode attempt on Loongson-3A4000 was isolated in a child process because this read can trap on systems that do not allow CSR access. On the tested machine, the child terminated with SIGILL.
 
 ### Operation
 
 ```c
-// Inferred semantics for rdcsr.
-// Operand order follows the intrinsic arguments in the header.
 return read_loongson_csr(csr);
 ```
 
@@ -372,13 +348,11 @@ Source: include/loongson-csr.h:50
 
 ### Description
 
-Read, write, or query a Loongson control/status resource using `rdgcsr`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Access a Loongson control/status resource using `rdgcsr`. A user-mode attempt on Loongson-3A4000 was isolated in a child process because this read can trap on systems that do not allow CSR access. On the tested machine, the child terminated with SIGILL.
 
 ### Operation
 
 ```c
-// Inferred semantics for rdgcsr.
-// Operand order follows the intrinsic arguments in the header.
 return read_loongson_guest_csr(csr);
 ```
 
@@ -404,17 +378,12 @@ Source: include/loongson-csr.h:56
 
 ### Description
 
-Read, write, or query a Loongson control/status resource using `rdtimeh`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Read a Loongson control/status resource using `rdtimeh`.
 
 ### Operation
 
 ```c
-// Inferred semantics for rdtimeh.
-// Operand order follows the intrinsic arguments in the header.
-// Treat vector operands as 4 lanes of 16-bit elements.
-result.value = read_high_32_bits_of_time_counter();
-result.timeid = read_time_counter_id();
-return result;
+return { .value = read_high_32_bits_of_time_counter(), .timeid = read_time_counter_id() };
 ```
 
 ### Header Mapping
@@ -439,16 +408,12 @@ Source: include/loongson-csr.h:55
 
 ### Description
 
-Read, write, or query a Loongson control/status resource using `rdtimel`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Read a Loongson control/status resource using `rdtimel`.
 
 ### Operation
 
 ```c
-// Inferred semantics for rdtimel.
-// Operand order follows the intrinsic arguments in the header.
-result.value = read_low_32_bits_of_time_counter();
-result.timeid = read_time_counter_id();
-return result;
+return { .value = read_low_32_bits_of_time_counter(), .timeid = read_time_counter_id() };
 ```
 
 ### Header Mapping
@@ -473,13 +438,11 @@ Source: include/loongson-csr.h:47
 
 ### Description
 
-Read, write, or query a Loongson control/status resource using `wrcsr`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Access a privileged Loongson control/status or TLB resource using `wrcsr`. This helper was compile-checked only; the runtime probe does not execute it in user mode because it can trap or modify privileged machine state.
 
 ### Operation
 
 ```c
-// Inferred semantics for wrcsr.
-// Operand order follows the intrinsic arguments in the header.
 write_loongson_csr(csr, value);
 ```
 
@@ -505,13 +468,11 @@ Source: include/loongson-csr.h:51
 
 ### Description
 
-Read, write, or query a Loongson control/status resource using `wrgcsr`. This description is inferred from the Loongson/MIPS mnemonic, the public intrinsic name, and analogous MSA/LSX/LASX/SSE/AVX SIMD naming conventions. For corner cases such as NaNs, exact exception flags, or implementation-defined memory predicates, prefer hardware tests or the vendor ISA manual.
+Access a privileged Loongson control/status or TLB resource using `wrgcsr`. This helper was compile-checked only; the runtime probe does not execute it in user mode because it can trap or modify privileged machine state.
 
 ### Operation
 
 ```c
-// Inferred semantics for wrgcsr.
-// Operand order follows the intrinsic arguments in the header.
 write_loongson_guest_csr(csr, value);
 ```
 
