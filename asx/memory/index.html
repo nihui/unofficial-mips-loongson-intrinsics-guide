@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Memory - Unofficial MIPS Loongson Intrinsics Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../main.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Memory";
+        var mkdocs_page_input_path = "asx/memory.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Unofficial MIPS Loongson Intrinsics Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../loongson_simd_basics/">Loongson SIMD Basics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../latency_throughput/">Latency and Throughput</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASX</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Memory</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xvblb-int-offset-const-volatile-void-mem">__m256i __lasx_xvblb (int offset, const volatile void * mem)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xvbld-int-offset-const-volatile-void-mem">__m256i __lasx_xvbld (int offset, const volatile void * mem)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_1">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_1">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_1">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_1">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xvblh-int-offset-const-volatile-void-mem">__m256i __lasx_xvblh (int offset, const volatile void * mem)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_2">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_2">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_2">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_2">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xvblw-int-offset-const-volatile-void-mem">__m256i __lasx_xvblw (int offset, const volatile void * mem)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_3">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_3">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_3">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_3">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xvld_b-int-offset-const-volatile-void-mem">__m256i __lasx_xvld_b (int offset, const volatile void * mem)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_4">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_4">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_4">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_4">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#void-__lasx_xvsb-__m256i-a-unsigned-char-lane-int-offset-const-volatile-void-mem">void __lasx_xvsb (__m256i a, unsigned char lane, int offset, const volatile void * mem)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_5">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_5">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_5">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_5">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#void-__lasx_xvsd-__m256i-a-unsigned-char-lane-int-offset-const-volatile-void-mem">void __lasx_xvsd (__m256i a, unsigned char lane, int offset, const volatile void * mem)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_6">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_6">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_6">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_6">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#void-__lasx_xvsh-__m256i-a-unsigned-char-lane-int-offset-const-volatile-void-mem">void __lasx_xvsh (__m256i a, unsigned char lane, int offset, const volatile void * mem)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_7">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_7">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_7">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_7">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#void-__lasx_xvst_b-__m256i-a-int-offset-const-volatile-void-mem">void __lasx_xvst_b (__m256i a, int offset, const volatile void * mem)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_8">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_8">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_8">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_8">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#void-__lasx_xvsw-__m256i-a-unsigned-char-lane-int-offset-const-volatile-void-mem">void __lasx_xvsw (__m256i a, unsigned char lane, int offset, const volatile void * mem)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_9">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_9">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_9">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_9">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA Crypto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa_crypto/crypto/">Cryptography</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MMI</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CSR</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../csr/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Unofficial MIPS Loongson Intrinsics Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">ASX</li>
+      <li class="breadcrumb-item active">Memory</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="memory">Memory</h1>
+<p>Generated from <code>include/loongson-asxintrin.h</code>. This page contains 10 intrinsics.</p>
+<p><span id="intrinsic-__lasx_xvblb"></span></p>
+<h2 id="__m256i-__lasx_xvblb-int-offset-const-volatile-void-mem">__m256i __lasx_xvblb (int offset, const volatile void * mem)</h2>
+<h3 id="synopsis">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xvblb (int offset, const volatile void * mem)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xvblb
+Builtin: __builtin_lasx_xvblb
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:4393
+</code></pre>
+<h3 id="description">Description</h3>
+<p>Load one u8 element from memory and broadcast it to every destination lane.</p>
+<h3 id="operation">Operation</h3>
+<pre><code class="language-c">dst.u8[0] = load_u8(mem + offset);
+dst.u8[1] = load_u8(mem + offset);
+dst.u8[2] = load_u8(mem + offset);
+dst.u8[3] = load_u8(mem + offset);
+dst.u8[4] = load_u8(mem + offset);
+dst.u8[5] = load_u8(mem + offset);
+dst.u8[6] = load_u8(mem + offset);
+dst.u8[7] = load_u8(mem + offset);
+dst.u8[8] = load_u8(mem + offset);
+dst.u8[9] = load_u8(mem + offset);
+dst.u8[10] = load_u8(mem + offset);
+dst.u8[11] = load_u8(mem + offset);
+dst.u8[12] = load_u8(mem + offset);
+dst.u8[13] = load_u8(mem + offset);
+dst.u8[14] = load_u8(mem + offset);
+dst.u8[15] = load_u8(mem + offset);
+dst.u8[16] = load_u8(mem + offset);
+dst.u8[17] = load_u8(mem + offset);
+dst.u8[18] = load_u8(mem + offset);
+dst.u8[19] = load_u8(mem + offset);
+dst.u8[20] = load_u8(mem + offset);
+dst.u8[21] = load_u8(mem + offset);
+dst.u8[22] = load_u8(mem + offset);
+dst.u8[23] = load_u8(mem + offset);
+dst.u8[24] = load_u8(mem + offset);
+dst.u8[25] = load_u8(mem + offset);
+dst.u8[26] = load_u8(mem + offset);
+dst.u8[27] = load_u8(mem + offset);
+dst.u8[28] = load_u8(mem + offset);
+dst.u8[29] = load_u8(mem + offset);
+dst.u8[30] = load_u8(mem + offset);
+dst.u8[31] = load_u8(mem + offset);
+</code></pre>
+<h3 id="header-mapping">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_xvblb(offset, mem) ((__m256i)__builtin_lasx_xvblb((offset), (mem)))
+</code></pre>
+<p><span id="intrinsic-__lasx_xvbld"></span></p>
+<h2 id="__m256i-__lasx_xvbld-int-offset-const-volatile-void-mem">__m256i __lasx_xvbld (int offset, const volatile void * mem)</h2>
+<h3 id="synopsis_1">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xvbld (int offset, const volatile void * mem)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xvbld
+Builtin: __builtin_lasx_xvbld
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:4396
+</code></pre>
+<h3 id="description_1">Description</h3>
+<p>Load one u64 element from memory and broadcast it to every destination lane.</p>
+<h3 id="operation_1">Operation</h3>
+<pre><code class="language-c">dst.u64[0] = load_u64(mem + offset);
+dst.u64[1] = load_u64(mem + offset);
+dst.u64[2] = load_u64(mem + offset);
+dst.u64[3] = load_u64(mem + offset);
+</code></pre>
+<h3 id="header-mapping_1">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_xvbld(offset, mem) ((__m256i)__builtin_lasx_xvbld((offset), (mem)))
+</code></pre>
+<p><span id="intrinsic-__lasx_xvblh"></span></p>
+<h2 id="__m256i-__lasx_xvblh-int-offset-const-volatile-void-mem">__m256i __lasx_xvblh (int offset, const volatile void * mem)</h2>
+<h3 id="synopsis_2">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xvblh (int offset, const volatile void * mem)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xvblh
+Builtin: __builtin_lasx_xvblh
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:4394
+</code></pre>
+<h3 id="description_2">Description</h3>
+<p>Load one u16 element from memory and broadcast it to every destination lane.</p>
+<h3 id="operation_2">Operation</h3>
+<pre><code class="language-c">dst.u16[0] = load_u16(mem + offset);
+dst.u16[1] = load_u16(mem + offset);
+dst.u16[2] = load_u16(mem + offset);
+dst.u16[3] = load_u16(mem + offset);
+dst.u16[4] = load_u16(mem + offset);
+dst.u16[5] = load_u16(mem + offset);
+dst.u16[6] = load_u16(mem + offset);
+dst.u16[7] = load_u16(mem + offset);
+dst.u16[8] = load_u16(mem + offset);
+dst.u16[9] = load_u16(mem + offset);
+dst.u16[10] = load_u16(mem + offset);
+dst.u16[11] = load_u16(mem + offset);
+dst.u16[12] = load_u16(mem + offset);
+dst.u16[13] = load_u16(mem + offset);
+dst.u16[14] = load_u16(mem + offset);
+dst.u16[15] = load_u16(mem + offset);
+</code></pre>
+<h3 id="header-mapping_2">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_xvblh(offset, mem) ((__m256i)__builtin_lasx_xvblh((offset), (mem)))
+</code></pre>
+<p><span id="intrinsic-__lasx_xvblw"></span></p>
+<h2 id="__m256i-__lasx_xvblw-int-offset-const-volatile-void-mem">__m256i __lasx_xvblw (int offset, const volatile void * mem)</h2>
+<h3 id="synopsis_3">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xvblw (int offset, const volatile void * mem)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xvblw
+Builtin: __builtin_lasx_xvblw
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:4395
+</code></pre>
+<h3 id="description_3">Description</h3>
+<p>Load one u32 element from memory and broadcast it to every destination lane.</p>
+<h3 id="operation_3">Operation</h3>
+<pre><code class="language-c">dst.u32[0] = load_u32(mem + offset);
+dst.u32[1] = load_u32(mem + offset);
+dst.u32[2] = load_u32(mem + offset);
+dst.u32[3] = load_u32(mem + offset);
+dst.u32[4] = load_u32(mem + offset);
+dst.u32[5] = load_u32(mem + offset);
+dst.u32[6] = load_u32(mem + offset);
+dst.u32[7] = load_u32(mem + offset);
+</code></pre>
+<h3 id="header-mapping_3">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_xvblw(offset, mem) ((__m256i)__builtin_lasx_xvblw((offset), (mem)))
+</code></pre>
+<p><span id="intrinsic-__lasx_xvld_b"></span></p>
+<h2 id="__m256i-__lasx_xvld_b-int-offset-const-volatile-void-mem">__m256i __lasx_xvld_b (int offset, const volatile void * mem)</h2>
+<h3 id="synopsis_4">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xvld_b (int offset, const volatile void * mem)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xvld.b
+Builtin: __builtin_lasx_xvld_b
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:4392
+</code></pre>
+<h3 id="description_4">Description</h3>
+<p>Load one full vector from memory at <code>mem + offset</code>.</p>
+<h3 id="operation_4">Operation</h3>
+<pre><code class="language-c">dst.u8[0] = mem.u8[offset + 0];
+dst.u8[1] = mem.u8[offset + 1];
+dst.u8[2] = mem.u8[offset + 2];
+dst.u8[3] = mem.u8[offset + 3];
+dst.u8[4] = mem.u8[offset + 4];
+dst.u8[5] = mem.u8[offset + 5];
+dst.u8[6] = mem.u8[offset + 6];
+dst.u8[7] = mem.u8[offset + 7];
+dst.u8[8] = mem.u8[offset + 8];
+dst.u8[9] = mem.u8[offset + 9];
+dst.u8[10] = mem.u8[offset + 10];
+dst.u8[11] = mem.u8[offset + 11];
+dst.u8[12] = mem.u8[offset + 12];
+dst.u8[13] = mem.u8[offset + 13];
+dst.u8[14] = mem.u8[offset + 14];
+dst.u8[15] = mem.u8[offset + 15];
+dst.u8[16] = mem.u8[offset + 16];
+dst.u8[17] = mem.u8[offset + 17];
+dst.u8[18] = mem.u8[offset + 18];
+dst.u8[19] = mem.u8[offset + 19];
+dst.u8[20] = mem.u8[offset + 20];
+dst.u8[21] = mem.u8[offset + 21];
+dst.u8[22] = mem.u8[offset + 22];
+dst.u8[23] = mem.u8[offset + 23];
+dst.u8[24] = mem.u8[offset + 24];
+dst.u8[25] = mem.u8[offset + 25];
+dst.u8[26] = mem.u8[offset + 26];
+dst.u8[27] = mem.u8[offset + 27];
+dst.u8[28] = mem.u8[offset + 28];
+dst.u8[29] = mem.u8[offset + 29];
+dst.u8[30] = mem.u8[offset + 30];
+dst.u8[31] = mem.u8[offset + 31];
+</code></pre>
+<h3 id="header-mapping_4">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_xvld_b(offset, mem) ((__m256i)__builtin_lasx_xvld_b((offset), (mem)))
+</code></pre>
+<p><span id="intrinsic-__lasx_xvsb"></span></p>
+<h2 id="void-__lasx_xvsb-__m256i-a-unsigned-char-lane-int-offset-const-volatile-void-mem">void __lasx_xvsb (__m256i a, unsigned char lane, int offset, const volatile void * mem)</h2>
+<h3 id="synopsis_5">Synopsis</h3>
+<pre><code class="language-c">void __lasx_xvsb (__m256i a, unsigned char lane, int offset, const volatile void * mem)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xvsb
+Builtin: __builtin_lasx_xvsb
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:4397
+</code></pre>
+<h3 id="description_5">Description</h3>
+<p>Store the selected ASX upper-half u8 lane to memory at <code>mem + offset</code>.</p>
+<h3 id="operation_5">Operation</h3>
+<pre><code class="language-c">store_u8(mem + offset, a.u8[lane + 16]);
+</code></pre>
+<h3 id="header-mapping_5">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_xvsb(a, lane, offset, mem) ((void)__builtin_lasx_xvsb((v32i8)(a), (lane), (offset), (mem)))
+</code></pre>
+<p><span id="intrinsic-__lasx_xvsd"></span></p>
+<h2 id="void-__lasx_xvsd-__m256i-a-unsigned-char-lane-int-offset-const-volatile-void-mem">void __lasx_xvsd (__m256i a, unsigned char lane, int offset, const volatile void * mem)</h2>
+<h3 id="synopsis_6">Synopsis</h3>
+<pre><code class="language-c">void __lasx_xvsd (__m256i a, unsigned char lane, int offset, const volatile void * mem)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xvsd
+Builtin: __builtin_lasx_xvsd
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:4400
+</code></pre>
+<h3 id="description_6">Description</h3>
+<p>Store the selected ASX upper-half u64 lane to memory at <code>mem + offset</code>.</p>
+<h3 id="operation_6">Operation</h3>
+<pre><code class="language-c">store_u64(mem + offset, a.u64[lane + 2]);
+</code></pre>
+<h3 id="header-mapping_6">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_xvsd(a, lane, offset, mem) ((void)__builtin_lasx_xvsd((v4i64)(a), (lane), (offset), (mem)))
+</code></pre>
+<p><span id="intrinsic-__lasx_xvsh"></span></p>
+<h2 id="void-__lasx_xvsh-__m256i-a-unsigned-char-lane-int-offset-const-volatile-void-mem">void __lasx_xvsh (__m256i a, unsigned char lane, int offset, const volatile void * mem)</h2>
+<h3 id="synopsis_7">Synopsis</h3>
+<pre><code class="language-c">void __lasx_xvsh (__m256i a, unsigned char lane, int offset, const volatile void * mem)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xvsh
+Builtin: __builtin_lasx_xvsh
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:4398
+</code></pre>
+<h3 id="description_7">Description</h3>
+<p>Store the selected ASX upper-half u16 lane to memory at <code>mem + offset</code>.</p>
+<h3 id="operation_7">Operation</h3>
+<pre><code class="language-c">store_u16(mem + offset, a.u16[lane + 8]);
+</code></pre>
+<h3 id="header-mapping_7">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_xvsh(a, lane, offset, mem) ((void)__builtin_lasx_xvsh((v16i16)(a), (lane), (offset), (mem)))
+</code></pre>
+<p><span id="intrinsic-__lasx_xvst_b"></span></p>
+<h2 id="void-__lasx_xvst_b-__m256i-a-int-offset-const-volatile-void-mem">void __lasx_xvst_b (__m256i a, int offset, const volatile void * mem)</h2>
+<h3 id="synopsis_8">Synopsis</h3>
+<pre><code class="language-c">void __lasx_xvst_b (__m256i a, int offset, const volatile void * mem)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xvst.b
+Builtin: __builtin_lasx_xvst_b
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:4401
+</code></pre>
+<h3 id="description_8">Description</h3>
+<p>Store one full vector to memory at <code>mem + offset</code>.</p>
+<h3 id="operation_8">Operation</h3>
+<pre><code class="language-c">mem.u8[offset + 0] = a.u8[0];
+mem.u8[offset + 1] = a.u8[1];
+mem.u8[offset + 2] = a.u8[2];
+mem.u8[offset + 3] = a.u8[3];
+mem.u8[offset + 4] = a.u8[4];
+mem.u8[offset + 5] = a.u8[5];
+mem.u8[offset + 6] = a.u8[6];
+mem.u8[offset + 7] = a.u8[7];
+mem.u8[offset + 8] = a.u8[8];
+mem.u8[offset + 9] = a.u8[9];
+mem.u8[offset + 10] = a.u8[10];
+mem.u8[offset + 11] = a.u8[11];
+mem.u8[offset + 12] = a.u8[12];
+mem.u8[offset + 13] = a.u8[13];
+mem.u8[offset + 14] = a.u8[14];
+mem.u8[offset + 15] = a.u8[15];
+mem.u8[offset + 16] = a.u8[16];
+mem.u8[offset + 17] = a.u8[17];
+mem.u8[offset + 18] = a.u8[18];
+mem.u8[offset + 19] = a.u8[19];
+mem.u8[offset + 20] = a.u8[20];
+mem.u8[offset + 21] = a.u8[21];
+mem.u8[offset + 22] = a.u8[22];
+mem.u8[offset + 23] = a.u8[23];
+mem.u8[offset + 24] = a.u8[24];
+mem.u8[offset + 25] = a.u8[25];
+mem.u8[offset + 26] = a.u8[26];
+mem.u8[offset + 27] = a.u8[27];
+mem.u8[offset + 28] = a.u8[28];
+mem.u8[offset + 29] = a.u8[29];
+mem.u8[offset + 30] = a.u8[30];
+mem.u8[offset + 31] = a.u8[31];
+</code></pre>
+<h3 id="header-mapping_8">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_xvst_b(a, offset, mem) ((void)__builtin_lasx_xvst_b((v32i8)(a), (offset), (mem)))
+</code></pre>
+<p><span id="intrinsic-__lasx_xvsw"></span></p>
+<h2 id="void-__lasx_xvsw-__m256i-a-unsigned-char-lane-int-offset-const-volatile-void-mem">void __lasx_xvsw (__m256i a, unsigned char lane, int offset, const volatile void * mem)</h2>
+<h3 id="synopsis_9">Synopsis</h3>
+<pre><code class="language-c">void __lasx_xvsw (__m256i a, unsigned char lane, int offset, const volatile void * mem)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xvsw
+Builtin: __builtin_lasx_xvsw
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:4399
+</code></pre>
+<h3 id="description_9">Description</h3>
+<p>Store the selected ASX upper-half u32 lane to memory at <code>mem + offset</code>.</p>
+<h3 id="operation_9">Operation</h3>
+<pre><code class="language-c">store_u32(mem + offset, a.u32[lane + 4]);
+</code></pre>
+<h3 id="header-mapping_9">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_xvsw(a, lane, offset, mem) ((void)__builtin_lasx_xvsw((v8i32)(a), (lane), (offset), (mem)))
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../float_conversion/" class="btn btn-neutral float-left" title="Float Conversion"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../branch/" class="btn btn-neutral float-right" title="Branch">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../float_conversion/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../branch/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

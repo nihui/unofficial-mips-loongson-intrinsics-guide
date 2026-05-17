@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Float Computation - Unofficial MIPS Loongson Intrinsics Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../main.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Float Computation";
+        var mkdocs_page_input_path = "sx/float_computation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Unofficial MIPS Loongson Intrinsics Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../loongson_simd_basics/">Loongson SIMD Basics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../latency_throughput/">Latency and Throughput</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SX</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Float Computation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#__m128d-__lsx_vfabs_d-__m128d-a">__m128d __lsx_vfabs_d (__m128d a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128-__lsx_vfabs_w-__m128-a">__m128 __lsx_vfabs_w (__m128 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_1">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_1">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_1">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_1">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_1">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128d-__lsx_vfaddsub_d-__m128d-a-__m128d-b">__m128d __lsx_vfaddsub_d (__m128d a, __m128d b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_2">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_2">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_2">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_2">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_2">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128-__lsx_vfaddsub_w-__m128-a-__m128-b">__m128 __lsx_vfaddsub_w (__m128 a, __m128 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_3">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_3">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_3">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_3">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_3">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128d-__lsx_vfmadd_d-__m128d-a-__m128d-b-__m128d-c">__m128d __lsx_vfmadd_d (__m128d a, __m128d b, __m128d c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_4">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_4">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_4">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_4">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_4">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128-__lsx_vfmadd_w-__m128-a-__m128-b-__m128-c">__m128 __lsx_vfmadd_w (__m128 a, __m128 b, __m128 c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_5">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_5">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_5">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_5">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_5">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128d-__lsx_vfmaddsub_d-__m128d-a-__m128d-b-__m128d-c">__m128d __lsx_vfmaddsub_d (__m128d a, __m128d b, __m128d c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_6">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_6">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_6">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_6">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_6">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128-__lsx_vfmaddsub_w-__m128-a-__m128-b-__m128-c">__m128 __lsx_vfmaddsub_w (__m128 a, __m128 b, __m128 c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_7">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_7">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_7">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_7">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_7">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128d-__lsx_vfmsub_d-__m128d-a-__m128d-b-__m128d-c">__m128d __lsx_vfmsub_d (__m128d a, __m128d b, __m128d c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_8">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_8">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_8">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_8">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_8">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128-__lsx_vfmsub_w-__m128-a-__m128-b-__m128-c">__m128 __lsx_vfmsub_w (__m128 a, __m128 b, __m128 c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_9">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_9">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_9">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_9">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_9">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128d-__lsx_vfmsubadd_d-__m128d-a-__m128d-b-__m128d-c">__m128d __lsx_vfmsubadd_d (__m128d a, __m128d b, __m128d c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_10">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_10">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_10">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_10">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_10">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128-__lsx_vfmsubadd_w-__m128-a-__m128-b-__m128-c">__m128 __lsx_vfmsubadd_w (__m128 a, __m128 b, __m128 c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_11">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_11">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_11">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_11">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_11">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128d-__lsx_vfneg_d-__m128d-a">__m128d __lsx_vfneg_d (__m128d a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_12">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_12">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_12">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_12">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128-__lsx_vfneg_w-__m128-a">__m128 __lsx_vfneg_w (__m128 a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_13">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_13">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_13">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_13">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128d-__lsx_vfnmadd_d-__m128d-a-__m128d-b-__m128d-c">__m128d __lsx_vfnmadd_d (__m128d a, __m128d b, __m128d c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_14">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_14">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_14">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_12">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_14">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128-__lsx_vfnmadd_w-__m128-a-__m128-b-__m128-c">__m128 __lsx_vfnmadd_w (__m128 a, __m128 b, __m128 c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_15">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_15">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_15">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_13">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_15">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128d-__lsx_vfnmsub_d-__m128d-a-__m128d-b-__m128d-c">__m128d __lsx_vfnmsub_d (__m128d a, __m128d b, __m128d c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_16">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_16">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_16">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_14">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_16">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128-__lsx_vfnmsub_w-__m128-a-__m128-b-__m128-c">__m128 __lsx_vfnmsub_w (__m128 a, __m128 b, __m128 c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_17">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_17">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_17">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_15">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_17">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vfrstii_b-__m128i-a-__m128i-b-unsigned-char-imm">__m128i __lsx_vfrstii_b (__m128i a, __m128i b, unsigned char imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_18">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_18">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_18">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_16">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_18">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vfrstii_h-__m128i-a-__m128i-b-unsigned-char-imm">__m128i __lsx_vfrstii_h (__m128i a, __m128i b, unsigned char imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_19">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_19">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_19">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_17">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_19">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vfrstiv_b-__m128i-a-__m128i-b-__m128i-c">__m128i __lsx_vfrstiv_b (__m128i a, __m128i b, __m128i c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_20">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_20">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_20">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_18">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_20">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vfrstiv_h-__m128i-a-__m128i-b-__m128i-c">__m128i __lsx_vfrstiv_h (__m128i a, __m128i b, __m128i c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_21">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_21">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_21">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_19">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_21">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vfrstm_b-__m128i-a">__m128i __lsx_vfrstm_b (__m128i a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_22">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_22">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_22">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_20">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_22">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128i-__lsx_vfrstm_h-__m128i-a">__m128i __lsx_vfrstm_h (__m128i a)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_23">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_23">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_23">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_21">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_23">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128d-__lsx_vfsubadd_d-__m128d-a-__m128d-b">__m128d __lsx_vfsubadd_d (__m128d a, __m128d b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_24">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_24">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_24">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_22">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_24">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m128-__lsx_vfsubadd_w-__m128-a-__m128-b">__m128 __lsx_vfsubadd_w (__m128 a, __m128 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_25">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_25">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_25">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_23">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_25">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA Crypto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa_crypto/crypto/">Cryptography</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MMI</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CSR</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../csr/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Unofficial MIPS Loongson Intrinsics Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">SX</li>
+      <li class="breadcrumb-item active">Float Computation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="float-computation">Float Computation</h1>
+<p>Generated from <code>include/loongson-sxintrin.h</code>. This page contains 26 intrinsics.</p>
+<p><span id="intrinsic-__lsx_vfabs_d"></span></p>
+<h2 id="__m128d-__lsx_vfabs_d-__m128d-a">__m128d __lsx_vfabs_d (__m128d a)</h2>
+<h3 id="synopsis">Synopsis</h3>
+<pre><code class="language-c">__m128d __lsx_vfabs_d (__m128d a)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfabs.d
+Builtin: __builtin_lsx_vfabs_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1004
+</code></pre>
+<h3 id="description">Description</h3>
+<p>Compute absolute value lane-wise for 2 x fp64 lanes.</p>
+<h3 id="operation">Operation</h3>
+<pre><code class="language-c">dst.fp64[0] = abs(a.fp64[0]);
+dst.fp64[1] = abs(a.fp64[1]);
+</code></pre>
+<h3 id="latency-and-throughput">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping">Header Mapping</h3>
+<pre><code class="language-c">return (__m128d)__builtin_lsx_vfabs_d((v2f64)a);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfabs_w"></span></p>
+<h2 id="__m128-__lsx_vfabs_w-__m128-a">__m128 __lsx_vfabs_w (__m128 a)</h2>
+<h3 id="synopsis_1">Synopsis</h3>
+<pre><code class="language-c">__m128 __lsx_vfabs_w (__m128 a)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfabs.w
+Builtin: __builtin_lsx_vfabs_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:997
+</code></pre>
+<h3 id="description_1">Description</h3>
+<p>Compute absolute value lane-wise for 4 x fp32 lanes.</p>
+<h3 id="operation_1">Operation</h3>
+<pre><code class="language-c">dst.fp32[0] = abs(a.fp32[0]);
+dst.fp32[1] = abs(a.fp32[1]);
+dst.fp32[2] = abs(a.fp32[2]);
+dst.fp32[3] = abs(a.fp32[3]);
+</code></pre>
+<h3 id="latency-and-throughput_1">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_1">Header Mapping</h3>
+<pre><code class="language-c">return (__m128)__builtin_lsx_vfabs_w((v4f32)a);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfaddsub_d"></span></p>
+<h2 id="__m128d-__lsx_vfaddsub_d-__m128d-a-__m128d-b">__m128d __lsx_vfaddsub_d (__m128d a, __m128d b)</h2>
+<h3 id="synopsis_2">Synopsis</h3>
+<pre><code class="language-c">__m128d __lsx_vfaddsub_d (__m128d a, __m128d b)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfaddsub.d
+Builtin: __builtin_lsx_vfaddsub_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1025
+</code></pre>
+<h3 id="description_2">Description</h3>
+<p>Alternately add and subtract floating-point 2 x fp64 lanes.</p>
+<h3 id="operation_2">Operation</h3>
+<pre><code class="language-c">dst.fp64[0] = a.fp64[0] + b.fp64[0];
+dst.fp64[1] = a.fp64[1] - b.fp64[1];
+</code></pre>
+<h3 id="latency-and-throughput_2">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_2">Header Mapping</h3>
+<pre><code class="language-c">return (__m128d)__builtin_lsx_vfaddsub_d((v2f64)a, (v2f64)b);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfaddsub_w"></span></p>
+<h2 id="__m128-__lsx_vfaddsub_w-__m128-a-__m128-b">__m128 __lsx_vfaddsub_w (__m128 a, __m128 b)</h2>
+<h3 id="synopsis_3">Synopsis</h3>
+<pre><code class="language-c">__m128 __lsx_vfaddsub_w (__m128 a, __m128 b)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfaddsub.w
+Builtin: __builtin_lsx_vfaddsub_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1032
+</code></pre>
+<h3 id="description_3">Description</h3>
+<p>Alternately add and subtract floating-point 4 x fp32 lanes.</p>
+<h3 id="operation_3">Operation</h3>
+<pre><code class="language-c">dst.fp32[0] = a.fp32[0] + b.fp32[0];
+dst.fp32[1] = a.fp32[1] - b.fp32[1];
+dst.fp32[2] = a.fp32[2] + b.fp32[2];
+dst.fp32[3] = a.fp32[3] - b.fp32[3];
+</code></pre>
+<h3 id="latency-and-throughput_3">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_3">Header Mapping</h3>
+<pre><code class="language-c">return (__m128)__builtin_lsx_vfaddsub_w((v4f32)a, (v4f32)b);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfmadd_d"></span></p>
+<h2 id="__m128d-__lsx_vfmadd_d-__m128d-a-__m128d-b-__m128d-c">__m128d __lsx_vfmadd_d (__m128d a, __m128d b, __m128d c)</h2>
+<h3 id="synopsis_4">Synopsis</h3>
+<pre><code class="language-c">__m128d __lsx_vfmadd_d (__m128d a, __m128d b, __m128d c)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfmadd.d
+Builtin: __builtin_lsx_vfmadd_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1067
+</code></pre>
+<h3 id="description_4">Description</h3>
+<p>Fused multiply-add lane-wise for 2 x fp64 lanes.</p>
+<h3 id="operation_4">Operation</h3>
+<pre><code class="language-c">dst.fp64[0] = fused_round((a.fp64[0] * b.fp64[0]) + c.fp64[0]);
+dst.fp64[1] = fused_round((a.fp64[1] * b.fp64[1]) + c.fp64[1]);
+</code></pre>
+<h3 id="latency-and-throughput_4">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_4">Header Mapping</h3>
+<pre><code class="language-c">return (__m128d)__builtin_lsx_vfmadd_d((v2f64)a, (v2f64)b, (v2f64)c);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfmadd_w"></span></p>
+<h2 id="__m128-__lsx_vfmadd_w-__m128-a-__m128-b-__m128-c">__m128 __lsx_vfmadd_w (__m128 a, __m128 b, __m128 c)</h2>
+<h3 id="synopsis_5">Synopsis</h3>
+<pre><code class="language-c">__m128 __lsx_vfmadd_w (__m128 a, __m128 b, __m128 c)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfmadd.w
+Builtin: __builtin_lsx_vfmadd_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1074
+</code></pre>
+<h3 id="description_5">Description</h3>
+<p>Fused multiply-add lane-wise for 4 x fp32 lanes.</p>
+<h3 id="operation_5">Operation</h3>
+<pre><code class="language-c">dst.fp32[0] = fused_round((a.fp32[0] * b.fp32[0]) + c.fp32[0]);
+dst.fp32[1] = fused_round((a.fp32[1] * b.fp32[1]) + c.fp32[1]);
+dst.fp32[2] = fused_round((a.fp32[2] * b.fp32[2]) + c.fp32[2]);
+dst.fp32[3] = fused_round((a.fp32[3] * b.fp32[3]) + c.fp32[3]);
+</code></pre>
+<h3 id="latency-and-throughput_5">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_5">Header Mapping</h3>
+<pre><code class="language-c">return (__m128)__builtin_lsx_vfmadd_w((v4f32)a, (v4f32)b, (v4f32)c);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfmaddsub_d"></span></p>
+<h2 id="__m128d-__lsx_vfmaddsub_d-__m128d-a-__m128d-b-__m128d-c">__m128d __lsx_vfmaddsub_d (__m128d a, __m128d b, __m128d c)</h2>
+<h3 id="synopsis_6">Synopsis</h3>
+<pre><code class="language-c">__m128d __lsx_vfmaddsub_d (__m128d a, __m128d b, __m128d c)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfmaddsub.d
+Builtin: __builtin_lsx_vfmaddsub_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1053
+</code></pre>
+<h3 id="description_6">Description</h3>
+<p>Alternately fused multiply-add and fused multiply-subtract floating-point 2 x fp64 lanes.</p>
+<h3 id="operation_6">Operation</h3>
+<pre><code class="language-c">dst.fp64[0] = fused_round((a.fp64[0] * b.fp64[0]) + c.fp64[0]);
+dst.fp64[1] = fused_round((a.fp64[1] * b.fp64[1]) - c.fp64[1]);
+</code></pre>
+<h3 id="latency-and-throughput_6">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>0.50/5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_6">Header Mapping</h3>
+<pre><code class="language-c">return (__m128d)__builtin_lsx_vfmaddsub_d((v2f64)a, (v2f64)b, (v2f64)c);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfmaddsub_w"></span></p>
+<h2 id="__m128-__lsx_vfmaddsub_w-__m128-a-__m128-b-__m128-c">__m128 __lsx_vfmaddsub_w (__m128 a, __m128 b, __m128 c)</h2>
+<h3 id="synopsis_7">Synopsis</h3>
+<pre><code class="language-c">__m128 __lsx_vfmaddsub_w (__m128 a, __m128 b, __m128 c)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfmaddsub.w
+Builtin: __builtin_lsx_vfmaddsub_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1060
+</code></pre>
+<h3 id="description_7">Description</h3>
+<p>Alternately fused multiply-add and fused multiply-subtract floating-point 4 x fp32 lanes.</p>
+<h3 id="operation_7">Operation</h3>
+<pre><code class="language-c">dst.fp32[0] = fused_round((a.fp32[0] * b.fp32[0]) + c.fp32[0]);
+dst.fp32[1] = fused_round((a.fp32[1] * b.fp32[1]) - c.fp32[1]);
+dst.fp32[2] = fused_round((a.fp32[2] * b.fp32[2]) + c.fp32[2]);
+dst.fp32[3] = fused_round((a.fp32[3] * b.fp32[3]) - c.fp32[3]);
+</code></pre>
+<h3 id="latency-and-throughput_7">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>0.51/5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_7">Header Mapping</h3>
+<pre><code class="language-c">return (__m128)__builtin_lsx_vfmaddsub_w((v4f32)a, (v4f32)b, (v4f32)c);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfmsub_d"></span></p>
+<h2 id="__m128d-__lsx_vfmsub_d-__m128d-a-__m128d-b-__m128d-c">__m128d __lsx_vfmsub_d (__m128d a, __m128d b, __m128d c)</h2>
+<h3 id="synopsis_8">Synopsis</h3>
+<pre><code class="language-c">__m128d __lsx_vfmsub_d (__m128d a, __m128d b, __m128d c)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfmsub.d
+Builtin: __builtin_lsx_vfmsub_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1081
+</code></pre>
+<h3 id="description_8">Description</h3>
+<p>Fused multiply-subtract lane-wise for 2 x fp64 lanes.</p>
+<h3 id="operation_8">Operation</h3>
+<pre><code class="language-c">dst.fp64[0] = fused_round((a.fp64[0] * b.fp64[0]) - c.fp64[0]);
+dst.fp64[1] = fused_round((a.fp64[1] * b.fp64[1]) - c.fp64[1]);
+</code></pre>
+<h3 id="latency-and-throughput_8">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>0.50/5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_8">Header Mapping</h3>
+<pre><code class="language-c">return (__m128d)__builtin_lsx_vfmsub_d((v2f64)a, (v2f64)b, (v2f64)c);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfmsub_w"></span></p>
+<h2 id="__m128-__lsx_vfmsub_w-__m128-a-__m128-b-__m128-c">__m128 __lsx_vfmsub_w (__m128 a, __m128 b, __m128 c)</h2>
+<h3 id="synopsis_9">Synopsis</h3>
+<pre><code class="language-c">__m128 __lsx_vfmsub_w (__m128 a, __m128 b, __m128 c)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfmsub.w
+Builtin: __builtin_lsx_vfmsub_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1088
+</code></pre>
+<h3 id="description_9">Description</h3>
+<p>Fused multiply-subtract lane-wise for 4 x fp32 lanes.</p>
+<h3 id="operation_9">Operation</h3>
+<pre><code class="language-c">dst.fp32[0] = fused_round((a.fp32[0] * b.fp32[0]) - c.fp32[0]);
+dst.fp32[1] = fused_round((a.fp32[1] * b.fp32[1]) - c.fp32[1]);
+dst.fp32[2] = fused_round((a.fp32[2] * b.fp32[2]) - c.fp32[2]);
+dst.fp32[3] = fused_round((a.fp32[3] * b.fp32[3]) - c.fp32[3]);
+</code></pre>
+<h3 id="latency-and-throughput_9">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>0.50/5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_9">Header Mapping</h3>
+<pre><code class="language-c">return (__m128)__builtin_lsx_vfmsub_w((v4f32)a, (v4f32)b, (v4f32)c);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfmsubadd_d"></span></p>
+<h2 id="__m128d-__lsx_vfmsubadd_d-__m128d-a-__m128d-b-__m128d-c">__m128d __lsx_vfmsubadd_d (__m128d a, __m128d b, __m128d c)</h2>
+<h3 id="synopsis_10">Synopsis</h3>
+<pre><code class="language-c">__m128d __lsx_vfmsubadd_d (__m128d a, __m128d b, __m128d c)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfmsubadd.d
+Builtin: __builtin_lsx_vfmsubadd_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1123
+</code></pre>
+<h3 id="description_10">Description</h3>
+<p>Alternately fused multiply-add and fused multiply-subtract floating-point 2 x fp64 lanes.</p>
+<h3 id="operation_10">Operation</h3>
+<pre><code class="language-c">dst.fp64[0] = fused_round((a.fp64[0] * b.fp64[0]) - c.fp64[0]);
+dst.fp64[1] = fused_round((a.fp64[1] * b.fp64[1]) + c.fp64[1]);
+</code></pre>
+<h3 id="latency-and-throughput_10">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>0.50/5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_10">Header Mapping</h3>
+<pre><code class="language-c">return (__m128d)__builtin_lsx_vfmsubadd_d((v2f64)a, (v2f64)b, (v2f64)c);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfmsubadd_w"></span></p>
+<h2 id="__m128-__lsx_vfmsubadd_w-__m128-a-__m128-b-__m128-c">__m128 __lsx_vfmsubadd_w (__m128 a, __m128 b, __m128 c)</h2>
+<h3 id="synopsis_11">Synopsis</h3>
+<pre><code class="language-c">__m128 __lsx_vfmsubadd_w (__m128 a, __m128 b, __m128 c)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfmsubadd.w
+Builtin: __builtin_lsx_vfmsubadd_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1130
+</code></pre>
+<h3 id="description_11">Description</h3>
+<p>Alternately fused multiply-add and fused multiply-subtract floating-point 4 x fp32 lanes.</p>
+<h3 id="operation_11">Operation</h3>
+<pre><code class="language-c">dst.fp32[0] = fused_round((a.fp32[0] * b.fp32[0]) - c.fp32[0]);
+dst.fp32[1] = fused_round((a.fp32[1] * b.fp32[1]) + c.fp32[1]);
+dst.fp32[2] = fused_round((a.fp32[2] * b.fp32[2]) - c.fp32[2]);
+dst.fp32[3] = fused_round((a.fp32[3] * b.fp32[3]) + c.fp32[3]);
+</code></pre>
+<h3 id="latency-and-throughput_11">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>0.50/5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_11">Header Mapping</h3>
+<pre><code class="language-c">return (__m128)__builtin_lsx_vfmsubadd_w((v4f32)a, (v4f32)b, (v4f32)c);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfneg_d"></span></p>
+<h2 id="__m128d-__lsx_vfneg_d-__m128d-a">__m128d __lsx_vfneg_d (__m128d a)</h2>
+<h3 id="synopsis_12">Synopsis</h3>
+<pre><code class="language-c">__m128d __lsx_vfneg_d (__m128d a)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfneg.d
+Builtin: __builtin_lsx_vfneg_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1018
+</code></pre>
+<h3 id="description_12">Description</h3>
+<p>Negate lane-wise for 2 x fp64 lanes.</p>
+<h3 id="operation_12">Operation</h3>
+<pre><code class="language-c">dst.fp64[0] = -a.fp64[0];
+dst.fp64[1] = -a.fp64[1];
+</code></pre>
+<h3 id="header-mapping_12">Header Mapping</h3>
+<pre><code class="language-c">return (__m128d)__builtin_lsx_vfneg_d((v2f64)a);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfneg_w"></span></p>
+<h2 id="__m128-__lsx_vfneg_w-__m128-a">__m128 __lsx_vfneg_w (__m128 a)</h2>
+<h3 id="synopsis_13">Synopsis</h3>
+<pre><code class="language-c">__m128 __lsx_vfneg_w (__m128 a)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfneg.w
+Builtin: __builtin_lsx_vfneg_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1011
+</code></pre>
+<h3 id="description_13">Description</h3>
+<p>Negate lane-wise for 4 x fp32 lanes.</p>
+<h3 id="operation_13">Operation</h3>
+<pre><code class="language-c">dst.fp32[0] = -a.fp32[0];
+dst.fp32[1] = -a.fp32[1];
+dst.fp32[2] = -a.fp32[2];
+dst.fp32[3] = -a.fp32[3];
+</code></pre>
+<h3 id="header-mapping_13">Header Mapping</h3>
+<pre><code class="language-c">return (__m128)__builtin_lsx_vfneg_w((v4f32)a);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfnmadd_d"></span></p>
+<h2 id="__m128d-__lsx_vfnmadd_d-__m128d-a-__m128d-b-__m128d-c">__m128d __lsx_vfnmadd_d (__m128d a, __m128d b, __m128d c)</h2>
+<h3 id="synopsis_14">Synopsis</h3>
+<pre><code class="language-c">__m128d __lsx_vfnmadd_d (__m128d a, __m128d b, __m128d c)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfnmadd.d
+Builtin: __builtin_lsx_vfnmadd_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1095
+</code></pre>
+<h3 id="description_14">Description</h3>
+<p>Negated fused multiply-add lane-wise for 2 x fp64 lanes.</p>
+<h3 id="operation_14">Operation</h3>
+<pre><code class="language-c">dst.fp64[0] = -fused_round((a.fp64[0] * b.fp64[0]) + c.fp64[0]);
+dst.fp64[1] = -fused_round((a.fp64[1] * b.fp64[1]) + c.fp64[1]);
+</code></pre>
+<h3 id="latency-and-throughput_12">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>0.50/5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_14">Header Mapping</h3>
+<pre><code class="language-c">return (__m128d)__builtin_lsx_vfnmadd_d((v2f64)a, (v2f64)b, (v2f64)c);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfnmadd_w"></span></p>
+<h2 id="__m128-__lsx_vfnmadd_w-__m128-a-__m128-b-__m128-c">__m128 __lsx_vfnmadd_w (__m128 a, __m128 b, __m128 c)</h2>
+<h3 id="synopsis_15">Synopsis</h3>
+<pre><code class="language-c">__m128 __lsx_vfnmadd_w (__m128 a, __m128 b, __m128 c)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfnmadd.w
+Builtin: __builtin_lsx_vfnmadd_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1102
+</code></pre>
+<h3 id="description_15">Description</h3>
+<p>Negated fused multiply-add lane-wise for 4 x fp32 lanes.</p>
+<h3 id="operation_15">Operation</h3>
+<pre><code class="language-c">dst.fp32[0] = -fused_round((a.fp32[0] * b.fp32[0]) + c.fp32[0]);
+dst.fp32[1] = -fused_round((a.fp32[1] * b.fp32[1]) + c.fp32[1]);
+dst.fp32[2] = -fused_round((a.fp32[2] * b.fp32[2]) + c.fp32[2]);
+dst.fp32[3] = -fused_round((a.fp32[3] * b.fp32[3]) + c.fp32[3]);
+</code></pre>
+<h3 id="latency-and-throughput_13">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>0.50/5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_15">Header Mapping</h3>
+<pre><code class="language-c">return (__m128)__builtin_lsx_vfnmadd_w((v4f32)a, (v4f32)b, (v4f32)c);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfnmsub_d"></span></p>
+<h2 id="__m128d-__lsx_vfnmsub_d-__m128d-a-__m128d-b-__m128d-c">__m128d __lsx_vfnmsub_d (__m128d a, __m128d b, __m128d c)</h2>
+<h3 id="synopsis_16">Synopsis</h3>
+<pre><code class="language-c">__m128d __lsx_vfnmsub_d (__m128d a, __m128d b, __m128d c)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfnmsub.d
+Builtin: __builtin_lsx_vfnmsub_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1109
+</code></pre>
+<h3 id="description_16">Description</h3>
+<p>Negated fused multiply-subtract lane-wise for 2 x fp64 lanes.</p>
+<h3 id="operation_16">Operation</h3>
+<pre><code class="language-c">dst.fp64[0] = -fused_round((a.fp64[0] * b.fp64[0]) - c.fp64[0]);
+dst.fp64[1] = -fused_round((a.fp64[1] * b.fp64[1]) - c.fp64[1]);
+</code></pre>
+<h3 id="latency-and-throughput_14">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>0.50/5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_16">Header Mapping</h3>
+<pre><code class="language-c">return (__m128d)__builtin_lsx_vfnmsub_d((v2f64)a, (v2f64)b, (v2f64)c);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfnmsub_w"></span></p>
+<h2 id="__m128-__lsx_vfnmsub_w-__m128-a-__m128-b-__m128-c">__m128 __lsx_vfnmsub_w (__m128 a, __m128 b, __m128 c)</h2>
+<h3 id="synopsis_17">Synopsis</h3>
+<pre><code class="language-c">__m128 __lsx_vfnmsub_w (__m128 a, __m128 b, __m128 c)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfnmsub.w
+Builtin: __builtin_lsx_vfnmsub_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1116
+</code></pre>
+<h3 id="description_17">Description</h3>
+<p>Negated fused multiply-subtract lane-wise for 4 x fp32 lanes.</p>
+<h3 id="operation_17">Operation</h3>
+<pre><code class="language-c">dst.fp32[0] = -fused_round((a.fp32[0] * b.fp32[0]) - c.fp32[0]);
+dst.fp32[1] = -fused_round((a.fp32[1] * b.fp32[1]) - c.fp32[1]);
+dst.fp32[2] = -fused_round((a.fp32[2] * b.fp32[2]) - c.fp32[2]);
+dst.fp32[3] = -fused_round((a.fp32[3] * b.fp32[3]) - c.fp32[3]);
+</code></pre>
+<h3 id="latency-and-throughput_15">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>0.50/5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_17">Header Mapping</h3>
+<pre><code class="language-c">return (__m128)__builtin_lsx_vfnmsub_w((v4f32)a, (v4f32)b, (v4f32)c);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfrstii_b"></span></p>
+<h2 id="__m128i-__lsx_vfrstii_b-__m128i-a-__m128i-b-unsigned-char-imm">__m128i __lsx_vfrstii_b (__m128i a, __m128i b, unsigned char imm)</h2>
+<h3 id="synopsis_18">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vfrstii_b (__m128i a, __m128i b, unsigned char imm)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfrstii.b
+Builtin: __builtin_lsx_vfrstii_b
+CPU Flags: __mips_loongson_sx
+Kind: macro
+Source: include/loongson-sxintrin.h:838
+</code></pre>
+<h3 id="description_18">Description</h3>
+<p>Find the first matching u8 element positions from <code>a</code> and <code>b</code> under the immediate and return match indices, or zero when no selected match is found. This supports vectorized substring/search primitives.</p>
+<h3 id="operation_18">Operation</h3>
+<pre><code class="language-c">dst = first_match_indices_or_zero(a, b, imm);
+</code></pre>
+<h3 id="latency-and-throughput_16">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_18">Header Mapping</h3>
+<pre><code class="language-c">#define __lsx_vfrstii_b(a, b, imm) ((__m128i)__builtin_lsx_vfrstii_b((v16i8)(a), (v16i8)(b), (imm)))
+</code></pre>
+<p><span id="intrinsic-__lsx_vfrstii_h"></span></p>
+<h2 id="__m128i-__lsx_vfrstii_h-__m128i-a-__m128i-b-unsigned-char-imm">__m128i __lsx_vfrstii_h (__m128i a, __m128i b, unsigned char imm)</h2>
+<h3 id="synopsis_19">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vfrstii_h (__m128i a, __m128i b, unsigned char imm)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfrstii.h
+Builtin: __builtin_lsx_vfrstii_h
+CPU Flags: __mips_loongson_sx
+Kind: macro
+Source: include/loongson-sxintrin.h:837
+</code></pre>
+<h3 id="description_19">Description</h3>
+<p>Find the first matching fp16 element positions from <code>a</code> and <code>b</code> under the immediate and return match indices, or zero when no selected match is found. This supports vectorized substring/search primitives.</p>
+<h3 id="operation_19">Operation</h3>
+<pre><code class="language-c">dst = first_match_indices_or_zero(a, b, imm);
+</code></pre>
+<h3 id="latency-and-throughput_17">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_19">Header Mapping</h3>
+<pre><code class="language-c">#define __lsx_vfrstii_h(a, b, imm) ((__m128i)__builtin_lsx_vfrstii_h((v8i16)(a), (v8i16)(b), (imm)))
+</code></pre>
+<p><span id="intrinsic-__lsx_vfrstiv_b"></span></p>
+<h2 id="__m128i-__lsx_vfrstiv_b-__m128i-a-__m128i-b-__m128i-c">__m128i __lsx_vfrstiv_b (__m128i a, __m128i b, __m128i c)</h2>
+<h3 id="synopsis_20">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vfrstiv_b (__m128i a, __m128i b, __m128i c)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfrstiv.b
+Builtin: __builtin_lsx_vfrstiv_b
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:847
+</code></pre>
+<h3 id="description_20">Description</h3>
+<p>Find the first matching u8 element positions from <code>a</code> and <code>b</code> under the control vector and return match indices, or zero when no selected match is found. This supports vectorized substring/search primitives.</p>
+<h3 id="operation_20">Operation</h3>
+<pre><code class="language-c">dst = first_match_indices_or_zero(a, b, control vector);
+</code></pre>
+<h3 id="latency-and-throughput_18">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_20">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vfrstiv_b((v16i8)a, (v16i8)b, (v16i8)c);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfrstiv_h"></span></p>
+<h2 id="__m128i-__lsx_vfrstiv_h-__m128i-a-__m128i-b-__m128i-c">__m128i __lsx_vfrstiv_h (__m128i a, __m128i b, __m128i c)</h2>
+<h3 id="synopsis_21">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vfrstiv_h (__m128i a, __m128i b, __m128i c)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfrstiv.h
+Builtin: __builtin_lsx_vfrstiv_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:840
+</code></pre>
+<h3 id="description_21">Description</h3>
+<p>Find the first matching fp16 element positions from <code>a</code> and <code>b</code> under the control vector and return match indices, or zero when no selected match is found. This supports vectorized substring/search primitives.</p>
+<h3 id="operation_21">Operation</h3>
+<pre><code class="language-c">dst = first_match_indices_or_zero(a, b, control vector);
+</code></pre>
+<h3 id="latency-and-throughput_19">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_21">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vfrstiv_h((v8i16)a, (v8i16)b, (v8i16)c);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfrstm_b"></span></p>
+<h2 id="__m128i-__lsx_vfrstm_b-__m128i-a">__m128i __lsx_vfrstm_b (__m128i a)</h2>
+<h3 id="synopsis_22">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vfrstm_b (__m128i a)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfrstm.b
+Builtin: __builtin_lsx_vfrstm_b
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:861
+</code></pre>
+<h3 id="description_22">Description</h3>
+<p>Find the first matching u8 element positions from <code>a</code> and <code>b</code> under the mask vector and return match indices, or zero when no selected match is found. This supports vectorized substring/search primitives.</p>
+<h3 id="operation_22">Operation</h3>
+<pre><code class="language-c">dst = first_match_indices_or_zero(a, b, mask);
+</code></pre>
+<h3 id="latency-and-throughput_20">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_22">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vfrstm_b((v16i8)a);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfrstm_h"></span></p>
+<h2 id="__m128i-__lsx_vfrstm_h-__m128i-a">__m128i __lsx_vfrstm_h (__m128i a)</h2>
+<h3 id="synopsis_23">Synopsis</h3>
+<pre><code class="language-c">__m128i __lsx_vfrstm_h (__m128i a)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfrstm.h
+Builtin: __builtin_lsx_vfrstm_h
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:854
+</code></pre>
+<h3 id="description_23">Description</h3>
+<p>Find the first matching fp16 element positions from <code>a</code> and <code>b</code> under the mask vector and return match indices, or zero when no selected match is found. This supports vectorized substring/search primitives.</p>
+<h3 id="operation_23">Operation</h3>
+<pre><code class="language-c">dst = first_match_indices_or_zero(a, b, mask);
+</code></pre>
+<h3 id="latency-and-throughput_21">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_23">Header Mapping</h3>
+<pre><code class="language-c">return (__m128i)__builtin_lsx_vfrstm_h((v8i16)a);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfsubadd_d"></span></p>
+<h2 id="__m128d-__lsx_vfsubadd_d-__m128d-a-__m128d-b">__m128d __lsx_vfsubadd_d (__m128d a, __m128d b)</h2>
+<h3 id="synopsis_24">Synopsis</h3>
+<pre><code class="language-c">__m128d __lsx_vfsubadd_d (__m128d a, __m128d b)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfsubadd.d
+Builtin: __builtin_lsx_vfsubadd_d
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1039
+</code></pre>
+<h3 id="description_24">Description</h3>
+<p>Alternately add and subtract floating-point 2 x fp64 lanes.</p>
+<h3 id="operation_24">Operation</h3>
+<pre><code class="language-c">dst.fp64[0] = a.fp64[0] - b.fp64[0];
+dst.fp64[1] = a.fp64[1] + b.fp64[1];
+</code></pre>
+<h3 id="latency-and-throughput_22">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_24">Header Mapping</h3>
+<pre><code class="language-c">return (__m128d)__builtin_lsx_vfsubadd_d((v2f64)a, (v2f64)b);
+</code></pre>
+<p><span id="intrinsic-__lsx_vfsubadd_w"></span></p>
+<h2 id="__m128-__lsx_vfsubadd_w-__m128-a-__m128-b">__m128 __lsx_vfsubadd_w (__m128 a, __m128 b)</h2>
+<h3 id="synopsis_25">Synopsis</h3>
+<pre><code class="language-c">__m128 __lsx_vfsubadd_w (__m128 a, __m128 b)
+#include &lt;loongson-sxintrin.h&gt;
+Instruction: vfsubadd.w
+Builtin: __builtin_lsx_vfsubadd_w
+CPU Flags: __mips_loongson_sx
+Kind: function
+Source: include/loongson-sxintrin.h:1046
+</code></pre>
+<h3 id="description_25">Description</h3>
+<p>Alternately add and subtract floating-point 4 x fp32 lanes.</p>
+<h3 id="operation_25">Operation</h3>
+<pre><code class="language-c">dst.fp32[0] = a.fp32[0] - b.fp32[0];
+dst.fp32[1] = a.fp32[1] + b.fp32[1];
+dst.fp32[2] = a.fp32[2] - b.fp32[2];
+dst.fp32[3] = a.fp32[3] + b.fp32[3];
+</code></pre>
+<h3 id="latency-and-throughput_23">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>5</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_25">Header Mapping</h3>
+<pre><code class="language-c">return (__m128)__builtin_lsx_vfsubadd_w((v4f32)a, (v4f32)b);
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../permutation/" class="btn btn-neutral float-left" title="Permutation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../float_conversion/" class="btn btn-neutral float-right" title="Float Conversion">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../permutation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../float_conversion/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

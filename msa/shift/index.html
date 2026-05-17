@@ -1,0 +1,2586 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Shift - Unofficial MIPS Loongson Intrinsics Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../main.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Shift";
+        var mkdocs_page_input_path = "msa/shift.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Unofficial MIPS Loongson Intrinsics Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../loongson_simd_basics/">Loongson SIMD Basics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../latency_throughput/">Latency and Throughput</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../asx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Shift</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#v16i8-__msa_sll_b-v16i8-a-v16i8-b">v16i8 __msa_sll_b (v16i8 a, v16i8 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2i64-__msa_sll_d-v2i64-a-v2i64-b">v2i64 __msa_sll_d (v2i64 a, v2i64 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_1">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_1">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_1">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_1">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_1">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v8i16-__msa_sll_h-v8i16-a-v8i16-b">v8i16 __msa_sll_h (v8i16 a, v8i16 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_2">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_2">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_2">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_2">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_2">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4i32-__msa_sll_w-v4i32-a-v4i32-b">v4i32 __msa_sll_w (v4i32 a, v4i32 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_3">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_3">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_3">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_3">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_3">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v16i8-__msa_slli_b-v16i8-a-int-imm">v16i8 __msa_slli_b (v16i8 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_4">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_4">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_4">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_4">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_4">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2i64-__msa_slli_d-v2i64-a-int-imm">v2i64 __msa_slli_d (v2i64 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_5">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_5">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_5">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_5">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_5">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v8i16-__msa_slli_h-v8i16-a-int-imm">v8i16 __msa_slli_h (v8i16 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_6">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_6">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_6">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_6">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_6">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4i32-__msa_slli_w-v4i32-a-int-imm">v4i32 __msa_slli_w (v4i32 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_7">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_7">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_7">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_7">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_7">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v16i8-__msa_sra_b-v16i8-a-v16i8-b">v16i8 __msa_sra_b (v16i8 a, v16i8 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_8">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_8">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_8">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_8">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_8">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2i64-__msa_sra_d-v2i64-a-v2i64-b">v2i64 __msa_sra_d (v2i64 a, v2i64 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_9">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_9">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_9">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_9">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_9">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v8i16-__msa_sra_h-v8i16-a-v8i16-b">v8i16 __msa_sra_h (v8i16 a, v8i16 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_10">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_10">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_10">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_10">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_10">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4i32-__msa_sra_w-v4i32-a-v4i32-b">v4i32 __msa_sra_w (v4i32 a, v4i32 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_11">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_11">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_11">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_11">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_11">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v16i8-__msa_srai_b-v16i8-a-int-imm">v16i8 __msa_srai_b (v16i8 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_12">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_12">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_12">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_12">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_12">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2i64-__msa_srai_d-v2i64-a-int-imm">v2i64 __msa_srai_d (v2i64 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_13">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_13">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_13">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_13">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_13">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v8i16-__msa_srai_h-v8i16-a-int-imm">v8i16 __msa_srai_h (v8i16 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_14">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_14">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_14">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_14">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_14">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4i32-__msa_srai_w-v4i32-a-int-imm">v4i32 __msa_srai_w (v4i32 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_15">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_15">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_15">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_15">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_15">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v16i8-__msa_srar_b-v16i8-a-v16i8-b">v16i8 __msa_srar_b (v16i8 a, v16i8 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_16">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_16">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_16">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_16">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_16">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2i64-__msa_srar_d-v2i64-a-v2i64-b">v2i64 __msa_srar_d (v2i64 a, v2i64 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_17">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_17">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_17">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_17">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_17">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v8i16-__msa_srar_h-v8i16-a-v8i16-b">v8i16 __msa_srar_h (v8i16 a, v8i16 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_18">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_18">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_18">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_18">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_18">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4i32-__msa_srar_w-v4i32-a-v4i32-b">v4i32 __msa_srar_w (v4i32 a, v4i32 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_19">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_19">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_19">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_19">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_19">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v16i8-__msa_srari_b-v16i8-a-int-imm">v16i8 __msa_srari_b (v16i8 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_20">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_20">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_20">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_20">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_20">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2i64-__msa_srari_d-v2i64-a-int-imm">v2i64 __msa_srari_d (v2i64 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_21">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_21">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_21">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_21">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_21">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v8i16-__msa_srari_h-v8i16-a-int-imm">v8i16 __msa_srari_h (v8i16 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_22">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_22">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_22">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_22">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_22">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4i32-__msa_srari_w-v4i32-a-int-imm">v4i32 __msa_srari_w (v4i32 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_23">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_23">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_23">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_23">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_23">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v16i8-__msa_srl_b-v16i8-a-v16i8-b">v16i8 __msa_srl_b (v16i8 a, v16i8 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_24">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_24">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_24">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_24">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_24">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2i64-__msa_srl_d-v2i64-a-v2i64-b">v2i64 __msa_srl_d (v2i64 a, v2i64 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_25">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_25">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_25">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_25">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_25">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v8i16-__msa_srl_h-v8i16-a-v8i16-b">v8i16 __msa_srl_h (v8i16 a, v8i16 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_26">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_26">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_26">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_26">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_26">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4i32-__msa_srl_w-v4i32-a-v4i32-b">v4i32 __msa_srl_w (v4i32 a, v4i32 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_27">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_27">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_27">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_27">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_27">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v16i8-__msa_srli_b-v16i8-a-int-imm">v16i8 __msa_srli_b (v16i8 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_28">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_28">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_28">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_28">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_28">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2i64-__msa_srli_d-v2i64-a-int-imm">v2i64 __msa_srli_d (v2i64 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_29">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_29">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_29">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_29">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_29">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v8i16-__msa_srli_h-v8i16-a-int-imm">v8i16 __msa_srli_h (v8i16 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_30">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_30">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_30">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_30">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_30">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4i32-__msa_srli_w-v4i32-a-int-imm">v4i32 __msa_srli_w (v4i32 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_31">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_31">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_31">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_31">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_31">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v16i8-__msa_srlr_b-v16i8-a-v16i8-b">v16i8 __msa_srlr_b (v16i8 a, v16i8 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_32">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_32">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_32">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_32">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_32">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2i64-__msa_srlr_d-v2i64-a-v2i64-b">v2i64 __msa_srlr_d (v2i64 a, v2i64 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_33">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_33">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_33">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_33">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_33">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v8i16-__msa_srlr_h-v8i16-a-v8i16-b">v8i16 __msa_srlr_h (v8i16 a, v8i16 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_34">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_34">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_34">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_34">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_34">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4i32-__msa_srlr_w-v4i32-a-v4i32-b">v4i32 __msa_srlr_w (v4i32 a, v4i32 b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_35">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_35">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_35">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_35">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_35">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v16i8-__msa_srlri_b-v16i8-a-int-imm">v16i8 __msa_srlri_b (v16i8 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_36">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_36">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_36">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_36">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_36">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v2i64-__msa_srlri_d-v2i64-a-int-imm">v2i64 __msa_srlri_d (v2i64 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_37">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_37">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_37">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_37">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_37">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v8i16-__msa_srlri_h-v8i16-a-int-imm">v8i16 __msa_srlri_h (v8i16 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_38">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_38">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_38">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_38">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_38">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#v4i32-__msa_srlri_w-v4i32-a-int-imm">v4i32 __msa_srlri_w (v4i32 a, int imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_39">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_39">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_39">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_39">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_39">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../control_status/">Control and Status</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA Crypto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa_crypto/crypto/">Cryptography</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MMI</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CSR</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../csr/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Unofficial MIPS Loongson Intrinsics Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">MSA</li>
+      <li class="breadcrumb-item active">Shift</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="shift">Shift</h1>
+<p>Generated from <code>include/msa.h</code>. This page contains 40 intrinsics.</p>
+<p><span id="intrinsic-__msa_sll_b"></span></p>
+<h2 id="v16i8-__msa_sll_b-v16i8-a-v16i8-b">v16i8 __msa_sll_b (v16i8 a, v16i8 b)</h2>
+<h3 id="synopsis">Synopsis</h3>
+<pre><code class="language-c">v16i8 __msa_sll_b (v16i8 a, v16i8 b)
+#include &lt;msa.h&gt;
+Instruction: sll.b
+Builtin: __builtin_msa_sll_b
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:52
+</code></pre>
+<h3 id="description">Description</h3>
+<p>Shift-left each u8 lane.</p>
+<h3 id="operation">Operation</h3>
+<pre><code class="language-c">dst.u8[0] = a.u8[0] &lt;&lt; (b.u8[0] &amp; 7);
+dst.u8[1] = a.u8[1] &lt;&lt; (b.u8[1] &amp; 7);
+dst.u8[2] = a.u8[2] &lt;&lt; (b.u8[2] &amp; 7);
+dst.u8[3] = a.u8[3] &lt;&lt; (b.u8[3] &amp; 7);
+dst.u8[4] = a.u8[4] &lt;&lt; (b.u8[4] &amp; 7);
+dst.u8[5] = a.u8[5] &lt;&lt; (b.u8[5] &amp; 7);
+dst.u8[6] = a.u8[6] &lt;&lt; (b.u8[6] &amp; 7);
+dst.u8[7] = a.u8[7] &lt;&lt; (b.u8[7] &amp; 7);
+dst.u8[8] = a.u8[8] &lt;&lt; (b.u8[8] &amp; 7);
+dst.u8[9] = a.u8[9] &lt;&lt; (b.u8[9] &amp; 7);
+dst.u8[10] = a.u8[10] &lt;&lt; (b.u8[10] &amp; 7);
+dst.u8[11] = a.u8[11] &lt;&lt; (b.u8[11] &amp; 7);
+dst.u8[12] = a.u8[12] &lt;&lt; (b.u8[12] &amp; 7);
+dst.u8[13] = a.u8[13] &lt;&lt; (b.u8[13] &amp; 7);
+dst.u8[14] = a.u8[14] &lt;&lt; (b.u8[14] &amp; 7);
+dst.u8[15] = a.u8[15] &lt;&lt; (b.u8[15] &amp; 7);
+</code></pre>
+<h3 id="latency-and-throughput">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_sll_b __builtin_msa_sll_b
+</code></pre>
+<p><span id="intrinsic-__msa_sll_d"></span></p>
+<h2 id="v2i64-__msa_sll_d-v2i64-a-v2i64-b">v2i64 __msa_sll_d (v2i64 a, v2i64 b)</h2>
+<h3 id="synopsis_1">Synopsis</h3>
+<pre><code class="language-c">v2i64 __msa_sll_d (v2i64 a, v2i64 b)
+#include &lt;msa.h&gt;
+Instruction: sll.d
+Builtin: __builtin_msa_sll_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:55
+</code></pre>
+<h3 id="description_1">Description</h3>
+<p>Shift-left each u64 lane.</p>
+<h3 id="operation_1">Operation</h3>
+<pre><code class="language-c">dst.u64[0] = a.u64[0] &lt;&lt; (b.u64[0] &amp; 63);
+dst.u64[1] = a.u64[1] &lt;&lt; (b.u64[1] &amp; 63);
+</code></pre>
+<h3 id="latency-and-throughput_1">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_1">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_sll_d __builtin_msa_sll_d
+</code></pre>
+<p><span id="intrinsic-__msa_sll_h"></span></p>
+<h2 id="v8i16-__msa_sll_h-v8i16-a-v8i16-b">v8i16 __msa_sll_h (v8i16 a, v8i16 b)</h2>
+<h3 id="synopsis_2">Synopsis</h3>
+<pre><code class="language-c">v8i16 __msa_sll_h (v8i16 a, v8i16 b)
+#include &lt;msa.h&gt;
+Instruction: sll.h
+Builtin: __builtin_msa_sll_h
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:53
+</code></pre>
+<h3 id="description_2">Description</h3>
+<p>Shift-left each u16 lane.</p>
+<h3 id="operation_2">Operation</h3>
+<pre><code class="language-c">dst.u16[0] = a.u16[0] &lt;&lt; (b.u16[0] &amp; 15);
+dst.u16[1] = a.u16[1] &lt;&lt; (b.u16[1] &amp; 15);
+dst.u16[2] = a.u16[2] &lt;&lt; (b.u16[2] &amp; 15);
+dst.u16[3] = a.u16[3] &lt;&lt; (b.u16[3] &amp; 15);
+dst.u16[4] = a.u16[4] &lt;&lt; (b.u16[4] &amp; 15);
+dst.u16[5] = a.u16[5] &lt;&lt; (b.u16[5] &amp; 15);
+dst.u16[6] = a.u16[6] &lt;&lt; (b.u16[6] &amp; 15);
+dst.u16[7] = a.u16[7] &lt;&lt; (b.u16[7] &amp; 15);
+</code></pre>
+<h3 id="latency-and-throughput_2">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_2">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_sll_h __builtin_msa_sll_h
+</code></pre>
+<p><span id="intrinsic-__msa_sll_w"></span></p>
+<h2 id="v4i32-__msa_sll_w-v4i32-a-v4i32-b">v4i32 __msa_sll_w (v4i32 a, v4i32 b)</h2>
+<h3 id="synopsis_3">Synopsis</h3>
+<pre><code class="language-c">v4i32 __msa_sll_w (v4i32 a, v4i32 b)
+#include &lt;msa.h&gt;
+Instruction: sll.w
+Builtin: __builtin_msa_sll_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:54
+</code></pre>
+<h3 id="description_3">Description</h3>
+<p>Shift-left each u32 lane.</p>
+<h3 id="operation_3">Operation</h3>
+<pre><code class="language-c">dst.u32[0] = a.u32[0] &lt;&lt; (b.u32[0] &amp; 31);
+dst.u32[1] = a.u32[1] &lt;&lt; (b.u32[1] &amp; 31);
+dst.u32[2] = a.u32[2] &lt;&lt; (b.u32[2] &amp; 31);
+dst.u32[3] = a.u32[3] &lt;&lt; (b.u32[3] &amp; 31);
+</code></pre>
+<h3 id="latency-and-throughput_3">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_3">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_sll_w __builtin_msa_sll_w
+</code></pre>
+<p><span id="intrinsic-__msa_slli_b"></span></p>
+<h2 id="v16i8-__msa_slli_b-v16i8-a-int-imm">v16i8 __msa_slli_b (v16i8 a, int imm)</h2>
+<h3 id="synopsis_4">Synopsis</h3>
+<pre><code class="language-c">v16i8 __msa_slli_b (v16i8 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: slli.b
+Builtin: __builtin_msa_slli_b
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:56
+</code></pre>
+<h3 id="description_4">Description</h3>
+<p>Shift-left each u8 lane.</p>
+<h3 id="operation_4">Operation</h3>
+<pre><code class="language-c">dst.u8[0] = a.u8[0] &lt;&lt; imm;
+dst.u8[1] = a.u8[1] &lt;&lt; imm;
+dst.u8[2] = a.u8[2] &lt;&lt; imm;
+dst.u8[3] = a.u8[3] &lt;&lt; imm;
+dst.u8[4] = a.u8[4] &lt;&lt; imm;
+dst.u8[5] = a.u8[5] &lt;&lt; imm;
+dst.u8[6] = a.u8[6] &lt;&lt; imm;
+dst.u8[7] = a.u8[7] &lt;&lt; imm;
+dst.u8[8] = a.u8[8] &lt;&lt; imm;
+dst.u8[9] = a.u8[9] &lt;&lt; imm;
+dst.u8[10] = a.u8[10] &lt;&lt; imm;
+dst.u8[11] = a.u8[11] &lt;&lt; imm;
+dst.u8[12] = a.u8[12] &lt;&lt; imm;
+dst.u8[13] = a.u8[13] &lt;&lt; imm;
+dst.u8[14] = a.u8[14] &lt;&lt; imm;
+dst.u8[15] = a.u8[15] &lt;&lt; imm;
+</code></pre>
+<h3 id="latency-and-throughput_4">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_4">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_slli_b __builtin_msa_slli_b
+</code></pre>
+<p><span id="intrinsic-__msa_slli_d"></span></p>
+<h2 id="v2i64-__msa_slli_d-v2i64-a-int-imm">v2i64 __msa_slli_d (v2i64 a, int imm)</h2>
+<h3 id="synopsis_5">Synopsis</h3>
+<pre><code class="language-c">v2i64 __msa_slli_d (v2i64 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: slli.d
+Builtin: __builtin_msa_slli_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:59
+</code></pre>
+<h3 id="description_5">Description</h3>
+<p>Shift-left each u64 lane.</p>
+<h3 id="operation_5">Operation</h3>
+<pre><code class="language-c">dst.u64[0] = a.u64[0] &lt;&lt; imm;
+dst.u64[1] = a.u64[1] &lt;&lt; imm;
+</code></pre>
+<h3 id="latency-and-throughput_5">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_5">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_slli_d __builtin_msa_slli_d
+</code></pre>
+<p><span id="intrinsic-__msa_slli_h"></span></p>
+<h2 id="v8i16-__msa_slli_h-v8i16-a-int-imm">v8i16 __msa_slli_h (v8i16 a, int imm)</h2>
+<h3 id="synopsis_6">Synopsis</h3>
+<pre><code class="language-c">v8i16 __msa_slli_h (v8i16 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: slli.h
+Builtin: __builtin_msa_slli_h
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:57
+</code></pre>
+<h3 id="description_6">Description</h3>
+<p>Shift-left each u16 lane.</p>
+<h3 id="operation_6">Operation</h3>
+<pre><code class="language-c">dst.u16[0] = a.u16[0] &lt;&lt; imm;
+dst.u16[1] = a.u16[1] &lt;&lt; imm;
+dst.u16[2] = a.u16[2] &lt;&lt; imm;
+dst.u16[3] = a.u16[3] &lt;&lt; imm;
+dst.u16[4] = a.u16[4] &lt;&lt; imm;
+dst.u16[5] = a.u16[5] &lt;&lt; imm;
+dst.u16[6] = a.u16[6] &lt;&lt; imm;
+dst.u16[7] = a.u16[7] &lt;&lt; imm;
+</code></pre>
+<h3 id="latency-and-throughput_6">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_6">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_slli_h __builtin_msa_slli_h
+</code></pre>
+<p><span id="intrinsic-__msa_slli_w"></span></p>
+<h2 id="v4i32-__msa_slli_w-v4i32-a-int-imm">v4i32 __msa_slli_w (v4i32 a, int imm)</h2>
+<h3 id="synopsis_7">Synopsis</h3>
+<pre><code class="language-c">v4i32 __msa_slli_w (v4i32 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: slli.w
+Builtin: __builtin_msa_slli_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:58
+</code></pre>
+<h3 id="description_7">Description</h3>
+<p>Shift-left each u32 lane.</p>
+<h3 id="operation_7">Operation</h3>
+<pre><code class="language-c">dst.u32[0] = a.u32[0] &lt;&lt; imm;
+dst.u32[1] = a.u32[1] &lt;&lt; imm;
+dst.u32[2] = a.u32[2] &lt;&lt; imm;
+dst.u32[3] = a.u32[3] &lt;&lt; imm;
+</code></pre>
+<h3 id="latency-and-throughput_7">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_7">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_slli_w __builtin_msa_slli_w
+</code></pre>
+<p><span id="intrinsic-__msa_sra_b"></span></p>
+<h2 id="v16i8-__msa_sra_b-v16i8-a-v16i8-b">v16i8 __msa_sra_b (v16i8 a, v16i8 b)</h2>
+<h3 id="synopsis_8">Synopsis</h3>
+<pre><code class="language-c">v16i8 __msa_sra_b (v16i8 a, v16i8 b)
+#include &lt;msa.h&gt;
+Instruction: sra.b
+Builtin: __builtin_msa_sra_b
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:60
+</code></pre>
+<h3 id="description_8">Description</h3>
+<p>Arithmetic-shift-right each signed u8 lane.</p>
+<h3 id="operation_8">Operation</h3>
+<pre><code class="language-c">dst.i8[0] = arithmetic_shift_right(a.i8[0], (b.i8[0] &amp; 7));
+dst.i8[1] = arithmetic_shift_right(a.i8[1], (b.i8[1] &amp; 7));
+dst.i8[2] = arithmetic_shift_right(a.i8[2], (b.i8[2] &amp; 7));
+dst.i8[3] = arithmetic_shift_right(a.i8[3], (b.i8[3] &amp; 7));
+dst.i8[4] = arithmetic_shift_right(a.i8[4], (b.i8[4] &amp; 7));
+dst.i8[5] = arithmetic_shift_right(a.i8[5], (b.i8[5] &amp; 7));
+dst.i8[6] = arithmetic_shift_right(a.i8[6], (b.i8[6] &amp; 7));
+dst.i8[7] = arithmetic_shift_right(a.i8[7], (b.i8[7] &amp; 7));
+dst.i8[8] = arithmetic_shift_right(a.i8[8], (b.i8[8] &amp; 7));
+dst.i8[9] = arithmetic_shift_right(a.i8[9], (b.i8[9] &amp; 7));
+dst.i8[10] = arithmetic_shift_right(a.i8[10], (b.i8[10] &amp; 7));
+dst.i8[11] = arithmetic_shift_right(a.i8[11], (b.i8[11] &amp; 7));
+dst.i8[12] = arithmetic_shift_right(a.i8[12], (b.i8[12] &amp; 7));
+dst.i8[13] = arithmetic_shift_right(a.i8[13], (b.i8[13] &amp; 7));
+dst.i8[14] = arithmetic_shift_right(a.i8[14], (b.i8[14] &amp; 7));
+dst.i8[15] = arithmetic_shift_right(a.i8[15], (b.i8[15] &amp; 7));
+</code></pre>
+<h3 id="latency-and-throughput_8">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_8">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_sra_b __builtin_msa_sra_b
+</code></pre>
+<p><span id="intrinsic-__msa_sra_d"></span></p>
+<h2 id="v2i64-__msa_sra_d-v2i64-a-v2i64-b">v2i64 __msa_sra_d (v2i64 a, v2i64 b)</h2>
+<h3 id="synopsis_9">Synopsis</h3>
+<pre><code class="language-c">v2i64 __msa_sra_d (v2i64 a, v2i64 b)
+#include &lt;msa.h&gt;
+Instruction: sra.d
+Builtin: __builtin_msa_sra_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:63
+</code></pre>
+<h3 id="description_9">Description</h3>
+<p>Arithmetic-shift-right each signed u64 lane.</p>
+<h3 id="operation_9">Operation</h3>
+<pre><code class="language-c">dst.i64[0] = arithmetic_shift_right(a.i64[0], (b.i64[0] &amp; 63));
+dst.i64[1] = arithmetic_shift_right(a.i64[1], (b.i64[1] &amp; 63));
+</code></pre>
+<h3 id="latency-and-throughput_9">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_9">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_sra_d __builtin_msa_sra_d
+</code></pre>
+<p><span id="intrinsic-__msa_sra_h"></span></p>
+<h2 id="v8i16-__msa_sra_h-v8i16-a-v8i16-b">v8i16 __msa_sra_h (v8i16 a, v8i16 b)</h2>
+<h3 id="synopsis_10">Synopsis</h3>
+<pre><code class="language-c">v8i16 __msa_sra_h (v8i16 a, v8i16 b)
+#include &lt;msa.h&gt;
+Instruction: sra.h
+Builtin: __builtin_msa_sra_h
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:61
+</code></pre>
+<h3 id="description_10">Description</h3>
+<p>Arithmetic-shift-right each signed u16 lane.</p>
+<h3 id="operation_10">Operation</h3>
+<pre><code class="language-c">dst.i16[0] = arithmetic_shift_right(a.i16[0], (b.i16[0] &amp; 15));
+dst.i16[1] = arithmetic_shift_right(a.i16[1], (b.i16[1] &amp; 15));
+dst.i16[2] = arithmetic_shift_right(a.i16[2], (b.i16[2] &amp; 15));
+dst.i16[3] = arithmetic_shift_right(a.i16[3], (b.i16[3] &amp; 15));
+dst.i16[4] = arithmetic_shift_right(a.i16[4], (b.i16[4] &amp; 15));
+dst.i16[5] = arithmetic_shift_right(a.i16[5], (b.i16[5] &amp; 15));
+dst.i16[6] = arithmetic_shift_right(a.i16[6], (b.i16[6] &amp; 15));
+dst.i16[7] = arithmetic_shift_right(a.i16[7], (b.i16[7] &amp; 15));
+</code></pre>
+<h3 id="latency-and-throughput_10">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_10">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_sra_h __builtin_msa_sra_h
+</code></pre>
+<p><span id="intrinsic-__msa_sra_w"></span></p>
+<h2 id="v4i32-__msa_sra_w-v4i32-a-v4i32-b">v4i32 __msa_sra_w (v4i32 a, v4i32 b)</h2>
+<h3 id="synopsis_11">Synopsis</h3>
+<pre><code class="language-c">v4i32 __msa_sra_w (v4i32 a, v4i32 b)
+#include &lt;msa.h&gt;
+Instruction: sra.w
+Builtin: __builtin_msa_sra_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:62
+</code></pre>
+<h3 id="description_11">Description</h3>
+<p>Arithmetic-shift-right each signed u32 lane.</p>
+<h3 id="operation_11">Operation</h3>
+<pre><code class="language-c">dst.i32[0] = arithmetic_shift_right(a.i32[0], (b.i32[0] &amp; 31));
+dst.i32[1] = arithmetic_shift_right(a.i32[1], (b.i32[1] &amp; 31));
+dst.i32[2] = arithmetic_shift_right(a.i32[2], (b.i32[2] &amp; 31));
+dst.i32[3] = arithmetic_shift_right(a.i32[3], (b.i32[3] &amp; 31));
+</code></pre>
+<h3 id="latency-and-throughput_11">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_11">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_sra_w __builtin_msa_sra_w
+</code></pre>
+<p><span id="intrinsic-__msa_srai_b"></span></p>
+<h2 id="v16i8-__msa_srai_b-v16i8-a-int-imm">v16i8 __msa_srai_b (v16i8 a, int imm)</h2>
+<h3 id="synopsis_12">Synopsis</h3>
+<pre><code class="language-c">v16i8 __msa_srai_b (v16i8 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: srai.b
+Builtin: __builtin_msa_srai_b
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:64
+</code></pre>
+<h3 id="description_12">Description</h3>
+<p>Arithmetic-shift-right each signed u8 lane.</p>
+<h3 id="operation_12">Operation</h3>
+<pre><code class="language-c">dst.i8[0] = arithmetic_shift_right(a.i8[0], imm);
+dst.i8[1] = arithmetic_shift_right(a.i8[1], imm);
+dst.i8[2] = arithmetic_shift_right(a.i8[2], imm);
+dst.i8[3] = arithmetic_shift_right(a.i8[3], imm);
+dst.i8[4] = arithmetic_shift_right(a.i8[4], imm);
+dst.i8[5] = arithmetic_shift_right(a.i8[5], imm);
+dst.i8[6] = arithmetic_shift_right(a.i8[6], imm);
+dst.i8[7] = arithmetic_shift_right(a.i8[7], imm);
+dst.i8[8] = arithmetic_shift_right(a.i8[8], imm);
+dst.i8[9] = arithmetic_shift_right(a.i8[9], imm);
+dst.i8[10] = arithmetic_shift_right(a.i8[10], imm);
+dst.i8[11] = arithmetic_shift_right(a.i8[11], imm);
+dst.i8[12] = arithmetic_shift_right(a.i8[12], imm);
+dst.i8[13] = arithmetic_shift_right(a.i8[13], imm);
+dst.i8[14] = arithmetic_shift_right(a.i8[14], imm);
+dst.i8[15] = arithmetic_shift_right(a.i8[15], imm);
+</code></pre>
+<h3 id="latency-and-throughput_12">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_12">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srai_b __builtin_msa_srai_b
+</code></pre>
+<p><span id="intrinsic-__msa_srai_d"></span></p>
+<h2 id="v2i64-__msa_srai_d-v2i64-a-int-imm">v2i64 __msa_srai_d (v2i64 a, int imm)</h2>
+<h3 id="synopsis_13">Synopsis</h3>
+<pre><code class="language-c">v2i64 __msa_srai_d (v2i64 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: srai.d
+Builtin: __builtin_msa_srai_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:67
+</code></pre>
+<h3 id="description_13">Description</h3>
+<p>Arithmetic-shift-right each signed u64 lane.</p>
+<h3 id="operation_13">Operation</h3>
+<pre><code class="language-c">dst.i64[0] = arithmetic_shift_right(a.i64[0], imm);
+dst.i64[1] = arithmetic_shift_right(a.i64[1], imm);
+</code></pre>
+<h3 id="latency-and-throughput_13">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_13">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srai_d __builtin_msa_srai_d
+</code></pre>
+<p><span id="intrinsic-__msa_srai_h"></span></p>
+<h2 id="v8i16-__msa_srai_h-v8i16-a-int-imm">v8i16 __msa_srai_h (v8i16 a, int imm)</h2>
+<h3 id="synopsis_14">Synopsis</h3>
+<pre><code class="language-c">v8i16 __msa_srai_h (v8i16 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: srai.h
+Builtin: __builtin_msa_srai_h
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:65
+</code></pre>
+<h3 id="description_14">Description</h3>
+<p>Arithmetic-shift-right each signed u16 lane.</p>
+<h3 id="operation_14">Operation</h3>
+<pre><code class="language-c">dst.i16[0] = arithmetic_shift_right(a.i16[0], imm);
+dst.i16[1] = arithmetic_shift_right(a.i16[1], imm);
+dst.i16[2] = arithmetic_shift_right(a.i16[2], imm);
+dst.i16[3] = arithmetic_shift_right(a.i16[3], imm);
+dst.i16[4] = arithmetic_shift_right(a.i16[4], imm);
+dst.i16[5] = arithmetic_shift_right(a.i16[5], imm);
+dst.i16[6] = arithmetic_shift_right(a.i16[6], imm);
+dst.i16[7] = arithmetic_shift_right(a.i16[7], imm);
+</code></pre>
+<h3 id="latency-and-throughput_14">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_14">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srai_h __builtin_msa_srai_h
+</code></pre>
+<p><span id="intrinsic-__msa_srai_w"></span></p>
+<h2 id="v4i32-__msa_srai_w-v4i32-a-int-imm">v4i32 __msa_srai_w (v4i32 a, int imm)</h2>
+<h3 id="synopsis_15">Synopsis</h3>
+<pre><code class="language-c">v4i32 __msa_srai_w (v4i32 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: srai.w
+Builtin: __builtin_msa_srai_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:66
+</code></pre>
+<h3 id="description_15">Description</h3>
+<p>Arithmetic-shift-right each signed u32 lane.</p>
+<h3 id="operation_15">Operation</h3>
+<pre><code class="language-c">dst.i32[0] = arithmetic_shift_right(a.i32[0], imm);
+dst.i32[1] = arithmetic_shift_right(a.i32[1], imm);
+dst.i32[2] = arithmetic_shift_right(a.i32[2], imm);
+dst.i32[3] = arithmetic_shift_right(a.i32[3], imm);
+</code></pre>
+<h3 id="latency-and-throughput_15">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_15">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srai_w __builtin_msa_srai_w
+</code></pre>
+<p><span id="intrinsic-__msa_srar_b"></span></p>
+<h2 id="v16i8-__msa_srar_b-v16i8-a-v16i8-b">v16i8 __msa_srar_b (v16i8 a, v16i8 b)</h2>
+<h3 id="synopsis_16">Synopsis</h3>
+<pre><code class="language-c">v16i8 __msa_srar_b (v16i8 a, v16i8 b)
+#include &lt;msa.h&gt;
+Instruction: srar.b
+Builtin: __builtin_msa_srar_b
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:68
+</code></pre>
+<h3 id="description_16">Description</h3>
+<p>Round and arithmetic-shift-right each u8 lane.</p>
+<h3 id="operation_16">Operation</h3>
+<pre><code class="language-c">dst.i8[0] = rounding_arithmetic_shift_right(a.i8[0], (b.i8[0] &amp; 7));
+dst.i8[1] = rounding_arithmetic_shift_right(a.i8[1], (b.i8[1] &amp; 7));
+dst.i8[2] = rounding_arithmetic_shift_right(a.i8[2], (b.i8[2] &amp; 7));
+dst.i8[3] = rounding_arithmetic_shift_right(a.i8[3], (b.i8[3] &amp; 7));
+dst.i8[4] = rounding_arithmetic_shift_right(a.i8[4], (b.i8[4] &amp; 7));
+dst.i8[5] = rounding_arithmetic_shift_right(a.i8[5], (b.i8[5] &amp; 7));
+dst.i8[6] = rounding_arithmetic_shift_right(a.i8[6], (b.i8[6] &amp; 7));
+dst.i8[7] = rounding_arithmetic_shift_right(a.i8[7], (b.i8[7] &amp; 7));
+dst.i8[8] = rounding_arithmetic_shift_right(a.i8[8], (b.i8[8] &amp; 7));
+dst.i8[9] = rounding_arithmetic_shift_right(a.i8[9], (b.i8[9] &amp; 7));
+dst.i8[10] = rounding_arithmetic_shift_right(a.i8[10], (b.i8[10] &amp; 7));
+dst.i8[11] = rounding_arithmetic_shift_right(a.i8[11], (b.i8[11] &amp; 7));
+dst.i8[12] = rounding_arithmetic_shift_right(a.i8[12], (b.i8[12] &amp; 7));
+dst.i8[13] = rounding_arithmetic_shift_right(a.i8[13], (b.i8[13] &amp; 7));
+dst.i8[14] = rounding_arithmetic_shift_right(a.i8[14], (b.i8[14] &amp; 7));
+dst.i8[15] = rounding_arithmetic_shift_right(a.i8[15], (b.i8[15] &amp; 7));
+</code></pre>
+<h3 id="latency-and-throughput_16">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_16">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srar_b __builtin_msa_srar_b
+</code></pre>
+<p><span id="intrinsic-__msa_srar_d"></span></p>
+<h2 id="v2i64-__msa_srar_d-v2i64-a-v2i64-b">v2i64 __msa_srar_d (v2i64 a, v2i64 b)</h2>
+<h3 id="synopsis_17">Synopsis</h3>
+<pre><code class="language-c">v2i64 __msa_srar_d (v2i64 a, v2i64 b)
+#include &lt;msa.h&gt;
+Instruction: srar.d
+Builtin: __builtin_msa_srar_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:71
+</code></pre>
+<h3 id="description_17">Description</h3>
+<p>Round and arithmetic-shift-right each u64 lane.</p>
+<h3 id="operation_17">Operation</h3>
+<pre><code class="language-c">dst.i64[0] = rounding_arithmetic_shift_right(a.i64[0], (b.i64[0] &amp; 63));
+dst.i64[1] = rounding_arithmetic_shift_right(a.i64[1], (b.i64[1] &amp; 63));
+</code></pre>
+<h3 id="latency-and-throughput_17">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_17">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srar_d __builtin_msa_srar_d
+</code></pre>
+<p><span id="intrinsic-__msa_srar_h"></span></p>
+<h2 id="v8i16-__msa_srar_h-v8i16-a-v8i16-b">v8i16 __msa_srar_h (v8i16 a, v8i16 b)</h2>
+<h3 id="synopsis_18">Synopsis</h3>
+<pre><code class="language-c">v8i16 __msa_srar_h (v8i16 a, v8i16 b)
+#include &lt;msa.h&gt;
+Instruction: srar.h
+Builtin: __builtin_msa_srar_h
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:69
+</code></pre>
+<h3 id="description_18">Description</h3>
+<p>Round and arithmetic-shift-right each u16 lane.</p>
+<h3 id="operation_18">Operation</h3>
+<pre><code class="language-c">dst.i16[0] = rounding_arithmetic_shift_right(a.i16[0], (b.i16[0] &amp; 15));
+dst.i16[1] = rounding_arithmetic_shift_right(a.i16[1], (b.i16[1] &amp; 15));
+dst.i16[2] = rounding_arithmetic_shift_right(a.i16[2], (b.i16[2] &amp; 15));
+dst.i16[3] = rounding_arithmetic_shift_right(a.i16[3], (b.i16[3] &amp; 15));
+dst.i16[4] = rounding_arithmetic_shift_right(a.i16[4], (b.i16[4] &amp; 15));
+dst.i16[5] = rounding_arithmetic_shift_right(a.i16[5], (b.i16[5] &amp; 15));
+dst.i16[6] = rounding_arithmetic_shift_right(a.i16[6], (b.i16[6] &amp; 15));
+dst.i16[7] = rounding_arithmetic_shift_right(a.i16[7], (b.i16[7] &amp; 15));
+</code></pre>
+<h3 id="latency-and-throughput_18">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_18">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srar_h __builtin_msa_srar_h
+</code></pre>
+<p><span id="intrinsic-__msa_srar_w"></span></p>
+<h2 id="v4i32-__msa_srar_w-v4i32-a-v4i32-b">v4i32 __msa_srar_w (v4i32 a, v4i32 b)</h2>
+<h3 id="synopsis_19">Synopsis</h3>
+<pre><code class="language-c">v4i32 __msa_srar_w (v4i32 a, v4i32 b)
+#include &lt;msa.h&gt;
+Instruction: srar.w
+Builtin: __builtin_msa_srar_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:70
+</code></pre>
+<h3 id="description_19">Description</h3>
+<p>Round and arithmetic-shift-right each u32 lane.</p>
+<h3 id="operation_19">Operation</h3>
+<pre><code class="language-c">dst.i32[0] = rounding_arithmetic_shift_right(a.i32[0], (b.i32[0] &amp; 31));
+dst.i32[1] = rounding_arithmetic_shift_right(a.i32[1], (b.i32[1] &amp; 31));
+dst.i32[2] = rounding_arithmetic_shift_right(a.i32[2], (b.i32[2] &amp; 31));
+dst.i32[3] = rounding_arithmetic_shift_right(a.i32[3], (b.i32[3] &amp; 31));
+</code></pre>
+<h3 id="latency-and-throughput_19">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_19">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srar_w __builtin_msa_srar_w
+</code></pre>
+<p><span id="intrinsic-__msa_srari_b"></span></p>
+<h2 id="v16i8-__msa_srari_b-v16i8-a-int-imm">v16i8 __msa_srari_b (v16i8 a, int imm)</h2>
+<h3 id="synopsis_20">Synopsis</h3>
+<pre><code class="language-c">v16i8 __msa_srari_b (v16i8 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: srari.b
+Builtin: __builtin_msa_srari_b
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:72
+</code></pre>
+<h3 id="description_20">Description</h3>
+<p>Round and arithmetic-shift-right each u8 lane.</p>
+<h3 id="operation_20">Operation</h3>
+<pre><code class="language-c">dst.i8[0] = rounding_arithmetic_shift_right(a.i8[0], imm);
+dst.i8[1] = rounding_arithmetic_shift_right(a.i8[1], imm);
+dst.i8[2] = rounding_arithmetic_shift_right(a.i8[2], imm);
+dst.i8[3] = rounding_arithmetic_shift_right(a.i8[3], imm);
+dst.i8[4] = rounding_arithmetic_shift_right(a.i8[4], imm);
+dst.i8[5] = rounding_arithmetic_shift_right(a.i8[5], imm);
+dst.i8[6] = rounding_arithmetic_shift_right(a.i8[6], imm);
+dst.i8[7] = rounding_arithmetic_shift_right(a.i8[7], imm);
+dst.i8[8] = rounding_arithmetic_shift_right(a.i8[8], imm);
+dst.i8[9] = rounding_arithmetic_shift_right(a.i8[9], imm);
+dst.i8[10] = rounding_arithmetic_shift_right(a.i8[10], imm);
+dst.i8[11] = rounding_arithmetic_shift_right(a.i8[11], imm);
+dst.i8[12] = rounding_arithmetic_shift_right(a.i8[12], imm);
+dst.i8[13] = rounding_arithmetic_shift_right(a.i8[13], imm);
+dst.i8[14] = rounding_arithmetic_shift_right(a.i8[14], imm);
+dst.i8[15] = rounding_arithmetic_shift_right(a.i8[15], imm);
+</code></pre>
+<h3 id="latency-and-throughput_20">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_20">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srari_b __builtin_msa_srari_b
+</code></pre>
+<p><span id="intrinsic-__msa_srari_d"></span></p>
+<h2 id="v2i64-__msa_srari_d-v2i64-a-int-imm">v2i64 __msa_srari_d (v2i64 a, int imm)</h2>
+<h3 id="synopsis_21">Synopsis</h3>
+<pre><code class="language-c">v2i64 __msa_srari_d (v2i64 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: srari.d
+Builtin: __builtin_msa_srari_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:75
+</code></pre>
+<h3 id="description_21">Description</h3>
+<p>Round and arithmetic-shift-right each u64 lane.</p>
+<h3 id="operation_21">Operation</h3>
+<pre><code class="language-c">dst.i64[0] = rounding_arithmetic_shift_right(a.i64[0], imm);
+dst.i64[1] = rounding_arithmetic_shift_right(a.i64[1], imm);
+</code></pre>
+<h3 id="latency-and-throughput_21">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_21">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srari_d __builtin_msa_srari_d
+</code></pre>
+<p><span id="intrinsic-__msa_srari_h"></span></p>
+<h2 id="v8i16-__msa_srari_h-v8i16-a-int-imm">v8i16 __msa_srari_h (v8i16 a, int imm)</h2>
+<h3 id="synopsis_22">Synopsis</h3>
+<pre><code class="language-c">v8i16 __msa_srari_h (v8i16 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: srari.h
+Builtin: __builtin_msa_srari_h
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:73
+</code></pre>
+<h3 id="description_22">Description</h3>
+<p>Round and arithmetic-shift-right each u16 lane.</p>
+<h3 id="operation_22">Operation</h3>
+<pre><code class="language-c">dst.i16[0] = rounding_arithmetic_shift_right(a.i16[0], imm);
+dst.i16[1] = rounding_arithmetic_shift_right(a.i16[1], imm);
+dst.i16[2] = rounding_arithmetic_shift_right(a.i16[2], imm);
+dst.i16[3] = rounding_arithmetic_shift_right(a.i16[3], imm);
+dst.i16[4] = rounding_arithmetic_shift_right(a.i16[4], imm);
+dst.i16[5] = rounding_arithmetic_shift_right(a.i16[5], imm);
+dst.i16[6] = rounding_arithmetic_shift_right(a.i16[6], imm);
+dst.i16[7] = rounding_arithmetic_shift_right(a.i16[7], imm);
+</code></pre>
+<h3 id="latency-and-throughput_22">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_22">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srari_h __builtin_msa_srari_h
+</code></pre>
+<p><span id="intrinsic-__msa_srari_w"></span></p>
+<h2 id="v4i32-__msa_srari_w-v4i32-a-int-imm">v4i32 __msa_srari_w (v4i32 a, int imm)</h2>
+<h3 id="synopsis_23">Synopsis</h3>
+<pre><code class="language-c">v4i32 __msa_srari_w (v4i32 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: srari.w
+Builtin: __builtin_msa_srari_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:74
+</code></pre>
+<h3 id="description_23">Description</h3>
+<p>Round and arithmetic-shift-right each u32 lane.</p>
+<h3 id="operation_23">Operation</h3>
+<pre><code class="language-c">dst.i32[0] = rounding_arithmetic_shift_right(a.i32[0], imm);
+dst.i32[1] = rounding_arithmetic_shift_right(a.i32[1], imm);
+dst.i32[2] = rounding_arithmetic_shift_right(a.i32[2], imm);
+dst.i32[3] = rounding_arithmetic_shift_right(a.i32[3], imm);
+</code></pre>
+<h3 id="latency-and-throughput_23">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_23">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srari_w __builtin_msa_srari_w
+</code></pre>
+<p><span id="intrinsic-__msa_srl_b"></span></p>
+<h2 id="v16i8-__msa_srl_b-v16i8-a-v16i8-b">v16i8 __msa_srl_b (v16i8 a, v16i8 b)</h2>
+<h3 id="synopsis_24">Synopsis</h3>
+<pre><code class="language-c">v16i8 __msa_srl_b (v16i8 a, v16i8 b)
+#include &lt;msa.h&gt;
+Instruction: srl.b
+Builtin: __builtin_msa_srl_b
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:76
+</code></pre>
+<h3 id="description_24">Description</h3>
+<p>Logical-shift-right each unsigned u8 lane.</p>
+<h3 id="operation_24">Operation</h3>
+<pre><code class="language-c">dst.u8[0] = logical_shift_right(a.u8[0], (b.u8[0] &amp; 7));
+dst.u8[1] = logical_shift_right(a.u8[1], (b.u8[1] &amp; 7));
+dst.u8[2] = logical_shift_right(a.u8[2], (b.u8[2] &amp; 7));
+dst.u8[3] = logical_shift_right(a.u8[3], (b.u8[3] &amp; 7));
+dst.u8[4] = logical_shift_right(a.u8[4], (b.u8[4] &amp; 7));
+dst.u8[5] = logical_shift_right(a.u8[5], (b.u8[5] &amp; 7));
+dst.u8[6] = logical_shift_right(a.u8[6], (b.u8[6] &amp; 7));
+dst.u8[7] = logical_shift_right(a.u8[7], (b.u8[7] &amp; 7));
+dst.u8[8] = logical_shift_right(a.u8[8], (b.u8[8] &amp; 7));
+dst.u8[9] = logical_shift_right(a.u8[9], (b.u8[9] &amp; 7));
+dst.u8[10] = logical_shift_right(a.u8[10], (b.u8[10] &amp; 7));
+dst.u8[11] = logical_shift_right(a.u8[11], (b.u8[11] &amp; 7));
+dst.u8[12] = logical_shift_right(a.u8[12], (b.u8[12] &amp; 7));
+dst.u8[13] = logical_shift_right(a.u8[13], (b.u8[13] &amp; 7));
+dst.u8[14] = logical_shift_right(a.u8[14], (b.u8[14] &amp; 7));
+dst.u8[15] = logical_shift_right(a.u8[15], (b.u8[15] &amp; 7));
+</code></pre>
+<h3 id="latency-and-throughput_24">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_24">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srl_b __builtin_msa_srl_b
+</code></pre>
+<p><span id="intrinsic-__msa_srl_d"></span></p>
+<h2 id="v2i64-__msa_srl_d-v2i64-a-v2i64-b">v2i64 __msa_srl_d (v2i64 a, v2i64 b)</h2>
+<h3 id="synopsis_25">Synopsis</h3>
+<pre><code class="language-c">v2i64 __msa_srl_d (v2i64 a, v2i64 b)
+#include &lt;msa.h&gt;
+Instruction: srl.d
+Builtin: __builtin_msa_srl_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:79
+</code></pre>
+<h3 id="description_25">Description</h3>
+<p>Logical-shift-right each unsigned u64 lane.</p>
+<h3 id="operation_25">Operation</h3>
+<pre><code class="language-c">dst.u64[0] = logical_shift_right(a.u64[0], (b.u64[0] &amp; 63));
+dst.u64[1] = logical_shift_right(a.u64[1], (b.u64[1] &amp; 63));
+</code></pre>
+<h3 id="latency-and-throughput_25">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_25">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srl_d __builtin_msa_srl_d
+</code></pre>
+<p><span id="intrinsic-__msa_srl_h"></span></p>
+<h2 id="v8i16-__msa_srl_h-v8i16-a-v8i16-b">v8i16 __msa_srl_h (v8i16 a, v8i16 b)</h2>
+<h3 id="synopsis_26">Synopsis</h3>
+<pre><code class="language-c">v8i16 __msa_srl_h (v8i16 a, v8i16 b)
+#include &lt;msa.h&gt;
+Instruction: srl.h
+Builtin: __builtin_msa_srl_h
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:77
+</code></pre>
+<h3 id="description_26">Description</h3>
+<p>Logical-shift-right each unsigned u16 lane.</p>
+<h3 id="operation_26">Operation</h3>
+<pre><code class="language-c">dst.u16[0] = logical_shift_right(a.u16[0], (b.u16[0] &amp; 15));
+dst.u16[1] = logical_shift_right(a.u16[1], (b.u16[1] &amp; 15));
+dst.u16[2] = logical_shift_right(a.u16[2], (b.u16[2] &amp; 15));
+dst.u16[3] = logical_shift_right(a.u16[3], (b.u16[3] &amp; 15));
+dst.u16[4] = logical_shift_right(a.u16[4], (b.u16[4] &amp; 15));
+dst.u16[5] = logical_shift_right(a.u16[5], (b.u16[5] &amp; 15));
+dst.u16[6] = logical_shift_right(a.u16[6], (b.u16[6] &amp; 15));
+dst.u16[7] = logical_shift_right(a.u16[7], (b.u16[7] &amp; 15));
+</code></pre>
+<h3 id="latency-and-throughput_26">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_26">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srl_h __builtin_msa_srl_h
+</code></pre>
+<p><span id="intrinsic-__msa_srl_w"></span></p>
+<h2 id="v4i32-__msa_srl_w-v4i32-a-v4i32-b">v4i32 __msa_srl_w (v4i32 a, v4i32 b)</h2>
+<h3 id="synopsis_27">Synopsis</h3>
+<pre><code class="language-c">v4i32 __msa_srl_w (v4i32 a, v4i32 b)
+#include &lt;msa.h&gt;
+Instruction: srl.w
+Builtin: __builtin_msa_srl_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:78
+</code></pre>
+<h3 id="description_27">Description</h3>
+<p>Logical-shift-right each unsigned u32 lane.</p>
+<h3 id="operation_27">Operation</h3>
+<pre><code class="language-c">dst.u32[0] = logical_shift_right(a.u32[0], (b.u32[0] &amp; 31));
+dst.u32[1] = logical_shift_right(a.u32[1], (b.u32[1] &amp; 31));
+dst.u32[2] = logical_shift_right(a.u32[2], (b.u32[2] &amp; 31));
+dst.u32[3] = logical_shift_right(a.u32[3], (b.u32[3] &amp; 31));
+</code></pre>
+<h3 id="latency-and-throughput_27">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_27">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srl_w __builtin_msa_srl_w
+</code></pre>
+<p><span id="intrinsic-__msa_srli_b"></span></p>
+<h2 id="v16i8-__msa_srli_b-v16i8-a-int-imm">v16i8 __msa_srli_b (v16i8 a, int imm)</h2>
+<h3 id="synopsis_28">Synopsis</h3>
+<pre><code class="language-c">v16i8 __msa_srli_b (v16i8 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: srli.b
+Builtin: __builtin_msa_srli_b
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:80
+</code></pre>
+<h3 id="description_28">Description</h3>
+<p>Logical-shift-right each unsigned u8 lane.</p>
+<h3 id="operation_28">Operation</h3>
+<pre><code class="language-c">dst.u8[0] = logical_shift_right(a.u8[0], imm);
+dst.u8[1] = logical_shift_right(a.u8[1], imm);
+dst.u8[2] = logical_shift_right(a.u8[2], imm);
+dst.u8[3] = logical_shift_right(a.u8[3], imm);
+dst.u8[4] = logical_shift_right(a.u8[4], imm);
+dst.u8[5] = logical_shift_right(a.u8[5], imm);
+dst.u8[6] = logical_shift_right(a.u8[6], imm);
+dst.u8[7] = logical_shift_right(a.u8[7], imm);
+dst.u8[8] = logical_shift_right(a.u8[8], imm);
+dst.u8[9] = logical_shift_right(a.u8[9], imm);
+dst.u8[10] = logical_shift_right(a.u8[10], imm);
+dst.u8[11] = logical_shift_right(a.u8[11], imm);
+dst.u8[12] = logical_shift_right(a.u8[12], imm);
+dst.u8[13] = logical_shift_right(a.u8[13], imm);
+dst.u8[14] = logical_shift_right(a.u8[14], imm);
+dst.u8[15] = logical_shift_right(a.u8[15], imm);
+</code></pre>
+<h3 id="latency-and-throughput_28">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_28">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srli_b __builtin_msa_srli_b
+</code></pre>
+<p><span id="intrinsic-__msa_srli_d"></span></p>
+<h2 id="v2i64-__msa_srli_d-v2i64-a-int-imm">v2i64 __msa_srli_d (v2i64 a, int imm)</h2>
+<h3 id="synopsis_29">Synopsis</h3>
+<pre><code class="language-c">v2i64 __msa_srli_d (v2i64 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: srli.d
+Builtin: __builtin_msa_srli_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:83
+</code></pre>
+<h3 id="description_29">Description</h3>
+<p>Logical-shift-right each unsigned u64 lane.</p>
+<h3 id="operation_29">Operation</h3>
+<pre><code class="language-c">dst.u64[0] = logical_shift_right(a.u64[0], imm);
+dst.u64[1] = logical_shift_right(a.u64[1], imm);
+</code></pre>
+<h3 id="latency-and-throughput_29">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_29">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srli_d __builtin_msa_srli_d
+</code></pre>
+<p><span id="intrinsic-__msa_srli_h"></span></p>
+<h2 id="v8i16-__msa_srli_h-v8i16-a-int-imm">v8i16 __msa_srli_h (v8i16 a, int imm)</h2>
+<h3 id="synopsis_30">Synopsis</h3>
+<pre><code class="language-c">v8i16 __msa_srli_h (v8i16 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: srli.h
+Builtin: __builtin_msa_srli_h
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:81
+</code></pre>
+<h3 id="description_30">Description</h3>
+<p>Logical-shift-right each unsigned u16 lane.</p>
+<h3 id="operation_30">Operation</h3>
+<pre><code class="language-c">dst.u16[0] = logical_shift_right(a.u16[0], imm);
+dst.u16[1] = logical_shift_right(a.u16[1], imm);
+dst.u16[2] = logical_shift_right(a.u16[2], imm);
+dst.u16[3] = logical_shift_right(a.u16[3], imm);
+dst.u16[4] = logical_shift_right(a.u16[4], imm);
+dst.u16[5] = logical_shift_right(a.u16[5], imm);
+dst.u16[6] = logical_shift_right(a.u16[6], imm);
+dst.u16[7] = logical_shift_right(a.u16[7], imm);
+</code></pre>
+<h3 id="latency-and-throughput_30">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_30">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srli_h __builtin_msa_srli_h
+</code></pre>
+<p><span id="intrinsic-__msa_srli_w"></span></p>
+<h2 id="v4i32-__msa_srli_w-v4i32-a-int-imm">v4i32 __msa_srli_w (v4i32 a, int imm)</h2>
+<h3 id="synopsis_31">Synopsis</h3>
+<pre><code class="language-c">v4i32 __msa_srli_w (v4i32 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: srli.w
+Builtin: __builtin_msa_srli_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:82
+</code></pre>
+<h3 id="description_31">Description</h3>
+<p>Logical-shift-right each unsigned u32 lane.</p>
+<h3 id="operation_31">Operation</h3>
+<pre><code class="language-c">dst.u32[0] = logical_shift_right(a.u32[0], imm);
+dst.u32[1] = logical_shift_right(a.u32[1], imm);
+dst.u32[2] = logical_shift_right(a.u32[2], imm);
+dst.u32[3] = logical_shift_right(a.u32[3], imm);
+</code></pre>
+<h3 id="latency-and-throughput_31">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_31">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srli_w __builtin_msa_srli_w
+</code></pre>
+<p><span id="intrinsic-__msa_srlr_b"></span></p>
+<h2 id="v16i8-__msa_srlr_b-v16i8-a-v16i8-b">v16i8 __msa_srlr_b (v16i8 a, v16i8 b)</h2>
+<h3 id="synopsis_32">Synopsis</h3>
+<pre><code class="language-c">v16i8 __msa_srlr_b (v16i8 a, v16i8 b)
+#include &lt;msa.h&gt;
+Instruction: srlr.b
+Builtin: __builtin_msa_srlr_b
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:84
+</code></pre>
+<h3 id="description_32">Description</h3>
+<p>Round and logical-shift-right each u8 lane.</p>
+<h3 id="operation_32">Operation</h3>
+<pre><code class="language-c">dst.u8[0] = rounding_logical_shift_right(a.u8[0], (b.u8[0] &amp; 7));
+dst.u8[1] = rounding_logical_shift_right(a.u8[1], (b.u8[1] &amp; 7));
+dst.u8[2] = rounding_logical_shift_right(a.u8[2], (b.u8[2] &amp; 7));
+dst.u8[3] = rounding_logical_shift_right(a.u8[3], (b.u8[3] &amp; 7));
+dst.u8[4] = rounding_logical_shift_right(a.u8[4], (b.u8[4] &amp; 7));
+dst.u8[5] = rounding_logical_shift_right(a.u8[5], (b.u8[5] &amp; 7));
+dst.u8[6] = rounding_logical_shift_right(a.u8[6], (b.u8[6] &amp; 7));
+dst.u8[7] = rounding_logical_shift_right(a.u8[7], (b.u8[7] &amp; 7));
+dst.u8[8] = rounding_logical_shift_right(a.u8[8], (b.u8[8] &amp; 7));
+dst.u8[9] = rounding_logical_shift_right(a.u8[9], (b.u8[9] &amp; 7));
+dst.u8[10] = rounding_logical_shift_right(a.u8[10], (b.u8[10] &amp; 7));
+dst.u8[11] = rounding_logical_shift_right(a.u8[11], (b.u8[11] &amp; 7));
+dst.u8[12] = rounding_logical_shift_right(a.u8[12], (b.u8[12] &amp; 7));
+dst.u8[13] = rounding_logical_shift_right(a.u8[13], (b.u8[13] &amp; 7));
+dst.u8[14] = rounding_logical_shift_right(a.u8[14], (b.u8[14] &amp; 7));
+dst.u8[15] = rounding_logical_shift_right(a.u8[15], (b.u8[15] &amp; 7));
+</code></pre>
+<h3 id="latency-and-throughput_32">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_32">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srlr_b __builtin_msa_srlr_b
+</code></pre>
+<p><span id="intrinsic-__msa_srlr_d"></span></p>
+<h2 id="v2i64-__msa_srlr_d-v2i64-a-v2i64-b">v2i64 __msa_srlr_d (v2i64 a, v2i64 b)</h2>
+<h3 id="synopsis_33">Synopsis</h3>
+<pre><code class="language-c">v2i64 __msa_srlr_d (v2i64 a, v2i64 b)
+#include &lt;msa.h&gt;
+Instruction: srlr.d
+Builtin: __builtin_msa_srlr_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:87
+</code></pre>
+<h3 id="description_33">Description</h3>
+<p>Round and logical-shift-right each u64 lane.</p>
+<h3 id="operation_33">Operation</h3>
+<pre><code class="language-c">dst.u64[0] = rounding_logical_shift_right(a.u64[0], (b.u64[0] &amp; 63));
+dst.u64[1] = rounding_logical_shift_right(a.u64[1], (b.u64[1] &amp; 63));
+</code></pre>
+<h3 id="latency-and-throughput_33">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_33">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srlr_d __builtin_msa_srlr_d
+</code></pre>
+<p><span id="intrinsic-__msa_srlr_h"></span></p>
+<h2 id="v8i16-__msa_srlr_h-v8i16-a-v8i16-b">v8i16 __msa_srlr_h (v8i16 a, v8i16 b)</h2>
+<h3 id="synopsis_34">Synopsis</h3>
+<pre><code class="language-c">v8i16 __msa_srlr_h (v8i16 a, v8i16 b)
+#include &lt;msa.h&gt;
+Instruction: srlr.h
+Builtin: __builtin_msa_srlr_h
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:85
+</code></pre>
+<h3 id="description_34">Description</h3>
+<p>Round and logical-shift-right each u16 lane.</p>
+<h3 id="operation_34">Operation</h3>
+<pre><code class="language-c">dst.u16[0] = rounding_logical_shift_right(a.u16[0], (b.u16[0] &amp; 15));
+dst.u16[1] = rounding_logical_shift_right(a.u16[1], (b.u16[1] &amp; 15));
+dst.u16[2] = rounding_logical_shift_right(a.u16[2], (b.u16[2] &amp; 15));
+dst.u16[3] = rounding_logical_shift_right(a.u16[3], (b.u16[3] &amp; 15));
+dst.u16[4] = rounding_logical_shift_right(a.u16[4], (b.u16[4] &amp; 15));
+dst.u16[5] = rounding_logical_shift_right(a.u16[5], (b.u16[5] &amp; 15));
+dst.u16[6] = rounding_logical_shift_right(a.u16[6], (b.u16[6] &amp; 15));
+dst.u16[7] = rounding_logical_shift_right(a.u16[7], (b.u16[7] &amp; 15));
+</code></pre>
+<h3 id="latency-and-throughput_34">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_34">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srlr_h __builtin_msa_srlr_h
+</code></pre>
+<p><span id="intrinsic-__msa_srlr_w"></span></p>
+<h2 id="v4i32-__msa_srlr_w-v4i32-a-v4i32-b">v4i32 __msa_srlr_w (v4i32 a, v4i32 b)</h2>
+<h3 id="synopsis_35">Synopsis</h3>
+<pre><code class="language-c">v4i32 __msa_srlr_w (v4i32 a, v4i32 b)
+#include &lt;msa.h&gt;
+Instruction: srlr.w
+Builtin: __builtin_msa_srlr_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:86
+</code></pre>
+<h3 id="description_35">Description</h3>
+<p>Round and logical-shift-right each u32 lane.</p>
+<h3 id="operation_35">Operation</h3>
+<pre><code class="language-c">dst.u32[0] = rounding_logical_shift_right(a.u32[0], (b.u32[0] &amp; 31));
+dst.u32[1] = rounding_logical_shift_right(a.u32[1], (b.u32[1] &amp; 31));
+dst.u32[2] = rounding_logical_shift_right(a.u32[2], (b.u32[2] &amp; 31));
+dst.u32[3] = rounding_logical_shift_right(a.u32[3], (b.u32[3] &amp; 31));
+</code></pre>
+<h3 id="latency-and-throughput_35">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_35">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srlr_w __builtin_msa_srlr_w
+</code></pre>
+<p><span id="intrinsic-__msa_srlri_b"></span></p>
+<h2 id="v16i8-__msa_srlri_b-v16i8-a-int-imm">v16i8 __msa_srlri_b (v16i8 a, int imm)</h2>
+<h3 id="synopsis_36">Synopsis</h3>
+<pre><code class="language-c">v16i8 __msa_srlri_b (v16i8 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: srlri.b
+Builtin: __builtin_msa_srlri_b
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:88
+</code></pre>
+<h3 id="description_36">Description</h3>
+<p>Round and logical-shift-right each u8 lane.</p>
+<h3 id="operation_36">Operation</h3>
+<pre><code class="language-c">dst.u8[0] = rounding_logical_shift_right(a.u8[0], imm);
+dst.u8[1] = rounding_logical_shift_right(a.u8[1], imm);
+dst.u8[2] = rounding_logical_shift_right(a.u8[2], imm);
+dst.u8[3] = rounding_logical_shift_right(a.u8[3], imm);
+dst.u8[4] = rounding_logical_shift_right(a.u8[4], imm);
+dst.u8[5] = rounding_logical_shift_right(a.u8[5], imm);
+dst.u8[6] = rounding_logical_shift_right(a.u8[6], imm);
+dst.u8[7] = rounding_logical_shift_right(a.u8[7], imm);
+dst.u8[8] = rounding_logical_shift_right(a.u8[8], imm);
+dst.u8[9] = rounding_logical_shift_right(a.u8[9], imm);
+dst.u8[10] = rounding_logical_shift_right(a.u8[10], imm);
+dst.u8[11] = rounding_logical_shift_right(a.u8[11], imm);
+dst.u8[12] = rounding_logical_shift_right(a.u8[12], imm);
+dst.u8[13] = rounding_logical_shift_right(a.u8[13], imm);
+dst.u8[14] = rounding_logical_shift_right(a.u8[14], imm);
+dst.u8[15] = rounding_logical_shift_right(a.u8[15], imm);
+</code></pre>
+<h3 id="latency-and-throughput_36">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_36">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srlri_b __builtin_msa_srlri_b
+</code></pre>
+<p><span id="intrinsic-__msa_srlri_d"></span></p>
+<h2 id="v2i64-__msa_srlri_d-v2i64-a-int-imm">v2i64 __msa_srlri_d (v2i64 a, int imm)</h2>
+<h3 id="synopsis_37">Synopsis</h3>
+<pre><code class="language-c">v2i64 __msa_srlri_d (v2i64 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: srlri.d
+Builtin: __builtin_msa_srlri_d
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:91
+</code></pre>
+<h3 id="description_37">Description</h3>
+<p>Round and logical-shift-right each u64 lane.</p>
+<h3 id="operation_37">Operation</h3>
+<pre><code class="language-c">dst.u64[0] = rounding_logical_shift_right(a.u64[0], imm);
+dst.u64[1] = rounding_logical_shift_right(a.u64[1], imm);
+</code></pre>
+<h3 id="latency-and-throughput_37">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_37">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srlri_d __builtin_msa_srlri_d
+</code></pre>
+<p><span id="intrinsic-__msa_srlri_h"></span></p>
+<h2 id="v8i16-__msa_srlri_h-v8i16-a-int-imm">v8i16 __msa_srlri_h (v8i16 a, int imm)</h2>
+<h3 id="synopsis_38">Synopsis</h3>
+<pre><code class="language-c">v8i16 __msa_srlri_h (v8i16 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: srlri.h
+Builtin: __builtin_msa_srlri_h
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:89
+</code></pre>
+<h3 id="description_38">Description</h3>
+<p>Round and logical-shift-right each u16 lane.</p>
+<h3 id="operation_38">Operation</h3>
+<pre><code class="language-c">dst.u16[0] = rounding_logical_shift_right(a.u16[0], imm);
+dst.u16[1] = rounding_logical_shift_right(a.u16[1], imm);
+dst.u16[2] = rounding_logical_shift_right(a.u16[2], imm);
+dst.u16[3] = rounding_logical_shift_right(a.u16[3], imm);
+dst.u16[4] = rounding_logical_shift_right(a.u16[4], imm);
+dst.u16[5] = rounding_logical_shift_right(a.u16[5], imm);
+dst.u16[6] = rounding_logical_shift_right(a.u16[6], imm);
+dst.u16[7] = rounding_logical_shift_right(a.u16[7], imm);
+</code></pre>
+<h3 id="latency-and-throughput_38">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_38">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srlri_h __builtin_msa_srlri_h
+</code></pre>
+<p><span id="intrinsic-__msa_srlri_w"></span></p>
+<h2 id="v4i32-__msa_srlri_w-v4i32-a-int-imm">v4i32 __msa_srlri_w (v4i32 a, int imm)</h2>
+<h3 id="synopsis_39">Synopsis</h3>
+<pre><code class="language-c">v4i32 __msa_srlri_w (v4i32 a, int imm)
+#include &lt;msa.h&gt;
+Instruction: srlri.w
+Builtin: __builtin_msa_srlri_w
+CPU Flags: __mips_msa
+Kind: alias
+Source: include/msa.h:90
+</code></pre>
+<h3 id="description_39">Description</h3>
+<p>Round and logical-shift-right each u32 lane.</p>
+<h3 id="operation_39">Operation</h3>
+<pre><code class="language-c">dst.u32[0] = rounding_logical_shift_right(a.u32[0], imm);
+dst.u32[1] = rounding_logical_shift_right(a.u32[1], imm);
+dst.u32[2] = rounding_logical_shift_right(a.u32[2], imm);
+dst.u32[3] = rounding_logical_shift_right(a.u32[3], imm);
+</code></pre>
+<h3 id="latency-and-throughput_39">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_39">Header Mapping</h3>
+<pre><code class="language-c">#define __msa_srlri_w __builtin_msa_srlri_w
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../integer_comparison/" class="btn btn-neutral float-left" title="Integer Comparison"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../logical/" class="btn btn-neutral float-right" title="Logical">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../integer_comparison/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../logical/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

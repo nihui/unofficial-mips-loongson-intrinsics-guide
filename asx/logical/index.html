@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Logical - Unofficial MIPS Loongson Intrinsics Guide</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../main.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Logical";
+        var mkdocs_page_input_path = "asx/logical.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Unofficial MIPS Loongson Intrinsics Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../loongson_simd_basics/">Loongson SIMD Basics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../latency_throughput/">Latency and Throughput</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">SX</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sx/misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ASX</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Logical</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_mxand_v-__m256i-a-__m256i-b">__m256i __lasx_mxand_v (__m256i a, __m256i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_mxandi_b-__m256i-a-unsigned-char-imm">__m256i __lasx_mxandi_b (__m256i a, unsigned char imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_1">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_1">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_1">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_1">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_1">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_mxbmnz_v-__m256i-a-__m256i-b-__m256i-c">__m256i __lasx_mxbmnz_v (__m256i a, __m256i b, __m256i c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_2">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_2">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_2">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_2">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_2">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_mxbmnzi_b-__m256i-a-__m256i-b-unsigned-char-imm">__m256i __lasx_mxbmnzi_b (__m256i a, __m256i b, unsigned char imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_3">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_3">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_3">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_3">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_3">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_mxbmz_v-__m256i-a-__m256i-b-__m256i-c">__m256i __lasx_mxbmz_v (__m256i a, __m256i b, __m256i c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_4">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_4">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_4">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_4">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_4">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_mxbmzi_b-__m256i-a-__m256i-b-unsigned-char-imm">__m256i __lasx_mxbmzi_b (__m256i a, __m256i b, unsigned char imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_5">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_5">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_5">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_5">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_5">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_mxbsel-__m256i-a-__m256i-b-__m256i-c">__m256i __lasx_mxbsel (__m256i a, __m256i b, __m256i c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_6">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_6">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_6">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_6">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_6">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_mxbsel_v-__m256i-a-__m256i-b-__m256i-c">__m256i __lasx_mxbsel_v (__m256i a, __m256i b, __m256i c)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_7">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_7">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_7">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_7">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_7">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_mxbseli_b-__m256i-a-__m256i-b-unsigned-char-imm">__m256i __lasx_mxbseli_b (__m256i a, __m256i b, unsigned char imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_8">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_8">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_8">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_8">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_8">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_mxnor_v-__m256i-a-__m256i-b">__m256i __lasx_mxnor_v (__m256i a, __m256i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_9">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_9">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_9">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_9">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_9">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_mxnori_b-__m256i-a-unsigned-char-imm">__m256i __lasx_mxnori_b (__m256i a, unsigned char imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_10">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_10">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_10">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_10">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_10">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_mxor_v-__m256i-a-__m256i-b">__m256i __lasx_mxor_v (__m256i a, __m256i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_11">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_11">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_11">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_11">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_11">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_mxori_b-__m256i-a-unsigned-char-imm">__m256i __lasx_mxori_b (__m256i a, unsigned char imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_12">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_12">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_12">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_12">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_12">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_mxvandn_v-__m256i-a-__m256i-b">__m256i __lasx_mxvandn_v (__m256i a, __m256i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_13">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_13">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_13">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_13">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_13">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_mxxor_v-__m256i-a-__m256i-b">__m256i __lasx_mxxor_v (__m256i a, __m256i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_14">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_14">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_14">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_14">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_14">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_mxxori_b-__m256i-a-unsigned-char-imm">__m256i __lasx_mxxori_b (__m256i a, unsigned char imm)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_15">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_15">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_15">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_15">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_15">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#__m256i-__lasx_xxor_v-__m256i-a-__m256i-b">__m256i __lasx_xxor_v (__m256i a, __m256i b)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#synopsis_16">Synopsis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description_16">Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#operation_16">Operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#latency-and-throughput_16">Latency and Throughput</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#header-mapping_16">Header Mapping</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc/">Miscellaneous</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/permutation/">Permutation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_computation/">Float Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_comparison/">Float Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/float_conversion/">Float Conversion</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/memory/">Memory</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/branch/">Branch</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa2/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MSA Crypto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../msa_crypto/crypto/">Cryptography</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">MMI</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_computation/">Integer Computation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/integer_comparison/">Integer Comparison</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/shift/">Shift</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/logical/">Logical</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/bitwise_operations/">Bitwise Operations</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mmi/permutation/">Permutation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CSR</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../csr/control_status/">Control and Status</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Unofficial MIPS Loongson Intrinsics Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">ASX</li>
+      <li class="breadcrumb-item active">Logical</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="logical">Logical</h1>
+<p>Generated from <code>include/loongson-asxintrin.h</code>. This page contains 17 intrinsics.</p>
+<p><span id="intrinsic-__lasx_mxand_v"></span></p>
+<h2 id="__m256i-__lasx_mxand_v-__m256i-a-__m256i-b">__m256i __lasx_mxand_v (__m256i a, __m256i b)</h2>
+<h3 id="synopsis">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_mxand_v (__m256i a, __m256i b)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: mxand.v
+Builtin: __builtin_lasx_mxand_v
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:1812
+</code></pre>
+<h3 id="description">Description</h3>
+<p>Compute bitwise AND across the whole vector; immediate forms AND each byte with the immediate mask.</p>
+<h3 id="operation">Operation</h3>
+<pre><code class="language-c">dst.bits = a.bits &amp; (imm_or_b);
+</code></pre>
+<h3 id="latency-and-throughput">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_mxand_v((v32u8)a, (v32u8)b);
+</code></pre>
+<p><span id="intrinsic-__lasx_mxandi_b"></span></p>
+<h2 id="__m256i-__lasx_mxandi_b-__m256i-a-unsigned-char-imm">__m256i __lasx_mxandi_b (__m256i a, unsigned char imm)</h2>
+<h3 id="synopsis_1">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_mxandi_b (__m256i a, unsigned char imm)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: mxandi.b
+Builtin: __builtin_lasx_mxandi_b
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:1818
+</code></pre>
+<h3 id="description_1">Description</h3>
+<p>Compute bitwise AND across the whole vector; immediate forms AND each byte with the immediate mask.</p>
+<h3 id="operation_1">Operation</h3>
+<pre><code class="language-c">dst.bits = a.bits &amp; (imm_or_b);
+</code></pre>
+<h3 id="latency-and-throughput_1">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_1">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_mxandi_b(a, imm) ((__m256i)__builtin_lasx_mxandi_b((v32u8)(a), (imm)))
+</code></pre>
+<p><span id="intrinsic-__lasx_mxbmnz_v"></span></p>
+<h2 id="__m256i-__lasx_mxbmnz_v-__m256i-a-__m256i-b-__m256i-c">__m256i __lasx_mxbmnz_v (__m256i a, __m256i b, __m256i c)</h2>
+<h3 id="synopsis_2">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_mxbmnz_v (__m256i a, __m256i b, __m256i c)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: mxbmnz.v
+Builtin: __builtin_lasx_mxbmnz_v
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:1844
+</code></pre>
+<h3 id="description_2">Description</h3>
+<p>Use <code>a</code> as a bit mask and keep bits from <code>b</code> only where the mask bit is one; other bits become zero.</p>
+<h3 id="operation_2">Operation</h3>
+<pre><code class="language-c">dst.bits = select_bits(mask=a, true_value=b, false_value=0);
+</code></pre>
+<h3 id="latency-and-throughput_2">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_2">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_mxbmnz_v((v32u8)a, (v32u8)b, (v32u8)c);
+</code></pre>
+<p><span id="intrinsic-__lasx_mxbmnzi_b"></span></p>
+<h2 id="__m256i-__lasx_mxbmnzi_b-__m256i-a-__m256i-b-unsigned-char-imm">__m256i __lasx_mxbmnzi_b (__m256i a, __m256i b, unsigned char imm)</h2>
+<h3 id="synopsis_3">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_mxbmnzi_b (__m256i a, __m256i b, unsigned char imm)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: mxbmnzi.b
+Builtin: __builtin_lasx_mxbmnzi_b
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:1850
+</code></pre>
+<h3 id="description_3">Description</h3>
+<p>Use <code>a</code> as a bit mask and keep bits from <code>b</code> only where the mask bit is one; other bits become zero.</p>
+<h3 id="operation_3">Operation</h3>
+<pre><code class="language-c">dst.bits = select_bits(mask=a, true_value=b, false_value=0);
+</code></pre>
+<h3 id="latency-and-throughput_3">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_3">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_mxbmnzi_b(a, b, imm) ((__m256i)__builtin_lasx_mxbmnzi_b((v32u8)(a), (v32u8)(b), (imm)))
+</code></pre>
+<p><span id="intrinsic-__lasx_mxbmz_v"></span></p>
+<h2 id="__m256i-__lasx_mxbmz_v-__m256i-a-__m256i-b-__m256i-c">__m256i __lasx_mxbmz_v (__m256i a, __m256i b, __m256i c)</h2>
+<h3 id="synopsis_4">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_mxbmz_v (__m256i a, __m256i b, __m256i c)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: mxbmz.v
+Builtin: __builtin_lasx_mxbmz_v
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:1852
+</code></pre>
+<h3 id="description_4">Description</h3>
+<p>Use <code>a</code> as a bit mask and keep bits from <code>b</code> only where the mask bit is zero; masked bits become zero.</p>
+<h3 id="operation_4">Operation</h3>
+<pre><code class="language-c">dst.bits = select_bits(mask=a, true_value=0, false_value=b);
+</code></pre>
+<h3 id="latency-and-throughput_4">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_4">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_mxbmz_v((v32u8)a, (v32u8)b, (v32u8)c);
+</code></pre>
+<p><span id="intrinsic-__lasx_mxbmzi_b"></span></p>
+<h2 id="__m256i-__lasx_mxbmzi_b-__m256i-a-__m256i-b-unsigned-char-imm">__m256i __lasx_mxbmzi_b (__m256i a, __m256i b, unsigned char imm)</h2>
+<h3 id="synopsis_5">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_mxbmzi_b (__m256i a, __m256i b, unsigned char imm)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: mxbmzi.b
+Builtin: __builtin_lasx_mxbmzi_b
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:1858
+</code></pre>
+<h3 id="description_5">Description</h3>
+<p>Use <code>a</code> as a bit mask and keep bits from <code>b</code> only where the mask bit is zero; masked bits become zero.</p>
+<h3 id="operation_5">Operation</h3>
+<pre><code class="language-c">dst.bits = select_bits(mask=a, true_value=0, false_value=b);
+</code></pre>
+<h3 id="latency-and-throughput_5">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_5">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_mxbmzi_b(a, b, imm) ((__m256i)__builtin_lasx_mxbmzi_b((v32u8)(a), (v32u8)(b), (imm)))
+</code></pre>
+<p><span id="intrinsic-__lasx_mxbsel"></span></p>
+<h2 id="__m256i-__lasx_mxbsel-__m256i-a-__m256i-b-__m256i-c">__m256i __lasx_mxbsel (__m256i a, __m256i b, __m256i c)</h2>
+<h3 id="synopsis_6">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_mxbsel (__m256i a, __m256i b, __m256i c)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: mxbsel
+Builtin: __builtin_lasx_mxbsel
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:4404
+</code></pre>
+<h3 id="description_6">Description</h3>
+<p>Use <code>a</code> as a bit mask: choose bits from <code>c</code> where the mask bit is one, otherwise from <code>b</code>.</p>
+<h3 id="operation_6">Operation</h3>
+<pre><code class="language-c">dst.bits = (a.bits &amp; c.bits) | (~a.bits &amp; b.bits);
+</code></pre>
+<h3 id="latency-and-throughput_6">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>0.50/1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_6">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i) __builtin_lasx_mxbsel ((v32i8) a, (v32i8) b, (v32i8) c);
+</code></pre>
+<p><span id="intrinsic-__lasx_mxbsel_v"></span></p>
+<h2 id="__m256i-__lasx_mxbsel_v-__m256i-a-__m256i-b-__m256i-c">__m256i __lasx_mxbsel_v (__m256i a, __m256i b, __m256i c)</h2>
+<h3 id="synopsis_7">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_mxbsel_v (__m256i a, __m256i b, __m256i c)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: mxbsel.v
+Builtin: __builtin_lasx_mxbsel_v
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:1860
+</code></pre>
+<h3 id="description_7">Description</h3>
+<p>Use <code>a</code> as a bit mask: choose bits from <code>c</code> where the mask bit is one, otherwise from <code>b</code>.</p>
+<h3 id="operation_7">Operation</h3>
+<pre><code class="language-c">dst.bits = (a.bits &amp; c.bits) | (~a.bits &amp; b.bits);
+</code></pre>
+<h3 id="latency-and-throughput_7">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_7">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_mxbsel_v((v32u8)a, (v32u8)b, (v32u8)c);
+</code></pre>
+<p><span id="intrinsic-__lasx_mxbseli_b"></span></p>
+<h2 id="__m256i-__lasx_mxbseli_b-__m256i-a-__m256i-b-unsigned-char-imm">__m256i __lasx_mxbseli_b (__m256i a, __m256i b, unsigned char imm)</h2>
+<h3 id="synopsis_8">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_mxbseli_b (__m256i a, __m256i b, unsigned char imm)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: mxbseli.b
+Builtin: __builtin_lasx_mxbseli_b
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:1866
+</code></pre>
+<h3 id="description_8">Description</h3>
+<p>Use <code>a</code> as a bit mask: choose bits from <code>c</code> where the mask bit is one, otherwise from <code>b</code>.</p>
+<h3 id="operation_8">Operation</h3>
+<pre><code class="language-c">dst.bits = (a.bits &amp; c.bits) | (~a.bits &amp; b.bits);
+</code></pre>
+<h3 id="latency-and-throughput_8">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_8">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_mxbseli_b(a, b, imm) ((__m256i)__builtin_lasx_mxbseli_b((v32u8)(a), (v32u8)(b), (imm)))
+</code></pre>
+<p><span id="intrinsic-__lasx_mxnor_v"></span></p>
+<h2 id="__m256i-__lasx_mxnor_v-__m256i-a-__m256i-b">__m256i __lasx_mxnor_v (__m256i a, __m256i b)</h2>
+<h3 id="synopsis_9">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_mxnor_v (__m256i a, __m256i b)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: mxnor.v
+Builtin: __builtin_lasx_mxnor_v
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:1828
+</code></pre>
+<h3 id="description_9">Description</h3>
+<p>Compute bitwise NOR across the whole vector, producing the inverse of OR.</p>
+<h3 id="operation_9">Operation</h3>
+<pre><code class="language-c">dst.bits = ~(a.bits | imm_or_b);
+</code></pre>
+<h3 id="latency-and-throughput_9">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_9">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_mxnor_v((v32u8)a, (v32u8)b);
+</code></pre>
+<p><span id="intrinsic-__lasx_mxnori_b"></span></p>
+<h2 id="__m256i-__lasx_mxnori_b-__m256i-a-unsigned-char-imm">__m256i __lasx_mxnori_b (__m256i a, unsigned char imm)</h2>
+<h3 id="synopsis_10">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_mxnori_b (__m256i a, unsigned char imm)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: mxnori.b
+Builtin: __builtin_lasx_mxnori_b
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:1834
+</code></pre>
+<h3 id="description_10">Description</h3>
+<p>Compute bitwise NOR across the whole vector, producing the inverse of OR.</p>
+<h3 id="operation_10">Operation</h3>
+<pre><code class="language-c">dst.bits = ~(a.bits | imm_or_b);
+</code></pre>
+<h3 id="latency-and-throughput_10">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_10">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_mxnori_b(a, imm) ((__m256i)__builtin_lasx_mxnori_b((v32u8)(a), (imm)))
+</code></pre>
+<p><span id="intrinsic-__lasx_mxor_v"></span></p>
+<h2 id="__m256i-__lasx_mxor_v-__m256i-a-__m256i-b">__m256i __lasx_mxor_v (__m256i a, __m256i b)</h2>
+<h3 id="synopsis_11">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_mxor_v (__m256i a, __m256i b)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: mxor.v
+Builtin: __builtin_lasx_mxor_v
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:1820
+</code></pre>
+<h3 id="description_11">Description</h3>
+<p>Compute bitwise OR across the whole vector; immediate forms OR each byte with the immediate mask.</p>
+<h3 id="operation_11">Operation</h3>
+<pre><code class="language-c">dst.bits = a.bits | (imm_or_b);
+</code></pre>
+<h3 id="latency-and-throughput_11">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_11">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_mxor_v((v32u8)a, (v32u8)b);
+</code></pre>
+<p><span id="intrinsic-__lasx_mxori_b"></span></p>
+<h2 id="__m256i-__lasx_mxori_b-__m256i-a-unsigned-char-imm">__m256i __lasx_mxori_b (__m256i a, unsigned char imm)</h2>
+<h3 id="synopsis_12">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_mxori_b (__m256i a, unsigned char imm)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: mxori.b
+Builtin: __builtin_lasx_mxori_b
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:1826
+</code></pre>
+<h3 id="description_12">Description</h3>
+<p>Compute bitwise OR across the whole vector; immediate forms OR each byte with the immediate mask.</p>
+<h3 id="operation_12">Operation</h3>
+<pre><code class="language-c">dst.bits = a.bits | (imm_or_b);
+</code></pre>
+<h3 id="latency-and-throughput_12">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_12">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_mxori_b(a, imm) ((__m256i)__builtin_lasx_mxori_b((v32u8)(a), (imm)))
+</code></pre>
+<p><span id="intrinsic-__lasx_mxvandn_v"></span></p>
+<h2 id="__m256i-__lasx_mxvandn_v-__m256i-a-__m256i-b">__m256i __lasx_mxvandn_v (__m256i a, __m256i b)</h2>
+<h3 id="synopsis_13">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_mxvandn_v (__m256i a, __m256i b)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: mxvandn.v
+Builtin: __builtin_lasx_mxvandn_v
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:2795
+</code></pre>
+<h3 id="description_13">Description</h3>
+<p>Clear bits from <code>b</code> wherever <code>a</code> has one bits, i.e. compute <code>b &amp; ~a</code> across the whole vector.</p>
+<h3 id="operation_13">Operation</h3>
+<pre><code class="language-c">dst.bits = b.bits &amp; ~a.bits;
+</code></pre>
+<h3 id="latency-and-throughput_13">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_13">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_mxvandn_v((v32u8)a, (v32u8)b);
+</code></pre>
+<p><span id="intrinsic-__lasx_mxxor_v"></span></p>
+<h2 id="__m256i-__lasx_mxxor_v-__m256i-a-__m256i-b">__m256i __lasx_mxxor_v (__m256i a, __m256i b)</h2>
+<h3 id="synopsis_14">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_mxxor_v (__m256i a, __m256i b)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: mxxor.v
+Builtin: __builtin_lasx_mxxor_v
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:1836
+</code></pre>
+<h3 id="description_14">Description</h3>
+<p>Compute bitwise XOR across the whole vector; immediate forms XOR each byte with the immediate mask.</p>
+<h3 id="operation_14">Operation</h3>
+<pre><code class="language-c">dst.bits = a.bits ^ (imm_or_b);
+</code></pre>
+<h3 id="latency-and-throughput_14">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_14">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_mxxor_v((v32u8)a, (v32u8)b);
+</code></pre>
+<p><span id="intrinsic-__lasx_mxxori_b"></span></p>
+<h2 id="__m256i-__lasx_mxxori_b-__m256i-a-unsigned-char-imm">__m256i __lasx_mxxori_b (__m256i a, unsigned char imm)</h2>
+<h3 id="synopsis_15">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_mxxori_b (__m256i a, unsigned char imm)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: mxxori.b
+Builtin: __builtin_lasx_mxxori_b
+CPU Flags: __mips_loongson_asx
+Kind: macro
+Source: include/loongson-asxintrin.h:1842
+</code></pre>
+<h3 id="description_15">Description</h3>
+<p>Compute bitwise XOR across the whole vector; immediate forms XOR each byte with the immediate mask.</p>
+<h3 id="operation_15">Operation</h3>
+<pre><code class="language-c">dst.bits = a.bits ^ (imm_or_b);
+</code></pre>
+<h3 id="latency-and-throughput_15">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_15">Header Mapping</h3>
+<pre><code class="language-c">#define __lasx_mxxori_b(a, imm) ((__m256i)__builtin_lasx_mxxori_b((v32u8)(a), (imm)))
+</code></pre>
+<p><span id="intrinsic-__lasx_xxor_v"></span></p>
+<h2 id="__m256i-__lasx_xxor_v-__m256i-a-__m256i-b">__m256i __lasx_xxor_v (__m256i a, __m256i b)</h2>
+<h3 id="synopsis_16">Synopsis</h3>
+<pre><code class="language-c">__m256i __lasx_xxor_v (__m256i a, __m256i b)
+#include &lt;loongson-asxintrin.h&gt;
+Instruction: xxor.v
+Builtin: __builtin_lasx_xxor_v
+CPU Flags: __mips_loongson_asx
+Kind: function
+Source: include/loongson-asxintrin.h:4150
+</code></pre>
+<h3 id="description_16">Description</h3>
+<p>Compute bitwise XOR across the whole vector; immediate forms XOR each byte with the immediate mask.</p>
+<h3 id="operation_16">Operation</h3>
+<pre><code class="language-c">dst.bits = a.bits ^ (imm_or_b);
+</code></pre>
+<h3 id="latency-and-throughput_16">Latency and Throughput</h3>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>µarch</th>
+<th>Latency</th>
+<th>Throughput (IPC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3A4000</td>
+<td>GS464V</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="header-mapping_16">Header Mapping</h3>
+<pre><code class="language-c">return (__m256i)__builtin_lasx_xxor_v((v32i8)a, (v32i8)b);
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../shift/" class="btn btn-neutral float-left" title="Shift"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../bitwise_operations/" class="btn btn-neutral float-right" title="Bitwise Operations">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2026</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../shift/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../bitwise_operations/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
