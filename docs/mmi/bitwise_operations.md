@@ -2,6 +2,8 @@
 
 Generated from `include/loongson-mmiintrin.h`. This page contains 2 intrinsics.
 
+<span id="intrinsic-pmovmskb_s"></span>
+
 ## int8x8_t pmovmskb_s (int8x8_t a)
 
 ### Synopsis
@@ -28,21 +30,17 @@ return pack_sign_bits(a.u8);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return __builtin_loongson_pmovmskb_s (a);
 ```
+
+<span id="intrinsic-pmovmskb_u"></span>
 
 ## uint8x8_t pmovmskb_u (uint8x8_t a)
 
@@ -70,15 +68,9 @@ return pack_sign_bits(a.u8);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 

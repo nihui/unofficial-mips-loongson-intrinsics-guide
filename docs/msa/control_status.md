@@ -2,6 +2,8 @@
 
 Generated from `include/msa.h`. This page contains 1 intrinsic.
 
+<span id="intrinsic-__msa_cfcmsa"></span>
+
 ## int __msa_cfcmsa (int imm)
 
 ### Synopsis

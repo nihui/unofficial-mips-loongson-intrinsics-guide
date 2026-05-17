@@ -2,6 +2,8 @@
 
 Generated from `include/msa2.h`. This page contains 5 intrinsics.
 
+<span id="intrinsic-__msa2_nxbits_any_b"></span>
+
 ## __m128i __msa2_nxbits_any_b (__m128i a)
 
 ### Synopsis
@@ -59,21 +61,17 @@ dst.u8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_msa2_nxbits_any_b ((v16i8) a);
 ```
+
+<span id="intrinsic-__msa2_nxbits_ge0_b"></span>
 
 ## __m128i __msa2_nxbits_ge0_b (__m128i a)
 
@@ -132,21 +130,17 @@ dst.u8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_msa2_nxbits_ge0_b ((v16i8) a);
 ```
+
+<span id="intrinsic-__msa2_nxbits_lt0_b"></span>
 
 ## __m128i __msa2_nxbits_lt0_b (__m128i a)
 
@@ -205,21 +199,17 @@ dst.u8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_msa2_nxbits_lt0_b ((v16i8) a);
 ```
+
+<span id="intrinsic-__msa2_wxbits_01_b"></span>
 
 ## __m128i __msa2_wxbits_01_b (__m128i a)
 
@@ -262,21 +252,17 @@ dst.u8[15] = ((a.u8[1] >> 7) & 1) ? 0x01 : 0x00;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_msa2_wxbits_01_b ((v16i8) a);
 ```
+
+<span id="intrinsic-__msa2_wxbits_mask_b"></span>
 
 ## __m128i __msa2_wxbits_mask_b (__m128i a)
 
@@ -319,15 +305,9 @@ dst.u8[15] = ((a.u8[1] >> 7) & 1) ? 0xff : 0x00;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 

@@ -2,6 +2,8 @@
 
 Generated from `include/msa2.h`. This page contains 8 intrinsics.
 
+<span id="intrinsic-__msa2_ror_b"></span>
+
 ## __m128i __msa2_ror_b (__m128i a, __m128i b)
 
 ### Synopsis
@@ -43,21 +45,17 @@ dst.u8[15] = rotate_right(a.u8[15], (b.u8[15] & 7), 8);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_msa2_ror_b ((v16i8) a, (v16i8) b);
 ```
+
+<span id="intrinsic-__msa2_ror_d"></span>
 
 ## __m128i __msa2_ror_d (__m128i a, __m128i b)
 
@@ -86,21 +84,17 @@ dst.u64[1] = rotate_right(a.u64[1], (b.u64[1] & 63), 64);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_msa2_ror_d ((v2i64) a, (v2i64) b);
 ```
+
+<span id="intrinsic-__msa2_ror_h"></span>
 
 ## __m128i __msa2_ror_h (__m128i a, __m128i b)
 
@@ -135,21 +129,17 @@ dst.u16[7] = rotate_right(a.u16[7], (b.u16[7] & 15), 16);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_msa2_ror_h ((v8i16) a, (v8i16) b);
 ```
+
+<span id="intrinsic-__msa2_ror_w"></span>
 
 ## __m128i __msa2_ror_w (__m128i a, __m128i b)
 
@@ -180,21 +170,17 @@ dst.u32[3] = rotate_right(a.u32[3], (b.u32[3] & 31), 32);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_msa2_ror_w ((v4i32) a, (v4i32) b);
 ```
+
+<span id="intrinsic-__msa2_rori_b"></span>
 
 ## __m128i __msa2_rori_b (__m128i a, int imm)
 
@@ -237,21 +223,17 @@ dst.u8[15] = rotate_right(a.u8[15], imm, 8);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa2_rori_b(a, imm) (__m128i) __builtin_msa2_rori_b ((v16i8) a, imm);
 ```
+
+<span id="intrinsic-__msa2_rori_d"></span>
 
 ## __m128i __msa2_rori_d (__m128i a, int imm)
 
@@ -280,21 +262,17 @@ dst.u64[1] = rotate_right(a.u64[1], imm, 64);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa2_rori_d(a, imm) (__m128i) __builtin_msa2_rori_d ((v2i64) a, imm);
 ```
+
+<span id="intrinsic-__msa2_rori_h"></span>
 
 ## __m128i __msa2_rori_h (__m128i a, int imm)
 
@@ -329,21 +307,17 @@ dst.u16[7] = rotate_right(a.u16[7], imm, 16);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa2_rori_h(a, imm) (__m128i) __builtin_msa2_rori_h ((v8i16) a, imm);
 ```
+
+<span id="intrinsic-__msa2_rori_w"></span>
 
 ## __m128i __msa2_rori_w (__m128i a, int imm)
 
@@ -374,15 +348,9 @@ dst.u32[3] = rotate_right(a.u32[3], imm, 32);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 

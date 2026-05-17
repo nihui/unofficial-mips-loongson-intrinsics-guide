@@ -2,6 +2,8 @@
 
 Generated from `include/loongson-sxintrin.h`. This page contains 3 intrinsics.
 
+<span id="intrinsic-__lsx_vhminposh_u_d"></span>
+
 ## __m128i __lsx_vhminposh_u_d (__m128i a)
 
 ### Synopsis
@@ -29,21 +31,17 @@ dst.u64[1] = min(a.i16[1], b.u64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vhminposh_u_d((v8i16)a);
 ```
+
+<span id="intrinsic-__lsx_vhminposh_u_q"></span>
 
 ## __m128i __lsx_vhminposh_u_q (__m128i a)
 
@@ -71,21 +69,17 @@ dst.u128[0] = min(a.i16[0], b.u128[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vhminposh_u_q((v8i16)a);
 ```
+
+<span id="intrinsic-__lsx_vhminposh_u_w"></span>
 
 ## __m128i __lsx_vhminposh_u_w (__m128i a)
 
@@ -116,15 +110,9 @@ dst.u32[3] = min(a.i16[3], b.u32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 

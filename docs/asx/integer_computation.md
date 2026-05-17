@@ -2,6 +2,8 @@
 
 Generated from `include/loongson-asxintrin.h`. This page contains 509 intrinsics.
 
+<span id="intrinsic-__lasx_mxadd_a_b"></span>
+
 ## __m256i __lasx_mxadd_a_b (__m256i a, __m256i b)
 
 ### Synopsis
@@ -59,21 +61,17 @@ dst.u8[31] = abs(a.i8[31]) + abs(b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxadd_a_b((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxadd_a_d"></span>
 
 ## __m256i __lasx_mxadd_a_d (__m256i a, __m256i b)
 
@@ -104,21 +102,17 @@ dst.u64[3] = abs(a.i64[3]) + abs(b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxadd_a_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxadd_a_h"></span>
 
 ## __m256i __lasx_mxadd_a_h (__m256i a, __m256i b)
 
@@ -161,21 +155,17 @@ dst.u16[15] = abs(a.i16[15]) + abs(b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxadd_a_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxadd_a_w"></span>
 
 ## __m256i __lasx_mxadd_a_w (__m256i a, __m256i b)
 
@@ -210,21 +200,17 @@ dst.u32[7] = abs(a.i32[7]) + abs(b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxadd_a_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxadds_a_b"></span>
 
 ## __m256i __lasx_mxadds_a_b (__m256i a, __m256i b)
 
@@ -283,21 +269,17 @@ dst.u8[31] = saturate(a.i8[31] + b.i8[31], 8, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxadds_a_b((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxadds_a_d"></span>
 
 ## __m256i __lasx_mxadds_a_d (__m256i a, __m256i b)
 
@@ -328,21 +310,17 @@ dst.u64[3] = saturate(a.i64[3] + b.i64[3], 64, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxadds_a_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxadds_a_h"></span>
 
 ## __m256i __lasx_mxadds_a_h (__m256i a, __m256i b)
 
@@ -385,21 +363,17 @@ dst.u16[15] = saturate(a.i16[15] + b.i16[15], 16, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxadds_a_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxadds_a_w"></span>
 
 ## __m256i __lasx_mxadds_a_w (__m256i a, __m256i b)
 
@@ -434,21 +408,17 @@ dst.u32[7] = saturate(a.i32[7] + b.i32[7], 32, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxadds_a_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxadds_s_b"></span>
 
 ## __m256i __lasx_mxadds_s_b (__m256i a, __m256i b)
 
@@ -507,21 +477,17 @@ dst.i8[31] = saturate(a.i8[31] + b.i8[31], 8, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxadds_s_b((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxadds_s_d"></span>
 
 ## __m256i __lasx_mxadds_s_d (__m256i a, __m256i b)
 
@@ -552,21 +518,17 @@ dst.i64[3] = saturate(a.i64[3] + b.i64[3], 64, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxadds_s_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxadds_s_h"></span>
 
 ## __m256i __lasx_mxadds_s_h (__m256i a, __m256i b)
 
@@ -609,21 +571,17 @@ dst.i16[15] = saturate(a.i16[15] + b.i16[15], 16, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxadds_s_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxadds_s_w"></span>
 
 ## __m256i __lasx_mxadds_s_w (__m256i a, __m256i b)
 
@@ -658,21 +616,17 @@ dst.i32[7] = saturate(a.i32[7] + b.i32[7], 32, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxadds_s_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxadds_u_b"></span>
 
 ## __m256i __lasx_mxadds_u_b (__m256i a, __m256i b)
 
@@ -731,21 +685,17 @@ dst.u8[31] = saturate(a.u8[31] + b.u8[31], 8, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxadds_u_b((v32u8)a, (v32u8)b);
 ```
+
+<span id="intrinsic-__lasx_mxadds_u_d"></span>
 
 ## __m256i __lasx_mxadds_u_d (__m256i a, __m256i b)
 
@@ -776,21 +726,17 @@ dst.u64[3] = saturate(a.u64[3] + b.u64[3], 64, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxadds_u_d((v4u64)a, (v4u64)b);
 ```
+
+<span id="intrinsic-__lasx_mxadds_u_h"></span>
 
 ## __m256i __lasx_mxadds_u_h (__m256i a, __m256i b)
 
@@ -833,21 +779,17 @@ dst.u16[15] = saturate(a.u16[15] + b.u16[15], 16, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxadds_u_h((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxadds_u_w"></span>
 
 ## __m256i __lasx_mxadds_u_w (__m256i a, __m256i b)
 
@@ -882,21 +824,17 @@ dst.u32[7] = saturate(a.u32[7] + b.u32[7], 32, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxadds_u_w((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxaddv_b"></span>
 
 ## __m256i __lasx_mxaddv_b (__m256i a, __m256i b)
 
@@ -955,21 +893,17 @@ dst.u8[31] = a.i8[31] + b.i8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxaddv_b((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxaddv_d"></span>
 
 ## __m256i __lasx_mxaddv_d (__m256i a, __m256i b)
 
@@ -1000,21 +934,17 @@ dst.u64[3] = a.i64[3] + b.i64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxaddv_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxaddv_h"></span>
 
 ## __m256i __lasx_mxaddv_h (__m256i a, __m256i b)
 
@@ -1057,21 +987,17 @@ dst.u16[15] = a.i16[15] + b.i16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxaddv_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxaddv_w"></span>
 
 ## __m256i __lasx_mxaddv_w (__m256i a, __m256i b)
 
@@ -1106,21 +1032,17 @@ dst.u32[7] = a.i32[7] + b.i32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxaddv_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxaddvi_b"></span>
 
 ## __m256i __lasx_mxaddvi_b (__m256i a, unsigned char imm)
 
@@ -1179,21 +1101,17 @@ dst.u8[31] = a.i8[31] + imm;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lasx_mxaddvi_b(a, imm) ((__m256i)__builtin_lasx_mxaddvi_b((v32i8)(a), (imm)))
 ```
+
+<span id="intrinsic-__lasx_mxaddvi_d"></span>
 
 ## __m256i __lasx_mxaddvi_d (__m256i a, unsigned char imm)
 
@@ -1224,21 +1142,17 @@ dst.u64[3] = a.i64[3] + imm;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lasx_mxaddvi_d(a, imm) ((__m256i)__builtin_lasx_mxaddvi_d((v4i64)(a), (imm)))
 ```
+
+<span id="intrinsic-__lasx_mxaddvi_h"></span>
 
 ## __m256i __lasx_mxaddvi_h (__m256i a, unsigned char imm)
 
@@ -1281,21 +1195,17 @@ dst.u16[15] = a.i16[15] + imm;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lasx_mxaddvi_h(a, imm) ((__m256i)__builtin_lasx_mxaddvi_h((v16i16)(a), (imm)))
 ```
+
+<span id="intrinsic-__lasx_mxaddvi_w"></span>
 
 ## __m256i __lasx_mxaddvi_w (__m256i a, unsigned char imm)
 
@@ -1330,21 +1240,17 @@ dst.u32[7] = a.i32[7] + imm;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lasx_mxaddvi_w(a, imm) ((__m256i)__builtin_lasx_mxaddvi_w((v8i32)(a), (imm)))
 ```
+
+<span id="intrinsic-__lasx_mxasub_s_b"></span>
 
 ## __m256i __lasx_mxasub_s_b (__m256i a, __m256i b)
 
@@ -1403,21 +1309,17 @@ dst.i8[31] = abs(a.i8[31] - b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxasub_s_b((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxasub_s_d"></span>
 
 ## __m256i __lasx_mxasub_s_d (__m256i a, __m256i b)
 
@@ -1448,21 +1350,17 @@ dst.i64[3] = abs(a.i64[3] - b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxasub_s_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxasub_s_h"></span>
 
 ## __m256i __lasx_mxasub_s_h (__m256i a, __m256i b)
 
@@ -1505,21 +1403,17 @@ dst.i16[15] = abs(a.i16[15] - b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxasub_s_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxasub_s_w"></span>
 
 ## __m256i __lasx_mxasub_s_w (__m256i a, __m256i b)
 
@@ -1554,21 +1448,17 @@ dst.i32[7] = abs(a.i32[7] - b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxasub_s_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxasub_u_b"></span>
 
 ## __m256i __lasx_mxasub_u_b (__m256i a, __m256i b)
 
@@ -1627,21 +1517,17 @@ dst.u8[31] = abs(a.u8[31] - b.u8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxasub_u_b((v32u8)a, (v32u8)b);
 ```
+
+<span id="intrinsic-__lasx_mxasub_u_d"></span>
 
 ## __m256i __lasx_mxasub_u_d (__m256i a, __m256i b)
 
@@ -1672,21 +1558,17 @@ dst.u64[3] = abs(a.u64[3] - b.u64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxasub_u_d((v4u64)a, (v4u64)b);
 ```
+
+<span id="intrinsic-__lasx_mxasub_u_h"></span>
 
 ## __m256i __lasx_mxasub_u_h (__m256i a, __m256i b)
 
@@ -1729,21 +1611,17 @@ dst.u16[15] = abs(a.u16[15] - b.u16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxasub_u_h((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxasub_u_w"></span>
 
 ## __m256i __lasx_mxasub_u_w (__m256i a, __m256i b)
 
@@ -1778,21 +1656,17 @@ dst.u32[7] = abs(a.u32[7] - b.u32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxasub_u_w((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxave_s_b"></span>
 
 ## __m256i __lasx_mxave_s_b (__m256i a, __m256i b)
 
@@ -1851,21 +1725,17 @@ dst.i8[31] = floor_average(a.i8[31], b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxave_s_b((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxave_s_d"></span>
 
 ## __m256i __lasx_mxave_s_d (__m256i a, __m256i b)
 
@@ -1896,21 +1766,17 @@ dst.i64[3] = floor_average(a.i64[3], b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxave_s_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxave_s_h"></span>
 
 ## __m256i __lasx_mxave_s_h (__m256i a, __m256i b)
 
@@ -1953,21 +1819,17 @@ dst.i16[15] = floor_average(a.i16[15], b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxave_s_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxave_s_w"></span>
 
 ## __m256i __lasx_mxave_s_w (__m256i a, __m256i b)
 
@@ -2002,21 +1864,17 @@ dst.i32[7] = floor_average(a.i32[7], b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxave_s_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxave_u_b"></span>
 
 ## __m256i __lasx_mxave_u_b (__m256i a, __m256i b)
 
@@ -2075,21 +1933,17 @@ dst.u8[31] = floor_average(a.u8[31], b.u8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxave_u_b((v32u8)a, (v32u8)b);
 ```
+
+<span id="intrinsic-__lasx_mxave_u_d"></span>
 
 ## __m256i __lasx_mxave_u_d (__m256i a, __m256i b)
 
@@ -2120,21 +1974,17 @@ dst.u64[3] = floor_average(a.u64[3], b.u64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxave_u_d((v4u64)a, (v4u64)b);
 ```
+
+<span id="intrinsic-__lasx_mxave_u_h"></span>
 
 ## __m256i __lasx_mxave_u_h (__m256i a, __m256i b)
 
@@ -2177,21 +2027,17 @@ dst.u16[15] = floor_average(a.u16[15], b.u16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxave_u_h((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxave_u_w"></span>
 
 ## __m256i __lasx_mxave_u_w (__m256i a, __m256i b)
 
@@ -2226,21 +2072,17 @@ dst.u32[7] = floor_average(a.u32[7], b.u32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxave_u_w((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxaver_s_b"></span>
 
 ## __m256i __lasx_mxaver_s_b (__m256i a, __m256i b)
 
@@ -2299,21 +2141,17 @@ dst.i8[31] = ceil_average(a.i8[31], b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxaver_s_b((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxaver_s_d"></span>
 
 ## __m256i __lasx_mxaver_s_d (__m256i a, __m256i b)
 
@@ -2344,21 +2182,17 @@ dst.i64[3] = ceil_average(a.i64[3], b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxaver_s_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxaver_s_h"></span>
 
 ## __m256i __lasx_mxaver_s_h (__m256i a, __m256i b)
 
@@ -2401,21 +2235,17 @@ dst.i16[15] = ceil_average(a.i16[15], b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxaver_s_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxaver_s_w"></span>
 
 ## __m256i __lasx_mxaver_s_w (__m256i a, __m256i b)
 
@@ -2450,21 +2280,17 @@ dst.i32[7] = ceil_average(a.i32[7], b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxaver_s_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxaver_u_b"></span>
 
 ## __m256i __lasx_mxaver_u_b (__m256i a, __m256i b)
 
@@ -2523,21 +2349,17 @@ dst.u8[31] = ceil_average(a.u8[31], b.u8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxaver_u_b((v32u8)a, (v32u8)b);
 ```
+
+<span id="intrinsic-__lasx_mxaver_u_d"></span>
 
 ## __m256i __lasx_mxaver_u_d (__m256i a, __m256i b)
 
@@ -2568,21 +2390,17 @@ dst.u64[3] = ceil_average(a.u64[3], b.u64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxaver_u_d((v4u64)a, (v4u64)b);
 ```
+
+<span id="intrinsic-__lasx_mxaver_u_h"></span>
 
 ## __m256i __lasx_mxaver_u_h (__m256i a, __m256i b)
 
@@ -2625,21 +2443,17 @@ dst.u16[15] = ceil_average(a.u16[15], b.u16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxaver_u_h((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxaver_u_w"></span>
 
 ## __m256i __lasx_mxaver_u_w (__m256i a, __m256i b)
 
@@ -2674,21 +2488,17 @@ dst.u32[7] = ceil_average(a.u32[7], b.u32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxaver_u_w((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxdiv_s_b"></span>
 
 ## __m256i __lasx_mxdiv_s_b (__m256i a, __m256i b)
 
@@ -2747,21 +2557,17 @@ dst.i8[31] = a.i8[31] / b.i8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>29/51</td><td>0.05(1/22)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 29/51 | 0.05(1/22) |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdiv_s_b((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxdiv_s_d"></span>
 
 ## __m256i __lasx_mxdiv_s_d (__m256i a, __m256i b)
 
@@ -2792,21 +2598,17 @@ dst.i64[3] = a.i64[3] / b.i64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>8</td><td>0.14(1/7)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 8 | 0.14(1/7) |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdiv_s_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxdiv_s_h"></span>
 
 ## __m256i __lasx_mxdiv_s_h (__m256i a, __m256i b)
 
@@ -2849,21 +2651,17 @@ dst.i16[15] = a.i16[15] / b.i16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>17/31</td><td>0.07(1/13.33)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 17/31 | 0.07(1/13.33) |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdiv_s_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxdiv_s_w"></span>
 
 ## __m256i __lasx_mxdiv_s_w (__m256i a, __m256i b)
 
@@ -2898,21 +2696,17 @@ dst.i32[7] = a.i32[7] / b.i32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>11/17</td><td>0.11(1/9)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 11/17 | 0.11(1/9) |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdiv_s_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxdiv_u_b"></span>
 
 ## __m256i __lasx_mxdiv_u_b (__m256i a, __m256i b)
 
@@ -2971,21 +2765,17 @@ dst.u8[31] = a.u8[31] / b.u8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>29/43</td><td>0.05(1/20)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 29/43 | 0.05(1/20) |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdiv_u_b((v32u8)a, (v32u8)b);
 ```
+
+<span id="intrinsic-__lasx_mxdiv_u_d"></span>
 
 ## __m256i __lasx_mxdiv_u_d (__m256i a, __m256i b)
 
@@ -3016,21 +2806,17 @@ dst.u64[3] = a.u64[3] / b.u64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>8</td><td>0.16(1/6.17)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 8 | 0.16(1/6.17) |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdiv_u_d((v4u64)a, (v4u64)b);
 ```
+
+<span id="intrinsic-__lasx_mxdiv_u_h"></span>
 
 ## __m256i __lasx_mxdiv_u_h (__m256i a, __m256i b)
 
@@ -3073,21 +2859,17 @@ dst.u16[15] = a.u16[15] / b.u16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>17/21</td><td>0.09(1/11.36)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 17/21 | 0.09(1/11.36) |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdiv_u_h((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxdiv_u_w"></span>
 
 ## __m256i __lasx_mxdiv_u_w (__m256i a, __m256i b)
 
@@ -3122,21 +2904,17 @@ dst.u32[7] = a.u32[7] / b.u32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>11/18</td><td>0.14(1/7.16)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 11/18 | 0.14(1/7.16) |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdiv_u_w((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxdotp_s_d"></span>
 
 ## __m256i __lasx_mxdotp_s_d (__m256i a, __m256i b)
 
@@ -3167,21 +2945,17 @@ dst.i64[3] = a.i32[6] * b.i32[6] + a.i32[7] * b.i32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdotp_s_d((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxdotp_s_h"></span>
 
 ## __m256i __lasx_mxdotp_s_h (__m256i a, __m256i b)
 
@@ -3224,21 +2998,17 @@ dst.i16[15] = a.i8[30] * b.i8[30] + a.i8[31] * b.i8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdotp_s_h((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxdotp_s_q"></span>
 
 ## __m256i __lasx_mxdotp_s_q (__m256i a, __m256i b)
 
@@ -3267,21 +3037,17 @@ dst.i128[1] = a.i64[2] * b.i64[2] + a.i64[3] * b.i64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxdotp_s_q ((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxdotp_s_w"></span>
 
 ## __m256i __lasx_mxdotp_s_w (__m256i a, __m256i b)
 
@@ -3316,21 +3082,17 @@ dst.i32[7] = a.i16[14] * b.i16[14] + a.i16[15] * b.i16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdotp_s_w((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxdotp_u_d"></span>
 
 ## __m256i __lasx_mxdotp_u_d (__m256i a, __m256i b)
 
@@ -3361,21 +3123,17 @@ dst.u64[3] = a.u32[6] * b.u32[6] + a.u32[7] * b.u32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdotp_u_d((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxdotp_u_h"></span>
 
 ## __m256i __lasx_mxdotp_u_h (__m256i a, __m256i b)
 
@@ -3418,21 +3176,17 @@ dst.u16[15] = a.u8[30] * b.u8[30] + a.u8[31] * b.u8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdotp_u_h((v32u8)a, (v32u8)b);
 ```
+
+<span id="intrinsic-__lasx_mxdotp_u_q"></span>
 
 ## __m256i __lasx_mxdotp_u_q (__m256i a, __m256i b)
 
@@ -3461,21 +3215,17 @@ dst.u128[1] = a.u64[2] * b.u64[2] + a.u64[3] * b.u64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxdotp_u_q ((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxdotp_u_w"></span>
 
 ## __m256i __lasx_mxdotp_u_w (__m256i a, __m256i b)
 
@@ -3510,21 +3260,17 @@ dst.u32[7] = a.u16[14] * b.u16[14] + a.u16[15] * b.u16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdotp_u_w((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxdotp_us_d"></span>
 
 ## __m256i __lasx_mxdotp_us_d (__m256i a, __m256i b)
 
@@ -3555,21 +3301,17 @@ dst.i64[3] = a.u32[6] * b.i32[6] + a.u32[7] * b.i32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxdotp_us_d ((v8u32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxdotp_us_h"></span>
 
 ## __m256i __lasx_mxdotp_us_h (__m256i a, __m256i b)
 
@@ -3612,21 +3354,17 @@ dst.i16[15] = a.u8[30] * b.i8[30] + a.u8[31] * b.i8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxdotp_us_h ((v32u8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxdotp_us_q"></span>
 
 ## __m256i __lasx_mxdotp_us_q (__m256i a, __m256i b)
 
@@ -3655,21 +3393,17 @@ dst.i128[1] = a.u64[2] * b.i64[2] + a.u64[3] * b.i64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxdotp_us_q ((v4u64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxdotp_us_w"></span>
 
 ## __m256i __lasx_mxdotp_us_w (__m256i a, __m256i b)
 
@@ -3704,21 +3438,17 @@ dst.i32[7] = a.u16[14] * b.i16[14] + a.u16[15] * b.i16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxdotp_us_w ((v16u16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxdpadd_s_d"></span>
 
 ## __m256i __lasx_mxdpadd_s_d (__m256i a, __m256i b, __m256i c)
 
@@ -3749,21 +3479,17 @@ dst.i64[3] = a.i64[3] + b.i32[6] * c.i32[6] + b.i32[7] * c.i32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdpadd_s_d((v4i64)a, (v8i32)b, (v8i32)c);
 ```
+
+<span id="intrinsic-__lasx_mxdpadd_s_h"></span>
 
 ## __m256i __lasx_mxdpadd_s_h (__m256i a, __m256i b, __m256i c)
 
@@ -3806,21 +3532,17 @@ dst.i16[15] = a.i16[15] + b.i8[30] * c.i8[30] + b.i8[31] * c.i8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdpadd_s_h((v16i16)a, (v32i8)b, (v32i8)c);
 ```
+
+<span id="intrinsic-__lasx_mxdpadd_s_q"></span>
 
 ## __m256i __lasx_mxdpadd_s_q (__m256i a, __m256i b, __m256i c)
 
@@ -3849,21 +3571,17 @@ dst.i128[1] = a.i128[1] + b.i64[2] * c.i64[2] + b.i64[3] * c.i64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxdpadd_s_q ((v4i64) a, (v4i64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxdpadd_s_w"></span>
 
 ## __m256i __lasx_mxdpadd_s_w (__m256i a, __m256i b, __m256i c)
 
@@ -3898,21 +3616,17 @@ dst.i32[7] = a.i32[7] + b.i16[14] * c.i16[14] + b.i16[15] * c.i16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdpadd_s_w((v8i32)a, (v16i16)b, (v16i16)c);
 ```
+
+<span id="intrinsic-__lasx_mxdpadd_u_d"></span>
 
 ## __m256i __lasx_mxdpadd_u_d (__m256i a, __m256i b, __m256i c)
 
@@ -3943,21 +3657,17 @@ dst.u64[3] = a.u64[3] + b.u32[6] * c.u32[6] + b.u32[7] * c.u32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdpadd_u_d((v4u64)a, (v8u32)b, (v8u32)c);
 ```
+
+<span id="intrinsic-__lasx_mxdpadd_u_h"></span>
 
 ## __m256i __lasx_mxdpadd_u_h (__m256i a, __m256i b, __m256i c)
 
@@ -4000,21 +3710,17 @@ dst.u16[15] = a.u16[15] + b.u8[30] * c.u8[30] + b.u8[31] * c.u8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdpadd_u_h((v16u16)a, (v32u8)b, (v32u8)c);
 ```
+
+<span id="intrinsic-__lasx_mxdpadd_u_q"></span>
 
 ## __m256i __lasx_mxdpadd_u_q (__m256i a, __m256i b, __m256i c)
 
@@ -4043,21 +3749,17 @@ dst.u128[1] = a.u128[1] + b.u64[2] * c.u64[2] + b.u64[3] * c.u64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxdpadd_u_q ((v4u64) a, (v4u64) b, (v4u64) c);
 ```
+
+<span id="intrinsic-__lasx_mxdpadd_u_w"></span>
 
 ## __m256i __lasx_mxdpadd_u_w (__m256i a, __m256i b, __m256i c)
 
@@ -4092,21 +3794,17 @@ dst.u32[7] = a.u32[7] + b.u16[14] * c.u16[14] + b.u16[15] * c.u16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdpadd_u_w((v8u32)a, (v16u16)b, (v16u16)c);
 ```
+
+<span id="intrinsic-__lasx_mxdpadd_us_d"></span>
 
 ## __m256i __lasx_mxdpadd_us_d (__m256i a, __m256i b, __m256i c)
 
@@ -4137,21 +3835,17 @@ dst.i64[3] = a.i64[3] + b.u32[6] * c.i32[6] + b.u32[7] * c.i32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxdpadd_us_d ((v4u64) a, (v8u32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxdpadd_us_h"></span>
 
 ## __m256i __lasx_mxdpadd_us_h (__m256i a, __m256i b, __m256i c)
 
@@ -4194,21 +3888,17 @@ dst.i16[15] = a.i16[15] + b.u8[30] * c.i8[30] + b.u8[31] * c.i8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxdpadd_us_h ((v16u16) a, (v32u8) b, (v32i8) c);
 ```
+
+<span id="intrinsic-__lasx_mxdpadd_us_q"></span>
 
 ## __m256i __lasx_mxdpadd_us_q (__m256i a, __m256i b, __m256i c)
 
@@ -4237,21 +3927,17 @@ dst.i128[1] = a.i128[1] + b.u64[2] * c.i64[2] + b.u64[3] * c.i64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxdpadd_us_q ((v4u64) a, (v4u64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxdpadd_us_w"></span>
 
 ## __m256i __lasx_mxdpadd_us_w (__m256i a, __m256i b, __m256i c)
 
@@ -4286,21 +3972,17 @@ dst.i32[7] = a.i32[7] + b.u16[14] * c.i16[14] + b.u16[15] * c.i16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxdpadd_us_w ((v8u32) a, (v16u16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxdpsub_s_d"></span>
 
 ## __m256i __lasx_mxdpsub_s_d (__m256i a, __m256i b, __m256i c)
 
@@ -4331,21 +4013,17 @@ dst.i64[3] = a.i64[3] - b.i32[6] * c.i32[6] - b.i32[7] * c.i32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdpsub_s_d((v4i64)a, (v8i32)b, (v8i32)c);
 ```
+
+<span id="intrinsic-__lasx_mxdpsub_s_h"></span>
 
 ## __m256i __lasx_mxdpsub_s_h (__m256i a, __m256i b, __m256i c)
 
@@ -4388,21 +4066,17 @@ dst.i16[15] = a.i16[15] - b.i8[30] * c.i8[30] - b.i8[31] * c.i8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdpsub_s_h((v16i16)a, (v32i8)b, (v32i8)c);
 ```
+
+<span id="intrinsic-__lasx_mxdpsub_s_q"></span>
 
 ## __m256i __lasx_mxdpsub_s_q (__m256i a, __m256i b, __m256i c)
 
@@ -4431,21 +4105,17 @@ dst.i128[1] = a.i128[1] - b.i64[2] * c.i64[2] - b.i64[3] * c.i64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxdpsub_s_q ((v4i64) a, (v4i64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxdpsub_s_w"></span>
 
 ## __m256i __lasx_mxdpsub_s_w (__m256i a, __m256i b, __m256i c)
 
@@ -4480,21 +4150,17 @@ dst.i32[7] = a.i32[7] - b.i16[14] * c.i16[14] - b.i16[15] * c.i16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdpsub_s_w((v8i32)a, (v16i16)b, (v16i16)c);
 ```
+
+<span id="intrinsic-__lasx_mxdpsub_u_d"></span>
 
 ## __m256i __lasx_mxdpsub_u_d (__m256i a, __m256i b, __m256i c)
 
@@ -4525,21 +4191,17 @@ dst.u64[3] = a.u64[3] - b.u32[6] * c.u32[6] - b.u32[7] * c.u32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdpsub_u_d((v4i64)a, (v8u32)b, (v8u32)c);
 ```
+
+<span id="intrinsic-__lasx_mxdpsub_u_h"></span>
 
 ## __m256i __lasx_mxdpsub_u_h (__m256i a, __m256i b, __m256i c)
 
@@ -4582,21 +4244,17 @@ dst.u16[15] = a.u16[15] - b.u8[30] * c.u8[30] - b.u8[31] * c.u8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdpsub_u_h((v16i16)a, (v32u8)b, (v32u8)c);
 ```
+
+<span id="intrinsic-__lasx_mxdpsub_u_q"></span>
 
 ## __m256i __lasx_mxdpsub_u_q (__m256i a, __m256i b, __m256i c)
 
@@ -4625,21 +4283,17 @@ dst.u128[1] = a.u128[1] - b.u64[2] * c.u64[2] - b.u64[3] * c.u64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxdpsub_u_q ((v4u64) a, (v4u64) b, (v4u64) c);
 ```
+
+<span id="intrinsic-__lasx_mxdpsub_u_w"></span>
 
 ## __m256i __lasx_mxdpsub_u_w (__m256i a, __m256i b, __m256i c)
 
@@ -4674,21 +4328,17 @@ dst.u32[7] = a.u32[7] - b.u16[14] * c.u16[14] - b.u16[15] * c.u16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxdpsub_u_w((v8i32)a, (v16u16)b, (v16u16)c);
 ```
+
+<span id="intrinsic-__lasx_mxhadd_s_d"></span>
 
 ## __m256i __lasx_mxhadd_s_d (__m256i a, __m256i b)
 
@@ -4719,21 +4369,17 @@ dst.i64[3] = widen(a.i32[3]) + widen(b.i32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxhadd_s_d((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxhadd_s_h"></span>
 
 ## __m256i __lasx_mxhadd_s_h (__m256i a, __m256i b)
 
@@ -4776,21 +4422,17 @@ dst.i16[15] = widen(a.i8[15]) + widen(b.i8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxhadd_s_h((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxhadd_s_q"></span>
 
 ## __m256i __lasx_mxhadd_s_q (__m256i a, __m256i b)
 
@@ -4819,21 +4461,17 @@ dst.i128[1] = widen(a.i64[1]) + widen(b.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxhadd_s_q ((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxhadd_s_w"></span>
 
 ## __m256i __lasx_mxhadd_s_w (__m256i a, __m256i b)
 
@@ -4868,21 +4506,17 @@ dst.i32[7] = widen(a.i16[7]) + widen(b.i16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxhadd_s_w((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxhadd_u_d"></span>
 
 ## __m256i __lasx_mxhadd_u_d (__m256i a, __m256i b)
 
@@ -4913,21 +4547,17 @@ dst.u64[3] = widen(a.u32[3]) + widen(b.u32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxhadd_u_d((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxhadd_u_h"></span>
 
 ## __m256i __lasx_mxhadd_u_h (__m256i a, __m256i b)
 
@@ -4970,21 +4600,17 @@ dst.u16[15] = widen(a.u8[15]) + widen(b.u8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxhadd_u_h((v32u8)a, (v32u8)b);
 ```
+
+<span id="intrinsic-__lasx_mxhadd_u_q"></span>
 
 ## __m256i __lasx_mxhadd_u_q (__m256i a, __m256i b)
 
@@ -5013,21 +4639,17 @@ dst.u128[1] = widen(a.u64[1]) + widen(b.u64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxhadd_u_q ((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxhadd_u_w"></span>
 
 ## __m256i __lasx_mxhadd_u_w (__m256i a, __m256i b)
 
@@ -5062,21 +4684,17 @@ dst.u32[7] = widen(a.u16[7]) + widen(b.u16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxhadd_u_w((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxhsub_s_d"></span>
 
 ## __m256i __lasx_mxhsub_s_d (__m256i a, __m256i b)
 
@@ -5107,21 +4725,17 @@ dst.i64[3] = widen(a.i32[3]) - widen(b.i32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxhsub_s_d((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxhsub_s_h"></span>
 
 ## __m256i __lasx_mxhsub_s_h (__m256i a, __m256i b)
 
@@ -5164,21 +4778,17 @@ dst.i16[15] = widen(a.i8[15]) - widen(b.i8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxhsub_s_h((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxhsub_s_q"></span>
 
 ## __m256i __lasx_mxhsub_s_q (__m256i a, __m256i b)
 
@@ -5207,21 +4817,17 @@ dst.i128[1] = widen(a.i64[1]) - widen(b.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxhsub_s_q ((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxhsub_s_w"></span>
 
 ## __m256i __lasx_mxhsub_s_w (__m256i a, __m256i b)
 
@@ -5256,21 +4862,17 @@ dst.i32[7] = widen(a.i16[7]) - widen(b.i16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxhsub_s_w((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxhsub_u_d"></span>
 
 ## __m256i __lasx_mxhsub_u_d (__m256i a, __m256i b)
 
@@ -5301,21 +4903,17 @@ dst.u64[3] = widen(a.u32[3]) - widen(b.u32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxhsub_u_d((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxhsub_u_h"></span>
 
 ## __m256i __lasx_mxhsub_u_h (__m256i a, __m256i b)
 
@@ -5358,21 +4956,17 @@ dst.u16[15] = widen(a.u8[15]) - widen(b.u8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxhsub_u_h((v32u8)a, (v32u8)b);
 ```
+
+<span id="intrinsic-__lasx_mxhsub_u_q"></span>
 
 ## __m256i __lasx_mxhsub_u_q (__m256i a, __m256i b)
 
@@ -5401,21 +4995,17 @@ dst.u128[1] = widen(a.u64[1]) - widen(b.u64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxhsub_u_q ((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxhsub_u_w"></span>
 
 ## __m256i __lasx_mxhsub_u_w (__m256i a, __m256i b)
 
@@ -5450,21 +5040,17 @@ dst.u32[7] = widen(a.u16[7]) - widen(b.u16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxhsub_u_w((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxmadd_q_h"></span>
 
 ## __m256i __lasx_mxmadd_q_h (__m256i a, __m256i b, __m256i c)
 
@@ -5507,21 +5093,17 @@ dst.i16[15] = signed_saturate(a.i16[15] + signed_saturate(q_format_shift(b.i16[1
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1.62</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1.62 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmadd_q_h((v16i16)a, (v16i16)b, (v16i16)c);
 ```
+
+<span id="intrinsic-__lasx_mxmadd_q_w"></span>
 
 ## __m256i __lasx_mxmadd_q_w (__m256i a, __m256i b, __m256i c)
 
@@ -5556,21 +5138,17 @@ dst.i32[7] = signed_saturate(a.i32[7] + signed_saturate(q_format_shift(b.i32[7] 
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1.62</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1.62 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmadd_q_w((v8i32)a, (v8i32)b, (v8i32)c);
 ```
+
+<span id="intrinsic-__lasx_mxmaddr_q_h"></span>
 
 ## __m256i __lasx_mxmaddr_q_h (__m256i a, __m256i b, __m256i c)
 
@@ -5613,21 +5191,17 @@ dst.i16[15] = signed_saturate(a.i16[15] + signed_saturate(rounding_q_format_shif
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1.62</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1.62 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmaddr_q_h((v16i16)a, (v16i16)b, (v16i16)c);
 ```
+
+<span id="intrinsic-__lasx_mxmaddr_q_w"></span>
 
 ## __m256i __lasx_mxmaddr_q_w (__m256i a, __m256i b, __m256i c)
 
@@ -5662,21 +5236,17 @@ dst.i32[7] = signed_saturate(a.i32[7] + signed_saturate(rounding_q_format_shift(
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1.62</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1.62 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmaddr_q_w((v8i32)a, (v8i32)b, (v8i32)c);
 ```
+
+<span id="intrinsic-__lasx_mxmaddv_b"></span>
 
 ## __m256i __lasx_mxmaddv_b (__m256i a, __m256i b, __m256i c)
 
@@ -5735,21 +5305,17 @@ dst.u8[31] = a.u8[31] + b.u8[31] * c.u8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmaddv_b((v32i8)a, (v32i8)b, (v32i8)c);
 ```
+
+<span id="intrinsic-__lasx_mxmaddv_d"></span>
 
 ## __m256i __lasx_mxmaddv_d (__m256i a, __m256i b, __m256i c)
 
@@ -5780,21 +5346,17 @@ dst.u64[3] = a.u64[3] + b.u64[3] * c.u64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmaddv_d((v4i64)a, (v4i64)b, (v4i64)c);
 ```
+
+<span id="intrinsic-__lasx_mxmaddv_h"></span>
 
 ## __m256i __lasx_mxmaddv_h (__m256i a, __m256i b, __m256i c)
 
@@ -5837,21 +5399,17 @@ dst.u16[15] = a.u16[15] + b.u16[15] * c.u16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmaddv_h((v16i16)a, (v16i16)b, (v16i16)c);
 ```
+
+<span id="intrinsic-__lasx_mxmaddv_w"></span>
 
 ## __m256i __lasx_mxmaddv_w (__m256i a, __m256i b, __m256i c)
 
@@ -5886,21 +5444,17 @@ dst.u32[7] = a.u32[7] + b.u32[7] * c.u32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmaddv_w((v8i32)a, (v8i32)b, (v8i32)c);
 ```
+
+<span id="intrinsic-__lasx_mxmod_s_b"></span>
 
 ## __m256i __lasx_mxmod_s_b (__m256i a, __m256i b)
 
@@ -5959,21 +5513,17 @@ dst.i8[31] = a.i8[31] % b.i8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>29/44</td><td>0.04(1/25)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 29/44 | 0.04(1/25) |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmod_s_b((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxmod_s_d"></span>
 
 ## __m256i __lasx_mxmod_s_d (__m256i a, __m256i b)
 
@@ -6004,21 +5554,17 @@ dst.i64[3] = a.i64[3] % b.i64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>8/10</td><td>0.10(1/10.25)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 8/10 | 0.10(1/10.25) |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmod_s_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxmod_s_h"></span>
 
 ## __m256i __lasx_mxmod_s_h (__m256i a, __m256i b)
 
@@ -6061,21 +5607,17 @@ dst.i16[15] = a.i16[15] % b.i16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>17/25</td><td>0.06(1/16)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 17/25 | 0.06(1/16) |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmod_s_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxmod_s_w"></span>
 
 ## __m256i __lasx_mxmod_s_w (__m256i a, __m256i b)
 
@@ -6110,21 +5652,17 @@ dst.i32[7] = a.i32[7] % b.i32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>11/15</td><td>0.09(1/11.48)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 11/15 | 0.09(1/11.48) |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmod_s_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxmod_u_b"></span>
 
 ## __m256i __lasx_mxmod_u_b (__m256i a, __m256i b)
 
@@ -6183,21 +5721,17 @@ dst.u8[31] = a.u8[31] % b.u8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>29/44</td><td>0.04(1/23)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 29/44 | 0.04(1/23) |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmod_u_b((v32u8)a, (v32u8)b);
 ```
+
+<span id="intrinsic-__lasx_mxmod_u_d"></span>
 
 ## __m256i __lasx_mxmod_u_d (__m256i a, __m256i b)
 
@@ -6228,21 +5762,17 @@ dst.u64[3] = a.u64[3] % b.u64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>8/10</td><td>0.11(1/9.26)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 8/10 | 0.11(1/9.26) |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmod_u_d((v4u64)a, (v4u64)b);
 ```
+
+<span id="intrinsic-__lasx_mxmod_u_h"></span>
 
 ## __m256i __lasx_mxmod_u_h (__m256i a, __m256i b)
 
@@ -6285,21 +5815,17 @@ dst.u16[15] = a.u16[15] % b.u16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>17/25</td><td>0.06(1/16.54)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 17/25 | 0.06(1/16.54) |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmod_u_h((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxmod_u_w"></span>
 
 ## __m256i __lasx_mxmod_u_w (__m256i a, __m256i b)
 
@@ -6334,21 +5860,17 @@ dst.u32[7] = a.u32[7] % b.u32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>11/15</td><td>0.06(1/15.68)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 11/15 | 0.06(1/15.68) |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmod_u_w((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxmsub_q_h"></span>
 
 ## __m256i __lasx_mxmsub_q_h (__m256i a, __m256i b, __m256i c)
 
@@ -6391,21 +5913,17 @@ dst.i16[15] = signed_saturate(a.i16[15] - signed_saturate(q_format_shift(b.i16[1
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1.62</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1.62 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmsub_q_h((v16i16)a, (v16i16)b, (v16i16)c);
 ```
+
+<span id="intrinsic-__lasx_mxmsub_q_w"></span>
 
 ## __m256i __lasx_mxmsub_q_w (__m256i a, __m256i b, __m256i c)
 
@@ -6440,21 +5958,17 @@ dst.i32[7] = signed_saturate(a.i32[7] - signed_saturate(q_format_shift(b.i32[7] 
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1.62</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1.62 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmsub_q_w((v8i32)a, (v8i32)b, (v8i32)c);
 ```
+
+<span id="intrinsic-__lasx_mxmsubr_q_h"></span>
 
 ## __m256i __lasx_mxmsubr_q_h (__m256i a, __m256i b, __m256i c)
 
@@ -6497,21 +6011,17 @@ dst.i16[15] = signed_saturate(a.i16[15] - signed_saturate(rounding_q_format_shif
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1.62</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1.62 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmsubr_q_h((v16i16)a, (v16i16)b, (v16i16)c);
 ```
+
+<span id="intrinsic-__lasx_mxmsubr_q_w"></span>
 
 ## __m256i __lasx_mxmsubr_q_w (__m256i a, __m256i b, __m256i c)
 
@@ -6546,21 +6056,17 @@ dst.i32[7] = signed_saturate(a.i32[7] - signed_saturate(rounding_q_format_shift(
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1.62</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1.62 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmsubr_q_w((v8i32)a, (v8i32)b, (v8i32)c);
 ```
+
+<span id="intrinsic-__lasx_mxmsubv_b"></span>
 
 ## __m256i __lasx_mxmsubv_b (__m256i a, __m256i b, __m256i c)
 
@@ -6619,21 +6125,17 @@ dst.u8[31] = a.u8[31] - b.u8[31] * c.u8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmsubv_b((v32i8)a, (v32i8)b, (v32i8)c);
 ```
+
+<span id="intrinsic-__lasx_mxmsubv_d"></span>
 
 ## __m256i __lasx_mxmsubv_d (__m256i a, __m256i b, __m256i c)
 
@@ -6664,21 +6166,17 @@ dst.u64[3] = a.u64[3] - b.u64[3] * c.u64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmsubv_d((v4i64)a, (v4i64)b, (v4i64)c);
 ```
+
+<span id="intrinsic-__lasx_mxmsubv_h"></span>
 
 ## __m256i __lasx_mxmsubv_h (__m256i a, __m256i b, __m256i c)
 
@@ -6721,21 +6219,17 @@ dst.u16[15] = a.u16[15] - b.u16[15] * c.u16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmsubv_h((v16i16)a, (v16i16)b, (v16i16)c);
 ```
+
+<span id="intrinsic-__lasx_mxmsubv_w"></span>
 
 ## __m256i __lasx_mxmsubv_w (__m256i a, __m256i b, __m256i c)
 
@@ -6770,21 +6264,17 @@ dst.u32[7] = a.u32[7] - b.u32[7] * c.u32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmsubv_w((v8i32)a, (v8i32)b, (v8i32)c);
 ```
+
+<span id="intrinsic-__lasx_mxmuhv_s_d"></span>
 
 ## __m256i __lasx_mxmuhv_s_d (__m256i a, __m256i b)
 
@@ -6815,21 +6305,17 @@ dst.i64[3] = upper_64_bits(a.i64[3] * b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmuhv_s_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxmuhv_u_d"></span>
 
 ## __m256i __lasx_mxmuhv_u_d (__m256i a, __m256i b)
 
@@ -6860,21 +6346,17 @@ dst.u64[3] = upper_64_bits(a.u64[3] * b.u64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmuhv_u_d((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxmuhv_us_d"></span>
 
 ## __m256i __lasx_mxmuhv_us_d (__m256i a, __m256i b)
 
@@ -6905,21 +6387,17 @@ dst.u64[3] = upper_64_bits(a.u64[3] * b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmuhv_us_d((v4u64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxmul_q_h"></span>
 
 ## __m256i __lasx_mxmul_q_h (__m256i a, __m256i b)
 
@@ -6962,21 +6440,17 @@ dst.i16[15] = signed_saturate(q_format_shift(a.i16[15] * b.i16[15], 16 - 1), 16)
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmul_q_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxmul_q_w"></span>
 
 ## __m256i __lasx_mxmul_q_w (__m256i a, __m256i b)
 
@@ -7011,21 +6485,17 @@ dst.i32[7] = signed_saturate(q_format_shift(a.i32[7] * b.i32[7], 32 - 1), 32);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmul_q_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxmulr_q_h"></span>
 
 ## __m256i __lasx_mxmulr_q_h (__m256i a, __m256i b)
 
@@ -7068,21 +6538,17 @@ dst.i16[15] = signed_saturate(rounding_q_format_shift(a.i16[15] * b.i16[15], 16 
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmulr_q_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxmulr_q_w"></span>
 
 ## __m256i __lasx_mxmulr_q_w (__m256i a, __m256i b)
 
@@ -7117,21 +6583,17 @@ dst.i32[7] = signed_saturate(rounding_q_format_shift(a.i32[7] * b.i32[7], 32 - 1
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmulr_q_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxmulv_b"></span>
 
 ## __m256i __lasx_mxmulv_b (__m256i a, __m256i b)
 
@@ -7190,21 +6652,17 @@ dst.u8[31] = a.i8[31] * b.i8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmulv_b((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxmulv_d"></span>
 
 ## __m256i __lasx_mxmulv_d (__m256i a, __m256i b)
 
@@ -7235,21 +6693,17 @@ dst.u64[3] = a.i64[3] * b.i64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmulv_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxmulv_h"></span>
 
 ## __m256i __lasx_mxmulv_h (__m256i a, __m256i b)
 
@@ -7292,21 +6746,17 @@ dst.u16[15] = a.i16[15] * b.i16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmulv_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxmulv_w"></span>
 
 ## __m256i __lasx_mxmulv_w (__m256i a, __m256i b)
 
@@ -7341,21 +6791,17 @@ dst.u32[7] = a.i32[7] * b.i32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxmulv_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxsad_adj2_s_acc_w2x_b"></span>
 
 ## __m256i __lasx_mxsad_adj2_s_acc_w2x_b (__m256i a, __m256i b, __m256i c)
 
@@ -7398,21 +6844,17 @@ dst.i16[15] = a.i16[15] + abs(widen(b.i8[30]) - widen(c.i8[30])) + abs(widen(b.i
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsad_adj2_s_acc_w2x_b((v16i16) a, (v32i8) b, (v32i8) c);
 ```
+
+<span id="intrinsic-__lasx_mxsad_adj2_s_acc_w2x_h"></span>
 
 ## __m256i __lasx_mxsad_adj2_s_acc_w2x_h (__m256i a, __m256i b, __m256i c)
 
@@ -7447,21 +6889,17 @@ dst.i32[7] = a.i32[7] + abs(widen(b.i16[14]) - widen(c.i16[14])) + abs(widen(b.i
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsad_adj2_s_acc_w2x_h((v8i32) a, (v16i16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxsad_adj2_s_acc_w2x_w"></span>
 
 ## __m256i __lasx_mxsad_adj2_s_acc_w2x_w (__m256i a, __m256i b, __m256i c)
 
@@ -7492,21 +6930,17 @@ dst.i64[3] = a.i64[3] + abs(widen(b.i32[6]) - widen(c.i32[6])) + abs(widen(b.i32
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsad_adj2_s_acc_w2x_w((v4i64) a, (v8i32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxsad_adj2_s_w2x_b"></span>
 
 ## __m256i __lasx_mxsad_adj2_s_w2x_b (__m256i a, __m256i b)
 
@@ -7549,21 +6983,17 @@ dst.i16[15] = abs(widen(a.i8[30]) - widen(b.i8[30])) + abs(widen(a.i8[31]) - wid
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsad_adj2_s_w2x_b((v32i8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxsad_adj2_s_w2x_h"></span>
 
 ## __m256i __lasx_mxsad_adj2_s_w2x_h (__m256i a, __m256i b)
 
@@ -7598,21 +7028,17 @@ dst.i32[7] = abs(widen(a.i16[14]) - widen(b.i16[14])) + abs(widen(a.i16[15]) - w
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsad_adj2_s_w2x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxsad_adj2_s_w2x_w"></span>
 
 ## __m256i __lasx_mxsad_adj2_s_w2x_w (__m256i a, __m256i b)
 
@@ -7643,21 +7069,17 @@ dst.i64[3] = abs(widen(a.i32[6]) - widen(b.i32[6])) + abs(widen(a.i32[7]) - wide
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsad_adj2_s_w2x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxsad_adj2_u_acc_w2x_b"></span>
 
 ## __m256i __lasx_mxsad_adj2_u_acc_w2x_b (__m256i a, __m256i b, __m256i c)
 
@@ -7700,21 +7122,17 @@ dst.u16[15] = a.u16[15] + abs(widen(b.u8[30]) - widen(c.u8[30])) + abs(widen(b.u
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsad_adj2_u_acc_w2x_b((v16u16) a, (v32u8) b, (v32u8) c);
 ```
+
+<span id="intrinsic-__lasx_mxsad_adj2_u_acc_w2x_h"></span>
 
 ## __m256i __lasx_mxsad_adj2_u_acc_w2x_h (__m256i a, __m256i b, __m256i c)
 
@@ -7749,21 +7167,17 @@ dst.u32[7] = a.u32[7] + abs(widen(b.u16[14]) - widen(c.u16[14])) + abs(widen(b.u
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsad_adj2_u_acc_w2x_h((v8u32) a, (v16u16) b, (v16u16) c);
 ```
+
+<span id="intrinsic-__lasx_mxsad_adj2_u_acc_w2x_w"></span>
 
 ## __m256i __lasx_mxsad_adj2_u_acc_w2x_w (__m256i a, __m256i b, __m256i c)
 
@@ -7794,21 +7208,17 @@ dst.u64[3] = a.u64[3] + abs(widen(b.u32[6]) - widen(c.u32[6])) + abs(widen(b.u32
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsad_adj2_u_acc_w2x_w((v4u64) a, (v8u32) b, (v8u32) c);
 ```
+
+<span id="intrinsic-__lasx_mxsad_adj2_u_w2x_b"></span>
 
 ## __m256i __lasx_mxsad_adj2_u_w2x_b (__m256i a, __m256i b)
 
@@ -7851,21 +7261,17 @@ dst.u16[15] = abs(widen(a.u8[30]) - widen(b.u8[30])) + abs(widen(a.u8[31]) - wid
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsad_adj2_u_w2x_b((v32u8) a, (v32u8) b);
 ```
+
+<span id="intrinsic-__lasx_mxsad_adj2_u_w2x_h"></span>
 
 ## __m256i __lasx_mxsad_adj2_u_w2x_h (__m256i a, __m256i b)
 
@@ -7900,21 +7306,17 @@ dst.u32[7] = abs(widen(a.u16[14]) - widen(b.u16[14])) + abs(widen(a.u16[15]) - w
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsad_adj2_u_w2x_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxsad_adj2_u_w2x_w"></span>
 
 ## __m256i __lasx_mxsad_adj2_u_w2x_w (__m256i a, __m256i b)
 
@@ -7945,21 +7347,17 @@ dst.u64[3] = abs(widen(a.u32[6]) - widen(b.u32[6])) + abs(widen(a.u32[7]) - wide
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsad_adj2_u_w2x_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxsat_s_b"></span>
 
 ## __m256i __lasx_mxsat_s_b (__m256i a, unsigned char imm)
 
@@ -8018,21 +7416,17 @@ dst.i8[31] = saturate(a.i8[31], range_selected_by_imm, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lasx_mxsat_s_b(a, imm) ((__m256i)__builtin_lasx_mxsat_s_b((v32i8)(a), (imm)))
 ```
+
+<span id="intrinsic-__lasx_mxsat_s_d"></span>
 
 ## __m256i __lasx_mxsat_s_d (__m256i a, unsigned char imm)
 
@@ -8063,21 +7457,17 @@ dst.i64[3] = saturate(a.i64[3], range_selected_by_imm, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lasx_mxsat_s_d(a, imm) ((__m256i)__builtin_lasx_mxsat_s_d((v4i64)(a), (imm)))
 ```
+
+<span id="intrinsic-__lasx_mxsat_s_h"></span>
 
 ## __m256i __lasx_mxsat_s_h (__m256i a, unsigned char imm)
 
@@ -8120,21 +7510,17 @@ dst.i16[15] = saturate(a.i16[15], range_selected_by_imm, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lasx_mxsat_s_h(a, imm) ((__m256i)__builtin_lasx_mxsat_s_h((v16i16)(a), (imm)))
 ```
+
+<span id="intrinsic-__lasx_mxsat_s_w"></span>
 
 ## __m256i __lasx_mxsat_s_w (__m256i a, unsigned char imm)
 
@@ -8169,21 +7555,17 @@ dst.i32[7] = saturate(a.i32[7], range_selected_by_imm, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lasx_mxsat_s_w(a, imm) ((__m256i)__builtin_lasx_mxsat_s_w((v8i32)(a), (imm)))
 ```
+
+<span id="intrinsic-__lasx_mxsat_u_b"></span>
 
 ## __m256i __lasx_mxsat_u_b (__m256i a, unsigned char imm)
 
@@ -8242,21 +7624,17 @@ dst.u8[31] = saturate(a.u8[31], range_selected_by_imm, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lasx_mxsat_u_b(a, imm) ((__m256i)__builtin_lasx_mxsat_u_b((v32u8)(a), (imm)))
 ```
+
+<span id="intrinsic-__lasx_mxsat_u_d"></span>
 
 ## __m256i __lasx_mxsat_u_d (__m256i a, unsigned char imm)
 
@@ -8287,21 +7665,17 @@ dst.u64[3] = saturate(a.u64[3], range_selected_by_imm, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lasx_mxsat_u_d(a, imm) ((__m256i)__builtin_lasx_mxsat_u_d((v4u64)(a), (imm)))
 ```
+
+<span id="intrinsic-__lasx_mxsat_u_h"></span>
 
 ## __m256i __lasx_mxsat_u_h (__m256i a, unsigned char imm)
 
@@ -8344,21 +7718,17 @@ dst.u16[15] = saturate(a.u16[15], range_selected_by_imm, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lasx_mxsat_u_h(a, imm) ((__m256i)__builtin_lasx_mxsat_u_h((v16u16)(a), (imm)))
 ```
+
+<span id="intrinsic-__lasx_mxsat_u_w"></span>
 
 ## __m256i __lasx_mxsat_u_w (__m256i a, unsigned char imm)
 
@@ -8393,21 +7763,17 @@ dst.u32[7] = saturate(a.u32[7], range_selected_by_imm, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lasx_mxsat_u_w(a, imm) ((__m256i)__builtin_lasx_mxsat_u_w((v8u32)(a), (imm)))
 ```
+
+<span id="intrinsic-__lasx_mxsubs_s_b"></span>
 
 ## __m256i __lasx_mxsubs_s_b (__m256i a, __m256i b)
 
@@ -8466,21 +7832,17 @@ dst.i8[31] = saturate(a.i8[31] - b.i8[31], 8, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubs_s_b((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubs_s_d"></span>
 
 ## __m256i __lasx_mxsubs_s_d (__m256i a, __m256i b)
 
@@ -8511,21 +7873,17 @@ dst.i64[3] = saturate(a.i64[3] - b.i64[3], 64, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubs_s_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubs_s_h"></span>
 
 ## __m256i __lasx_mxsubs_s_h (__m256i a, __m256i b)
 
@@ -8568,21 +7926,17 @@ dst.i16[15] = saturate(a.i16[15] - b.i16[15], 16, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubs_s_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubs_s_w"></span>
 
 ## __m256i __lasx_mxsubs_s_w (__m256i a, __m256i b)
 
@@ -8617,21 +7971,17 @@ dst.i32[7] = saturate(a.i32[7] - b.i32[7], 32, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubs_s_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubs_u_b"></span>
 
 ## __m256i __lasx_mxsubs_u_b (__m256i a, __m256i b)
 
@@ -8690,21 +8040,17 @@ dst.u8[31] = saturate(a.u8[31] - b.u8[31], 8, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubs_u_b((v32u8)a, (v32u8)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubs_u_d"></span>
 
 ## __m256i __lasx_mxsubs_u_d (__m256i a, __m256i b)
 
@@ -8735,21 +8081,17 @@ dst.u64[3] = saturate(a.u64[3] - b.u64[3], 64, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubs_u_d((v4u64)a, (v4u64)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubs_u_h"></span>
 
 ## __m256i __lasx_mxsubs_u_h (__m256i a, __m256i b)
 
@@ -8792,21 +8134,17 @@ dst.u16[15] = saturate(a.u16[15] - b.u16[15], 16, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubs_u_h((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubs_u_w"></span>
 
 ## __m256i __lasx_mxsubs_u_w (__m256i a, __m256i b)
 
@@ -8841,21 +8179,17 @@ dst.u32[7] = saturate(a.u32[7] - b.u32[7], 32, signedness);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubs_u_w((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubssu_u_b"></span>
 
 ## __m256i __lasx_mxsubssu_u_b (__m256i a, __m256i b)
 
@@ -8914,21 +8248,17 @@ dst.u8[31] = unsigned_saturate(a.i8[31] - b.u8[31], 8);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxsubssu_u_b ((v32i8) a, (v32u8) b);
 ```
+
+<span id="intrinsic-__lasx_mxsubssu_u_d"></span>
 
 ## __m256i __lasx_mxsubssu_u_d (__m256i a, __m256i b)
 
@@ -8959,21 +8289,17 @@ dst.u64[3] = unsigned_saturate(a.i64[3] - b.u64[3], 64);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxsubssu_u_d ((v4i64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxsubssu_u_h"></span>
 
 ## __m256i __lasx_mxsubssu_u_h (__m256i a, __m256i b)
 
@@ -9016,21 +8342,17 @@ dst.u16[15] = unsigned_saturate(a.i16[15] - b.u16[15], 16);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxsubssu_u_h ((v16i16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxsubssu_u_w"></span>
 
 ## __m256i __lasx_mxsubssu_u_w (__m256i a, __m256i b)
 
@@ -9065,21 +8387,17 @@ dst.u32[7] = unsigned_saturate(a.i32[7] - b.u32[7], 32);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxsubssu_u_w ((v8i32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxsubsus_u_b"></span>
 
 ## __m256i __lasx_mxsubsus_u_b (__m256i a, __m256i b)
 
@@ -9138,21 +8456,17 @@ dst.u8[31] = unsigned_saturate(a.u8[31] - b.i8[31], 8);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubsus_u_b((v32u8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubsus_u_d"></span>
 
 ## __m256i __lasx_mxsubsus_u_d (__m256i a, __m256i b)
 
@@ -9183,21 +8497,17 @@ dst.u64[3] = unsigned_saturate(a.u64[3] - b.i64[3], 64);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubsus_u_d((v4u64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubsus_u_h"></span>
 
 ## __m256i __lasx_mxsubsus_u_h (__m256i a, __m256i b)
 
@@ -9240,21 +8550,17 @@ dst.u16[15] = unsigned_saturate(a.u16[15] - b.i16[15], 16);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubsus_u_h((v16u16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubsus_u_w"></span>
 
 ## __m256i __lasx_mxsubsus_u_w (__m256i a, __m256i b)
 
@@ -9289,21 +8595,17 @@ dst.u32[7] = unsigned_saturate(a.u32[7] - b.i32[7], 32);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubsus_u_w((v8u32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubsuu_s_b"></span>
 
 ## __m256i __lasx_mxsubsuu_s_b (__m256i a, __m256i b)
 
@@ -9362,21 +8664,17 @@ dst.i8[31] = signed_saturate(a.u8[31] - b.u8[31], 8);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubsuu_s_b((v32u8)a, (v32u8)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubsuu_s_d"></span>
 
 ## __m256i __lasx_mxsubsuu_s_d (__m256i a, __m256i b)
 
@@ -9407,21 +8705,17 @@ dst.i64[3] = signed_saturate(a.u64[3] - b.u64[3], 64);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubsuu_s_d((v4u64)a, (v4u64)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubsuu_s_h"></span>
 
 ## __m256i __lasx_mxsubsuu_s_h (__m256i a, __m256i b)
 
@@ -9464,21 +8758,17 @@ dst.i16[15] = signed_saturate(a.u16[15] - b.u16[15], 16);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubsuu_s_h((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubsuu_s_w"></span>
 
 ## __m256i __lasx_mxsubsuu_s_w (__m256i a, __m256i b)
 
@@ -9513,21 +8803,17 @@ dst.i32[7] = signed_saturate(a.u32[7] - b.u32[7], 32);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubsuu_s_w((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubv_b"></span>
 
 ## __m256i __lasx_mxsubv_b (__m256i a, __m256i b)
 
@@ -9586,21 +8872,17 @@ dst.u8[31] = a.i8[31] - b.i8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubv_b((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubv_d"></span>
 
 ## __m256i __lasx_mxsubv_d (__m256i a, __m256i b)
 
@@ -9631,21 +8913,17 @@ dst.u64[3] = a.i64[3] - b.i64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubv_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubv_h"></span>
 
 ## __m256i __lasx_mxsubv_h (__m256i a, __m256i b)
 
@@ -9688,21 +8966,17 @@ dst.u16[15] = a.i16[15] - b.i16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubv_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubv_w"></span>
 
 ## __m256i __lasx_mxsubv_w (__m256i a, __m256i b)
 
@@ -9737,21 +9011,17 @@ dst.u32[7] = a.i32[7] - b.i32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxsubv_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxsubvi_b"></span>
 
 ## __m256i __lasx_mxsubvi_b (__m256i a, unsigned char imm)
 
@@ -9810,21 +9080,17 @@ dst.u8[31] = a.i8[31] - imm;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lasx_mxsubvi_b(a, imm) ((__m256i)__builtin_lasx_mxsubvi_b((v32i8)(a), (imm)))
 ```
+
+<span id="intrinsic-__lasx_mxsubvi_d"></span>
 
 ## __m256i __lasx_mxsubvi_d (__m256i a, unsigned char imm)
 
@@ -9855,21 +9121,17 @@ dst.u64[3] = a.i64[3] - imm;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lasx_mxsubvi_d(a, imm) ((__m256i)__builtin_lasx_mxsubvi_d((v4i64)(a), (imm)))
 ```
+
+<span id="intrinsic-__lasx_mxsubvi_h"></span>
 
 ## __m256i __lasx_mxsubvi_h (__m256i a, unsigned char imm)
 
@@ -9912,21 +9174,17 @@ dst.u16[15] = a.i16[15] - imm;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lasx_mxsubvi_h(a, imm) ((__m256i)__builtin_lasx_mxsubvi_h((v16i16)(a), (imm)))
 ```
+
+<span id="intrinsic-__lasx_mxsubvi_w"></span>
 
 ## __m256i __lasx_mxsubvi_w (__m256i a, unsigned char imm)
 
@@ -9961,21 +9219,17 @@ dst.u32[7] = a.i32[7] - imm;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lasx_mxsubvi_w(a, imm) ((__m256i)__builtin_lasx_mxsubvi_w((v8i32)(a), (imm)))
 ```
+
+<span id="intrinsic-__lasx_mxvabs_b"></span>
 
 ## __m256i __lasx_mxvabs_b (__m256i a)
 
@@ -10034,21 +9288,17 @@ dst.u8[31] = abs(a.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvabs_b((v32i8)a);
 ```
+
+<span id="intrinsic-__lasx_mxvabs_d"></span>
 
 ## __m256i __lasx_mxvabs_d (__m256i a)
 
@@ -10079,21 +9329,17 @@ dst.u64[3] = abs(a.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvabs_d((v4i64)a);
 ```
+
+<span id="intrinsic-__lasx_mxvabs_h"></span>
 
 ## __m256i __lasx_mxvabs_h (__m256i a)
 
@@ -10136,21 +9382,17 @@ dst.u16[15] = abs(a.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvabs_h((v16i16)a);
 ```
+
+<span id="intrinsic-__lasx_mxvabs_w"></span>
 
 ## __m256i __lasx_mxvabs_w (__m256i a)
 
@@ -10185,21 +9427,17 @@ dst.u32[7] = abs(a.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvabs_w((v8i32)a);
 ```
+
+<span id="intrinsic-__lasx_mxvacc4b_u_h"></span>
 
 ## __m256i __lasx_mxvacc4b_u_h (__m256i a, __m256i b)
 
@@ -10234,21 +9472,17 @@ dst.u32[7] = a.u8[28] + a.u8[29] + a.u8[30] + a.u8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvacc4b_u_h((v32u8)a, (v32u8)b);
 ```
+
+<span id="intrinsic-__lasx_mxvacc8b_u_d"></span>
 
 ## __m256i __lasx_mxvacc8b_u_d (__m256i a)
 
@@ -10279,21 +9513,17 @@ dst.u64[3] = a.u8[24] + a.u8[25] + a.u8[26] + a.u8[27] + a.u8[28] + a.u8[29] + a
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvacc8b_u_d((v32u8)a);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_el0_q"></span>
 
 ## __m256i __lasx_mxvadd_el0_q (__m256i a, __m256i b)
 
@@ -10322,21 +9552,17 @@ dst.u128[1] = a.i64[1] + b.i64[1];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxvadd_el0_q ((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_el0_s_wx_d"></span>
 
 ## __m256i __lasx_mxvadd_el0_s_wx_d (__m256i a, __m256i b)
 
@@ -10365,21 +9591,17 @@ dst.i128[1] = widen(a.i64[0]) + widen(b.i64[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_el0_s_wx_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_el0_s_wx_h"></span>
 
 ## __m256i __lasx_mxvadd_el0_s_wx_h (__m256i a, __m256i b)
 
@@ -10414,21 +9636,17 @@ dst.i32[7] = widen(a.i16[0]) + widen(b.i16[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_el0_s_wx_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_el0_s_wx_w"></span>
 
 ## __m256i __lasx_mxvadd_el0_s_wx_w (__m256i a, __m256i b)
 
@@ -10459,21 +9677,17 @@ dst.i64[3] = widen(a.i32[0]) + widen(b.i32[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_el0_s_wx_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_el0_u_wx_d"></span>
 
 ## __m256i __lasx_mxvadd_el0_u_wx_d (__m256i a, __m256i b)
 
@@ -10502,21 +9716,17 @@ dst.u128[1] = widen(a.u64[0]) + widen(b.u64[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_el0_u_wx_d((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_el0_u_wx_h"></span>
 
 ## __m256i __lasx_mxvadd_el0_u_wx_h (__m256i a, __m256i b)
 
@@ -10551,21 +9761,17 @@ dst.u32[7] = widen(a.u16[0]) + widen(b.u16[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_el0_u_wx_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_el0_u_wx_w"></span>
 
 ## __m256i __lasx_mxvadd_el0_u_wx_w (__m256i a, __m256i b)
 
@@ -10596,21 +9802,17 @@ dst.u64[3] = widen(a.u32[0]) + widen(b.u32[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_el0_u_wx_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_el0_us_wx_d"></span>
 
 ## __m256i __lasx_mxvadd_el0_us_wx_d (__m256i a, __m256i b)
 
@@ -10639,21 +9841,17 @@ dst.u128[1] = widen(a.u64[0]) + widen(b.i64[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_el0_us_wx_d((v4u64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_el0_us_wx_h"></span>
 
 ## __m256i __lasx_mxvadd_el0_us_wx_h (__m256i a, __m256i b)
 
@@ -10688,21 +9886,17 @@ dst.u32[7] = widen(a.u16[0]) + widen(b.i16[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_el0_us_wx_h((v16u16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_el0_us_wx_w"></span>
 
 ## __m256i __lasx_mxvadd_el0_us_wx_w (__m256i a, __m256i b)
 
@@ -10733,21 +9927,17 @@ dst.u64[3] = widen(a.u32[0]) + widen(b.i32[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_el0_us_wx_w((v8u32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_even_s_w2x_b"></span>
 
 ## __m256i __lasx_mxvadd_even_s_w2x_b (__m256i a, __m256i b)
 
@@ -10790,21 +9980,17 @@ dst.i16[15] = widen(a.i8[30]) + widen(b.i8[30]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_even_s_w2x_b((v32i8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_even_s_w2x_d"></span>
 
 ## __m256i __lasx_mxvadd_even_s_w2x_d (__m256i a, __m256i b)
 
@@ -10833,21 +10019,17 @@ dst.i128[1] = widen(a.i64[2]) + widen(b.i64[2]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_even_s_w2x_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_even_s_w2x_h"></span>
 
 ## __m256i __lasx_mxvadd_even_s_w2x_h (__m256i a, __m256i b)
 
@@ -10882,21 +10064,17 @@ dst.i32[7] = widen(a.i16[14]) + widen(b.i16[14]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_even_s_w2x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_even_s_w2x_w"></span>
 
 ## __m256i __lasx_mxvadd_even_s_w2x_w (__m256i a, __m256i b)
 
@@ -10927,21 +10105,17 @@ dst.i64[3] = widen(a.i32[6]) + widen(b.i32[6]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_even_s_w2x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_even_u_w2x_b"></span>
 
 ## __m256i __lasx_mxvadd_even_u_w2x_b (__m256i a, __m256i b)
 
@@ -10984,21 +10158,17 @@ dst.u16[15] = widen(a.u8[30]) + widen(b.u8[30]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_even_u_w2x_b((v32u8) a, (v32u8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_even_u_w2x_d"></span>
 
 ## __m256i __lasx_mxvadd_even_u_w2x_d (__m256i a, __m256i b)
 
@@ -11027,21 +10197,17 @@ dst.u128[1] = widen(a.u64[2]) + widen(b.u64[2]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_even_u_w2x_d((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_even_u_w2x_h"></span>
 
 ## __m256i __lasx_mxvadd_even_u_w2x_h (__m256i a, __m256i b)
 
@@ -11076,21 +10242,17 @@ dst.u32[7] = widen(a.u16[14]) + widen(b.u16[14]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_even_u_w2x_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_even_u_w2x_w"></span>
 
 ## __m256i __lasx_mxvadd_even_u_w2x_w (__m256i a, __m256i b)
 
@@ -11121,21 +10283,17 @@ dst.u64[3] = widen(a.u32[6]) + widen(b.u32[6]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_even_u_w2x_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_even_us_w2x_b"></span>
 
 ## __m256i __lasx_mxvadd_even_us_w2x_b (__m256i a, __m256i b)
 
@@ -11178,21 +10336,17 @@ dst.u16[15] = widen(a.u8[30]) + widen(b.i8[30]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_even_us_w2x_b((v32u8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_even_us_w2x_d"></span>
 
 ## __m256i __lasx_mxvadd_even_us_w2x_d (__m256i a, __m256i b)
 
@@ -11221,21 +10375,17 @@ dst.u128[1] = widen(a.u64[2]) + widen(b.i64[2]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_even_us_w2x_d((v4u64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_even_us_w2x_h"></span>
 
 ## __m256i __lasx_mxvadd_even_us_w2x_h (__m256i a, __m256i b)
 
@@ -11270,21 +10420,17 @@ dst.u32[7] = widen(a.u16[14]) + widen(b.i16[14]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_even_us_w2x_h((v16u16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_even_us_w2x_w"></span>
 
 ## __m256i __lasx_mxvadd_even_us_w2x_w (__m256i a, __m256i b)
 
@@ -11315,21 +10461,17 @@ dst.u64[3] = widen(a.u32[6]) + widen(b.i32[6]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_even_us_w2x_w((v8u32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_hi_s_w2x_b"></span>
 
 ## __m256i __lasx_mxvadd_hi_s_w2x_b (__m256i a, __m256i b)
 
@@ -11372,21 +10514,17 @@ dst.i16[15] = widen(a.i8[31]) + widen(b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_hi_s_w2x_b((v32i8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_hi_s_w2x_d"></span>
 
 ## __m256i __lasx_mxvadd_hi_s_w2x_d (__m256i a, __m256i b)
 
@@ -11415,21 +10553,17 @@ dst.i128[1] = widen(a.i64[3]) + widen(b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_hi_s_w2x_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_hi_s_w2x_h"></span>
 
 ## __m256i __lasx_mxvadd_hi_s_w2x_h (__m256i a, __m256i b)
 
@@ -11464,21 +10598,17 @@ dst.i32[7] = widen(a.i16[15]) + widen(b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_hi_s_w2x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_hi_s_w2x_w"></span>
 
 ## __m256i __lasx_mxvadd_hi_s_w2x_w (__m256i a, __m256i b)
 
@@ -11509,21 +10639,17 @@ dst.i64[3] = widen(a.i32[7]) + widen(b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_hi_s_w2x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_hi_u_w2x_b"></span>
 
 ## __m256i __lasx_mxvadd_hi_u_w2x_b (__m256i a, __m256i b)
 
@@ -11566,21 +10692,17 @@ dst.u16[15] = widen(a.u8[31]) + widen(b.u8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_hi_u_w2x_b((v32u8) a, (v32u8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_hi_u_w2x_d"></span>
 
 ## __m256i __lasx_mxvadd_hi_u_w2x_d (__m256i a, __m256i b)
 
@@ -11609,21 +10731,17 @@ dst.u128[1] = widen(a.u64[3]) + widen(b.u64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_hi_u_w2x_d((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_hi_u_w2x_h"></span>
 
 ## __m256i __lasx_mxvadd_hi_u_w2x_h (__m256i a, __m256i b)
 
@@ -11658,21 +10776,17 @@ dst.u32[7] = widen(a.u16[15]) + widen(b.u16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_hi_u_w2x_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_hi_u_w2x_w"></span>
 
 ## __m256i __lasx_mxvadd_hi_u_w2x_w (__m256i a, __m256i b)
 
@@ -11703,21 +10817,17 @@ dst.u64[3] = widen(a.u32[7]) + widen(b.u32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_hi_u_w2x_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_hi_us_w2x_b"></span>
 
 ## __m256i __lasx_mxvadd_hi_us_w2x_b (__m256i a, __m256i b)
 
@@ -11760,21 +10870,17 @@ dst.u16[15] = widen(a.u8[31]) + widen(b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_hi_us_w2x_b((v32u8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_hi_us_w2x_d"></span>
 
 ## __m256i __lasx_mxvadd_hi_us_w2x_d (__m256i a, __m256i b)
 
@@ -11803,21 +10909,17 @@ dst.u128[1] = widen(a.u64[3]) + widen(b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_hi_us_w2x_d((v4u64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_hi_us_w2x_h"></span>
 
 ## __m256i __lasx_mxvadd_hi_us_w2x_h (__m256i a, __m256i b)
 
@@ -11852,21 +10954,17 @@ dst.u32[7] = widen(a.u16[15]) + widen(b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_hi_us_w2x_h((v16u16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_hi_us_w2x_w"></span>
 
 ## __m256i __lasx_mxvadd_hi_us_w2x_w (__m256i a, __m256i b)
 
@@ -11897,21 +10995,17 @@ dst.u64[3] = widen(a.u32[7]) + widen(b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_hi_us_w2x_w((v8u32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_lo_s_w2x_b"></span>
 
 ## __m256i __lasx_mxvadd_lo_s_w2x_b (__m256i a, __m256i b)
 
@@ -11954,21 +11048,17 @@ dst.i16[15] = widen(a.i8[15]) + widen(b.i8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_lo_s_w2x_b((v32i8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_lo_s_w2x_d"></span>
 
 ## __m256i __lasx_mxvadd_lo_s_w2x_d (__m256i a, __m256i b)
 
@@ -11997,21 +11087,17 @@ dst.i128[1] = widen(a.i64[1]) + widen(b.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_lo_s_w2x_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_lo_s_w2x_h"></span>
 
 ## __m256i __lasx_mxvadd_lo_s_w2x_h (__m256i a, __m256i b)
 
@@ -12046,21 +11132,17 @@ dst.i32[7] = widen(a.i16[7]) + widen(b.i16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_lo_s_w2x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_lo_s_w2x_w"></span>
 
 ## __m256i __lasx_mxvadd_lo_s_w2x_w (__m256i a, __m256i b)
 
@@ -12091,21 +11173,17 @@ dst.i64[3] = widen(a.i32[3]) + widen(b.i32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_lo_s_w2x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_lo_u_w2x_b"></span>
 
 ## __m256i __lasx_mxvadd_lo_u_w2x_b (__m256i a, __m256i b)
 
@@ -12148,21 +11226,17 @@ dst.u16[15] = widen(a.u8[15]) + widen(b.u8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_lo_u_w2x_b((v32u8) a, (v32u8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_lo_u_w2x_d"></span>
 
 ## __m256i __lasx_mxvadd_lo_u_w2x_d (__m256i a, __m256i b)
 
@@ -12191,21 +11265,17 @@ dst.u128[1] = widen(a.u64[1]) + widen(b.u64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_lo_u_w2x_d((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_lo_u_w2x_h"></span>
 
 ## __m256i __lasx_mxvadd_lo_u_w2x_h (__m256i a, __m256i b)
 
@@ -12240,21 +11310,17 @@ dst.u32[7] = widen(a.u16[7]) + widen(b.u16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_lo_u_w2x_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_lo_u_w2x_w"></span>
 
 ## __m256i __lasx_mxvadd_lo_u_w2x_w (__m256i a, __m256i b)
 
@@ -12285,21 +11351,17 @@ dst.u64[3] = widen(a.u32[3]) + widen(b.u32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_lo_u_w2x_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_lo_us_w2x_b"></span>
 
 ## __m256i __lasx_mxvadd_lo_us_w2x_b (__m256i a, __m256i b)
 
@@ -12342,21 +11404,17 @@ dst.u16[15] = widen(a.u8[15]) + widen(b.i8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_lo_us_w2x_b((v32u8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_lo_us_w2x_d"></span>
 
 ## __m256i __lasx_mxvadd_lo_us_w2x_d (__m256i a, __m256i b)
 
@@ -12385,21 +11443,17 @@ dst.u128[1] = widen(a.u64[1]) + widen(b.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_lo_us_w2x_d((v4u64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_lo_us_w2x_h"></span>
 
 ## __m256i __lasx_mxvadd_lo_us_w2x_h (__m256i a, __m256i b)
 
@@ -12434,21 +11488,17 @@ dst.u32[7] = widen(a.u16[7]) + widen(b.i16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_lo_us_w2x_h((v16u16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_lo_us_w2x_w"></span>
 
 ## __m256i __lasx_mxvadd_lo_us_w2x_w (__m256i a, __m256i b)
 
@@ -12479,21 +11529,17 @@ dst.u64[3] = widen(a.u32[3]) + widen(b.i32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_lo_us_w2x_w((v8u32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_odd_s_w2x_b"></span>
 
 ## __m256i __lasx_mxvadd_odd_s_w2x_b (__m256i a, __m256i b)
 
@@ -12536,21 +11582,17 @@ dst.i16[15] = widen(a.i8[31]) + widen(b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_odd_s_w2x_b((v32i8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_odd_s_w2x_d"></span>
 
 ## __m256i __lasx_mxvadd_odd_s_w2x_d (__m256i a, __m256i b)
 
@@ -12579,21 +11621,17 @@ dst.i128[1] = widen(a.i64[3]) + widen(b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_odd_s_w2x_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_odd_s_w2x_h"></span>
 
 ## __m256i __lasx_mxvadd_odd_s_w2x_h (__m256i a, __m256i b)
 
@@ -12628,21 +11666,17 @@ dst.i32[7] = widen(a.i16[15]) + widen(b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_odd_s_w2x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_odd_s_w2x_w"></span>
 
 ## __m256i __lasx_mxvadd_odd_s_w2x_w (__m256i a, __m256i b)
 
@@ -12673,21 +11707,17 @@ dst.i64[3] = widen(a.i32[7]) + widen(b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_odd_s_w2x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_odd_u_w2x_b"></span>
 
 ## __m256i __lasx_mxvadd_odd_u_w2x_b (__m256i a, __m256i b)
 
@@ -12730,21 +11760,17 @@ dst.u16[15] = widen(a.u8[31]) + widen(b.u8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_odd_u_w2x_b((v32u8) a, (v32u8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_odd_u_w2x_d"></span>
 
 ## __m256i __lasx_mxvadd_odd_u_w2x_d (__m256i a, __m256i b)
 
@@ -12773,21 +11799,17 @@ dst.u128[1] = widen(a.u64[3]) + widen(b.u64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_odd_u_w2x_d((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_odd_u_w2x_h"></span>
 
 ## __m256i __lasx_mxvadd_odd_u_w2x_h (__m256i a, __m256i b)
 
@@ -12822,21 +11844,17 @@ dst.u32[7] = widen(a.u16[15]) + widen(b.u16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_odd_u_w2x_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_odd_u_w2x_w"></span>
 
 ## __m256i __lasx_mxvadd_odd_u_w2x_w (__m256i a, __m256i b)
 
@@ -12867,21 +11885,17 @@ dst.u64[3] = widen(a.u32[7]) + widen(b.u32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_odd_u_w2x_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_odd_us_w2x_b"></span>
 
 ## __m256i __lasx_mxvadd_odd_us_w2x_b (__m256i a, __m256i b)
 
@@ -12924,21 +11938,17 @@ dst.u16[15] = widen(a.u8[31]) + widen(b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_odd_us_w2x_b((v32u8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_odd_us_w2x_d"></span>
 
 ## __m256i __lasx_mxvadd_odd_us_w2x_d (__m256i a, __m256i b)
 
@@ -12967,21 +11977,17 @@ dst.u128[1] = widen(a.u64[3]) + widen(b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_odd_us_w2x_d((v4u64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_odd_us_w2x_h"></span>
 
 ## __m256i __lasx_mxvadd_odd_us_w2x_h (__m256i a, __m256i b)
 
@@ -13016,21 +12022,17 @@ dst.u32[7] = widen(a.u16[15]) + widen(b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_odd_us_w2x_h((v16u16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvadd_odd_us_w2x_w"></span>
 
 ## __m256i __lasx_mxvadd_odd_us_w2x_w (__m256i a, __m256i b)
 
@@ -13061,21 +12063,17 @@ dst.u64[3] = widen(a.u32[7]) + widen(b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvadd_odd_us_w2x_w((v8u32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvaddx_s_d"></span>
 
 ## __m256i __lasx_mxvaddx_s_d (__m256i a, __m256i b)
 
@@ -13106,21 +12104,17 @@ dst.i64[3] = a.i64[3] + sign_extend(b.i32[3], 64);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvaddx_s_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxvaddx_s_h"></span>
 
 ## __m256i __lasx_mxvaddx_s_h (__m256i a, __m256i b)
 
@@ -13163,21 +12157,17 @@ dst.i16[15] = a.i16[15] + sign_extend(b.i8[15], 16);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvaddx_s_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxvaddx_s_w"></span>
 
 ## __m256i __lasx_mxvaddx_s_w (__m256i a, __m256i b)
 
@@ -13212,21 +12202,17 @@ dst.i32[7] = a.i32[7] + sign_extend(b.i16[7], 32);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvaddx_s_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxvaddx_u_d"></span>
 
 ## __m256i __lasx_mxvaddx_u_d (__m256i a, __m256i b)
 
@@ -13257,21 +12243,17 @@ dst.u64[3] = a.u64[3] + zero_extend(b.u32[3], 64);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvaddx_u_d((v4u64)a, (v4u64)b);
 ```
+
+<span id="intrinsic-__lasx_mxvaddx_u_h"></span>
 
 ## __m256i __lasx_mxvaddx_u_h (__m256i a, __m256i b)
 
@@ -13314,21 +12296,17 @@ dst.u16[15] = a.u16[15] + zero_extend(b.u8[15], 16);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvaddx_u_h((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxvaddx_u_w"></span>
 
 ## __m256i __lasx_mxvaddx_u_w (__m256i a, __m256i b)
 
@@ -13363,21 +12341,17 @@ dst.u32[7] = a.u32[7] + zero_extend(b.u16[7], 32);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvaddx_u_w((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxvaddxs_s_d"></span>
 
 ## __m256i __lasx_mxvaddxs_s_d (__m256i a, __m256i b)
 
@@ -13408,21 +12382,17 @@ dst.i64[3] = signed_saturate(a.i64[3] + sign_extend(b.i32[3], 64), 64);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvaddxs_s_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxvaddxs_s_h"></span>
 
 ## __m256i __lasx_mxvaddxs_s_h (__m256i a, __m256i b)
 
@@ -13465,21 +12435,17 @@ dst.i16[15] = signed_saturate(a.i16[15] + sign_extend(b.i8[15], 16), 16);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvaddxs_s_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxvaddxs_s_w"></span>
 
 ## __m256i __lasx_mxvaddxs_s_w (__m256i a, __m256i b)
 
@@ -13514,21 +12480,17 @@ dst.i32[7] = signed_saturate(a.i32[7] + sign_extend(b.i16[7], 32), 32);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvaddxs_s_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxvaddxs_u_d"></span>
 
 ## __m256i __lasx_mxvaddxs_u_d (__m256i a, __m256i b)
 
@@ -13559,21 +12521,17 @@ dst.u64[3] = unsigned_saturate(a.u64[3] + zero_extend(b.u32[3], 64), 64);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvaddxs_u_d((v4u64)a, (v4u64)b);
 ```
+
+<span id="intrinsic-__lasx_mxvaddxs_u_h"></span>
 
 ## __m256i __lasx_mxvaddxs_u_h (__m256i a, __m256i b)
 
@@ -13616,21 +12574,17 @@ dst.u16[15] = unsigned_saturate(a.u16[15] + zero_extend(b.u8[15], 16), 16);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvaddxs_u_h((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxvaddxs_u_w"></span>
 
 ## __m256i __lasx_mxvaddxs_u_w (__m256i a, __m256i b)
 
@@ -13665,21 +12619,17 @@ dst.u32[7] = unsigned_saturate(a.u32[7] + zero_extend(b.u16[7], 32), 32);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvaddxs_u_w((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmuhp_d"></span>
 
 ## __m256i __lasx_mxvmuhp_d (__m256i a, __m256i b)
 
@@ -13710,15 +12660,9 @@ dst.u64[3] = high_part(vmuhp_lane(a.u64[3], b.u64[3]));
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">3</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -13727,6 +12671,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmuhp_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmuhp_w"></span>
 
 ## __m256i __lasx_mxvmuhp_w (__m256i a, __m256i b)
 
@@ -13761,15 +12707,9 @@ dst.u32[7] = high_part(vmuhp_lane(a.u32[7], b.u32[7]));
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">3</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -13778,6 +12718,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmuhp_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmuhp_xacc_d"></span>
 
 ## __m256i __lasx_mxvmuhp_xacc_d (__m256i a, __m256i b, __m256i c)
 
@@ -13808,15 +12750,9 @@ dst.u64[3] = a.u64[3] + high_part(vmuhp_lane(b.u64[3], c.u64[3]));
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">3</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -13825,6 +12761,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmuhp_xacc_d((v4i64) a, (v4i64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmuhp_xacc_w"></span>
 
 ## __m256i __lasx_mxvmuhp_xacc_w (__m256i a, __m256i b, __m256i c)
 
@@ -13859,15 +12797,9 @@ dst.u32[7] = a.u32[7] + high_part(vmuhp_lane(b.u32[7], c.u32[7]));
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">3</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -13876,6 +12808,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmuhp_xacc_w((v8i32) a, (v8i32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmulhi_s_b"></span>
 
 ## __m256i __lasx_mxvmulhi_s_b (__m256i a, __m256i b)
 
@@ -13934,21 +12868,17 @@ dst.i8[31] = upper_8_bits(a.i8[31] * b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulhi_s_b((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulhi_s_d"></span>
 
 ## __m256i __lasx_mxvmulhi_s_d (__m256i a, __m256i b)
 
@@ -13979,21 +12909,17 @@ dst.i64[3] = upper_64_bits(a.i64[3] * b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulhi_s_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulhi_s_h"></span>
 
 ## __m256i __lasx_mxvmulhi_s_h (__m256i a, __m256i b)
 
@@ -14036,21 +12962,17 @@ dst.i16[15] = upper_16_bits(a.i16[15] * b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulhi_s_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulhi_s_w"></span>
 
 ## __m256i __lasx_mxvmulhi_s_w (__m256i a, __m256i b)
 
@@ -14085,21 +13007,17 @@ dst.i32[7] = upper_32_bits(a.i32[7] * b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulhi_s_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulhi_u_b"></span>
 
 ## __m256i __lasx_mxvmulhi_u_b (__m256i a, __m256i b)
 
@@ -14158,21 +13076,17 @@ dst.u8[31] = upper_8_bits(a.u8[31] * b.u8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulhi_u_b((v32u8)a, (v32u8)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulhi_u_d"></span>
 
 ## __m256i __lasx_mxvmulhi_u_d (__m256i a, __m256i b)
 
@@ -14203,21 +13117,17 @@ dst.u64[3] = upper_64_bits(a.u64[3] * b.u64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulhi_u_d((v4u64)a, (v4u64)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulhi_u_h"></span>
 
 ## __m256i __lasx_mxvmulhi_u_h (__m256i a, __m256i b)
 
@@ -14260,21 +13170,17 @@ dst.u16[15] = upper_16_bits(a.u16[15] * b.u16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulhi_u_h((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulhi_u_w"></span>
 
 ## __m256i __lasx_mxvmulhi_u_w (__m256i a, __m256i b)
 
@@ -14309,21 +13215,17 @@ dst.u32[7] = upper_32_bits(a.u32[7] * b.u32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulhi_u_w((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulhi_us_b"></span>
 
 ## __m256i __lasx_mxvmulhi_us_b (__m256i a, __m256i b)
 
@@ -14382,21 +13284,17 @@ dst.u8[31] = upper_8_bits(a.i8[31] * b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulhi_us_b((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulhi_us_h"></span>
 
 ## __m256i __lasx_mxvmulhi_us_h (__m256i a, __m256i b)
 
@@ -14439,21 +13337,17 @@ dst.u16[15] = upper_16_bits(a.i16[15] * b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulhi_us_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulhi_us_w"></span>
 
 ## __m256i __lasx_mxvmulhi_us_w (__m256i a, __m256i b)
 
@@ -14488,21 +13382,17 @@ dst.u32[7] = upper_32_bits(a.i32[7] * b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulhi_us_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulp_d"></span>
 
 ## __m256i __lasx_mxvmulp_d (__m256i a, __m256i b)
 
@@ -14533,15 +13423,9 @@ dst.u64[3] = vmulp_lane(a.u64[3], b.u64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">3</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -14550,6 +13434,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmulp_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulp_w"></span>
 
 ## __m256i __lasx_mxvmulp_w (__m256i a, __m256i b)
 
@@ -14584,15 +13470,9 @@ dst.u32[7] = vmulp_lane(a.u32[7], b.u32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">3</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -14601,6 +13481,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmulp_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulp_xacc_d"></span>
 
 ## __m256i __lasx_mxvmulp_xacc_d (__m256i a, __m256i b, __m256i c)
 
@@ -14631,15 +13513,9 @@ dst.u64[3] = a.u64[3] + vmulp_lane(b.u64[3], c.u64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">3</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -14648,6 +13524,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmulp_xacc_d((v4i64) a, (v4i64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmulp_xacc_w"></span>
 
 ## __m256i __lasx_mxvmulp_xacc_w (__m256i a, __m256i b, __m256i c)
 
@@ -14682,15 +13560,9 @@ dst.u32[7] = a.u32[7] + vmulp_lane(b.u32[7], c.u32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">3</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -14699,6 +13571,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmulp_xacc_w((v8i32) a, (v8i32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_acc_s_wx_d"></span>
 
 ## __m256i __lasx_mxvmult_el0_acc_s_wx_d (__m256i a, __m256i b, __m256i c)
 
@@ -14727,21 +13601,17 @@ dst.i128[1] = a.i128[1] + widen(b.i64[0]) * widen(c.i64[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_acc_s_wx_d((v4i64) a, (v4i64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_acc_s_wx_h"></span>
 
 ## __m256i __lasx_mxvmult_el0_acc_s_wx_h (__m256i a, __m256i b, __m256i c)
 
@@ -14776,21 +13646,17 @@ dst.i32[7] = a.i32[7] + widen(b.i16[0]) * widen(c.i16[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_acc_s_wx_h((v4i64) a, (v16i16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_acc_s_wx_w"></span>
 
 ## __m256i __lasx_mxvmult_el0_acc_s_wx_w (__m256i a, __m256i b, __m256i c)
 
@@ -14821,21 +13687,17 @@ dst.i64[3] = a.i64[3] + widen(b.i32[0]) * widen(c.i32[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_acc_s_wx_w((v4i64) a, (v8i32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_acc_u_wx_d"></span>
 
 ## __m256i __lasx_mxvmult_el0_acc_u_wx_d (__m256i a, __m256i b, __m256i c)
 
@@ -14864,21 +13726,17 @@ dst.u128[1] = a.u128[1] + widen(b.u64[0]) * widen(c.u64[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_acc_u_wx_d((v4u64) a, (v4u64) b, (v4u64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_acc_u_wx_h"></span>
 
 ## __m256i __lasx_mxvmult_el0_acc_u_wx_h (__m256i a, __m256i b, __m256i c)
 
@@ -14913,21 +13771,17 @@ dst.u32[7] = a.u32[7] + widen(b.u16[0]) * widen(c.u16[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_acc_u_wx_h((v4u64) a, (v16u16) b, (v16u16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_acc_u_wx_w"></span>
 
 ## __m256i __lasx_mxvmult_el0_acc_u_wx_w (__m256i a, __m256i b, __m256i c)
 
@@ -14958,21 +13812,17 @@ dst.u64[3] = a.u64[3] + widen(b.u32[0]) * widen(c.u32[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_acc_u_wx_w((v4u64) a, (v8u32) b, (v8u32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_acc_us_wx_d"></span>
 
 ## __m256i __lasx_mxvmult_el0_acc_us_wx_d (__m256i a, __m256i b, __m256i c)
 
@@ -15001,21 +13851,17 @@ dst.u128[1] = a.u128[1] + widen(b.u64[0]) * widen(c.i64[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_acc_us_wx_d((v4u64) a, (v4u64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_acc_us_wx_h"></span>
 
 ## __m256i __lasx_mxvmult_el0_acc_us_wx_h (__m256i a, __m256i b, __m256i c)
 
@@ -15050,21 +13896,17 @@ dst.u32[7] = a.u32[7] + widen(b.u16[0]) * widen(c.i16[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_acc_us_wx_h((v4u64) a, (v16u16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_acc_us_wx_w"></span>
 
 ## __m256i __lasx_mxvmult_el0_acc_us_wx_w (__m256i a, __m256i b, __m256i c)
 
@@ -15095,21 +13937,17 @@ dst.u64[3] = a.u64[3] + widen(b.u32[0]) * widen(c.i32[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_acc_us_wx_w((v4u64) a, (v8u32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_s_wx_d"></span>
 
 ## __m256i __lasx_mxvmult_el0_s_wx_d (__m256i a, __m256i b)
 
@@ -15138,21 +13976,17 @@ dst.i128[1] = widen(a.i64[0]) * widen(b.i64[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_s_wx_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_s_wx_h"></span>
 
 ## __m256i __lasx_mxvmult_el0_s_wx_h (__m256i a, __m256i b)
 
@@ -15187,21 +14021,17 @@ dst.i32[7] = widen(a.i16[0]) * widen(b.i16[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_s_wx_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_s_wx_w"></span>
 
 ## __m256i __lasx_mxvmult_el0_s_wx_w (__m256i a, __m256i b)
 
@@ -15232,21 +14062,17 @@ dst.i64[3] = widen(a.i32[0]) * widen(b.i32[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_s_wx_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_u_wx_d"></span>
 
 ## __m256i __lasx_mxvmult_el0_u_wx_d (__m256i a, __m256i b)
 
@@ -15275,21 +14101,17 @@ dst.u128[1] = widen(a.u64[0]) * widen(b.u64[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_u_wx_d((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_u_wx_h"></span>
 
 ## __m256i __lasx_mxvmult_el0_u_wx_h (__m256i a, __m256i b)
 
@@ -15324,21 +14146,17 @@ dst.u32[7] = widen(a.u16[0]) * widen(b.u16[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_u_wx_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_u_wx_w"></span>
 
 ## __m256i __lasx_mxvmult_el0_u_wx_w (__m256i a, __m256i b)
 
@@ -15369,21 +14187,17 @@ dst.u64[3] = widen(a.u32[0]) * widen(b.u32[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_u_wx_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_us_wx_d"></span>
 
 ## __m256i __lasx_mxvmult_el0_us_wx_d (__m256i a, __m256i b)
 
@@ -15412,21 +14226,17 @@ dst.u128[1] = widen(a.u64[0]) * widen(b.i64[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_us_wx_d((v4u64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_us_wx_h"></span>
 
 ## __m256i __lasx_mxvmult_el0_us_wx_h (__m256i a, __m256i b)
 
@@ -15461,21 +14271,17 @@ dst.u32[7] = widen(a.u16[0]) * widen(b.i16[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_us_wx_h((v16u16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_el0_us_wx_w"></span>
 
 ## __m256i __lasx_mxvmult_el0_us_wx_w (__m256i a, __m256i b)
 
@@ -15506,21 +14312,17 @@ dst.u64[3] = widen(a.u32[0]) * widen(b.i32[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_el0_us_wx_w((v8u32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_acc_s_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_even_acc_s_w2x_b (__m256i a, __m256i b, __m256i c)
 
@@ -15563,21 +14365,17 @@ dst.i16[15] = a.i16[15] + widen(b.i8[30]) * widen(c.i8[30]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_acc_s_w2x_b((v16i16) a, (v32i8) b, (v32i8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_acc_s_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_even_acc_s_w2x_d (__m256i a, __m256i b, __m256i c)
 
@@ -15606,21 +14404,17 @@ dst.i128[1] = a.i128[1] + widen(b.i64[2]) * widen(c.i64[2]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_acc_s_w2x_d((v4i64) a, (v4i64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_acc_s_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_even_acc_s_w2x_h (__m256i a, __m256i b, __m256i c)
 
@@ -15655,21 +14449,17 @@ dst.i32[7] = a.i32[7] + widen(b.i16[14]) * widen(c.i16[14]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_acc_s_w2x_h((v8i32) a, (v16i16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_acc_s_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_even_acc_s_w2x_w (__m256i a, __m256i b, __m256i c)
 
@@ -15700,21 +14490,17 @@ dst.i64[3] = a.i64[3] + widen(b.i32[6]) * widen(c.i32[6]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_acc_s_w2x_w((v4i64) a, (v8i32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_acc_u_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_even_acc_u_w2x_b (__m256i a, __m256i b, __m256i c)
 
@@ -15757,21 +14543,17 @@ dst.u16[15] = a.u16[15] + widen(b.u8[30]) * widen(c.u8[30]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_acc_u_w2x_b((v16u16) a, (v32u8) b, (v32u8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_acc_u_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_even_acc_u_w2x_d (__m256i a, __m256i b, __m256i c)
 
@@ -15800,21 +14582,17 @@ dst.u128[1] = a.u128[1] + widen(b.u64[2]) * widen(c.u64[2]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_acc_u_w2x_d((v4u64) a, (v4u64) b, (v4u64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_acc_u_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_even_acc_u_w2x_h (__m256i a, __m256i b, __m256i c)
 
@@ -15849,21 +14627,17 @@ dst.u32[7] = a.u32[7] + widen(b.u16[14]) * widen(c.u16[14]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_acc_u_w2x_h((v8u32) a, (v16u16) b, (v16u16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_acc_u_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_even_acc_u_w2x_w (__m256i a, __m256i b, __m256i c)
 
@@ -15894,21 +14668,17 @@ dst.u64[3] = a.u64[3] + widen(b.u32[6]) * widen(c.u32[6]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_acc_u_w2x_w((v4u64) a, (v8u32) b, (v8u32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_acc_us_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_even_acc_us_w2x_b (__m256i a, __m256i b, __m256i c)
 
@@ -15951,21 +14721,17 @@ dst.u16[15] = a.u16[15] + widen(b.u8[30]) * widen(c.i8[30]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_acc_us_w2x_b((v16u16) a, (v32u8) b, (v32i8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_acc_us_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_even_acc_us_w2x_d (__m256i a, __m256i b, __m256i c)
 
@@ -15994,21 +14760,17 @@ dst.u128[1] = a.u128[1] + widen(b.u64[2]) * widen(c.i64[2]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_acc_us_w2x_d((v4u64) a, (v4u64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_acc_us_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_even_acc_us_w2x_h (__m256i a, __m256i b, __m256i c)
 
@@ -16043,21 +14805,17 @@ dst.u32[7] = a.u32[7] + widen(b.u16[14]) * widen(c.i16[14]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_acc_us_w2x_h((v8u32) a, (v16u16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_acc_us_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_even_acc_us_w2x_w (__m256i a, __m256i b, __m256i c)
 
@@ -16088,21 +14846,17 @@ dst.u64[3] = a.u64[3] + widen(b.u32[6]) * widen(c.i32[6]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_acc_us_w2x_w((v4u64) a, (v8u32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_s_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_even_s_w2x_b (__m256i a, __m256i b)
 
@@ -16145,21 +14899,17 @@ dst.i16[15] = widen(a.i8[30]) * widen(b.i8[30]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_s_w2x_b((v32i8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_s_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_even_s_w2x_d (__m256i a, __m256i b)
 
@@ -16188,21 +14938,17 @@ dst.i128[1] = widen(a.i64[2]) * widen(b.i64[2]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_s_w2x_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_s_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_even_s_w2x_h (__m256i a, __m256i b)
 
@@ -16237,21 +14983,17 @@ dst.i32[7] = widen(a.i16[14]) * widen(b.i16[14]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_s_w2x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_s_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_even_s_w2x_w (__m256i a, __m256i b)
 
@@ -16282,21 +15024,17 @@ dst.i64[3] = widen(a.i32[6]) * widen(b.i32[6]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_s_w2x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_u_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_even_u_w2x_b (__m256i a, __m256i b)
 
@@ -16339,21 +15077,17 @@ dst.u16[15] = widen(a.u8[30]) * widen(b.u8[30]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_u_w2x_b((v32u8) a, (v32u8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_u_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_even_u_w2x_d (__m256i a, __m256i b)
 
@@ -16382,21 +15116,17 @@ dst.u128[1] = widen(a.u64[2]) * widen(b.u64[2]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_u_w2x_d((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_u_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_even_u_w2x_h (__m256i a, __m256i b)
 
@@ -16431,21 +15161,17 @@ dst.u32[7] = widen(a.u16[14]) * widen(b.u16[14]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_u_w2x_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_u_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_even_u_w2x_w (__m256i a, __m256i b)
 
@@ -16476,21 +15202,17 @@ dst.u64[3] = widen(a.u32[6]) * widen(b.u32[6]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_u_w2x_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_us_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_even_us_w2x_b (__m256i a, __m256i b)
 
@@ -16533,21 +15255,17 @@ dst.u16[15] = widen(a.u8[30]) * widen(b.i8[30]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_us_w2x_b((v32u8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_us_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_even_us_w2x_d (__m256i a, __m256i b)
 
@@ -16576,21 +15294,17 @@ dst.u128[1] = widen(a.u64[2]) * widen(b.i64[2]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_us_w2x_d((v4u64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_us_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_even_us_w2x_h (__m256i a, __m256i b)
 
@@ -16625,21 +15339,17 @@ dst.u32[7] = widen(a.u16[14]) * widen(b.i16[14]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_us_w2x_h((v16u16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_even_us_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_even_us_w2x_w (__m256i a, __m256i b)
 
@@ -16670,21 +15380,17 @@ dst.u64[3] = widen(a.u32[6]) * widen(b.i32[6]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_even_us_w2x_w((v8u32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_acc_s_w4x_b"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_acc_s_w4x_b (__m256i a, __m256i b, __m256i c)
 
@@ -16719,21 +15425,17 @@ dst.i32[7] = a.i32[7] + widen(b.i8[7]) * widen(c.i8[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_acc_s_w4x_b((v8i32) a, (v32i8) b, (v32i8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_acc_s_w4x_h"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_acc_s_w4x_h (__m256i a, __m256i b, __m256i c)
 
@@ -16764,21 +15466,17 @@ dst.i64[3] = a.i64[3] + widen(b.i16[3]) * widen(c.i16[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_acc_s_w4x_h((v4i64) a, (v16i16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_acc_s_w4x_w"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_acc_s_w4x_w (__m256i a, __m256i b, __m256i c)
 
@@ -16807,21 +15505,17 @@ dst.i128[1] = a.i128[1] + widen(b.i32[1]) * widen(c.i32[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_acc_s_w4x_w((v4i64) a, (v8i32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_acc_u_w4x_b"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_acc_u_w4x_b (__m256i a, __m256i b, __m256i c)
 
@@ -16856,21 +15550,17 @@ dst.u32[7] = a.u32[7] + widen(b.u8[7]) * widen(c.u8[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_acc_u_w4x_b((v8u32) a, (v32u8) b, (v32u8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_acc_u_w4x_h"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_acc_u_w4x_h (__m256i a, __m256i b, __m256i c)
 
@@ -16901,21 +15591,17 @@ dst.u64[3] = a.u64[3] + widen(b.u16[3]) * widen(c.u16[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_acc_u_w4x_h((v4u64) a, (v16u16) b, (v16u16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_acc_u_w4x_w"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_acc_u_w4x_w (__m256i a, __m256i b, __m256i c)
 
@@ -16944,21 +15630,17 @@ dst.u128[1] = a.u128[1] + widen(b.u32[1]) * widen(c.u32[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_acc_u_w4x_w((v4u64) a, (v8u32) b, (v8u32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_acc_us_w4x_b"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_acc_us_w4x_b (__m256i a, __m256i b, __m256i c)
 
@@ -16993,21 +15675,17 @@ dst.u32[7] = a.u32[7] + widen(b.u8[7]) * widen(c.i8[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_acc_us_w4x_b((v8u32) a, (v32u8) b, (v32i8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_acc_us_w4x_h"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_acc_us_w4x_h (__m256i a, __m256i b, __m256i c)
 
@@ -17038,21 +15716,17 @@ dst.u64[3] = a.u64[3] + widen(b.u16[3]) * widen(c.i16[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_acc_us_w4x_h((v4u64) a, (v16u16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_acc_us_w4x_w"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_acc_us_w4x_w (__m256i a, __m256i b, __m256i c)
 
@@ -17081,21 +15755,17 @@ dst.u128[1] = a.u128[1] + widen(b.u32[1]) * widen(c.i32[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_acc_us_w4x_w((v4u64) a, (v8u32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_s_w4x_b"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_s_w4x_b (__m256i a, __m256i b)
 
@@ -17130,21 +15800,17 @@ dst.i32[7] = widen(a.i8[7]) * widen(b.i8[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_s_w4x_b((v32i8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_s_w4x_h"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_s_w4x_h (__m256i a, __m256i b)
 
@@ -17175,21 +15841,17 @@ dst.i64[3] = widen(a.i16[3]) * widen(b.i16[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_s_w4x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_s_w4x_w"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_s_w4x_w (__m256i a, __m256i b)
 
@@ -17218,21 +15880,17 @@ dst.i128[1] = widen(a.i32[1]) * widen(b.i32[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_s_w4x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_u_w4x_b"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_u_w4x_b (__m256i a, __m256i b)
 
@@ -17267,21 +15925,17 @@ dst.u32[7] = widen(a.u8[7]) * widen(b.u8[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_u_w4x_b((v32u8) a, (v32u8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_u_w4x_h"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_u_w4x_h (__m256i a, __m256i b)
 
@@ -17312,21 +15966,17 @@ dst.u64[3] = widen(a.u16[3]) * widen(b.u16[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_u_w4x_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_u_w4x_w"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_u_w4x_w (__m256i a, __m256i b)
 
@@ -17355,21 +16005,17 @@ dst.u128[1] = widen(a.u32[1]) * widen(b.u32[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_u_w4x_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_us_w4x_b"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_us_w4x_b (__m256i a, __m256i b)
 
@@ -17404,21 +16050,17 @@ dst.u32[7] = widen(a.u8[7]) * widen(b.i8[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_us_w4x_b((v32u8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_us_w4x_h"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_us_w4x_h (__m256i a, __m256i b)
 
@@ -17449,21 +16091,17 @@ dst.u64[3] = widen(a.u16[3]) * widen(b.i16[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_us_w4x_h((v16u16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hadd_adj4_us_w4x_w"></span>
 
 ## __m256i __lasx_mxvmult_hadd_adj4_us_w4x_w (__m256i a, __m256i b)
 
@@ -17492,21 +16130,17 @@ dst.u128[1] = widen(a.u32[1]) * widen(b.i32[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hadd_adj4_us_w4x_w((v8u32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_acc_s_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_hi_acc_s_w2x_b (__m256i a, __m256i b, __m256i c)
 
@@ -17549,21 +16183,17 @@ dst.i16[15] = a.i16[15] + widen(b.i8[31]) * widen(c.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_acc_s_w2x_b((v16i16) a, (v32i8) b, (v32i8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_acc_s_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_hi_acc_s_w2x_d (__m256i a, __m256i b, __m256i c)
 
@@ -17592,21 +16222,17 @@ dst.i128[1] = a.i128[1] + widen(b.i64[3]) * widen(c.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_acc_s_w2x_d((v4i64) a, (v4i64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_acc_s_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_hi_acc_s_w2x_h (__m256i a, __m256i b, __m256i c)
 
@@ -17641,21 +16267,17 @@ dst.i32[7] = a.i32[7] + widen(b.i16[15]) * widen(c.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_acc_s_w2x_h((v8i32) a, (v16i16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_acc_s_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_hi_acc_s_w2x_w (__m256i a, __m256i b, __m256i c)
 
@@ -17686,21 +16308,17 @@ dst.i64[3] = a.i64[3] + widen(b.i32[7]) * widen(c.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_acc_s_w2x_w((v4i64) a, (v8i32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_acc_u_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_hi_acc_u_w2x_b (__m256i a, __m256i b, __m256i c)
 
@@ -17743,21 +16361,17 @@ dst.u16[15] = a.u16[15] + widen(b.u8[31]) * widen(c.u8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_acc_u_w2x_b((v16u16) a, (v32u8) b, (v32u8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_acc_u_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_hi_acc_u_w2x_d (__m256i a, __m256i b, __m256i c)
 
@@ -17786,21 +16400,17 @@ dst.u128[1] = a.u128[1] + widen(b.u64[3]) * widen(c.u64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_acc_u_w2x_d((v4u64) a, (v4u64) b, (v4u64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_acc_u_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_hi_acc_u_w2x_h (__m256i a, __m256i b, __m256i c)
 
@@ -17835,21 +16445,17 @@ dst.u32[7] = a.u32[7] + widen(b.u16[15]) * widen(c.u16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_acc_u_w2x_h((v8u32) a, (v16u16) b, (v16u16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_acc_u_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_hi_acc_u_w2x_w (__m256i a, __m256i b, __m256i c)
 
@@ -17880,21 +16486,17 @@ dst.u64[3] = a.u64[3] + widen(b.u32[7]) * widen(c.u32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_acc_u_w2x_w((v4u64) a, (v8u32) b, (v8u32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_acc_us_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_hi_acc_us_w2x_b (__m256i a, __m256i b, __m256i c)
 
@@ -17937,21 +16539,17 @@ dst.u16[15] = a.u16[15] + widen(b.u8[31]) * widen(c.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_acc_us_w2x_b((v16u16) a, (v32u8) b, (v32i8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_acc_us_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_hi_acc_us_w2x_d (__m256i a, __m256i b, __m256i c)
 
@@ -17980,21 +16578,17 @@ dst.u128[1] = a.u128[1] + widen(b.u64[3]) * widen(c.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_acc_us_w2x_d((v4u64) a, (v4u64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_acc_us_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_hi_acc_us_w2x_h (__m256i a, __m256i b, __m256i c)
 
@@ -18029,21 +16623,17 @@ dst.u32[7] = a.u32[7] + widen(b.u16[15]) * widen(c.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_acc_us_w2x_h((v8u32) a, (v16u16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_acc_us_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_hi_acc_us_w2x_w (__m256i a, __m256i b, __m256i c)
 
@@ -18074,21 +16664,17 @@ dst.u64[3] = a.u64[3] + widen(b.u32[7]) * widen(c.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_acc_us_w2x_w((v4u64) a, (v8u32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_s_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_hi_s_w2x_b (__m256i a, __m256i b)
 
@@ -18131,21 +16717,17 @@ dst.i16[15] = widen(a.i8[31]) * widen(b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_s_w2x_b((v32i8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_s_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_hi_s_w2x_d (__m256i a, __m256i b)
 
@@ -18174,21 +16756,17 @@ dst.i128[1] = widen(a.i64[3]) * widen(b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_s_w2x_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_s_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_hi_s_w2x_h (__m256i a, __m256i b)
 
@@ -18223,21 +16801,17 @@ dst.i32[7] = widen(a.i16[15]) * widen(b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_s_w2x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_s_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_hi_s_w2x_w (__m256i a, __m256i b)
 
@@ -18268,21 +16842,17 @@ dst.i64[3] = widen(a.i32[7]) * widen(b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_s_w2x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_u_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_hi_u_w2x_b (__m256i a, __m256i b)
 
@@ -18325,21 +16895,17 @@ dst.u16[15] = widen(a.u8[31]) * widen(b.u8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_u_w2x_b((v32u8) a, (v32u8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_u_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_hi_u_w2x_d (__m256i a, __m256i b)
 
@@ -18368,21 +16934,17 @@ dst.u128[1] = widen(a.u64[3]) * widen(b.u64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_u_w2x_d((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_u_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_hi_u_w2x_h (__m256i a, __m256i b)
 
@@ -18417,21 +16979,17 @@ dst.u32[7] = widen(a.u16[15]) * widen(b.u16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_u_w2x_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_u_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_hi_u_w2x_w (__m256i a, __m256i b)
 
@@ -18462,21 +17020,17 @@ dst.u64[3] = widen(a.u32[7]) * widen(b.u32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_u_w2x_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_us_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_hi_us_w2x_b (__m256i a, __m256i b)
 
@@ -18519,21 +17073,17 @@ dst.u16[15] = widen(a.u8[31]) * widen(b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_us_w2x_b((v32u8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_us_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_hi_us_w2x_d (__m256i a, __m256i b)
 
@@ -18562,21 +17112,17 @@ dst.u128[1] = widen(a.u64[3]) * widen(b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_us_w2x_d((v4u64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_us_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_hi_us_w2x_h (__m256i a, __m256i b)
 
@@ -18611,21 +17157,17 @@ dst.u32[7] = widen(a.u16[15]) * widen(b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_us_w2x_h((v16u16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_hi_us_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_hi_us_w2x_w (__m256i a, __m256i b)
 
@@ -18656,21 +17198,17 @@ dst.u64[3] = widen(a.u32[7]) * widen(b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_hi_us_w2x_w((v8u32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_acc_s_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_lo_acc_s_w2x_b (__m256i a, __m256i b, __m256i c)
 
@@ -18713,21 +17251,17 @@ dst.i16[15] = a.i16[15] + widen(b.i8[15]) * widen(c.i8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_acc_s_w2x_b((v16i16) a, (v32i8) b, (v32i8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_acc_s_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_lo_acc_s_w2x_d (__m256i a, __m256i b, __m256i c)
 
@@ -18756,21 +17290,17 @@ dst.i128[1] = a.i128[1] + widen(b.i64[1]) * widen(c.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_acc_s_w2x_d((v4i64) a, (v4i64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_acc_s_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_lo_acc_s_w2x_h (__m256i a, __m256i b, __m256i c)
 
@@ -18805,21 +17335,17 @@ dst.i32[7] = a.i32[7] + widen(b.i16[7]) * widen(c.i16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_acc_s_w2x_h((v8i32) a, (v16i16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_acc_s_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_lo_acc_s_w2x_w (__m256i a, __m256i b, __m256i c)
 
@@ -18850,21 +17376,17 @@ dst.i64[3] = a.i64[3] + widen(b.i32[3]) * widen(c.i32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_acc_s_w2x_w((v4i64) a, (v8i32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_acc_u_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_lo_acc_u_w2x_b (__m256i a, __m256i b, __m256i c)
 
@@ -18907,21 +17429,17 @@ dst.u16[15] = a.u16[15] + widen(b.u8[15]) * widen(c.u8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_acc_u_w2x_b((v16u16) a, (v32u8) b, (v32u8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_acc_u_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_lo_acc_u_w2x_d (__m256i a, __m256i b, __m256i c)
 
@@ -18950,21 +17468,17 @@ dst.u128[1] = a.u128[1] + widen(b.u64[1]) * widen(c.u64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_acc_u_w2x_d((v4u64) a, (v4u64) b, (v4u64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_acc_u_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_lo_acc_u_w2x_h (__m256i a, __m256i b, __m256i c)
 
@@ -18999,21 +17513,17 @@ dst.u32[7] = a.u32[7] + widen(b.u16[7]) * widen(c.u16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_acc_u_w2x_h((v8u32) a, (v16u16) b, (v16u16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_acc_u_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_lo_acc_u_w2x_w (__m256i a, __m256i b, __m256i c)
 
@@ -19044,21 +17554,17 @@ dst.u64[3] = a.u64[3] + widen(b.u32[3]) * widen(c.u32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_acc_u_w2x_w((v4u64) a, (v8u32) b, (v8u32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_acc_us_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_lo_acc_us_w2x_b (__m256i a, __m256i b, __m256i c)
 
@@ -19101,21 +17607,17 @@ dst.u16[15] = a.u16[15] + widen(b.u8[15]) * widen(c.i8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_acc_us_w2x_b((v16u16) a, (v32u8) b, (v32i8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_acc_us_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_lo_acc_us_w2x_d (__m256i a, __m256i b, __m256i c)
 
@@ -19144,21 +17646,17 @@ dst.u128[1] = a.u128[1] + widen(b.u64[1]) * widen(c.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_acc_us_w2x_d((v4u64) a, (v4u64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_acc_us_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_lo_acc_us_w2x_h (__m256i a, __m256i b, __m256i c)
 
@@ -19193,21 +17691,17 @@ dst.u32[7] = a.u32[7] + widen(b.u16[7]) * widen(c.i16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_acc_us_w2x_h((v8u32) a, (v16u16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_acc_us_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_lo_acc_us_w2x_w (__m256i a, __m256i b, __m256i c)
 
@@ -19238,21 +17732,17 @@ dst.u64[3] = a.u64[3] + widen(b.u32[3]) * widen(c.i32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_acc_us_w2x_w((v4u64) a, (v8u32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_s_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_lo_s_w2x_b (__m256i a, __m256i b)
 
@@ -19295,21 +17785,17 @@ dst.i16[15] = widen(a.i8[15]) * widen(b.i8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_s_w2x_b((v32i8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_s_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_lo_s_w2x_d (__m256i a, __m256i b)
 
@@ -19338,21 +17824,17 @@ dst.i128[1] = widen(a.i64[1]) * widen(b.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_s_w2x_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_s_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_lo_s_w2x_h (__m256i a, __m256i b)
 
@@ -19387,21 +17869,17 @@ dst.i32[7] = widen(a.i16[7]) * widen(b.i16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_s_w2x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_s_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_lo_s_w2x_w (__m256i a, __m256i b)
 
@@ -19432,21 +17910,17 @@ dst.i64[3] = widen(a.i32[3]) * widen(b.i32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_s_w2x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_u_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_lo_u_w2x_b (__m256i a, __m256i b)
 
@@ -19489,21 +17963,17 @@ dst.u16[15] = widen(a.u8[15]) * widen(b.u8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_u_w2x_b((v32u8) a, (v32u8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_u_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_lo_u_w2x_d (__m256i a, __m256i b)
 
@@ -19532,21 +18002,17 @@ dst.u128[1] = widen(a.u64[1]) * widen(b.u64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_u_w2x_d((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_u_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_lo_u_w2x_h (__m256i a, __m256i b)
 
@@ -19581,21 +18047,17 @@ dst.u32[7] = widen(a.u16[7]) * widen(b.u16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_u_w2x_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_u_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_lo_u_w2x_w (__m256i a, __m256i b)
 
@@ -19626,21 +18088,17 @@ dst.u64[3] = widen(a.u32[3]) * widen(b.u32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_u_w2x_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_us_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_lo_us_w2x_b (__m256i a, __m256i b)
 
@@ -19683,21 +18141,17 @@ dst.u16[15] = widen(a.u8[15]) * widen(b.i8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_us_w2x_b((v32u8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_us_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_lo_us_w2x_d (__m256i a, __m256i b)
 
@@ -19726,21 +18180,17 @@ dst.u128[1] = widen(a.u64[1]) * widen(b.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_us_w2x_d((v4u64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_us_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_lo_us_w2x_h (__m256i a, __m256i b)
 
@@ -19775,21 +18225,17 @@ dst.u32[7] = widen(a.u16[7]) * widen(b.i16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_us_w2x_h((v16u16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_lo_us_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_lo_us_w2x_w (__m256i a, __m256i b)
 
@@ -19820,21 +18266,17 @@ dst.u64[3] = widen(a.u32[3]) * widen(b.i32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_lo_us_w2x_w((v8u32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_acc_s_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_odd_acc_s_w2x_b (__m256i a, __m256i b, __m256i c)
 
@@ -19877,21 +18319,17 @@ dst.i16[15] = a.i16[15] + widen(b.i8[31]) * widen(c.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_acc_s_w2x_b((v16i16) a, (v32i8) b, (v32i8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_acc_s_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_odd_acc_s_w2x_d (__m256i a, __m256i b, __m256i c)
 
@@ -19920,21 +18358,17 @@ dst.i128[1] = a.i128[1] + widen(b.i64[3]) * widen(c.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_acc_s_w2x_d((v4i64) a, (v4i64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_acc_s_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_odd_acc_s_w2x_h (__m256i a, __m256i b, __m256i c)
 
@@ -19969,21 +18403,17 @@ dst.i32[7] = a.i32[7] + widen(b.i16[15]) * widen(c.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_acc_s_w2x_h((v8i32) a, (v16i16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_acc_s_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_odd_acc_s_w2x_w (__m256i a, __m256i b, __m256i c)
 
@@ -20014,21 +18444,17 @@ dst.i64[3] = a.i64[3] + widen(b.i32[7]) * widen(c.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_acc_s_w2x_w((v4i64) a, (v8i32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_acc_u_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_odd_acc_u_w2x_b (__m256i a, __m256i b, __m256i c)
 
@@ -20071,21 +18497,17 @@ dst.u16[15] = a.u16[15] + widen(b.u8[31]) * widen(c.u8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_acc_u_w2x_b((v16u16) a, (v32u8) b, (v32u8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_acc_u_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_odd_acc_u_w2x_d (__m256i a, __m256i b, __m256i c)
 
@@ -20114,21 +18536,17 @@ dst.u128[1] = a.u128[1] + widen(b.u64[3]) * widen(c.u64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_acc_u_w2x_d((v4u64) a, (v4u64) b, (v4u64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_acc_u_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_odd_acc_u_w2x_h (__m256i a, __m256i b, __m256i c)
 
@@ -20163,21 +18581,17 @@ dst.u32[7] = a.u32[7] + widen(b.u16[15]) * widen(c.u16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_acc_u_w2x_h((v8u32) a, (v16u16) b, (v16u16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_acc_u_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_odd_acc_u_w2x_w (__m256i a, __m256i b, __m256i c)
 
@@ -20208,21 +18622,17 @@ dst.u64[3] = a.u64[3] + widen(b.u32[7]) * widen(c.u32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_acc_u_w2x_w((v4u64) a, (v8u32) b, (v8u32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_acc_us_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_odd_acc_us_w2x_b (__m256i a, __m256i b, __m256i c)
 
@@ -20265,21 +18675,17 @@ dst.u16[15] = a.u16[15] + widen(b.u8[31]) * widen(c.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_acc_us_w2x_b((v16u16) a, (v32u8) b, (v32i8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_acc_us_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_odd_acc_us_w2x_d (__m256i a, __m256i b, __m256i c)
 
@@ -20308,21 +18714,17 @@ dst.u128[1] = a.u128[1] + widen(b.u64[3]) * widen(c.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_acc_us_w2x_d((v4u64) a, (v4u64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_acc_us_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_odd_acc_us_w2x_h (__m256i a, __m256i b, __m256i c)
 
@@ -20357,21 +18759,17 @@ dst.u32[7] = a.u32[7] + widen(b.u16[15]) * widen(c.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_acc_us_w2x_h((v8u32) a, (v16u16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_acc_us_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_odd_acc_us_w2x_w (__m256i a, __m256i b, __m256i c)
 
@@ -20402,21 +18800,17 @@ dst.u64[3] = a.u64[3] + widen(b.u32[7]) * widen(c.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_acc_us_w2x_w((v4u64) a, (v8u32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_s_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_odd_s_w2x_b (__m256i a, __m256i b)
 
@@ -20459,21 +18853,17 @@ dst.i16[15] = widen(a.i8[31]) * widen(b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_s_w2x_b((v32i8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_s_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_odd_s_w2x_d (__m256i a, __m256i b)
 
@@ -20502,21 +18892,17 @@ dst.i128[1] = widen(a.i64[3]) * widen(b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_s_w2x_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_s_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_odd_s_w2x_h (__m256i a, __m256i b)
 
@@ -20551,21 +18937,17 @@ dst.i32[7] = widen(a.i16[15]) * widen(b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_s_w2x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_s_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_odd_s_w2x_w (__m256i a, __m256i b)
 
@@ -20596,21 +18978,17 @@ dst.i64[3] = widen(a.i32[7]) * widen(b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_s_w2x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_u_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_odd_u_w2x_b (__m256i a, __m256i b)
 
@@ -20653,21 +19031,17 @@ dst.u16[15] = widen(a.u8[31]) * widen(b.u8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_u_w2x_b((v32u8) a, (v32u8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_u_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_odd_u_w2x_d (__m256i a, __m256i b)
 
@@ -20696,21 +19070,17 @@ dst.u128[1] = widen(a.u64[3]) * widen(b.u64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_u_w2x_d((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_u_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_odd_u_w2x_h (__m256i a, __m256i b)
 
@@ -20745,21 +19115,17 @@ dst.u32[7] = widen(a.u16[15]) * widen(b.u16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_u_w2x_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_u_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_odd_u_w2x_w (__m256i a, __m256i b)
 
@@ -20790,21 +19156,17 @@ dst.u64[3] = widen(a.u32[7]) * widen(b.u32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_u_w2x_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_us_w2x_b"></span>
 
 ## __m256i __lasx_mxvmult_odd_us_w2x_b (__m256i a, __m256i b)
 
@@ -20847,21 +19209,17 @@ dst.u16[15] = widen(a.u8[31]) * widen(b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_us_w2x_b((v32u8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_us_w2x_d"></span>
 
 ## __m256i __lasx_mxvmult_odd_us_w2x_d (__m256i a, __m256i b)
 
@@ -20890,21 +19248,17 @@ dst.u128[1] = widen(a.u64[3]) * widen(b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_us_w2x_d((v4u64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_us_w2x_h"></span>
 
 ## __m256i __lasx_mxvmult_odd_us_w2x_h (__m256i a, __m256i b)
 
@@ -20939,21 +19293,17 @@ dst.u32[7] = widen(a.u16[15]) * widen(b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_us_w2x_h((v16u16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmult_odd_us_w2x_w"></span>
 
 ## __m256i __lasx_mxvmult_odd_us_w2x_w (__m256i a, __m256i b)
 
@@ -20984,21 +19334,17 @@ dst.u64[3] = widen(a.u32[7]) * widen(b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmult_odd_us_w2x_w((v8u32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmultc_im_haddc_adjc2_acc_s_w4x_w"></span>
 
 ## __m256i __lasx_mxvmultc_im_haddc_adjc2_acc_s_w4x_w (__m256i a, __m256i b, __m256i c)
 
@@ -21027,15 +19373,9 @@ dst.i128[1] = a.i128[1] + widen(b.i32[1]) * widen(c.i32[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">7</td><td title="partial SIGILL">1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21044,6 +19384,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultc_im_haddc_adjc2_acc_s_w4x_w((v4i64) a, (v8i32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmultc_im_haddc_adjc2_s_w4x_w"></span>
 
 ## __m256i __lasx_mxvmultc_im_haddc_adjc2_s_w4x_w (__m256i a, __m256i b)
 
@@ -21072,15 +19414,9 @@ dst.i128[1] = widen(a.i32[1]) * widen(b.i32[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">7</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21089,6 +19425,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultc_im_haddc_adjc2_s_w4x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmultc_im_haddc_adjc4_acc_s_w4x_h"></span>
 
 ## __m256i __lasx_mxvmultc_im_haddc_adjc4_acc_s_w4x_h (__m256i a, __m256i b, __m256i c)
 
@@ -21119,15 +19457,9 @@ dst.i64[3] = a.i64[3] + widen(b.i16[3]) * widen(c.i16[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">7</td><td title="partial SIGILL">1.15</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.15 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21136,6 +19468,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultc_im_haddc_adjc4_acc_s_w4x_h((v4i64) a, (v16i16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmultc_im_haddc_adjc4_s_w4x_h"></span>
 
 ## __m256i __lasx_mxvmultc_im_haddc_adjc4_s_w4x_h (__m256i a, __m256i b)
 
@@ -21166,15 +19500,9 @@ dst.i64[3] = widen(a.i16[3]) * widen(b.i16[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">7</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21183,6 +19511,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultc_im_haddc_adjc4_s_w4x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmultc_re_haddc_adjc2_acc_s_w4x_w"></span>
 
 ## __m256i __lasx_mxvmultc_re_haddc_adjc2_acc_s_w4x_w (__m256i a, __m256i b, __m256i c)
 
@@ -21211,15 +19541,9 @@ dst.i128[1] = a.i128[1] + widen(b.i32[1]) * widen(c.i32[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">7</td><td title="partial SIGILL">1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21228,6 +19552,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultc_re_haddc_adjc2_acc_s_w4x_w((v4i64) a, (v8i32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmultc_re_haddc_adjc2_s_w4x_w"></span>
 
 ## __m256i __lasx_mxvmultc_re_haddc_adjc2_s_w4x_w (__m256i a, __m256i b)
 
@@ -21256,15 +19582,9 @@ dst.i128[1] = widen(a.i32[1]) * widen(b.i32[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">7</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21273,6 +19593,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultc_re_haddc_adjc2_s_w4x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmultc_re_haddc_adjc4_acc_s_w4x_h"></span>
 
 ## __m256i __lasx_mxvmultc_re_haddc_adjc4_acc_s_w4x_h (__m256i a, __m256i b, __m256i c)
 
@@ -21303,15 +19625,9 @@ dst.i64[3] = a.i64[3] + widen(b.i16[3]) * widen(c.i16[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">7</td><td title="partial SIGILL">1.16</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1.16 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21320,6 +19636,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultc_re_haddc_adjc4_acc_s_w4x_h((v4i64) a, (v16i16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmultc_re_haddc_adjc4_s_w4x_h"></span>
 
 ## __m256i __lasx_mxvmultc_re_haddc_adjc4_s_w4x_h (__m256i a, __m256i b)
 
@@ -21350,15 +19668,9 @@ dst.i64[3] = widen(a.i16[3]) * widen(b.i16[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">7</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21367,6 +19679,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultc_re_haddc_adjc4_s_w4x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_hi_w2x_b"></span>
 
 ## __m256i __lasx_mxvmultp_hi_w2x_b (__m256i a, __m256i b)
 
@@ -21409,15 +19723,9 @@ dst.u16[15] = widen(a.i8[31]) * widen(b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">4</td><td title="partial SIGILL">1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21426,6 +19734,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_hi_w2x_b((v32i8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_hi_w2x_d"></span>
 
 ## __m256i __lasx_mxvmultp_hi_w2x_d (__m256i a, __m256i b)
 
@@ -21454,15 +19764,9 @@ dst.u128[1] = widen(a.i64[3]) * widen(b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">3</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21471,6 +19775,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_hi_w2x_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_hi_w2x_h"></span>
 
 ## __m256i __lasx_mxvmultp_hi_w2x_h (__m256i a, __m256i b)
 
@@ -21505,15 +19811,9 @@ dst.u32[7] = widen(a.i16[15]) * widen(b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">4</td><td title="partial SIGILL">1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21522,6 +19822,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_hi_w2x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_hi_w2x_w"></span>
 
 ## __m256i __lasx_mxvmultp_hi_w2x_w (__m256i a, __m256i b)
 
@@ -21552,15 +19854,9 @@ dst.u64[3] = widen(a.i32[7]) * widen(b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">4</td><td title="partial SIGILL">1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21569,6 +19865,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_hi_w2x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_hi_xacc_w2x_b"></span>
 
 ## __m256i __lasx_mxvmultp_hi_xacc_w2x_b (__m256i a, __m256i b, __m256i c)
 
@@ -21611,15 +19909,9 @@ dst.u16[15] = a.u16[15] + widen(b.i8[31]) * widen(c.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">4</td><td title="partial SIGILL">1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21628,6 +19920,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_hi_xacc_w2x_b((v16i16) a, (v32i8) b, (v32i8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_hi_xacc_w2x_d"></span>
 
 ## __m256i __lasx_mxvmultp_hi_xacc_w2x_d (__m256i a, __m256i b, __m256i c)
 
@@ -21656,15 +19950,9 @@ dst.u128[1] = a.u128[1] + widen(b.i64[3]) * widen(c.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">3</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21673,6 +19961,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_hi_xacc_w2x_d((v4i64) a, (v4i64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_hi_xacc_w2x_h"></span>
 
 ## __m256i __lasx_mxvmultp_hi_xacc_w2x_h (__m256i a, __m256i b, __m256i c)
 
@@ -21707,15 +19997,9 @@ dst.u32[7] = a.u32[7] + widen(b.i16[15]) * widen(c.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">4</td><td title="partial SIGILL">1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21724,6 +20008,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_hi_xacc_w2x_h((v8i32) a, (v16i16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_hi_xacc_w2x_w"></span>
 
 ## __m256i __lasx_mxvmultp_hi_xacc_w2x_w (__m256i a, __m256i b, __m256i c)
 
@@ -21754,15 +20040,9 @@ dst.u64[3] = a.u64[3] + widen(b.i32[7]) * widen(c.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">4</td><td title="partial SIGILL">1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21771,6 +20051,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_hi_xacc_w2x_w((v4i64) a, (v8i32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_hxor_adj2_w2x_d"></span>
 
 ## __m256i __lasx_mxvmultp_hxor_adj2_w2x_d (__m256i a, __m256i b)
 
@@ -21799,15 +20081,9 @@ dst.u128[1] = widen(a.i64[1]) * widen(b.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">3</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21816,6 +20092,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_hxor_adj2_w2x_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_hxor_adj2_xacc_w2x_d"></span>
 
 ## __m256i __lasx_mxvmultp_hxor_adj2_xacc_w2x_d (__m256i a, __m256i b, __m256i c)
 
@@ -21844,15 +20122,9 @@ dst.u128[1] = a.u128[1] + widen(b.i64[1]) * widen(c.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">3</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21861,6 +20133,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_hxor_adj2_xacc_w2x_d((v4i64) a, (v4i64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_lo_w2x_b"></span>
 
 ## __m256i __lasx_mxvmultp_lo_w2x_b (__m256i a, __m256i b)
 
@@ -21903,15 +20177,9 @@ dst.u16[15] = widen(a.i8[15]) * widen(b.i8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">4</td><td title="partial SIGILL">1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21920,6 +20188,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_lo_w2x_b((v32i8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_lo_w2x_d"></span>
 
 ## __m256i __lasx_mxvmultp_lo_w2x_d (__m256i a, __m256i b)
 
@@ -21948,15 +20218,9 @@ dst.u128[1] = widen(a.i64[1]) * widen(b.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">3</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -21965,6 +20229,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_lo_w2x_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_lo_w2x_h"></span>
 
 ## __m256i __lasx_mxvmultp_lo_w2x_h (__m256i a, __m256i b)
 
@@ -21999,15 +20265,9 @@ dst.u32[7] = widen(a.i16[7]) * widen(b.i16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">4</td><td title="partial SIGILL">1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -22016,6 +20276,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_lo_w2x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_lo_w2x_w"></span>
 
 ## __m256i __lasx_mxvmultp_lo_w2x_w (__m256i a, __m256i b)
 
@@ -22046,15 +20308,9 @@ dst.u64[3] = widen(a.i32[3]) * widen(b.i32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">4</td><td title="partial SIGILL">1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -22063,6 +20319,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_lo_w2x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_lo_xacc_w2x_b"></span>
 
 ## __m256i __lasx_mxvmultp_lo_xacc_w2x_b (__m256i a, __m256i b, __m256i c)
 
@@ -22105,15 +20363,9 @@ dst.u16[15] = a.u16[15] + widen(b.i8[15]) * widen(c.i8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">4</td><td title="partial SIGILL">1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -22122,6 +20374,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_lo_xacc_w2x_b((v16i16) a, (v32i8) b, (v32i8) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_lo_xacc_w2x_d"></span>
 
 ## __m256i __lasx_mxvmultp_lo_xacc_w2x_d (__m256i a, __m256i b, __m256i c)
 
@@ -22150,15 +20404,9 @@ dst.u128[1] = a.u128[1] + widen(b.i64[1]) * widen(c.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">3</td><td title="partial SIGILL">2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -22167,6 +20415,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_lo_xacc_w2x_d((v4i64) a, (v4i64) b, (v4i64) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_lo_xacc_w2x_h"></span>
 
 ## __m256i __lasx_mxvmultp_lo_xacc_w2x_h (__m256i a, __m256i b, __m256i c)
 
@@ -22201,15 +20451,9 @@ dst.u32[7] = a.u32[7] + widen(b.i16[7]) * widen(c.i16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">4</td><td title="partial SIGILL">1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -22218,6 +20462,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_lo_xacc_w2x_h((v8i32) a, (v16i16) b, (v16i16) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmultp_lo_xacc_w2x_w"></span>
 
 ## __m256i __lasx_mxvmultp_lo_xacc_w2x_w (__m256i a, __m256i b, __m256i c)
 
@@ -22248,15 +20494,9 @@ dst.u64[3] = a.u64[3] + widen(b.i32[3]) * widen(c.i32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td title="partial SIGILL">4</td><td title="partial SIGILL">1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 Notes: 3A4000(GS464V): partial SIGILL.
 
@@ -22265,6 +20505,8 @@ Notes: 3A4000(GS464V): partial SIGILL.
 ```c
 return (__m256i)__builtin_lasx_mxvmultp_lo_xacc_w2x_w((v4i64) a, (v8i32) b, (v8i32) c);
 ```
+
+<span id="intrinsic-__lasx_mxvmulx_s_d"></span>
 
 ## __m256i __lasx_mxvmulx_s_d (__m256i a, __m256i b)
 
@@ -22295,21 +20537,17 @@ dst.i64[3] = a.i32[3] * b.i32[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulx_s_d((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulx_s_h"></span>
 
 ## __m256i __lasx_mxvmulx_s_h (__m256i a, __m256i b)
 
@@ -22352,21 +20590,17 @@ dst.i16[15] = a.i8[15] * b.i8[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulx_s_h((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulx_s_w"></span>
 
 ## __m256i __lasx_mxvmulx_s_w (__m256i a, __m256i b)
 
@@ -22401,21 +20635,17 @@ dst.i32[7] = a.i16[7] * b.i16[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulx_s_w((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulx_u_d"></span>
 
 ## __m256i __lasx_mxvmulx_u_d (__m256i a, __m256i b)
 
@@ -22446,21 +20676,17 @@ dst.u64[3] = a.u32[3] * b.u32[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulx_u_d((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulx_u_h"></span>
 
 ## __m256i __lasx_mxvmulx_u_h (__m256i a, __m256i b)
 
@@ -22503,21 +20729,17 @@ dst.u16[15] = a.u8[15] * b.u8[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulx_u_h((v32u8)a, (v32u8)b);
 ```
+
+<span id="intrinsic-__lasx_mxvmulx_u_w"></span>
 
 ## __m256i __lasx_mxvmulx_u_w (__m256i a, __m256i b)
 
@@ -22552,21 +20774,17 @@ dst.u32[7] = a.u16[7] * b.u16[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvmulx_u_w((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxvneg_b"></span>
 
 ## __m256i __lasx_mxvneg_b (__m256i a)
 
@@ -22625,21 +20843,17 @@ dst.u8[31] = -a.i8[31];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvneg_b((v32i8)a);
 ```
+
+<span id="intrinsic-__lasx_mxvneg_d"></span>
 
 ## __m256i __lasx_mxvneg_d (__m256i a)
 
@@ -22670,21 +20884,17 @@ dst.u64[3] = -a.i64[3];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvneg_d((v4i64)a);
 ```
+
+<span id="intrinsic-__lasx_mxvneg_h"></span>
 
 ## __m256i __lasx_mxvneg_h (__m256i a)
 
@@ -22727,21 +20937,17 @@ dst.u16[15] = -a.i16[15];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvneg_h((v16i16)a);
 ```
+
+<span id="intrinsic-__lasx_mxvneg_w"></span>
 
 ## __m256i __lasx_mxvneg_w (__m256i a)
 
@@ -22776,21 +20982,17 @@ dst.u32[7] = -a.i32[7];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvneg_w((v8i32)a);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_el0_q"></span>
 
 ## __m256i __lasx_mxvsub_el0_q (__m256i a, __m256i b)
 
@@ -22819,21 +21021,17 @@ dst.u128[1] = a.i64[1] - b.i64[1];
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i) __builtin_lasx_mxvsub_el0_q ((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_el0_s_wx_d"></span>
 
 ## __m256i __lasx_mxvsub_el0_s_wx_d (__m256i a, __m256i b)
 
@@ -22862,21 +21060,17 @@ dst.i128[1] = widen(a.i64[0]) - widen(b.i64[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_el0_s_wx_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_el0_s_wx_h"></span>
 
 ## __m256i __lasx_mxvsub_el0_s_wx_h (__m256i a, __m256i b)
 
@@ -22911,21 +21105,17 @@ dst.i32[7] = widen(a.i16[0]) - widen(b.i16[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_el0_s_wx_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_el0_s_wx_w"></span>
 
 ## __m256i __lasx_mxvsub_el0_s_wx_w (__m256i a, __m256i b)
 
@@ -22956,21 +21146,17 @@ dst.i64[3] = widen(a.i32[0]) - widen(b.i32[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_el0_s_wx_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_el0_u_wx_d"></span>
 
 ## __m256i __lasx_mxvsub_el0_u_wx_d (__m256i a, __m256i b)
 
@@ -22999,21 +21185,17 @@ dst.u128[1] = widen(a.u64[0]) - widen(b.u64[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_el0_u_wx_d((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_el0_u_wx_h"></span>
 
 ## __m256i __lasx_mxvsub_el0_u_wx_h (__m256i a, __m256i b)
 
@@ -23048,21 +21230,17 @@ dst.u32[7] = widen(a.u16[0]) - widen(b.u16[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_el0_u_wx_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_el0_u_wx_w"></span>
 
 ## __m256i __lasx_mxvsub_el0_u_wx_w (__m256i a, __m256i b)
 
@@ -23093,21 +21271,17 @@ dst.u64[3] = widen(a.u32[0]) - widen(b.u32[0]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_el0_u_wx_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_even_s_w2x_b"></span>
 
 ## __m256i __lasx_mxvsub_even_s_w2x_b (__m256i a, __m256i b)
 
@@ -23150,21 +21324,17 @@ dst.i16[15] = widen(a.i8[30]) - widen(b.i8[30]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_even_s_w2x_b((v32i8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_even_s_w2x_d"></span>
 
 ## __m256i __lasx_mxvsub_even_s_w2x_d (__m256i a, __m256i b)
 
@@ -23193,21 +21363,17 @@ dst.i128[1] = widen(a.i64[2]) - widen(b.i64[2]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_even_s_w2x_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_even_s_w2x_h"></span>
 
 ## __m256i __lasx_mxvsub_even_s_w2x_h (__m256i a, __m256i b)
 
@@ -23242,21 +21408,17 @@ dst.i32[7] = widen(a.i16[14]) - widen(b.i16[14]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_even_s_w2x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_even_s_w2x_w"></span>
 
 ## __m256i __lasx_mxvsub_even_s_w2x_w (__m256i a, __m256i b)
 
@@ -23287,21 +21449,17 @@ dst.i64[3] = widen(a.i32[6]) - widen(b.i32[6]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_even_s_w2x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_even_u_w2x_b"></span>
 
 ## __m256i __lasx_mxvsub_even_u_w2x_b (__m256i a, __m256i b)
 
@@ -23344,21 +21502,17 @@ dst.u16[15] = widen(a.u8[30]) - widen(b.u8[30]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_even_u_w2x_b((v32u8) a, (v32u8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_even_u_w2x_d"></span>
 
 ## __m256i __lasx_mxvsub_even_u_w2x_d (__m256i a, __m256i b)
 
@@ -23387,21 +21541,17 @@ dst.u128[1] = widen(a.u64[2]) - widen(b.u64[2]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_even_u_w2x_d((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_even_u_w2x_h"></span>
 
 ## __m256i __lasx_mxvsub_even_u_w2x_h (__m256i a, __m256i b)
 
@@ -23436,21 +21586,17 @@ dst.u32[7] = widen(a.u16[14]) - widen(b.u16[14]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_even_u_w2x_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_even_u_w2x_w"></span>
 
 ## __m256i __lasx_mxvsub_even_u_w2x_w (__m256i a, __m256i b)
 
@@ -23481,21 +21627,17 @@ dst.u64[3] = widen(a.u32[6]) - widen(b.u32[6]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_even_u_w2x_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_hi_s_w2x_b"></span>
 
 ## __m256i __lasx_mxvsub_hi_s_w2x_b (__m256i a, __m256i b)
 
@@ -23538,21 +21680,17 @@ dst.i16[15] = widen(a.i8[31]) - widen(b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_hi_s_w2x_b((v32i8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_hi_s_w2x_d"></span>
 
 ## __m256i __lasx_mxvsub_hi_s_w2x_d (__m256i a, __m256i b)
 
@@ -23581,21 +21719,17 @@ dst.i128[1] = widen(a.i64[3]) - widen(b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_hi_s_w2x_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_hi_s_w2x_h"></span>
 
 ## __m256i __lasx_mxvsub_hi_s_w2x_h (__m256i a, __m256i b)
 
@@ -23630,21 +21764,17 @@ dst.i32[7] = widen(a.i16[15]) - widen(b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_hi_s_w2x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_hi_s_w2x_w"></span>
 
 ## __m256i __lasx_mxvsub_hi_s_w2x_w (__m256i a, __m256i b)
 
@@ -23675,21 +21805,17 @@ dst.i64[3] = widen(a.i32[7]) - widen(b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_hi_s_w2x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_hi_u_w2x_b"></span>
 
 ## __m256i __lasx_mxvsub_hi_u_w2x_b (__m256i a, __m256i b)
 
@@ -23732,21 +21858,17 @@ dst.u16[15] = widen(a.u8[31]) - widen(b.u8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_hi_u_w2x_b((v32u8) a, (v32u8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_hi_u_w2x_d"></span>
 
 ## __m256i __lasx_mxvsub_hi_u_w2x_d (__m256i a, __m256i b)
 
@@ -23775,21 +21897,17 @@ dst.u128[1] = widen(a.u64[3]) - widen(b.u64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_hi_u_w2x_d((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_hi_u_w2x_h"></span>
 
 ## __m256i __lasx_mxvsub_hi_u_w2x_h (__m256i a, __m256i b)
 
@@ -23824,21 +21942,17 @@ dst.u32[7] = widen(a.u16[15]) - widen(b.u16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_hi_u_w2x_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_hi_u_w2x_w"></span>
 
 ## __m256i __lasx_mxvsub_hi_u_w2x_w (__m256i a, __m256i b)
 
@@ -23869,21 +21983,17 @@ dst.u64[3] = widen(a.u32[7]) - widen(b.u32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_hi_u_w2x_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_lo_s_w2x_b"></span>
 
 ## __m256i __lasx_mxvsub_lo_s_w2x_b (__m256i a, __m256i b)
 
@@ -23926,21 +22036,17 @@ dst.i16[15] = widen(a.i8[15]) - widen(b.i8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_lo_s_w2x_b((v32i8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_lo_s_w2x_d"></span>
 
 ## __m256i __lasx_mxvsub_lo_s_w2x_d (__m256i a, __m256i b)
 
@@ -23969,21 +22075,17 @@ dst.i128[1] = widen(a.i64[1]) - widen(b.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_lo_s_w2x_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_lo_s_w2x_h"></span>
 
 ## __m256i __lasx_mxvsub_lo_s_w2x_h (__m256i a, __m256i b)
 
@@ -24018,21 +22120,17 @@ dst.i32[7] = widen(a.i16[7]) - widen(b.i16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_lo_s_w2x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_lo_s_w2x_w"></span>
 
 ## __m256i __lasx_mxvsub_lo_s_w2x_w (__m256i a, __m256i b)
 
@@ -24063,21 +22161,17 @@ dst.i64[3] = widen(a.i32[3]) - widen(b.i32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_lo_s_w2x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_lo_u_w2x_b"></span>
 
 ## __m256i __lasx_mxvsub_lo_u_w2x_b (__m256i a, __m256i b)
 
@@ -24120,21 +22214,17 @@ dst.u16[15] = widen(a.u8[15]) - widen(b.u8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_lo_u_w2x_b((v32u8) a, (v32u8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_lo_u_w2x_d"></span>
 
 ## __m256i __lasx_mxvsub_lo_u_w2x_d (__m256i a, __m256i b)
 
@@ -24163,21 +22253,17 @@ dst.u128[1] = widen(a.u64[1]) - widen(b.u64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_lo_u_w2x_d((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_lo_u_w2x_h"></span>
 
 ## __m256i __lasx_mxvsub_lo_u_w2x_h (__m256i a, __m256i b)
 
@@ -24212,21 +22298,17 @@ dst.u32[7] = widen(a.u16[7]) - widen(b.u16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_lo_u_w2x_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_lo_u_w2x_w"></span>
 
 ## __m256i __lasx_mxvsub_lo_u_w2x_w (__m256i a, __m256i b)
 
@@ -24257,21 +22339,17 @@ dst.u64[3] = widen(a.u32[3]) - widen(b.u32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_lo_u_w2x_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_odd_s_w2x_b"></span>
 
 ## __m256i __lasx_mxvsub_odd_s_w2x_b (__m256i a, __m256i b)
 
@@ -24314,21 +22392,17 @@ dst.i16[15] = widen(a.i8[31]) - widen(b.i8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_odd_s_w2x_b((v32i8) a, (v32i8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_odd_s_w2x_d"></span>
 
 ## __m256i __lasx_mxvsub_odd_s_w2x_d (__m256i a, __m256i b)
 
@@ -24357,21 +22431,17 @@ dst.i128[1] = widen(a.i64[3]) - widen(b.i64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_odd_s_w2x_d((v4i64) a, (v4i64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_odd_s_w2x_h"></span>
 
 ## __m256i __lasx_mxvsub_odd_s_w2x_h (__m256i a, __m256i b)
 
@@ -24406,21 +22476,17 @@ dst.i32[7] = widen(a.i16[15]) - widen(b.i16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_odd_s_w2x_h((v16i16) a, (v16i16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_odd_s_w2x_w"></span>
 
 ## __m256i __lasx_mxvsub_odd_s_w2x_w (__m256i a, __m256i b)
 
@@ -24451,21 +22517,17 @@ dst.i64[3] = widen(a.i32[7]) - widen(b.i32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_odd_s_w2x_w((v8i32) a, (v8i32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_odd_u_w2x_b"></span>
 
 ## __m256i __lasx_mxvsub_odd_u_w2x_b (__m256i a, __m256i b)
 
@@ -24508,21 +22570,17 @@ dst.u16[15] = widen(a.u8[31]) - widen(b.u8[31]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_odd_u_w2x_b((v32u8) a, (v32u8) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_odd_u_w2x_d"></span>
 
 ## __m256i __lasx_mxvsub_odd_u_w2x_d (__m256i a, __m256i b)
 
@@ -24551,21 +22609,17 @@ dst.u128[1] = widen(a.u64[3]) - widen(b.u64[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_odd_u_w2x_d((v4u64) a, (v4u64) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_odd_u_w2x_h"></span>
 
 ## __m256i __lasx_mxvsub_odd_u_w2x_h (__m256i a, __m256i b)
 
@@ -24600,21 +22654,17 @@ dst.u32[7] = widen(a.u16[15]) - widen(b.u16[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_odd_u_w2x_h((v16u16) a, (v16u16) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsub_odd_u_w2x_w"></span>
 
 ## __m256i __lasx_mxvsub_odd_u_w2x_w (__m256i a, __m256i b)
 
@@ -24645,21 +22695,17 @@ dst.u64[3] = widen(a.u32[7]) - widen(b.u32[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsub_odd_u_w2x_w((v8u32) a, (v8u32) b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubh_s_b"></span>
 
 ## __m256i __lasx_mxvsubh_s_b (__m256i a, __m256i b)
 
@@ -24718,21 +22764,17 @@ dst.i8[31] = floor_divide(widen(a.i8[31]) - widen(b.i8[31]), 2);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubh_s_b((v32i8)a, (v32i8)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubh_s_d"></span>
 
 ## __m256i __lasx_mxvsubh_s_d (__m256i a, __m256i b)
 
@@ -24763,21 +22805,17 @@ dst.i64[3] = floor_divide(widen(a.i64[3]) - widen(b.i64[3]), 2);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubh_s_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubh_s_h"></span>
 
 ## __m256i __lasx_mxvsubh_s_h (__m256i a, __m256i b)
 
@@ -24820,21 +22858,17 @@ dst.i16[15] = floor_divide(widen(a.i16[15]) - widen(b.i16[15]), 2);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubh_s_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubh_s_w"></span>
 
 ## __m256i __lasx_mxvsubh_s_w (__m256i a, __m256i b)
 
@@ -24869,21 +22903,17 @@ dst.i32[7] = floor_divide(widen(a.i32[7]) - widen(b.i32[7]), 2);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubh_s_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubh_u_b"></span>
 
 ## __m256i __lasx_mxvsubh_u_b (__m256i a, __m256i b)
 
@@ -24942,21 +22972,17 @@ dst.u8[31] = as_u8(floor_divide(widen(a.u8[31]) - widen(b.u8[31]), 2));
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubh_u_b((v32u8)a, (v32u8)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubh_u_d"></span>
 
 ## __m256i __lasx_mxvsubh_u_d (__m256i a, __m256i b)
 
@@ -24987,21 +23013,17 @@ dst.u64[3] = as_u64(floor_divide(widen(a.u64[3]) - widen(b.u64[3]), 2));
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubh_u_d((v4u64)a, (v4u64)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubh_u_h"></span>
 
 ## __m256i __lasx_mxvsubh_u_h (__m256i a, __m256i b)
 
@@ -25044,21 +23066,17 @@ dst.u16[15] = as_u16(floor_divide(widen(a.u16[15]) - widen(b.u16[15]), 2));
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubh_u_h((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubh_u_w"></span>
 
 ## __m256i __lasx_mxvsubh_u_w (__m256i a, __m256i b)
 
@@ -25093,21 +23111,17 @@ dst.u32[7] = as_u32(floor_divide(widen(a.u32[7]) - widen(b.u32[7]), 2));
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubh_u_w((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubx_s_d"></span>
 
 ## __m256i __lasx_mxvsubx_s_d (__m256i a, __m256i b)
 
@@ -25138,21 +23152,17 @@ dst.i64[3] = a.i64[3] - sign_extend(b.i32[3], 64);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubx_s_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubx_s_h"></span>
 
 ## __m256i __lasx_mxvsubx_s_h (__m256i a, __m256i b)
 
@@ -25195,21 +23205,17 @@ dst.i16[15] = a.i16[15] - sign_extend(b.i8[15], 16);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubx_s_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubx_s_w"></span>
 
 ## __m256i __lasx_mxvsubx_s_w (__m256i a, __m256i b)
 
@@ -25244,21 +23250,17 @@ dst.i32[7] = a.i32[7] - sign_extend(b.i16[7], 32);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubx_s_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubx_u_d"></span>
 
 ## __m256i __lasx_mxvsubx_u_d (__m256i a, __m256i b)
 
@@ -25289,21 +23291,17 @@ dst.u64[3] = a.u64[3] - zero_extend(b.u32[3], 64);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubx_u_d((v4u64)a, (v4u64)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubx_u_h"></span>
 
 ## __m256i __lasx_mxvsubx_u_h (__m256i a, __m256i b)
 
@@ -25346,21 +23344,17 @@ dst.u16[15] = a.u16[15] - zero_extend(b.u8[15], 16);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubx_u_h((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubx_u_w"></span>
 
 ## __m256i __lasx_mxvsubx_u_w (__m256i a, __m256i b)
 
@@ -25395,21 +23389,17 @@ dst.u32[7] = a.u32[7] - zero_extend(b.u16[7], 32);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubx_u_w((v8u32)a, (v8u32)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubxs_s_d"></span>
 
 ## __m256i __lasx_mxvsubxs_s_d (__m256i a, __m256i b)
 
@@ -25440,21 +23430,17 @@ dst.i64[3] = signed_saturate(a.i64[3] - sign_extend(b.i32[3], 64), 64);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubxs_s_d((v4i64)a, (v4i64)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubxs_s_h"></span>
 
 ## __m256i __lasx_mxvsubxs_s_h (__m256i a, __m256i b)
 
@@ -25497,21 +23483,17 @@ dst.i16[15] = signed_saturate(a.i16[15] - sign_extend(b.i8[15], 16), 16);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubxs_s_h((v16i16)a, (v16i16)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubxs_s_w"></span>
 
 ## __m256i __lasx_mxvsubxs_s_w (__m256i a, __m256i b)
 
@@ -25546,21 +23528,17 @@ dst.i32[7] = signed_saturate(a.i32[7] - sign_extend(b.i16[7], 32), 32);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubxs_s_w((v8i32)a, (v8i32)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubxs_u_d"></span>
 
 ## __m256i __lasx_mxvsubxs_u_d (__m256i a, __m256i b)
 
@@ -25591,21 +23569,17 @@ dst.u64[3] = unsigned_saturate(a.u64[3] - zero_extend(b.u32[3], 64), 64);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubxs_u_d((v4u64)a, (v4u64)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubxs_u_h"></span>
 
 ## __m256i __lasx_mxvsubxs_u_h (__m256i a, __m256i b)
 
@@ -25648,21 +23622,17 @@ dst.u16[15] = unsigned_saturate(a.u16[15] - zero_extend(b.u8[15], 16), 16);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m256i)__builtin_lasx_mxvsubxs_u_h((v16u16)a, (v16u16)b);
 ```
+
+<span id="intrinsic-__lasx_mxvsubxs_u_w"></span>
 
 ## __m256i __lasx_mxvsubxs_u_w (__m256i a, __m256i b)
 
@@ -25697,15 +23667,9 @@ dst.u32[7] = unsigned_saturate(a.u32[7] - zero_extend(b.u16[7], 32), 32);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1/2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1/2 | 1 |
 
 ### Header Mapping
 

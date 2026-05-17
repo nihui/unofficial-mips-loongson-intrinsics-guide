@@ -2,6 +2,8 @@
 
 Generated from `include/msa.h`. This page contains 8 intrinsics.
 
+<span id="intrinsic-__msa_ld_b"></span>
+
 ## v16i8 __msa_ld_b (void * mem, int offset)
 
 ### Synopsis
@@ -46,6 +48,8 @@ dst.u8[15] = mem.u8[offset + 15];
 ```c
 #define __msa_ld_b __builtin_msa_ld_b
 ```
+
+<span id="intrinsic-__msa_ld_d"></span>
 
 ## v2i64 __msa_ld_d (void * mem, int offset)
 
@@ -92,6 +96,8 @@ dst.u8[15] = mem.u8[offset + 15];
 #define __msa_ld_d __builtin_msa_ld_d
 ```
 
+<span id="intrinsic-__msa_ld_h"></span>
+
 ## v8i16 __msa_ld_h (void * mem, int offset)
 
 ### Synopsis
@@ -136,6 +142,8 @@ dst.u8[15] = mem.u8[offset + 15];
 ```c
 #define __msa_ld_h __builtin_msa_ld_h
 ```
+
+<span id="intrinsic-__msa_ld_w"></span>
 
 ## v4i32 __msa_ld_w (void * mem, int offset)
 
@@ -182,6 +190,8 @@ dst.u8[15] = mem.u8[offset + 15];
 #define __msa_ld_w __builtin_msa_ld_w
 ```
 
+<span id="intrinsic-__msa_st_b"></span>
+
 ## void __msa_st_b (v16i8 a, void * mem, int offset)
 
 ### Synopsis
@@ -226,6 +236,8 @@ mem.u8[offset + 15] = a.u8[15];
 ```c
 #define __msa_st_b __builtin_msa_st_b
 ```
+
+<span id="intrinsic-__msa_st_d"></span>
 
 ## void __msa_st_d (v2i64 a, void * mem, int offset)
 
@@ -272,6 +284,8 @@ mem.u8[offset + 15] = a.u8[15];
 #define __msa_st_d __builtin_msa_st_d
 ```
 
+<span id="intrinsic-__msa_st_h"></span>
+
 ## void __msa_st_h (v8i16 a, void * mem, int offset)
 
 ### Synopsis
@@ -316,6 +330,8 @@ mem.u8[offset + 15] = a.u8[15];
 ```c
 #define __msa_st_h __builtin_msa_st_h
 ```
+
+<span id="intrinsic-__msa_st_w"></span>
 
 ## void __msa_st_w (v4i32 a, void * mem, int offset)
 

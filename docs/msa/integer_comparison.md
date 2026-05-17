@@ -2,6 +2,8 @@
 
 Generated from `include/msa.h`. This page contains 80 intrinsics.
 
+<span id="intrinsic-__msa_ceq_b"></span>
+
 ## v16i8 __msa_ceq_b (v16i8 a, v16i8 b)
 
 ### Synopsis
@@ -43,21 +45,17 @@ dst.u8[15] = (a.u8[15] == b.u8[15]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_ceq_b __builtin_msa_ceq_b
 ```
+
+<span id="intrinsic-__msa_ceq_d"></span>
 
 ## v2i64 __msa_ceq_d (v2i64 a, v2i64 b)
 
@@ -86,21 +84,17 @@ dst.u64[1] = (a.u64[1] == b.u64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_ceq_d __builtin_msa_ceq_d
 ```
+
+<span id="intrinsic-__msa_ceq_h"></span>
 
 ## v8i16 __msa_ceq_h (v8i16 a, v8i16 b)
 
@@ -135,21 +129,17 @@ dst.u16[7] = (a.u16[7] == b.u16[7]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_ceq_h __builtin_msa_ceq_h
 ```
+
+<span id="intrinsic-__msa_ceq_w"></span>
 
 ## v4i32 __msa_ceq_w (v4i32 a, v4i32 b)
 
@@ -180,21 +170,17 @@ dst.u32[3] = (a.u32[3] == b.u32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_ceq_w __builtin_msa_ceq_w
 ```
+
+<span id="intrinsic-__msa_ceqi_b"></span>
 
 ## v16i8 __msa_ceqi_b (v16i8 a, int imm)
 
@@ -237,21 +223,17 @@ dst.u8[15] = (a.u8[15] == imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_ceqi_b __builtin_msa_ceqi_b
 ```
+
+<span id="intrinsic-__msa_ceqi_d"></span>
 
 ## v2i64 __msa_ceqi_d (v2i64 a, int imm)
 
@@ -280,21 +262,17 @@ dst.u64[1] = (a.u64[1] == imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_ceqi_d __builtin_msa_ceqi_d
 ```
+
+<span id="intrinsic-__msa_ceqi_h"></span>
 
 ## v8i16 __msa_ceqi_h (v8i16 a, int imm)
 
@@ -329,21 +307,17 @@ dst.u16[7] = (a.u16[7] == imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_ceqi_h __builtin_msa_ceqi_h
 ```
+
+<span id="intrinsic-__msa_ceqi_w"></span>
 
 ## v4i32 __msa_ceqi_w (v4i32 a, int imm)
 
@@ -374,21 +348,17 @@ dst.u32[3] = (a.u32[3] == imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_ceqi_w __builtin_msa_ceqi_w
 ```
+
+<span id="intrinsic-__msa_cle_s_b"></span>
 
 ## v16i8 __msa_cle_s_b (v16i8 a, v16i8 b)
 
@@ -431,21 +401,17 @@ dst.i8[15] = (a.i8[15] <= b.i8[15]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_cle_s_b __builtin_msa_cle_s_b
 ```
+
+<span id="intrinsic-__msa_cle_s_d"></span>
 
 ## v2i64 __msa_cle_s_d (v2i64 a, v2i64 b)
 
@@ -474,21 +440,17 @@ dst.i64[1] = (a.i64[1] <= b.i64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_cle_s_d __builtin_msa_cle_s_d
 ```
+
+<span id="intrinsic-__msa_cle_s_h"></span>
 
 ## v8i16 __msa_cle_s_h (v8i16 a, v8i16 b)
 
@@ -523,21 +485,17 @@ dst.i16[7] = (a.i16[7] <= b.i16[7]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_cle_s_h __builtin_msa_cle_s_h
 ```
+
+<span id="intrinsic-__msa_cle_s_w"></span>
 
 ## v4i32 __msa_cle_s_w (v4i32 a, v4i32 b)
 
@@ -568,21 +526,17 @@ dst.i32[3] = (a.i32[3] <= b.i32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_cle_s_w __builtin_msa_cle_s_w
 ```
+
+<span id="intrinsic-__msa_cle_u_b"></span>
 
 ## v16i8 __msa_cle_u_b (v16u8 a, v16u8 b)
 
@@ -625,21 +579,17 @@ dst.u8[15] = (a.u8[15] <= b.u8[15]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_cle_u_b __builtin_msa_cle_u_b
 ```
+
+<span id="intrinsic-__msa_cle_u_d"></span>
 
 ## v2i64 __msa_cle_u_d (v2u64 a, v2u64 b)
 
@@ -668,21 +618,17 @@ dst.u64[1] = (a.u64[1] <= b.u64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_cle_u_d __builtin_msa_cle_u_d
 ```
+
+<span id="intrinsic-__msa_cle_u_h"></span>
 
 ## v8i16 __msa_cle_u_h (v8u16 a, v8u16 b)
 
@@ -717,21 +663,17 @@ dst.u16[7] = (a.u16[7] <= b.u16[7]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_cle_u_h __builtin_msa_cle_u_h
 ```
+
+<span id="intrinsic-__msa_cle_u_w"></span>
 
 ## v4i32 __msa_cle_u_w (v4u32 a, v4u32 b)
 
@@ -762,21 +704,17 @@ dst.u32[3] = (a.u32[3] <= b.u32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_cle_u_w __builtin_msa_cle_u_w
 ```
+
+<span id="intrinsic-__msa_clei_s_b"></span>
 
 ## v16i8 __msa_clei_s_b (v16i8 a, int imm)
 
@@ -819,21 +757,17 @@ dst.i8[15] = (a.i8[15] <= imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clei_s_b __builtin_msa_clei_s_b
 ```
+
+<span id="intrinsic-__msa_clei_s_d"></span>
 
 ## v2i64 __msa_clei_s_d (v2i64 a, int imm)
 
@@ -862,21 +796,17 @@ dst.i64[1] = (a.i64[1] <= imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clei_s_d __builtin_msa_clei_s_d
 ```
+
+<span id="intrinsic-__msa_clei_s_h"></span>
 
 ## v8i16 __msa_clei_s_h (v8i16 a, int imm)
 
@@ -911,21 +841,17 @@ dst.i16[7] = (a.i16[7] <= imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clei_s_h __builtin_msa_clei_s_h
 ```
+
+<span id="intrinsic-__msa_clei_s_w"></span>
 
 ## v4i32 __msa_clei_s_w (v4i32 a, int imm)
 
@@ -956,21 +882,17 @@ dst.i32[3] = (a.i32[3] <= imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clei_s_w __builtin_msa_clei_s_w
 ```
+
+<span id="intrinsic-__msa_clei_u_b"></span>
 
 ## v16i8 __msa_clei_u_b (v16u8 a, int imm)
 
@@ -1013,21 +935,17 @@ dst.u8[15] = (a.u8[15] <= imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clei_u_b __builtin_msa_clei_u_b
 ```
+
+<span id="intrinsic-__msa_clei_u_d"></span>
 
 ## v2i64 __msa_clei_u_d (v2u64 a, int imm)
 
@@ -1056,21 +974,17 @@ dst.u64[1] = (a.u64[1] <= imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clei_u_d __builtin_msa_clei_u_d
 ```
+
+<span id="intrinsic-__msa_clei_u_h"></span>
 
 ## v8i16 __msa_clei_u_h (v8u16 a, int imm)
 
@@ -1105,21 +1019,17 @@ dst.u16[7] = (a.u16[7] <= imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clei_u_h __builtin_msa_clei_u_h
 ```
+
+<span id="intrinsic-__msa_clei_u_w"></span>
 
 ## v4i32 __msa_clei_u_w (v4u32 a, int imm)
 
@@ -1150,21 +1060,17 @@ dst.u32[3] = (a.u32[3] <= imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clei_u_w __builtin_msa_clei_u_w
 ```
+
+<span id="intrinsic-__msa_clt_s_b"></span>
 
 ## v16i8 __msa_clt_s_b (v16i8 a, v16i8 b)
 
@@ -1207,21 +1113,17 @@ dst.i8[15] = (a.i8[15] < b.i8[15]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clt_s_b __builtin_msa_clt_s_b
 ```
+
+<span id="intrinsic-__msa_clt_s_d"></span>
 
 ## v2i64 __msa_clt_s_d (v2i64 a, v2i64 b)
 
@@ -1250,21 +1152,17 @@ dst.i64[1] = (a.i64[1] < b.i64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clt_s_d __builtin_msa_clt_s_d
 ```
+
+<span id="intrinsic-__msa_clt_s_h"></span>
 
 ## v8i16 __msa_clt_s_h (v8i16 a, v8i16 b)
 
@@ -1299,21 +1197,17 @@ dst.i16[7] = (a.i16[7] < b.i16[7]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clt_s_h __builtin_msa_clt_s_h
 ```
+
+<span id="intrinsic-__msa_clt_s_w"></span>
 
 ## v4i32 __msa_clt_s_w (v4i32 a, v4i32 b)
 
@@ -1344,21 +1238,17 @@ dst.i32[3] = (a.i32[3] < b.i32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clt_s_w __builtin_msa_clt_s_w
 ```
+
+<span id="intrinsic-__msa_clt_u_b"></span>
 
 ## v16i8 __msa_clt_u_b (v16u8 a, v16u8 b)
 
@@ -1401,21 +1291,17 @@ dst.u8[15] = (a.u8[15] < b.u8[15]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clt_u_b __builtin_msa_clt_u_b
 ```
+
+<span id="intrinsic-__msa_clt_u_d"></span>
 
 ## v2i64 __msa_clt_u_d (v2u64 a, v2u64 b)
 
@@ -1444,21 +1330,17 @@ dst.u64[1] = (a.u64[1] < b.u64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clt_u_d __builtin_msa_clt_u_d
 ```
+
+<span id="intrinsic-__msa_clt_u_h"></span>
 
 ## v8i16 __msa_clt_u_h (v8u16 a, v8u16 b)
 
@@ -1493,21 +1375,17 @@ dst.u16[7] = (a.u16[7] < b.u16[7]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clt_u_h __builtin_msa_clt_u_h
 ```
+
+<span id="intrinsic-__msa_clt_u_w"></span>
 
 ## v4i32 __msa_clt_u_w (v4u32 a, v4u32 b)
 
@@ -1538,21 +1416,17 @@ dst.u32[3] = (a.u32[3] < b.u32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clt_u_w __builtin_msa_clt_u_w
 ```
+
+<span id="intrinsic-__msa_clti_s_b"></span>
 
 ## v16i8 __msa_clti_s_b (v16i8 a, int imm)
 
@@ -1595,21 +1469,17 @@ dst.i8[15] = (a.i8[15] < imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clti_s_b __builtin_msa_clti_s_b
 ```
+
+<span id="intrinsic-__msa_clti_s_d"></span>
 
 ## v2i64 __msa_clti_s_d (v2i64 a, int imm)
 
@@ -1638,21 +1508,17 @@ dst.i64[1] = (a.i64[1] < imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clti_s_d __builtin_msa_clti_s_d
 ```
+
+<span id="intrinsic-__msa_clti_s_h"></span>
 
 ## v8i16 __msa_clti_s_h (v8i16 a, int imm)
 
@@ -1687,21 +1553,17 @@ dst.i16[7] = (a.i16[7] < imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clti_s_h __builtin_msa_clti_s_h
 ```
+
+<span id="intrinsic-__msa_clti_s_w"></span>
 
 ## v4i32 __msa_clti_s_w (v4i32 a, int imm)
 
@@ -1732,21 +1594,17 @@ dst.i32[3] = (a.i32[3] < imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clti_s_w __builtin_msa_clti_s_w
 ```
+
+<span id="intrinsic-__msa_clti_u_b"></span>
 
 ## v16i8 __msa_clti_u_b (v16u8 a, int imm)
 
@@ -1789,21 +1647,17 @@ dst.u8[15] = (a.u8[15] < imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clti_u_b __builtin_msa_clti_u_b
 ```
+
+<span id="intrinsic-__msa_clti_u_d"></span>
 
 ## v2i64 __msa_clti_u_d (v2u64 a, int imm)
 
@@ -1832,21 +1686,17 @@ dst.u64[1] = (a.u64[1] < imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clti_u_d __builtin_msa_clti_u_d
 ```
+
+<span id="intrinsic-__msa_clti_u_h"></span>
 
 ## v8i16 __msa_clti_u_h (v8u16 a, int imm)
 
@@ -1881,21 +1731,17 @@ dst.u16[7] = (a.u16[7] < imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clti_u_h __builtin_msa_clti_u_h
 ```
+
+<span id="intrinsic-__msa_clti_u_w"></span>
 
 ## v4i32 __msa_clti_u_w (v4u32 a, int imm)
 
@@ -1926,21 +1772,17 @@ dst.u32[3] = (a.u32[3] < imm) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_clti_u_w __builtin_msa_clti_u_w
 ```
+
+<span id="intrinsic-__msa_max_a_b"></span>
 
 ## v16i8 __msa_max_a_b (v16i8 a, v16i8 b)
 
@@ -1983,21 +1825,17 @@ dst.u8[15] = max(a.i8[15], b.i8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_max_a_b __builtin_msa_max_a_b
 ```
+
+<span id="intrinsic-__msa_max_a_d"></span>
 
 ## v2i64 __msa_max_a_d (v2i64 a, v2i64 b)
 
@@ -2026,21 +1864,17 @@ dst.u64[1] = max(a.i64[1], b.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_max_a_d __builtin_msa_max_a_d
 ```
+
+<span id="intrinsic-__msa_max_a_h"></span>
 
 ## v8i16 __msa_max_a_h (v8i16 a, v8i16 b)
 
@@ -2075,21 +1909,17 @@ dst.u16[7] = max(a.i16[7], b.i16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_max_a_h __builtin_msa_max_a_h
 ```
+
+<span id="intrinsic-__msa_max_a_w"></span>
 
 ## v4i32 __msa_max_a_w (v4i32 a, v4i32 b)
 
@@ -2120,21 +1950,17 @@ dst.u32[3] = max(a.i32[3], b.i32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_max_a_w __builtin_msa_max_a_w
 ```
+
+<span id="intrinsic-__msa_max_s_b"></span>
 
 ## v16i8 __msa_max_s_b (v16i8 a, v16i8 b)
 
@@ -2177,21 +2003,17 @@ dst.i8[15] = max(a.i8[15], b.i8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_max_s_b __builtin_msa_max_s_b
 ```
+
+<span id="intrinsic-__msa_max_s_d"></span>
 
 ## v2i64 __msa_max_s_d (v2i64 a, v2i64 b)
 
@@ -2220,21 +2042,17 @@ dst.i64[1] = max(a.i64[1], b.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_max_s_d __builtin_msa_max_s_d
 ```
+
+<span id="intrinsic-__msa_max_s_h"></span>
 
 ## v8i16 __msa_max_s_h (v8i16 a, v8i16 b)
 
@@ -2269,21 +2087,17 @@ dst.i16[7] = max(a.i16[7], b.i16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_max_s_h __builtin_msa_max_s_h
 ```
+
+<span id="intrinsic-__msa_max_s_w"></span>
 
 ## v4i32 __msa_max_s_w (v4i32 a, v4i32 b)
 
@@ -2314,21 +2128,17 @@ dst.i32[3] = max(a.i32[3], b.i32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_max_s_w __builtin_msa_max_s_w
 ```
+
+<span id="intrinsic-__msa_max_u_b"></span>
 
 ## v16u8 __msa_max_u_b (v16u8 a, v16u8 b)
 
@@ -2371,21 +2181,17 @@ dst.u8[15] = max(a.u8[15], b.u8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_max_u_b __builtin_msa_max_u_b
 ```
+
+<span id="intrinsic-__msa_max_u_d"></span>
 
 ## v2u64 __msa_max_u_d (v2u64 a, v2u64 b)
 
@@ -2414,21 +2220,17 @@ dst.u64[1] = max(a.u64[1], b.u64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_max_u_d __builtin_msa_max_u_d
 ```
+
+<span id="intrinsic-__msa_max_u_h"></span>
 
 ## v8u16 __msa_max_u_h (v8u16 a, v8u16 b)
 
@@ -2463,21 +2265,17 @@ dst.u16[7] = max(a.u16[7], b.u16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_max_u_h __builtin_msa_max_u_h
 ```
+
+<span id="intrinsic-__msa_max_u_w"></span>
 
 ## v4u32 __msa_max_u_w (v4u32 a, v4u32 b)
 
@@ -2508,21 +2306,17 @@ dst.u32[3] = max(a.u32[3], b.u32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_max_u_w __builtin_msa_max_u_w
 ```
+
+<span id="intrinsic-__msa_maxi_s_b"></span>
 
 ## v16i8 __msa_maxi_s_b (v16i8 a, int imm)
 
@@ -2565,21 +2359,17 @@ dst.i8[15] = max(a.i8[15], imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_maxi_s_b __builtin_msa_maxi_s_b
 ```
+
+<span id="intrinsic-__msa_maxi_s_d"></span>
 
 ## v2i64 __msa_maxi_s_d (v2i64 a, int imm)
 
@@ -2608,21 +2398,17 @@ dst.i64[1] = max(a.i64[1], imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_maxi_s_d __builtin_msa_maxi_s_d
 ```
+
+<span id="intrinsic-__msa_maxi_s_h"></span>
 
 ## v8i16 __msa_maxi_s_h (v8i16 a, int imm)
 
@@ -2657,21 +2443,17 @@ dst.i16[7] = max(a.i16[7], imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_maxi_s_h __builtin_msa_maxi_s_h
 ```
+
+<span id="intrinsic-__msa_maxi_s_w"></span>
 
 ## v4i32 __msa_maxi_s_w (v4i32 a, int imm)
 
@@ -2702,21 +2484,17 @@ dst.i32[3] = max(a.i32[3], imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_maxi_s_w __builtin_msa_maxi_s_w
 ```
+
+<span id="intrinsic-__msa_maxi_u_b"></span>
 
 ## v16u8 __msa_maxi_u_b (v16u8 a, int imm)
 
@@ -2759,21 +2537,17 @@ dst.u8[15] = max(a.u8[15], imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_maxi_u_b __builtin_msa_maxi_u_b
 ```
+
+<span id="intrinsic-__msa_maxi_u_d"></span>
 
 ## v2u64 __msa_maxi_u_d (v2u64 a, int imm)
 
@@ -2802,21 +2576,17 @@ dst.u64[1] = max(a.u64[1], imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_maxi_u_d __builtin_msa_maxi_u_d
 ```
+
+<span id="intrinsic-__msa_maxi_u_h"></span>
 
 ## v8u16 __msa_maxi_u_h (v8u16 a, int imm)
 
@@ -2851,21 +2621,17 @@ dst.u16[7] = max(a.u16[7], imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_maxi_u_h __builtin_msa_maxi_u_h
 ```
+
+<span id="intrinsic-__msa_maxi_u_w"></span>
 
 ## v4u32 __msa_maxi_u_w (v4u32 a, int imm)
 
@@ -2896,21 +2662,17 @@ dst.u32[3] = max(a.u32[3], imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_maxi_u_w __builtin_msa_maxi_u_w
 ```
+
+<span id="intrinsic-__msa_min_a_b"></span>
 
 ## v16i8 __msa_min_a_b (v16i8 a, v16i8 b)
 
@@ -2953,21 +2715,17 @@ dst.u8[15] = min(a.i8[15], b.i8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_min_a_b __builtin_msa_min_a_b
 ```
+
+<span id="intrinsic-__msa_min_a_d"></span>
 
 ## v2i64 __msa_min_a_d (v2i64 a, v2i64 b)
 
@@ -2996,21 +2754,17 @@ dst.u64[1] = min(a.i64[1], b.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_min_a_d __builtin_msa_min_a_d
 ```
+
+<span id="intrinsic-__msa_min_a_h"></span>
 
 ## v8i16 __msa_min_a_h (v8i16 a, v8i16 b)
 
@@ -3045,21 +2799,17 @@ dst.u16[7] = min(a.i16[7], b.i16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_min_a_h __builtin_msa_min_a_h
 ```
+
+<span id="intrinsic-__msa_min_a_w"></span>
 
 ## v4i32 __msa_min_a_w (v4i32 a, v4i32 b)
 
@@ -3090,21 +2840,17 @@ dst.u32[3] = min(a.i32[3], b.i32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>3</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 3 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_min_a_w __builtin_msa_min_a_w
 ```
+
+<span id="intrinsic-__msa_min_s_b"></span>
 
 ## v16i8 __msa_min_s_b (v16i8 a, v16i8 b)
 
@@ -3147,21 +2893,17 @@ dst.i8[15] = min(a.i8[15], b.i8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_min_s_b __builtin_msa_min_s_b
 ```
+
+<span id="intrinsic-__msa_min_s_d"></span>
 
 ## v2i64 __msa_min_s_d (v2i64 a, v2i64 b)
 
@@ -3190,21 +2932,17 @@ dst.i64[1] = min(a.i64[1], b.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_min_s_d __builtin_msa_min_s_d
 ```
+
+<span id="intrinsic-__msa_min_s_h"></span>
 
 ## v8i16 __msa_min_s_h (v8i16 a, v8i16 b)
 
@@ -3239,21 +2977,17 @@ dst.i16[7] = min(a.i16[7], b.i16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_min_s_h __builtin_msa_min_s_h
 ```
+
+<span id="intrinsic-__msa_min_s_w"></span>
 
 ## v4i32 __msa_min_s_w (v4i32 a, v4i32 b)
 
@@ -3284,21 +3018,17 @@ dst.i32[3] = min(a.i32[3], b.i32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_min_s_w __builtin_msa_min_s_w
 ```
+
+<span id="intrinsic-__msa_min_u_b"></span>
 
 ## v16u8 __msa_min_u_b (v16u8 a, v16u8 b)
 
@@ -3341,21 +3071,17 @@ dst.u8[15] = min(a.u8[15], b.u8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_min_u_b __builtin_msa_min_u_b
 ```
+
+<span id="intrinsic-__msa_min_u_d"></span>
 
 ## v2u64 __msa_min_u_d (v2u64 a, v2u64 b)
 
@@ -3384,21 +3110,17 @@ dst.u64[1] = min(a.u64[1], b.u64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_min_u_d __builtin_msa_min_u_d
 ```
+
+<span id="intrinsic-__msa_min_u_h"></span>
 
 ## v8u16 __msa_min_u_h (v8u16 a, v8u16 b)
 
@@ -3433,21 +3155,17 @@ dst.u16[7] = min(a.u16[7], b.u16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_min_u_h __builtin_msa_min_u_h
 ```
+
+<span id="intrinsic-__msa_min_u_w"></span>
 
 ## v4u32 __msa_min_u_w (v4u32 a, v4u32 b)
 
@@ -3478,21 +3196,17 @@ dst.u32[3] = min(a.u32[3], b.u32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_min_u_w __builtin_msa_min_u_w
 ```
+
+<span id="intrinsic-__msa_mini_s_b"></span>
 
 ## v16i8 __msa_mini_s_b (v16i8 a, int imm)
 
@@ -3535,21 +3249,17 @@ dst.i8[15] = min(a.i8[15], imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_mini_s_b __builtin_msa_mini_s_b
 ```
+
+<span id="intrinsic-__msa_mini_s_d"></span>
 
 ## v2i64 __msa_mini_s_d (v2i64 a, int imm)
 
@@ -3578,21 +3288,17 @@ dst.i64[1] = min(a.i64[1], imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_mini_s_d __builtin_msa_mini_s_d
 ```
+
+<span id="intrinsic-__msa_mini_s_h"></span>
 
 ## v8i16 __msa_mini_s_h (v8i16 a, int imm)
 
@@ -3627,21 +3333,17 @@ dst.i16[7] = min(a.i16[7], imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_mini_s_h __builtin_msa_mini_s_h
 ```
+
+<span id="intrinsic-__msa_mini_s_w"></span>
 
 ## v4i32 __msa_mini_s_w (v4i32 a, int imm)
 
@@ -3672,21 +3374,17 @@ dst.i32[3] = min(a.i32[3], imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_mini_s_w __builtin_msa_mini_s_w
 ```
+
+<span id="intrinsic-__msa_mini_u_b"></span>
 
 ## v16u8 __msa_mini_u_b (v16u8 a, int imm)
 
@@ -3729,21 +3427,17 @@ dst.u8[15] = min(a.u8[15], imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_mini_u_b __builtin_msa_mini_u_b
 ```
+
+<span id="intrinsic-__msa_mini_u_d"></span>
 
 ## v2u64 __msa_mini_u_d (v2u64 a, int imm)
 
@@ -3772,21 +3466,17 @@ dst.u64[1] = min(a.u64[1], imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_mini_u_d __builtin_msa_mini_u_d
 ```
+
+<span id="intrinsic-__msa_mini_u_h"></span>
 
 ## v8u16 __msa_mini_u_h (v8u16 a, int imm)
 
@@ -3821,21 +3511,17 @@ dst.u16[7] = min(a.u16[7], imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_mini_u_h __builtin_msa_mini_u_h
 ```
+
+<span id="intrinsic-__msa_mini_u_w"></span>
 
 ## v4u32 __msa_mini_u_w (v4u32 a, int imm)
 
@@ -3866,15 +3552,9 @@ dst.u32[3] = min(a.u32[3], imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 

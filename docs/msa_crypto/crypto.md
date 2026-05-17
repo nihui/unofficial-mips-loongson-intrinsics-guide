@@ -2,6 +2,8 @@
 
 Generated from `include/msa-cryptointrin.h`. This page contains 29 intrinsics.
 
+<span id="intrinsic-__crypto_aes128_dec"></span>
+
 ## __m128i __crypto_aes128_dec (__m128i a, __m128i b)
 
 ### Synopsis
@@ -28,21 +30,17 @@ dst = aes128.dec(a, b);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>14</td><td>0.07(1/14)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 14 | 0.07(1/14) |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes128_dec ((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__crypto_aes128_enc"></span>
 
 ## __m128i __crypto_aes128_enc (__m128i a, __m128i b)
 
@@ -70,21 +68,17 @@ dst = aes128.enc(a, b);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>14</td><td>0.07(1/14)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 14 | 0.07(1/14) |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes128_enc ((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__crypto_aes192_dec"></span>
 
 ## __m128i __crypto_aes192_dec (__m128i a, __m128i b, __m128i c)
 
@@ -112,21 +106,17 @@ dst = aes192.dec(a, b, c);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>16</td><td>0.06(1/16)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 16 | 0.06(1/16) |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes192_dec ((v2i64)a, (v2i64)b, (v2i64)c);
 ```
+
+<span id="intrinsic-__crypto_aes192_enc"></span>
 
 ## __m128i __crypto_aes192_enc (__m128i a, __m128i b, __m128i c)
 
@@ -154,21 +144,17 @@ dst = aes192.enc(a, b, c);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>16</td><td>0.06(1/16)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 16 | 0.06(1/16) |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes192_enc ((v2i64)a, (v2i64)b, (v2i64)c);
 ```
+
+<span id="intrinsic-__crypto_aes256_dec"></span>
 
 ## __m128i __crypto_aes256_dec (__m128i a, __m128i b, __m128i c)
 
@@ -196,21 +182,17 @@ dst = aes256.dec(a, b, c);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>18</td><td>0.06(1/18)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 18 | 0.06(1/18) |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes256_dec ((v2i64)a, (v2i64)b, (v2i64)c);
 ```
+
+<span id="intrinsic-__crypto_aes256_enc"></span>
 
 ## __m128i __crypto_aes256_enc (__m128i a, __m128i b, __m128i c)
 
@@ -238,21 +220,17 @@ dst = aes256.enc(a, b, c);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>18</td><td>0.06(1/18)</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 18 | 0.06(1/18) |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes256_enc ((v2i64)a, (v2i64)b, (v2i64)c);
 ```
+
+<span id="intrinsic-__crypto_aes_fr_dec"></span>
 
 ## __m128i __crypto_aes_fr_dec (__m128i a, __m128i b)
 
@@ -280,21 +258,17 @@ dst = aes.fr.dec(a, b);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes_fr_dec ((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__crypto_aes_fr_enc"></span>
 
 ## __m128i __crypto_aes_fr_enc (__m128i a, __m128i b)
 
@@ -322,21 +296,17 @@ dst = aes.fr.enc(a, b);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes_fr_enc ((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__crypto_aes_kg"></span>
 
 ## __m128i __crypto_aes_kg (__m128i a, __m128i b)
 
@@ -364,21 +334,17 @@ dst = aes.kg(a, b);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes_kg ((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__crypto_aes_lr_dec"></span>
 
 ## __m128i __crypto_aes_lr_dec (__m128i a, __m128i b)
 
@@ -406,21 +372,17 @@ dst = aes.lr.dec(a, b);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes_lr_dec ((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__crypto_aes_lr_enc"></span>
 
 ## __m128i __crypto_aes_lr_enc (__m128i a, __m128i b)
 
@@ -448,21 +410,17 @@ dst = aes.lr.enc(a, b);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes_lr_enc ((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__crypto_aes_mc_dec"></span>
 
 ## __m128i __crypto_aes_mc_dec (__m128i a)
 
@@ -490,21 +448,17 @@ dst = aes.mc.dec(a);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes_mc_dec ((v2i64)a);
 ```
+
+<span id="intrinsic-__crypto_aes_mc_enc"></span>
 
 ## __m128i __crypto_aes_mc_enc (__m128i a)
 
@@ -532,21 +486,17 @@ dst = aes.mc.enc(a);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes_mc_enc ((v2i64)a);
 ```
+
+<span id="intrinsic-__crypto_aes_sb_dec"></span>
 
 ## __m128i __crypto_aes_sb_dec (__m128i a)
 
@@ -574,21 +524,17 @@ dst = aes.sb.dec(a);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes_sb_dec ((v2i64)a);
 ```
+
+<span id="intrinsic-__crypto_aes_sb_enc"></span>
 
 ## __m128i __crypto_aes_sb_enc (__m128i a)
 
@@ -616,21 +562,17 @@ dst = aes.sb.enc(a);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes_sb_enc ((v2i64)a);
 ```
+
+<span id="intrinsic-__crypto_aes_sr_dec"></span>
 
 ## __m128i __crypto_aes_sr_dec (__m128i a)
 
@@ -658,21 +600,17 @@ dst = aes.sr.dec(a);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes_sr_dec ((v2i64)a);
 ```
+
+<span id="intrinsic-__crypto_aes_sr_enc"></span>
 
 ## __m128i __crypto_aes_sr_enc (__m128i a)
 
@@ -700,21 +638,17 @@ dst = aes.sr.enc(a);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_aes_sr_enc ((v2i64)a);
 ```
+
+<span id="intrinsic-__crypto_md5_4r"></span>
 
 ## __m128i __crypto_md5_4r (__m128i a, __m128i b, __m128i c)
 
@@ -742,21 +676,17 @@ dst = md5.4r(a, b, c);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_md5_4r ((v2i64)a, (v2i64)b, (v2i64)c);
 ```
+
+<span id="intrinsic-__crypto_md5_ms"></span>
 
 ## __m128i __crypto_md5_ms (__m128i a, __m128i b, __m128i c)
 
@@ -784,21 +714,17 @@ dst = md5.ms(a, b, c);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_md5_ms ((v2i64)a, (v2i64)b, (v2i64)c);
 ```
+
+<span id="intrinsic-__crypto_sha1_hash_4r"></span>
 
 ## __m128i __crypto_sha1_hash_4r (__m128i a, __m128i b, __m128i c)
 
@@ -826,21 +752,17 @@ dst = sha1.hash.4r(a, b, c);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>7</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 7 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_sha1_hash_4r ((v2i64)a, (v2i64)b, (v2i64)c);
 ```
+
+<span id="intrinsic-__crypto_sha1_ms_1"></span>
 
 ## __m128i __crypto_sha1_ms_1 (__m128i a, __m128i b, __m128i c)
 
@@ -868,21 +790,17 @@ dst = sha1.ms.1(a, b, c);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_sha1_ms_1 ((v2i64)a, (v2i64)b, (v2i64)c);
 ```
+
+<span id="intrinsic-__crypto_sha1_ms_2"></span>
 
 ## __m128i __crypto_sha1_ms_2 (__m128i a, __m128i b)
 
@@ -910,21 +828,17 @@ dst = sha1.ms.2(a, b);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_sha1_ms_2 ((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__crypto_sha256_hash_2r"></span>
 
 ## __m128i __crypto_sha256_hash_2r (__m128i a, __m128i b, __m128i c)
 
@@ -952,21 +866,17 @@ dst = sha256.hash.2r(a, b, c);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_sha256_hash_2r ((v2i64)a, (v2i64)b, (v2i64)c);
 ```
+
+<span id="intrinsic-__crypto_sha256_ms_1"></span>
 
 ## __m128i __crypto_sha256_ms_1 (__m128i a, __m128i b)
 
@@ -994,21 +904,17 @@ dst = sha256.ms.1(a, b);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_sha256_ms_1 ((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__crypto_sha256_ms_2"></span>
 
 ## __m128i __crypto_sha256_ms_2 (__m128i a, __m128i b)
 
@@ -1036,21 +942,17 @@ dst = sha256.ms.2(a, b);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_sha256_ms_2 ((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__crypto_sha512_hash_r_1"></span>
 
 ## __m128i __crypto_sha512_hash_r_1 (__m128i a, __m128i b, __m128i c)
 
@@ -1078,21 +980,17 @@ dst = sha512.hash.r.1(a, b, c);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_sha512_hash_r_1 ((v2i64)a, (v2i64)b, (v2i64)c);
 ```
+
+<span id="intrinsic-__crypto_sha512_hash_r_2"></span>
 
 ## __m128i __crypto_sha512_hash_r_2 (__m128i a, __m128i b, __m128i c)
 
@@ -1120,21 +1018,17 @@ dst = sha512.hash.r.2(a, b, c);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_sha512_hash_r_2 ((v2i64)a, (v2i64)b, (v2i64)c);
 ```
+
+<span id="intrinsic-__crypto_sha512_ms_1"></span>
 
 ## __m128i __crypto_sha512_ms_1 (__m128i a, __m128i b, __m128i c)
 
@@ -1162,21 +1056,17 @@ dst = sha512.ms.1(a, b, c);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i) __builtin_crypto_sha512_ms_1 ((v2i64)a, (v2i64)b, (v2i64)c);
 ```
+
+<span id="intrinsic-__crypto_sha512_ms_2"></span>
 
 ## __m128i __crypto_sha512_ms_2 (__m128i a, __m128i b, __m128i c)
 
@@ -1204,15 +1094,9 @@ dst = sha512.ms.2(a, b, c);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 

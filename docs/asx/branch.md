@@ -2,6 +2,8 @@
 
 Generated from `include/loongson-asxintrin.h`. This page contains 10 intrinsics.
 
+<span id="intrinsic-__lasx_xbnz_b"></span>
+
 ## int __lasx_xbnz_b (__m256i a)
 
 ### Synopsis
@@ -31,6 +33,8 @@ return all_u8_lanes(a, != 0);
 ```c
 return __builtin_lasx_xbnz_b((v32u8)a);
 ```
+
+<span id="intrinsic-__lasx_xbnz_d"></span>
 
 ## int __lasx_xbnz_d (__m256i a)
 
@@ -62,6 +66,8 @@ return all_u64_lanes(a, != 0);
 return __builtin_lasx_xbnz_d((v4u64)a);
 ```
 
+<span id="intrinsic-__lasx_xbnz_h"></span>
+
 ## int __lasx_xbnz_h (__m256i a)
 
 ### Synopsis
@@ -91,6 +97,8 @@ return all_u16_lanes(a, != 0);
 ```c
 return __builtin_lasx_xbnz_h((v16u16)a);
 ```
+
+<span id="intrinsic-__lasx_xbnz_v"></span>
 
 ## int __lasx_xbnz_v (__m256i a)
 
@@ -122,6 +130,8 @@ return any_u8_lane(a, != 0);
 return __builtin_lasx_xbnz_v((v32u8)a);
 ```
 
+<span id="intrinsic-__lasx_xbnz_w"></span>
+
 ## int __lasx_xbnz_w (__m256i a)
 
 ### Synopsis
@@ -151,6 +161,8 @@ return all_u32_lanes(a, != 0);
 ```c
 return __builtin_lasx_xbnz_w((v8u32)a);
 ```
+
+<span id="intrinsic-__lasx_xbz_b"></span>
 
 ## int __lasx_xbz_b (__m256i a)
 
@@ -182,6 +194,8 @@ return any_u8_lane(a, == 0);
 return __builtin_lasx_xbz_b((v32u8)a);
 ```
 
+<span id="intrinsic-__lasx_xbz_d"></span>
+
 ## int __lasx_xbz_d (__m256i a)
 
 ### Synopsis
@@ -211,6 +225,8 @@ return any_u64_lane(a, == 0);
 ```c
 return __builtin_lasx_xbz_d((v4u64)a);
 ```
+
+<span id="intrinsic-__lasx_xbz_h"></span>
 
 ## int __lasx_xbz_h (__m256i a)
 
@@ -242,6 +258,8 @@ return any_u16_lane(a, == 0);
 return __builtin_lasx_xbz_h((v16u16)a);
 ```
 
+<span id="intrinsic-__lasx_xbz_v"></span>
+
 ## int __lasx_xbz_v (__m256i a)
 
 ### Synopsis
@@ -271,6 +289,8 @@ return all_u8_lanes(a, == 0);
 ```c
 return __builtin_lasx_xbz_v((v32u8)a);
 ```
+
+<span id="intrinsic-__lasx_xbz_w"></span>
 
 ## int __lasx_xbz_w (__m256i a)
 

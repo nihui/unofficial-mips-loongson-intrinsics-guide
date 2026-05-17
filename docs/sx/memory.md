@@ -2,6 +2,8 @@
 
 Generated from `include/loongson-sxintrin.h`. This page contains 8 intrinsics.
 
+<span id="intrinsic-__lsx_vblb"></span>
+
 ## __m128i __lsx_vblb (int offset, const volatile void * mem)
 
 ### Synopsis
@@ -47,6 +49,8 @@ dst.u8[15] = load_u8(mem + offset);
 #define __lsx_vblb(offset, mem) ((__m128i)__builtin_lsx_vblb((offset), (mem)))
 ```
 
+<span id="intrinsic-__lsx_vbld"></span>
+
 ## __m128i __lsx_vbld (int offset, const volatile void * mem)
 
 ### Synopsis
@@ -77,6 +81,8 @@ dst.u64[1] = load_u64(mem + offset);
 ```c
 #define __lsx_vbld(offset, mem) ((__m128i)__builtin_lsx_vbld((offset), (mem)))
 ```
+
+<span id="intrinsic-__lsx_vblh"></span>
 
 ## __m128i __lsx_vblh (int offset, const volatile void * mem)
 
@@ -115,6 +121,8 @@ dst.u16[7] = load_u16(mem + offset);
 #define __lsx_vblh(offset, mem) ((__m128i)__builtin_lsx_vblh((offset), (mem)))
 ```
 
+<span id="intrinsic-__lsx_vblw"></span>
+
 ## __m128i __lsx_vblw (int offset, const volatile void * mem)
 
 ### Synopsis
@@ -148,6 +156,8 @@ dst.u32[3] = load_u32(mem + offset);
 #define __lsx_vblw(offset, mem) ((__m128i)__builtin_lsx_vblw((offset), (mem)))
 ```
 
+<span id="intrinsic-__lsx_vsb"></span>
+
 ## void __lsx_vsb (__m128i a, unsigned char lane, int offset, const volatile void * mem)
 
 ### Synopsis
@@ -177,6 +187,8 @@ store_u8(mem + offset, a.u8[lane]);
 ```c
 #define __lsx_vsb(a, lane, offset, mem) ((void)__builtin_lsx_vsb((v16i8)(a), (lane), (offset), (mem)))
 ```
+
+<span id="intrinsic-__lsx_vsd"></span>
 
 ## void __lsx_vsd (__m128i a, unsigned char lane, int offset, const volatile void * mem)
 
@@ -208,6 +220,8 @@ store_u64(mem + offset, a.u64[lane]);
 #define __lsx_vsd(a, lane, offset, mem) ((void)__builtin_lsx_vsd((v2i64)(a), (lane), (offset), (mem)))
 ```
 
+<span id="intrinsic-__lsx_vsh"></span>
+
 ## void __lsx_vsh (__m128i a, unsigned char lane, int offset, const volatile void * mem)
 
 ### Synopsis
@@ -237,6 +251,8 @@ store_u16(mem + offset, a.u16[lane]);
 ```c
 #define __lsx_vsh(a, lane, offset, mem) ((void)__builtin_lsx_vsh((v8i16)(a), (lane), (offset), (mem)))
 ```
+
+<span id="intrinsic-__lsx_vsw"></span>
 
 ## void __lsx_vsw (__m128i a, unsigned char lane, int offset, const volatile void * mem)
 

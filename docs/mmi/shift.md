@@ -2,6 +2,8 @@
 
 Generated from `include/loongson-mmiintrin.h`. This page contains 12 intrinsics.
 
+<span id="intrinsic-psllh_s"></span>
+
 ## int16x4_t psllh_s (int16x4_t a, uint8_t amount)
 
 ### Synopsis
@@ -34,6 +36,8 @@ dst.u16[3] = a.u16[3] << amount;
 ```c
 return __builtin_loongson_psllh_s (a, amount);
 ```
+
+<span id="intrinsic-psllh_u"></span>
 
 ## uint16x4_t psllh_u (uint16x4_t a, uint8_t amount)
 
@@ -68,6 +72,8 @@ dst.u16[3] = a.u16[3] << amount;
 return __builtin_loongson_psllh_u (a, amount);
 ```
 
+<span id="intrinsic-psllw_s"></span>
+
 ## int32x2_t psllw_s (int32x2_t a, uint8_t amount)
 
 ### Synopsis
@@ -99,6 +105,8 @@ dst.u32[1] = a.u32[1] << amount;
 return __builtin_loongson_psllw_s (a, amount);
 ```
 
+<span id="intrinsic-psllw_u"></span>
+
 ## uint32x2_t psllw_u (uint32x2_t a, uint8_t amount)
 
 ### Synopsis
@@ -129,6 +137,8 @@ dst.u32[1] = a.u32[1] << amount;
 ```c
 return __builtin_loongson_psllw_u (a, amount);
 ```
+
+<span id="intrinsic-psrah_s"></span>
 
 ## int16x4_t psrah_s (int16x4_t a, uint8_t amount)
 
@@ -163,6 +173,8 @@ dst.i16[3] = arithmetic_shift_right(a.i16[3], amount);
 return __builtin_loongson_psrah_s (a, amount);
 ```
 
+<span id="intrinsic-psrah_u"></span>
+
 ## uint16x4_t psrah_u (uint16x4_t a, uint8_t amount)
 
 ### Synopsis
@@ -196,6 +208,8 @@ dst.i16[3] = arithmetic_shift_right(a.i16[3], amount);
 return __builtin_loongson_psrah_u (a, amount);
 ```
 
+<span id="intrinsic-psraw_s"></span>
+
 ## int32x2_t psraw_s (int32x2_t a, uint8_t amount)
 
 ### Synopsis
@@ -227,6 +241,8 @@ dst.i32[1] = arithmetic_shift_right(a.i32[1], amount);
 return __builtin_loongson_psraw_s (a, amount);
 ```
 
+<span id="intrinsic-psraw_u"></span>
+
 ## uint32x2_t psraw_u (uint32x2_t a, uint8_t amount)
 
 ### Synopsis
@@ -257,6 +273,8 @@ dst.i32[1] = arithmetic_shift_right(a.i32[1], amount);
 ```c
 return __builtin_loongson_psraw_u (a, amount);
 ```
+
+<span id="intrinsic-psrlh_s"></span>
 
 ## int16x4_t psrlh_s (int16x4_t a, uint8_t amount)
 
@@ -291,6 +309,8 @@ dst.u16[3] = logical_shift_right(a.u16[3], amount);
 return __builtin_loongson_psrlh_s (a, amount);
 ```
 
+<span id="intrinsic-psrlh_u"></span>
+
 ## uint16x4_t psrlh_u (uint16x4_t a, uint8_t amount)
 
 ### Synopsis
@@ -324,6 +344,8 @@ dst.u16[3] = logical_shift_right(a.u16[3], amount);
 return __builtin_loongson_psrlh_u (a, amount);
 ```
 
+<span id="intrinsic-psrlw_s"></span>
+
 ## int32x2_t psrlw_s (int32x2_t a, uint8_t amount)
 
 ### Synopsis
@@ -354,6 +376,8 @@ dst.u32[1] = logical_shift_right(a.u32[1], amount);
 ```c
 return __builtin_loongson_psrlw_s (a, amount);
 ```
+
+<span id="intrinsic-psrlw_u"></span>
 
 ## uint32x2_t psrlw_u (uint32x2_t a, uint8_t amount)
 

@@ -2,6 +2,8 @@
 
 Generated from `include/loongson-csr.h`. This page contains 16 intrinsics.
 
+<span id="intrinsic-__lcsr_cpucfg"></span>
+
 ## int __lcsr_cpucfg (int selector)
 
 ### Synopsis
@@ -31,6 +33,8 @@ return read_cpu_configuration(selector);
 ```c
 #define __lcsr_cpucfg __builtin_loongson_cpucfg
 ```
+
+<span id="intrinsic-__lcsr_drdcsr"></span>
 
 ## long __lcsr_drdcsr (long csr)
 
@@ -62,6 +66,8 @@ return read_loongson_csr(csr);
 #define __lcsr_drdcsr __builtin_loongson_drdcsr
 ```
 
+<span id="intrinsic-__lcsr_drdgcsr"></span>
+
 ## long __lcsr_drdgcsr (long csr)
 
 ### Synopsis
@@ -91,6 +97,8 @@ return read_loongson_guest_csr(csr);
 ```c
 #define __lcsr_drdgcsr __builtin_loongson_drdgcsr
 ```
+
+<span id="intrinsic-__lcsr_drdtime"></span>
 
 ## __drdtime_t __lcsr_drdtime (void)
 
@@ -122,6 +130,8 @@ return { .dvalue = read_64bit_time_counter(), .dtimeid = read_time_counter_id() 
 #define __lcsr_drdtime __builtin_loongson_drdtime
 ```
 
+<span id="intrinsic-__lcsr_dwrcsr"></span>
+
 ## void __lcsr_dwrcsr (long value, long csr)
 
 ### Synopsis
@@ -151,6 +161,8 @@ write_loongson_csr(csr, value);
 ```c
 #define __lcsr_dwrcsr __builtin_loongson_dwrcsr
 ```
+
+<span id="intrinsic-__lcsr_dwrgcsr"></span>
 
 ## void __lcsr_dwrgcsr (long value, long csr)
 
@@ -182,6 +194,8 @@ write_loongson_guest_csr(csr, value);
 #define __lcsr_dwrgcsr __builtin_loongson_dwrgcsr
 ```
 
+<span id="intrinsic-__lcsr_lddir"></span>
+
 ## long __lcsr_lddir (long base, unsigned char level)
 
 ### Synopsis
@@ -211,6 +225,8 @@ return load_tlb_directory_entry(base, level);
 ```c
 #define __lcsr_lddir __builtin_loongson_lddir
 ```
+
+<span id="intrinsic-__lcsr_ldpte"></span>
 
 ## long __lcsr_ldpte (unsigned char op)
 
@@ -242,6 +258,8 @@ return load_tlb_page_table_entry(op);
 #define __lcsr_ldpte __builtin_loongson_ldpte
 ```
 
+<span id="intrinsic-__lcsr_lwdir"></span>
+
 ## int __lcsr_lwdir (int base, unsigned char level)
 
 ### Synopsis
@@ -271,6 +289,8 @@ return load_tlb_directory_entry(base, level);
 ```c
 #define __lcsr_lwdir __builtin_loongson_lwdir
 ```
+
+<span id="intrinsic-__lcsr_lwpte"></span>
 
 ## int __lcsr_lwpte (unsigned char op)
 
@@ -302,6 +322,8 @@ return load_tlb_page_table_entry(op);
 #define __lcsr_lwpte __builtin_loongson_lwpte
 ```
 
+<span id="intrinsic-__lcsr_rdcsr"></span>
+
 ## int __lcsr_rdcsr (int csr)
 
 ### Synopsis
@@ -331,6 +353,8 @@ return read_loongson_csr(csr);
 ```c
 #define __lcsr_rdcsr __builtin_loongson_rdcsr
 ```
+
+<span id="intrinsic-__lcsr_rdgcsr"></span>
 
 ## int __lcsr_rdgcsr (int csr)
 
@@ -362,6 +386,8 @@ return read_loongson_guest_csr(csr);
 #define __lcsr_rdgcsr __builtin_loongson_rdgcsr
 ```
 
+<span id="intrinsic-__lcsr_rdtimeh"></span>
+
 ## __rdtime_t __lcsr_rdtimeh (void)
 
 ### Synopsis
@@ -391,6 +417,8 @@ return { .value = read_high_32_bits_of_time_counter(), .timeid = read_time_count
 ```c
 #define __lcsr_rdtimeh __builtin_loongson_rdtimeh
 ```
+
+<span id="intrinsic-__lcsr_rdtimel"></span>
 
 ## __rdtime_t __lcsr_rdtimel (void)
 
@@ -422,6 +450,8 @@ return { .value = read_low_32_bits_of_time_counter(), .timeid = read_time_counte
 #define __lcsr_rdtimel __builtin_loongson_rdtimel
 ```
 
+<span id="intrinsic-__lcsr_wrcsr"></span>
+
 ## void __lcsr_wrcsr (int value, int csr)
 
 ### Synopsis
@@ -451,6 +481,8 @@ write_loongson_csr(csr, value);
 ```c
 #define __lcsr_wrcsr __builtin_loongson_wrcsr
 ```
+
+<span id="intrinsic-__lcsr_wrgcsr"></span>
 
 ## void __lcsr_wrgcsr (int value, int csr)
 

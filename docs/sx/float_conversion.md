@@ -2,6 +2,8 @@
 
 Generated from `include/loongson-sxintrin.h`. This page contains 32 intrinsics.
 
+<span id="intrinsic-__lsx_vfceil_d"></span>
+
 ## __m128i __lsx_vfceil_d (__m128d a)
 
 ### Synopsis
@@ -29,21 +31,17 @@ dst.i64[1] = integer_convert(a.fp64[1], rounding=toward_positive_infinity);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfceil_d((v2f64)a);
 ```
+
+<span id="intrinsic-__lsx_vfceil_w"></span>
 
 ## __m128i __lsx_vfceil_w (__m128 a)
 
@@ -74,21 +72,17 @@ dst.i32[3] = integer_convert(a.fp32[3], rounding=toward_positive_infinity);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfceil_w((v4f32)a);
 ```
+
+<span id="intrinsic-__lsx_vfceildo_w"></span>
 
 ## __m128i __lsx_vfceildo_w (__m128d a, __m128d b)
 
@@ -119,21 +113,17 @@ dst.i32[3] = integer_convert(a.fp32[3], rounding=toward_positive_infinity);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfceildo_w((v2f64)a, (v2f64)b);
 ```
+
+<span id="intrinsic-__lsx_vfceilupl_d"></span>
 
 ## __m128i __lsx_vfceilupl_d (__m128 a)
 
@@ -162,21 +152,17 @@ dst.i64[1] = integer_convert(a.fp64[1], rounding=toward_positive_infinity);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfceilupl_d((v4f32)a);
 ```
+
+<span id="intrinsic-__lsx_vfceilupr_d"></span>
 
 ## __m128i __lsx_vfceilupr_d (__m128 a)
 
@@ -205,21 +191,17 @@ dst.i64[1] = integer_convert(a.fp64[1], rounding=toward_positive_infinity);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfceilupr_d((v4f32)a);
 ```
+
+<span id="intrinsic-__lsx_vffintdo_w"></span>
 
 ## __m128 __lsx_vffintdo_w (__m128i a, __m128i b)
 
@@ -250,21 +232,17 @@ dst.fp32[3] = float_convert(a.i32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128)__builtin_lsx_vffintdo_w((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__lsx_vffintupl_d"></span>
 
 ## __m128d __lsx_vffintupl_d (__m128i a)
 
@@ -293,21 +271,17 @@ dst.fp64[1] = float_convert(a.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128d)__builtin_lsx_vffintupl_d((v4i32)a);
 ```
+
+<span id="intrinsic-__lsx_vffintupr_d"></span>
 
 ## __m128d __lsx_vffintupr_d (__m128i a)
 
@@ -336,21 +310,17 @@ dst.fp64[1] = float_convert(a.i64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128d)__builtin_lsx_vffintupr_d((v4i32)a);
 ```
+
+<span id="intrinsic-__lsx_vffloor_d"></span>
 
 ## __m128i __lsx_vffloor_d (__m128d a)
 
@@ -379,21 +349,17 @@ dst.i64[1] = integer_convert(a.fp64[1], rounding=toward_negative_infinity);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vffloor_d((v2f64)a);
 ```
+
+<span id="intrinsic-__lsx_vffloor_w"></span>
 
 ## __m128i __lsx_vffloor_w (__m128 a)
 
@@ -424,21 +390,17 @@ dst.i32[3] = integer_convert(a.fp32[3], rounding=toward_negative_infinity);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vffloor_w((v4f32)a);
 ```
+
+<span id="intrinsic-__lsx_vffloordo_w"></span>
 
 ## __m128i __lsx_vffloordo_w (__m128d a, __m128d b)
 
@@ -469,21 +431,17 @@ dst.i32[3] = integer_convert(a.fp32[3], rounding=toward_negative_infinity);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vffloordo_w((v2f64)a, (v2f64)b);
 ```
+
+<span id="intrinsic-__lsx_vffloorupl_d"></span>
 
 ## __m128i __lsx_vffloorupl_d (__m128 a)
 
@@ -512,21 +470,17 @@ dst.i64[1] = integer_convert(a.fp64[1], rounding=toward_negative_infinity);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vffloorupl_d((v4f32)a);
 ```
+
+<span id="intrinsic-__lsx_vffloorupr_d"></span>
 
 ## __m128i __lsx_vffloorupr_d (__m128 a)
 
@@ -555,21 +509,17 @@ dst.i64[1] = integer_convert(a.fp64[1], rounding=toward_negative_infinity);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vffloorupr_d((v4f32)a);
 ```
+
+<span id="intrinsic-__lsx_vfrint_rm00_d"></span>
 
 ## __m128i __lsx_vfrint_rm00_d (__m128d a)
 
@@ -598,21 +548,17 @@ dst.fp64[1] = round_to_integral_float(a.fp64[1], rounding_mode_from_suffix);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfrint_rm00_d((v2f64)a);
 ```
+
+<span id="intrinsic-__lsx_vfrint_rm00_w"></span>
 
 ## __m128i __lsx_vfrint_rm00_w (__m128 a)
 
@@ -643,21 +589,17 @@ dst.fp32[3] = round_to_integral_float(a.fp32[3], rounding_mode_from_suffix);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfrint_rm00_w((v4f32)a);
 ```
+
+<span id="intrinsic-__lsx_vfrint_rm01_d"></span>
 
 ## __m128i __lsx_vfrint_rm01_d (__m128d a)
 
@@ -686,21 +628,17 @@ dst.fp64[1] = round_to_integral_float(a.fp64[1], rounding_mode_from_suffix);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfrint_rm01_d((v2f64)a);
 ```
+
+<span id="intrinsic-__lsx_vfrint_rm01_w"></span>
 
 ## __m128i __lsx_vfrint_rm01_w (__m128 a)
 
@@ -731,21 +669,17 @@ dst.fp32[3] = round_to_integral_float(a.fp32[3], rounding_mode_from_suffix);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfrint_rm01_w((v4f32)a);
 ```
+
+<span id="intrinsic-__lsx_vfrint_rm10_d"></span>
 
 ## __m128i __lsx_vfrint_rm10_d (__m128d a)
 
@@ -774,21 +708,17 @@ dst.fp64[1] = round_to_integral_float(a.fp64[1], rounding_mode_from_suffix);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfrint_rm10_d((v2f64)a);
 ```
+
+<span id="intrinsic-__lsx_vfrint_rm10_w"></span>
 
 ## __m128i __lsx_vfrint_rm10_w (__m128 a)
 
@@ -819,21 +749,17 @@ dst.fp32[3] = round_to_integral_float(a.fp32[3], rounding_mode_from_suffix);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfrint_rm10_w((v4f32)a);
 ```
+
+<span id="intrinsic-__lsx_vfrint_rm11_d"></span>
 
 ## __m128i __lsx_vfrint_rm11_d (__m128d a)
 
@@ -862,21 +788,17 @@ dst.fp64[1] = round_to_integral_float(a.fp64[1], rounding_mode_from_suffix);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfrint_rm11_d((v2f64)a);
 ```
+
+<span id="intrinsic-__lsx_vfrint_rm11_w"></span>
 
 ## __m128i __lsx_vfrint_rm11_w (__m128 a)
 
@@ -907,21 +829,17 @@ dst.fp32[3] = round_to_integral_float(a.fp32[3], rounding_mode_from_suffix);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfrint_rm11_w((v4f32)a);
 ```
+
+<span id="intrinsic-__lsx_vfround_d"></span>
 
 ## __m128i __lsx_vfround_d (__m128d a)
 
@@ -950,21 +868,17 @@ dst.i64[1] = integer_convert(a.fp64[1], rounding=nearest);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfround_d((v2f64)a);
 ```
+
+<span id="intrinsic-__lsx_vfround_w"></span>
 
 ## __m128i __lsx_vfround_w (__m128 a)
 
@@ -995,21 +909,17 @@ dst.i32[3] = integer_convert(a.fp32[3], rounding=nearest);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 2 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfround_w((v4f32)a);
 ```
+
+<span id="intrinsic-__lsx_vfrounddo_w"></span>
 
 ## __m128i __lsx_vfrounddo_w (__m128d a, __m128d b)
 
@@ -1040,21 +950,17 @@ dst.i32[3] = integer_convert(a.fp32[3], rounding=nearest);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfrounddo_w((v2f64)a, (v2f64)b);
 ```
+
+<span id="intrinsic-__lsx_vfroundupl_d"></span>
 
 ## __m128i __lsx_vfroundupl_d (__m128 a)
 
@@ -1083,21 +989,17 @@ dst.i64[1] = integer_convert(a.fp64[1], rounding=nearest);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfroundupl_d((v4f32)a);
 ```
+
+<span id="intrinsic-__lsx_vfroundupr_d"></span>
 
 ## __m128i __lsx_vfroundupr_d (__m128 a)
 
@@ -1126,21 +1028,17 @@ dst.i64[1] = integer_convert(a.fp64[1], rounding=nearest);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vfroundupr_d((v4f32)a);
 ```
+
+<span id="intrinsic-__lsx_vftintdo_w"></span>
 
 ## __m128i __lsx_vftintdo_w (__m128d a, __m128d b)
 
@@ -1171,21 +1069,17 @@ dst.i32[3] = integer_convert(a.fp32[3], rounding=current_rounding_mode);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vftintdo_w((v2f64)a, (v2f64)b);
 ```
+
+<span id="intrinsic-__lsx_vftintupl_d"></span>
 
 ## __m128i __lsx_vftintupl_d (__m128 a)
 
@@ -1214,21 +1108,17 @@ dst.i64[1] = integer_convert(a.fp64[1], rounding=current_rounding_mode);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vftintupl_d((v4f32)a);
 ```
+
+<span id="intrinsic-__lsx_vftintupr_d"></span>
 
 ## __m128i __lsx_vftintupr_d (__m128 a)
 
@@ -1257,21 +1147,17 @@ dst.i64[1] = integer_convert(a.fp64[1], rounding=current_rounding_mode);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vftintupr_d((v4f32)a);
 ```
+
+<span id="intrinsic-__lsx_vftruncdo_w"></span>
 
 ## __m128i __lsx_vftruncdo_w (__m128d a, __m128d b)
 
@@ -1302,21 +1188,17 @@ dst.i32[3] = integer_convert(a.fp32[3], rounding=toward_zero);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vftruncdo_w((v2f64)a, (v2f64)b);
 ```
+
+<span id="intrinsic-__lsx_vftruncupl_d"></span>
 
 ## __m128i __lsx_vftruncupl_d (__m128 a)
 
@@ -1345,21 +1227,17 @@ dst.i64[1] = integer_convert(a.fp64[1], rounding=toward_zero);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vftruncupl_d((v4f32)a);
 ```
+
+<span id="intrinsic-__lsx_vftruncupr_d"></span>
 
 ## __m128i __lsx_vftruncupr_d (__m128 a)
 
@@ -1388,15 +1266,9 @@ dst.i64[1] = integer_convert(a.fp64[1], rounding=toward_zero);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>5</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 5 | 1 |
 
 ### Header Mapping
 

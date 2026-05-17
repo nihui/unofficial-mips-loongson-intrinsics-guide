@@ -2,6 +2,8 @@
 
 Generated from `include/msa.h`. This page contains 52 intrinsics.
 
+<span id="intrinsic-__msa_bclr_b"></span>
+
 ## v16u8 __msa_bclr_b (v16u8 a, v16u8 b)
 
 ### Synopsis
@@ -47,6 +49,8 @@ dst.u8[15] = a.u8[15] & ~(1 << (b.u8[15] & 7));
 #define __msa_bclr_b __builtin_msa_bclr_b
 ```
 
+<span id="intrinsic-__msa_bclr_d"></span>
+
 ## v2u64 __msa_bclr_d (v2u64 a, v2u64 b)
 
 ### Synopsis
@@ -77,6 +81,8 @@ dst.u64[1] = a.u64[1] & ~(1 << (b.u64[1] & 63));
 ```c
 #define __msa_bclr_d __builtin_msa_bclr_d
 ```
+
+<span id="intrinsic-__msa_bclr_h"></span>
 
 ## v8u16 __msa_bclr_h (v8u16 a, v8u16 b)
 
@@ -115,6 +121,8 @@ dst.u16[7] = a.u16[7] & ~(1 << (b.u16[7] & 15));
 #define __msa_bclr_h __builtin_msa_bclr_h
 ```
 
+<span id="intrinsic-__msa_bclr_w"></span>
+
 ## v4u32 __msa_bclr_w (v4u32 a, v4u32 b)
 
 ### Synopsis
@@ -147,6 +155,8 @@ dst.u32[3] = a.u32[3] & ~(1 << (b.u32[3] & 31));
 ```c
 #define __msa_bclr_w __builtin_msa_bclr_w
 ```
+
+<span id="intrinsic-__msa_bclri_b"></span>
 
 ## v16u8 __msa_bclri_b (v16u8 a, int imm)
 
@@ -193,6 +203,8 @@ dst.u8[15] = a.u8[15] & ~(1 << (imm));
 #define __msa_bclri_b __builtin_msa_bclri_b
 ```
 
+<span id="intrinsic-__msa_bclri_d"></span>
+
 ## v2u64 __msa_bclri_d (v2u64 a, int imm)
 
 ### Synopsis
@@ -223,6 +235,8 @@ dst.u64[1] = a.u64[1] & ~(1 << (imm));
 ```c
 #define __msa_bclri_d __builtin_msa_bclri_d
 ```
+
+<span id="intrinsic-__msa_bclri_h"></span>
 
 ## v8u16 __msa_bclri_h (v8u16 a, int imm)
 
@@ -261,6 +275,8 @@ dst.u16[7] = a.u16[7] & ~(1 << (imm));
 #define __msa_bclri_h __builtin_msa_bclri_h
 ```
 
+<span id="intrinsic-__msa_bclri_w"></span>
+
 ## v4u32 __msa_bclri_w (v4u32 a, int imm)
 
 ### Synopsis
@@ -293,6 +309,8 @@ dst.u32[3] = a.u32[3] & ~(1 << (imm));
 ```c
 #define __msa_bclri_w __builtin_msa_bclri_w
 ```
+
+<span id="intrinsic-__msa_binsl_b"></span>
 
 ## v16u8 __msa_binsl_b (v16u8 a, v16u8 b, v16u8 c)
 
@@ -339,6 +357,8 @@ dst.u8[15] = insert_bits(a.u8[15], b.u8[15], most-significant_bits_mask(8, (b.u8
 #define __msa_binsl_b __builtin_msa_binsl_b
 ```
 
+<span id="intrinsic-__msa_binsl_d"></span>
+
 ## v2u64 __msa_binsl_d (v2u64 a, v2u64 b, v2u64 c)
 
 ### Synopsis
@@ -369,6 +389,8 @@ dst.u64[1] = insert_bits(a.u64[1], b.u64[1], most-significant_bits_mask(64, (b.u
 ```c
 #define __msa_binsl_d __builtin_msa_binsl_d
 ```
+
+<span id="intrinsic-__msa_binsl_h"></span>
 
 ## v8u16 __msa_binsl_h (v8u16 a, v8u16 b, v8u16 c)
 
@@ -407,6 +429,8 @@ dst.u16[7] = insert_bits(a.u16[7], b.u16[7], most-significant_bits_mask(16, (b.u
 #define __msa_binsl_h __builtin_msa_binsl_h
 ```
 
+<span id="intrinsic-__msa_binsl_w"></span>
+
 ## v4u32 __msa_binsl_w (v4u32 a, v4u32 b, v4u32 c)
 
 ### Synopsis
@@ -439,6 +463,8 @@ dst.u32[3] = insert_bits(a.u32[3], b.u32[3], most-significant_bits_mask(32, (b.u
 ```c
 #define __msa_binsl_w __builtin_msa_binsl_w
 ```
+
+<span id="intrinsic-__msa_binsli_b"></span>
 
 ## v16u8 __msa_binsli_b (v16u8 a, v16u8 b, int imm)
 
@@ -485,6 +511,8 @@ dst.u8[15] = insert_bits(a.u8[15], b.u8[15], most-significant_bits_mask(8, imm +
 #define __msa_binsli_b __builtin_msa_binsli_b
 ```
 
+<span id="intrinsic-__msa_binsli_d"></span>
+
 ## v2u64 __msa_binsli_d (v2u64 a, v2u64 b, int imm)
 
 ### Synopsis
@@ -515,6 +543,8 @@ dst.u64[1] = insert_bits(a.u64[1], b.u64[1], most-significant_bits_mask(64, imm 
 ```c
 #define __msa_binsli_d __builtin_msa_binsli_d
 ```
+
+<span id="intrinsic-__msa_binsli_h"></span>
 
 ## v8u16 __msa_binsli_h (v8u16 a, v8u16 b, int imm)
 
@@ -553,6 +583,8 @@ dst.u16[7] = insert_bits(a.u16[7], b.u16[7], most-significant_bits_mask(16, imm 
 #define __msa_binsli_h __builtin_msa_binsli_h
 ```
 
+<span id="intrinsic-__msa_binsli_w"></span>
+
 ## v4u32 __msa_binsli_w (v4u32 a, v4u32 b, int imm)
 
 ### Synopsis
@@ -585,6 +617,8 @@ dst.u32[3] = insert_bits(a.u32[3], b.u32[3], most-significant_bits_mask(32, imm 
 ```c
 #define __msa_binsli_w __builtin_msa_binsli_w
 ```
+
+<span id="intrinsic-__msa_binsr_b"></span>
 
 ## v16u8 __msa_binsr_b (v16u8 a, v16u8 b, v16u8 c)
 
@@ -631,6 +665,8 @@ dst.u8[15] = insert_bits(a.u8[15], b.u8[15], least-significant_bits_mask(8, (b.u
 #define __msa_binsr_b __builtin_msa_binsr_b
 ```
 
+<span id="intrinsic-__msa_binsr_d"></span>
+
 ## v2u64 __msa_binsr_d (v2u64 a, v2u64 b, v2u64 c)
 
 ### Synopsis
@@ -661,6 +697,8 @@ dst.u64[1] = insert_bits(a.u64[1], b.u64[1], least-significant_bits_mask(64, (b.
 ```c
 #define __msa_binsr_d __builtin_msa_binsr_d
 ```
+
+<span id="intrinsic-__msa_binsr_h"></span>
 
 ## v8u16 __msa_binsr_h (v8u16 a, v8u16 b, v8u16 c)
 
@@ -699,6 +737,8 @@ dst.u16[7] = insert_bits(a.u16[7], b.u16[7], least-significant_bits_mask(16, (b.
 #define __msa_binsr_h __builtin_msa_binsr_h
 ```
 
+<span id="intrinsic-__msa_binsr_w"></span>
+
 ## v4u32 __msa_binsr_w (v4u32 a, v4u32 b, v4u32 c)
 
 ### Synopsis
@@ -731,6 +771,8 @@ dst.u32[3] = insert_bits(a.u32[3], b.u32[3], least-significant_bits_mask(32, (b.
 ```c
 #define __msa_binsr_w __builtin_msa_binsr_w
 ```
+
+<span id="intrinsic-__msa_binsri_b"></span>
 
 ## v16u8 __msa_binsri_b (v16u8 a, v16u8 b, int imm)
 
@@ -777,6 +819,8 @@ dst.u8[15] = insert_bits(a.u8[15], b.u8[15], least-significant_bits_mask(8, imm 
 #define __msa_binsri_b __builtin_msa_binsri_b
 ```
 
+<span id="intrinsic-__msa_binsri_d"></span>
+
 ## v2u64 __msa_binsri_d (v2u64 a, v2u64 b, int imm)
 
 ### Synopsis
@@ -807,6 +851,8 @@ dst.u64[1] = insert_bits(a.u64[1], b.u64[1], least-significant_bits_mask(64, imm
 ```c
 #define __msa_binsri_d __builtin_msa_binsri_d
 ```
+
+<span id="intrinsic-__msa_binsri_h"></span>
 
 ## v8u16 __msa_binsri_h (v8u16 a, v8u16 b, int imm)
 
@@ -845,6 +891,8 @@ dst.u16[7] = insert_bits(a.u16[7], b.u16[7], least-significant_bits_mask(16, imm
 #define __msa_binsri_h __builtin_msa_binsri_h
 ```
 
+<span id="intrinsic-__msa_binsri_w"></span>
+
 ## v4u32 __msa_binsri_w (v4u32 a, v4u32 b, int imm)
 
 ### Synopsis
@@ -877,6 +925,8 @@ dst.u32[3] = insert_bits(a.u32[3], b.u32[3], least-significant_bits_mask(32, imm
 ```c
 #define __msa_binsri_w __builtin_msa_binsri_w
 ```
+
+<span id="intrinsic-__msa_bneg_b"></span>
 
 ## v16u8 __msa_bneg_b (v16u8 a, v16u8 b)
 
@@ -923,6 +973,8 @@ dst.u8[15] = a.u8[15] ^ (1 << (b.u8[15] & 7));
 #define __msa_bneg_b __builtin_msa_bneg_b
 ```
 
+<span id="intrinsic-__msa_bneg_d"></span>
+
 ## v2u64 __msa_bneg_d (v2u64 a, v2u64 b)
 
 ### Synopsis
@@ -953,6 +1005,8 @@ dst.u64[1] = a.u64[1] ^ (1 << (b.u64[1] & 63));
 ```c
 #define __msa_bneg_d __builtin_msa_bneg_d
 ```
+
+<span id="intrinsic-__msa_bneg_h"></span>
 
 ## v8u16 __msa_bneg_h (v8u16 a, v8u16 b)
 
@@ -991,6 +1045,8 @@ dst.u16[7] = a.u16[7] ^ (1 << (b.u16[7] & 15));
 #define __msa_bneg_h __builtin_msa_bneg_h
 ```
 
+<span id="intrinsic-__msa_bneg_w"></span>
+
 ## v4u32 __msa_bneg_w (v4u32 a, v4u32 b)
 
 ### Synopsis
@@ -1023,6 +1079,8 @@ dst.u32[3] = a.u32[3] ^ (1 << (b.u32[3] & 31));
 ```c
 #define __msa_bneg_w __builtin_msa_bneg_w
 ```
+
+<span id="intrinsic-__msa_bnegi_b"></span>
 
 ## v16u8 __msa_bnegi_b (v16u8 a, int imm)
 
@@ -1069,6 +1127,8 @@ dst.u8[15] = a.u8[15] ^ (1 << (imm));
 #define __msa_bnegi_b __builtin_msa_bnegi_b
 ```
 
+<span id="intrinsic-__msa_bnegi_d"></span>
+
 ## v2u64 __msa_bnegi_d (v2u64 a, int imm)
 
 ### Synopsis
@@ -1099,6 +1159,8 @@ dst.u64[1] = a.u64[1] ^ (1 << (imm));
 ```c
 #define __msa_bnegi_d __builtin_msa_bnegi_d
 ```
+
+<span id="intrinsic-__msa_bnegi_h"></span>
 
 ## v8u16 __msa_bnegi_h (v8u16 a, int imm)
 
@@ -1137,6 +1199,8 @@ dst.u16[7] = a.u16[7] ^ (1 << (imm));
 #define __msa_bnegi_h __builtin_msa_bnegi_h
 ```
 
+<span id="intrinsic-__msa_bnegi_w"></span>
+
 ## v4u32 __msa_bnegi_w (v4u32 a, int imm)
 
 ### Synopsis
@@ -1169,6 +1233,8 @@ dst.u32[3] = a.u32[3] ^ (1 << (imm));
 ```c
 #define __msa_bnegi_w __builtin_msa_bnegi_w
 ```
+
+<span id="intrinsic-__msa_bset_b"></span>
 
 ## v16u8 __msa_bset_b (v16u8 a, v16u8 b)
 
@@ -1215,6 +1281,8 @@ dst.u8[15] = a.u8[15] | (1 << (b.u8[15] & 7));
 #define __msa_bset_b __builtin_msa_bset_b
 ```
 
+<span id="intrinsic-__msa_bset_d"></span>
+
 ## v2u64 __msa_bset_d (v2u64 a, v2u64 b)
 
 ### Synopsis
@@ -1245,6 +1313,8 @@ dst.u64[1] = a.u64[1] | (1 << (b.u64[1] & 63));
 ```c
 #define __msa_bset_d __builtin_msa_bset_d
 ```
+
+<span id="intrinsic-__msa_bset_h"></span>
 
 ## v8u16 __msa_bset_h (v8u16 a, v8u16 b)
 
@@ -1283,6 +1353,8 @@ dst.u16[7] = a.u16[7] | (1 << (b.u16[7] & 15));
 #define __msa_bset_h __builtin_msa_bset_h
 ```
 
+<span id="intrinsic-__msa_bset_w"></span>
+
 ## v4u32 __msa_bset_w (v4u32 a, v4u32 b)
 
 ### Synopsis
@@ -1315,6 +1387,8 @@ dst.u32[3] = a.u32[3] | (1 << (b.u32[3] & 31));
 ```c
 #define __msa_bset_w __builtin_msa_bset_w
 ```
+
+<span id="intrinsic-__msa_bseti_b"></span>
 
 ## v16u8 __msa_bseti_b (v16u8 a, int imm)
 
@@ -1361,6 +1435,8 @@ dst.u8[15] = a.u8[15] | (1 << (imm));
 #define __msa_bseti_b __builtin_msa_bseti_b
 ```
 
+<span id="intrinsic-__msa_bseti_d"></span>
+
 ## v2u64 __msa_bseti_d (v2u64 a, int imm)
 
 ### Synopsis
@@ -1391,6 +1467,8 @@ dst.u64[1] = a.u64[1] | (1 << (imm));
 ```c
 #define __msa_bseti_d __builtin_msa_bseti_d
 ```
+
+<span id="intrinsic-__msa_bseti_h"></span>
 
 ## v8u16 __msa_bseti_h (v8u16 a, int imm)
 
@@ -1429,6 +1507,8 @@ dst.u16[7] = a.u16[7] | (1 << (imm));
 #define __msa_bseti_h __builtin_msa_bseti_h
 ```
 
+<span id="intrinsic-__msa_bseti_w"></span>
+
 ## v4u32 __msa_bseti_w (v4u32 a, int imm)
 
 ### Synopsis
@@ -1461,6 +1541,8 @@ dst.u32[3] = a.u32[3] | (1 << (imm));
 ```c
 #define __msa_bseti_w __builtin_msa_bseti_w
 ```
+
+<span id="intrinsic-__msa_nloc_b"></span>
 
 ## v16i8 __msa_nloc_b (v16i8 a)
 
@@ -1503,21 +1585,17 @@ dst.u8[15] = count_leading_ones(a.u8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_nloc_b __builtin_msa_nloc_b
 ```
+
+<span id="intrinsic-__msa_nloc_d"></span>
 
 ## v2i64 __msa_nloc_d (v2i64 a)
 
@@ -1546,21 +1624,17 @@ dst.u64[1] = count_leading_ones(a.u64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_nloc_d __builtin_msa_nloc_d
 ```
+
+<span id="intrinsic-__msa_nloc_h"></span>
 
 ## v8i16 __msa_nloc_h (v8i16 a)
 
@@ -1595,21 +1669,17 @@ dst.u16[7] = count_leading_ones(a.u16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_nloc_h __builtin_msa_nloc_h
 ```
+
+<span id="intrinsic-__msa_nloc_w"></span>
 
 ## v4i32 __msa_nloc_w (v4i32 a)
 
@@ -1640,21 +1710,17 @@ dst.u32[3] = count_leading_ones(a.u32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_nloc_w __builtin_msa_nloc_w
 ```
+
+<span id="intrinsic-__msa_nlzc_b"></span>
 
 ## v16i8 __msa_nlzc_b (v16i8 a)
 
@@ -1697,21 +1763,17 @@ dst.u8[15] = count_leading_zeros(a.u8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_nlzc_b __builtin_msa_nlzc_b
 ```
+
+<span id="intrinsic-__msa_nlzc_d"></span>
 
 ## v2i64 __msa_nlzc_d (v2i64 a)
 
@@ -1740,21 +1802,17 @@ dst.u64[1] = count_leading_zeros(a.u64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_nlzc_d __builtin_msa_nlzc_d
 ```
+
+<span id="intrinsic-__msa_nlzc_h"></span>
 
 ## v8i16 __msa_nlzc_h (v8i16 a)
 
@@ -1789,21 +1847,17 @@ dst.u16[7] = count_leading_zeros(a.u16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_nlzc_h __builtin_msa_nlzc_h
 ```
+
+<span id="intrinsic-__msa_nlzc_w"></span>
 
 ## v4i32 __msa_nlzc_w (v4i32 a)
 
@@ -1834,21 +1888,17 @@ dst.u32[3] = count_leading_zeros(a.u32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_nlzc_w __builtin_msa_nlzc_w
 ```
+
+<span id="intrinsic-__msa_pcnt_b"></span>
 
 ## v16i8 __msa_pcnt_b (v16i8 a)
 
@@ -1891,21 +1941,17 @@ dst.u8[15] = popcount(a.u8[15]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_pcnt_b __builtin_msa_pcnt_b
 ```
+
+<span id="intrinsic-__msa_pcnt_d"></span>
 
 ## v2i64 __msa_pcnt_d (v2i64 a)
 
@@ -1934,21 +1980,17 @@ dst.u64[1] = popcount(a.u64[1]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_pcnt_d __builtin_msa_pcnt_d
 ```
+
+<span id="intrinsic-__msa_pcnt_h"></span>
 
 ## v8i16 __msa_pcnt_h (v8i16 a)
 
@@ -1983,21 +2025,17 @@ dst.u16[7] = popcount(a.u16[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_pcnt_h __builtin_msa_pcnt_h
 ```
+
+<span id="intrinsic-__msa_pcnt_w"></span>
 
 ## v4i32 __msa_pcnt_w (v4i32 a)
 
@@ -2028,15 +2066,9 @@ dst.u32[3] = popcount(a.u32[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 

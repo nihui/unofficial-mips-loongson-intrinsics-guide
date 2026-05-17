@@ -2,6 +2,8 @@
 
 Generated from `include/loongson-mmiintrin.h`. This page contains 16 intrinsics.
 
+<span id="intrinsic-pcmpeqb_s"></span>
+
 ## int8x8_t pcmpeqb_s (int8x8_t a, int8x8_t b)
 
 ### Synopsis
@@ -35,21 +37,17 @@ dst.i8[7] = (a.i8[7] == b.i8[7]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return __builtin_loongson_pcmpeqb_s (a, b);
 ```
+
+<span id="intrinsic-pcmpeqb_u"></span>
 
 ## uint8x8_t pcmpeqb_u (uint8x8_t a, uint8x8_t b)
 
@@ -84,21 +82,17 @@ dst.u8[7] = (a.u8[7] == b.u8[7]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return __builtin_loongson_pcmpeqb_u (a, b);
 ```
+
+<span id="intrinsic-pcmpeqh_s"></span>
 
 ## int16x4_t pcmpeqh_s (int16x4_t a, int16x4_t b)
 
@@ -129,21 +123,17 @@ dst.i16[3] = (a.i16[3] == b.i16[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return __builtin_loongson_pcmpeqh_s (a, b);
 ```
+
+<span id="intrinsic-pcmpeqh_u"></span>
 
 ## uint16x4_t pcmpeqh_u (uint16x4_t a, uint16x4_t b)
 
@@ -174,21 +164,17 @@ dst.u16[3] = (a.u16[3] == b.u16[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return __builtin_loongson_pcmpeqh_u (a, b);
 ```
+
+<span id="intrinsic-pcmpeqw_s"></span>
 
 ## int32x2_t pcmpeqw_s (int32x2_t a, int32x2_t b)
 
@@ -217,21 +203,17 @@ dst.i32[1] = (a.i32[1] == b.i32[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return __builtin_loongson_pcmpeqw_s (a, b);
 ```
+
+<span id="intrinsic-pcmpeqw_u"></span>
 
 ## uint32x2_t pcmpeqw_u (uint32x2_t a, uint32x2_t b)
 
@@ -260,21 +242,17 @@ dst.u32[1] = (a.u32[1] == b.u32[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return __builtin_loongson_pcmpeqw_u (a, b);
 ```
+
+<span id="intrinsic-pcmpgtb_s"></span>
 
 ## int8x8_t pcmpgtb_s (int8x8_t a, int8x8_t b)
 
@@ -309,21 +287,17 @@ dst.i8[7] = (a.i8[7] > b.i8[7]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return __builtin_loongson_pcmpgtb_s (a, b);
 ```
+
+<span id="intrinsic-pcmpgtb_u"></span>
 
 ## uint8x8_t pcmpgtb_u (uint8x8_t a, uint8x8_t b)
 
@@ -358,21 +332,17 @@ dst.u8[7] = (a.u8[7] > b.u8[7]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return __builtin_loongson_pcmpgtb_u (a, b);
 ```
+
+<span id="intrinsic-pcmpgth_s"></span>
 
 ## int16x4_t pcmpgth_s (int16x4_t a, int16x4_t b)
 
@@ -403,21 +373,17 @@ dst.i16[3] = (a.i16[3] > b.i16[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return __builtin_loongson_pcmpgth_s (a, b);
 ```
+
+<span id="intrinsic-pcmpgth_u"></span>
 
 ## uint16x4_t pcmpgth_u (uint16x4_t a, uint16x4_t b)
 
@@ -448,21 +414,17 @@ dst.u16[3] = (a.u16[3] > b.u16[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return __builtin_loongson_pcmpgth_u (a, b);
 ```
+
+<span id="intrinsic-pcmpgtw_s"></span>
 
 ## int32x2_t pcmpgtw_s (int32x2_t a, int32x2_t b)
 
@@ -491,21 +453,17 @@ dst.i32[1] = (a.i32[1] > b.i32[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return __builtin_loongson_pcmpgtw_s (a, b);
 ```
+
+<span id="intrinsic-pcmpgtw_u"></span>
 
 ## uint32x2_t pcmpgtw_u (uint32x2_t a, uint32x2_t b)
 
@@ -534,21 +492,17 @@ dst.u32[1] = (a.u32[1] > b.u32[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return __builtin_loongson_pcmpgtw_u (a, b);
 ```
+
+<span id="intrinsic-pmaxsh"></span>
 
 ## int16x4_t pmaxsh (int16x4_t a, int16x4_t b)
 
@@ -579,21 +533,17 @@ dst.u16[3] = max(a.i16[3], b.i16[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return __builtin_loongson_pmaxsh (a, b);
 ```
+
+<span id="intrinsic-pmaxub"></span>
 
 ## uint8x8_t pmaxub (uint8x8_t a, uint8x8_t b)
 
@@ -628,21 +578,17 @@ dst.u8[7] = max(a.u8[7], b.u8[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return __builtin_loongson_pmaxub (a, b);
 ```
+
+<span id="intrinsic-pminsh"></span>
 
 ## int16x4_t pminsh (int16x4_t a, int16x4_t b)
 
@@ -673,21 +619,17 @@ dst.u16[3] = min(a.i16[3], b.i16[3]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 return __builtin_loongson_pminsh (a, b);
 ```
+
+<span id="intrinsic-pminub"></span>
 
 ## uint8x8_t pminub (uint8x8_t a, uint8x8_t b)
 
@@ -722,15 +664,9 @@ dst.u8[7] = min(a.u8[7], b.u8[7]);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 

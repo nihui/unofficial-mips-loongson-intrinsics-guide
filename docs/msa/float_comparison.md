@@ -2,6 +2,8 @@
 
 Generated from `include/msa.h`. This page contains 44 intrinsics.
 
+<span id="intrinsic-__msa_fcaf_d"></span>
+
 ## v2i64 __msa_fcaf_d (v2f64 a, v2f64 b)
 
 ### Synopsis
@@ -29,21 +31,17 @@ dst.mask[1] = fp_compare_af(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcaf_d __builtin_msa_fcaf_d
 ```
+
+<span id="intrinsic-__msa_fcaf_w"></span>
 
 ## v4i32 __msa_fcaf_w (v4f32 a, v4f32 b)
 
@@ -74,21 +72,17 @@ dst.mask[3] = fp_compare_af(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcaf_w __builtin_msa_fcaf_w
 ```
+
+<span id="intrinsic-__msa_fceq_d"></span>
 
 ## v2i64 __msa_fceq_d (v2f64 a, v2f64 b)
 
@@ -117,21 +111,17 @@ dst.mask[1] = fp_compare_eq(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fceq_d __builtin_msa_fceq_d
 ```
+
+<span id="intrinsic-__msa_fceq_w"></span>
 
 ## v4i32 __msa_fceq_w (v4f32 a, v4f32 b)
 
@@ -162,21 +152,17 @@ dst.mask[3] = fp_compare_eq(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fceq_w __builtin_msa_fceq_w
 ```
+
+<span id="intrinsic-__msa_fcle_d"></span>
 
 ## v2i64 __msa_fcle_d (v2f64 a, v2f64 b)
 
@@ -205,21 +191,17 @@ dst.mask[1] = fp_compare_le(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcle_d __builtin_msa_fcle_d
 ```
+
+<span id="intrinsic-__msa_fcle_w"></span>
 
 ## v4i32 __msa_fcle_w (v4f32 a, v4f32 b)
 
@@ -250,21 +232,17 @@ dst.mask[3] = fp_compare_le(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcle_w __builtin_msa_fcle_w
 ```
+
+<span id="intrinsic-__msa_fclt_d"></span>
 
 ## v2i64 __msa_fclt_d (v2f64 a, v2f64 b)
 
@@ -293,21 +271,17 @@ dst.mask[1] = fp_compare_lt(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fclt_d __builtin_msa_fclt_d
 ```
+
+<span id="intrinsic-__msa_fclt_w"></span>
 
 ## v4i32 __msa_fclt_w (v4f32 a, v4f32 b)
 
@@ -338,21 +312,17 @@ dst.mask[3] = fp_compare_lt(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fclt_w __builtin_msa_fclt_w
 ```
+
+<span id="intrinsic-__msa_fcne_d"></span>
 
 ## v2i64 __msa_fcne_d (v2f64 a, v2f64 b)
 
@@ -381,21 +351,17 @@ dst.mask[1] = fp_compare_ne(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcne_d __builtin_msa_fcne_d
 ```
+
+<span id="intrinsic-__msa_fcne_w"></span>
 
 ## v4i32 __msa_fcne_w (v4f32 a, v4f32 b)
 
@@ -426,21 +392,17 @@ dst.mask[3] = fp_compare_ne(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcne_w __builtin_msa_fcne_w
 ```
+
+<span id="intrinsic-__msa_fcor_d"></span>
 
 ## v2i64 __msa_fcor_d (v2f64 a, v2f64 b)
 
@@ -469,21 +431,17 @@ dst.mask[1] = fp_compare_or(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcor_d __builtin_msa_fcor_d
 ```
+
+<span id="intrinsic-__msa_fcor_w"></span>
 
 ## v4i32 __msa_fcor_w (v4f32 a, v4f32 b)
 
@@ -514,21 +472,17 @@ dst.mask[3] = fp_compare_or(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcor_w __builtin_msa_fcor_w
 ```
+
+<span id="intrinsic-__msa_fcueq_d"></span>
 
 ## v2i64 __msa_fcueq_d (v2f64 a, v2f64 b)
 
@@ -557,21 +511,17 @@ dst.mask[1] = fp_compare_ueq(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcueq_d __builtin_msa_fcueq_d
 ```
+
+<span id="intrinsic-__msa_fcueq_w"></span>
 
 ## v4i32 __msa_fcueq_w (v4f32 a, v4f32 b)
 
@@ -602,21 +552,17 @@ dst.mask[3] = fp_compare_ueq(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcueq_w __builtin_msa_fcueq_w
 ```
+
+<span id="intrinsic-__msa_fcule_d"></span>
 
 ## v2i64 __msa_fcule_d (v2f64 a, v2f64 b)
 
@@ -645,21 +591,17 @@ dst.mask[1] = fp_compare_ule(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcule_d __builtin_msa_fcule_d
 ```
+
+<span id="intrinsic-__msa_fcule_w"></span>
 
 ## v4i32 __msa_fcule_w (v4f32 a, v4f32 b)
 
@@ -690,21 +632,17 @@ dst.mask[3] = fp_compare_ule(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcule_w __builtin_msa_fcule_w
 ```
+
+<span id="intrinsic-__msa_fcult_d"></span>
 
 ## v2i64 __msa_fcult_d (v2f64 a, v2f64 b)
 
@@ -733,21 +671,17 @@ dst.mask[1] = fp_compare_ult(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcult_d __builtin_msa_fcult_d
 ```
+
+<span id="intrinsic-__msa_fcult_w"></span>
 
 ## v4i32 __msa_fcult_w (v4f32 a, v4f32 b)
 
@@ -778,21 +712,17 @@ dst.mask[3] = fp_compare_ult(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcult_w __builtin_msa_fcult_w
 ```
+
+<span id="intrinsic-__msa_fcun_d"></span>
 
 ## v2i64 __msa_fcun_d (v2f64 a, v2f64 b)
 
@@ -821,21 +751,17 @@ dst.mask[1] = fp_compare_un(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcun_d __builtin_msa_fcun_d
 ```
+
+<span id="intrinsic-__msa_fcun_w"></span>
 
 ## v4i32 __msa_fcun_w (v4f32 a, v4f32 b)
 
@@ -866,21 +792,17 @@ dst.mask[3] = fp_compare_un(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcun_w __builtin_msa_fcun_w
 ```
+
+<span id="intrinsic-__msa_fcune_d"></span>
 
 ## v2i64 __msa_fcune_d (v2f64 a, v2f64 b)
 
@@ -909,21 +831,17 @@ dst.mask[1] = fp_compare_une(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcune_d __builtin_msa_fcune_d
 ```
+
+<span id="intrinsic-__msa_fcune_w"></span>
 
 ## v4i32 __msa_fcune_w (v4f32 a, v4f32 b)
 
@@ -954,21 +872,17 @@ dst.mask[3] = fp_compare_une(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fcune_w __builtin_msa_fcune_w
 ```
+
+<span id="intrinsic-__msa_fsaf_d"></span>
 
 ## v2i64 __msa_fsaf_d (v2f64 a, v2f64 b)
 
@@ -997,21 +911,17 @@ dst.mask[1] = fp_compare_fsaf(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsaf_d __builtin_msa_fsaf_d
 ```
+
+<span id="intrinsic-__msa_fsaf_w"></span>
 
 ## v4i32 __msa_fsaf_w (v4f32 a, v4f32 b)
 
@@ -1042,21 +952,17 @@ dst.mask[3] = fp_compare_fsaf(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsaf_w __builtin_msa_fsaf_w
 ```
+
+<span id="intrinsic-__msa_fseq_d"></span>
 
 ## v2i64 __msa_fseq_d (v2f64 a, v2f64 b)
 
@@ -1085,21 +991,17 @@ dst.mask[1] = fp_compare_fseq(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fseq_d __builtin_msa_fseq_d
 ```
+
+<span id="intrinsic-__msa_fseq_w"></span>
 
 ## v4i32 __msa_fseq_w (v4f32 a, v4f32 b)
 
@@ -1130,21 +1032,17 @@ dst.mask[3] = fp_compare_fseq(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fseq_w __builtin_msa_fseq_w
 ```
+
+<span id="intrinsic-__msa_fsle_d"></span>
 
 ## v2i64 __msa_fsle_d (v2f64 a, v2f64 b)
 
@@ -1173,21 +1071,17 @@ dst.mask[1] = fp_compare_fsle(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsle_d __builtin_msa_fsle_d
 ```
+
+<span id="intrinsic-__msa_fsle_w"></span>
 
 ## v4i32 __msa_fsle_w (v4f32 a, v4f32 b)
 
@@ -1218,21 +1112,17 @@ dst.mask[3] = fp_compare_fsle(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsle_w __builtin_msa_fsle_w
 ```
+
+<span id="intrinsic-__msa_fslt_d"></span>
 
 ## v2i64 __msa_fslt_d (v2f64 a, v2f64 b)
 
@@ -1261,21 +1151,17 @@ dst.mask[1] = fp_compare_fslt(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fslt_d __builtin_msa_fslt_d
 ```
+
+<span id="intrinsic-__msa_fslt_w"></span>
 
 ## v4i32 __msa_fslt_w (v4f32 a, v4f32 b)
 
@@ -1306,21 +1192,17 @@ dst.mask[3] = fp_compare_fslt(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fslt_w __builtin_msa_fslt_w
 ```
+
+<span id="intrinsic-__msa_fsne_d"></span>
 
 ## v2i64 __msa_fsne_d (v2f64 a, v2f64 b)
 
@@ -1349,21 +1231,17 @@ dst.mask[1] = fp_compare_fsne(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsne_d __builtin_msa_fsne_d
 ```
+
+<span id="intrinsic-__msa_fsne_w"></span>
 
 ## v4i32 __msa_fsne_w (v4f32 a, v4f32 b)
 
@@ -1394,21 +1272,17 @@ dst.mask[3] = fp_compare_fsne(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsne_w __builtin_msa_fsne_w
 ```
+
+<span id="intrinsic-__msa_fsor_d"></span>
 
 ## v2i64 __msa_fsor_d (v2f64 a, v2f64 b)
 
@@ -1437,21 +1311,17 @@ dst.mask[1] = fp_compare_fsor(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsor_d __builtin_msa_fsor_d
 ```
+
+<span id="intrinsic-__msa_fsor_w"></span>
 
 ## v4i32 __msa_fsor_w (v4f32 a, v4f32 b)
 
@@ -1482,21 +1352,17 @@ dst.mask[3] = fp_compare_fsor(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsor_w __builtin_msa_fsor_w
 ```
+
+<span id="intrinsic-__msa_fsueq_d"></span>
 
 ## v2i64 __msa_fsueq_d (v2f64 a, v2f64 b)
 
@@ -1525,21 +1391,17 @@ dst.mask[1] = fp_compare_fsueq(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsueq_d __builtin_msa_fsueq_d
 ```
+
+<span id="intrinsic-__msa_fsueq_w"></span>
 
 ## v4i32 __msa_fsueq_w (v4f32 a, v4f32 b)
 
@@ -1570,21 +1432,17 @@ dst.mask[3] = fp_compare_fsueq(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsueq_w __builtin_msa_fsueq_w
 ```
+
+<span id="intrinsic-__msa_fsule_d"></span>
 
 ## v2i64 __msa_fsule_d (v2f64 a, v2f64 b)
 
@@ -1613,21 +1471,17 @@ dst.mask[1] = fp_compare_fsule(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsule_d __builtin_msa_fsule_d
 ```
+
+<span id="intrinsic-__msa_fsule_w"></span>
 
 ## v4i32 __msa_fsule_w (v4f32 a, v4f32 b)
 
@@ -1658,21 +1512,17 @@ dst.mask[3] = fp_compare_fsule(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsule_w __builtin_msa_fsule_w
 ```
+
+<span id="intrinsic-__msa_fsult_d"></span>
 
 ## v2i64 __msa_fsult_d (v2f64 a, v2f64 b)
 
@@ -1701,21 +1551,17 @@ dst.mask[1] = fp_compare_fsult(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsult_d __builtin_msa_fsult_d
 ```
+
+<span id="intrinsic-__msa_fsult_w"></span>
 
 ## v4i32 __msa_fsult_w (v4f32 a, v4f32 b)
 
@@ -1746,21 +1592,17 @@ dst.mask[3] = fp_compare_fsult(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsult_w __builtin_msa_fsult_w
 ```
+
+<span id="intrinsic-__msa_fsun_d"></span>
 
 ## v2i64 __msa_fsun_d (v2f64 a, v2f64 b)
 
@@ -1789,21 +1631,17 @@ dst.mask[1] = fp_compare_fsun(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsun_d __builtin_msa_fsun_d
 ```
+
+<span id="intrinsic-__msa_fsun_w"></span>
 
 ## v4i32 __msa_fsun_w (v4f32 a, v4f32 b)
 
@@ -1834,21 +1672,17 @@ dst.mask[3] = fp_compare_fsun(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsun_w __builtin_msa_fsun_w
 ```
+
+<span id="intrinsic-__msa_fsune_d"></span>
 
 ## v2i64 __msa_fsune_d (v2f64 a, v2f64 b)
 
@@ -1877,21 +1711,17 @@ dst.mask[1] = fp_compare_fsune(a.fp64[1], b.fp64[1]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __msa_fsune_d __builtin_msa_fsune_d
 ```
+
+<span id="intrinsic-__msa_fsune_w"></span>
 
 ## v4i32 __msa_fsune_w (v4f32 a, v4f32 b)
 
@@ -1922,15 +1752,9 @@ dst.mask[3] = fp_compare_fsune(a.fp32[3], b.fp32[3]) ? all_ones : 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 2 |
 
 ### Header Mapping
 

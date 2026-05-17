@@ -378,6 +378,14 @@ def html_escape(value: object) -> str:
     return html.escape(str(value), quote=True)
 
 
+def intrinsic_anchor(entry: Intrinsic) -> str:
+    return f"intrinsic-{entry.name}"
+
+
+def latency_intrinsic_href(entry: Intrinsic) -> str:
+    return f"../{entry.extension.key}/{entry.category}/#{intrinsic_anchor(entry)}"
+
+
 CSR_BUILTIN_PROTOTYPES = {
     "__builtin_loongson_cpucfg": ("int", "int selector"),
     "__builtin_loongson_rdcsr": ("int", "int csr"),
@@ -2750,29 +2758,17 @@ def render_latency_throughput(entry: Intrinsic) -> str:
     rows = LATENCY_THROUGHPUT_ROWS.get(entry.name, [])
     if not rows:
         return ""
-    columns = latency_cpu_columns()
-    row_by_cpu = {(row.get("cpu", ""), row.get("uarch", "")): row for row in rows}
     lines = [
         "### Latency and Throughput\n\n",
-        "<table>\n",
-        "<thead>\n",
-        "<tr>",
+        "| CPU | µarch | Latency | Throughput (IPC) |\n",
+        "|-----|-------|---------|------------------|\n",
     ]
-    for cpu, uarch in columns:
-        lines.append(f'<th colspan="2">{html_escape(latency_cpu_label(cpu, uarch))}</th>')
-    lines.extend(["</tr>\n", "<tr>"])
-    for _cpu, _uarch in columns:
-        lines.append("<th>Latency</th><th>Throughput (IPC)</th>")
-    lines.extend(["</tr>\n", "</thead>\n", "<tbody>\n", "<tr>"])
-    for cpu, uarch in columns:
-        row = row_by_cpu.get((cpu, uarch), {})
-        title = row.get("notes", "")
-        title_attr = f' title="{html_escape(title)}"' if title else ""
+    for row in rows:
         lines.append(
-            f"<td{title_attr}>{html_escape(row.get('latency', ''))}</td>"
-            f"<td{title_attr}>{html_escape(row.get('throughput(ipc)', ''))}</td>"
+            f"| {html_escape(row.get('cpu', ''))} | {html_escape(row.get('uarch', ''))} | "
+            f"{html_escape(row.get('latency', ''))} | {html_escape(row.get('throughput(ipc)', ''))} |\n"
         )
-    lines.extend(["</tr>\n", "</tbody>\n", "</table>\n\n"])
+    lines.append("\n")
     notes = [
         f"{latency_cpu_label(row.get('cpu', ''), row.get('uarch', ''))}: {row.get('notes', '')}"
         for row in rows
@@ -2788,7 +2784,9 @@ def render_intrinsic(entry: Intrinsic) -> str:
     source = f"{entry.extension.header}:{entry.source_line}"
     signature = display_signature(entry)
     latency_throughput = render_latency_throughput(entry)
-    return f"""## {signature}
+    return f"""<span id="{html_escape(intrinsic_anchor(entry))}"></span>
+
+## {signature}
 
 ### Synopsis
 
@@ -2879,6 +2877,7 @@ def write_latency_throughput(all_entries: dict[str, list[Intrinsic]]) -> None:
     )
     for cpu, uarch in columns:
         lines.append(f'<th colspan="2">{html_escape(latency_cpu_label(cpu, uarch))}</th>')
+    lines.append('<th rowspan="2">Notes</th>')
     lines.extend(["</tr>\n", "<tr>"])
     for _cpu, _uarch in columns:
         lines.append("<th>Latency</th><th>Throughput (IPC)</th>")
@@ -2889,7 +2888,7 @@ def write_latency_throughput(all_entries: dict[str, list[Intrinsic]]) -> None:
         entry = entry_by_name.get(name)
         label = name
         if entry:
-            label = f'<a href="{entry.extension.key}/{entry.category}.md">{html_escape(name)}</a>'
+            label = f'<a href="{html_escape(latency_intrinsic_href(entry))}">{html_escape(name)}</a>'
         else:
             label = html_escape(label)
         lines.append(
@@ -2898,12 +2897,16 @@ def write_latency_throughput(all_entries: dict[str, list[Intrinsic]]) -> None:
         )
         for cpu, uarch in columns:
             row = row_by_cpu.get((cpu, uarch), {})
-            title = row.get("notes", "")
-            title_attr = f' title="{html_escape(title)}"' if title else ""
             lines.append(
-                f"<td{title_attr}>{html_escape(row.get('latency', ''))}</td>"
-                f"<td{title_attr}>{html_escape(row.get('throughput(ipc)', ''))}</td>"
+                f"<td>{html_escape(row.get('latency', ''))}</td>"
+                f"<td>{html_escape(row.get('throughput(ipc)', ''))}</td>"
             )
+        notes = [
+            f"{latency_cpu_label(row.get('cpu', ''), row.get('uarch', ''))}: {row.get('notes', '')}"
+            for row in grouped[name]
+            if row.get("notes")
+        ]
+        lines.append(f"<td>{html_escape('; '.join(notes))}</td>")
         lines.append("</tr>\n")
     lines.extend(["</tbody>\n", "</table>\n"])
     (ROOT / "docs" / "latency_throughput.md").write_text("".join(lines))

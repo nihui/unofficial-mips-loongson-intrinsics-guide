@@ -2,6 +2,8 @@
 
 Generated from `include/msa2.h`. This page contains 1 intrinsic.
 
+<span id="intrinsic-__msa2_bsel"></span>
+
 ## __m128i __msa2_bsel (__m128i a, __m128i b, __m128i c)
 
 ### Synopsis

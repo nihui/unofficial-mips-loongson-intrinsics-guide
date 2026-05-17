@@ -2,6 +2,8 @@
 
 Generated from `include/msa.h`. This page contains 10 intrinsics.
 
+<span id="intrinsic-__msa_test_bnz_b"></span>
+
 ## int __msa_test_bnz_b (v16u8 a)
 
 ### Synopsis
@@ -31,6 +33,8 @@ return all_u8_lanes(a, != 0);
 ```c
 #define __msa_test_bnz_b __builtin_msa_bnz_b
 ```
+
+<span id="intrinsic-__msa_test_bnz_d"></span>
 
 ## int __msa_test_bnz_d (v2u64 a)
 
@@ -62,6 +66,8 @@ return all_u64_lanes(a, != 0);
 #define __msa_test_bnz_d __builtin_msa_bnz_d
 ```
 
+<span id="intrinsic-__msa_test_bnz_h"></span>
+
 ## int __msa_test_bnz_h (v8u16 a)
 
 ### Synopsis
@@ -91,6 +97,8 @@ return all_u16_lanes(a, != 0);
 ```c
 #define __msa_test_bnz_h __builtin_msa_bnz_h
 ```
+
+<span id="intrinsic-__msa_test_bnz_v"></span>
 
 ## int __msa_test_bnz_v (v16u8 a)
 
@@ -122,6 +130,8 @@ return any_u8_lane(a, != 0);
 #define __msa_test_bnz_v __builtin_msa_bnz_v
 ```
 
+<span id="intrinsic-__msa_test_bnz_w"></span>
+
 ## int __msa_test_bnz_w (v4u32 a)
 
 ### Synopsis
@@ -151,6 +161,8 @@ return all_u32_lanes(a, != 0);
 ```c
 #define __msa_test_bnz_w __builtin_msa_bnz_w
 ```
+
+<span id="intrinsic-__msa_test_bz_b"></span>
 
 ## int __msa_test_bz_b (v16u8 a)
 
@@ -182,6 +194,8 @@ return any_u8_lane(a, == 0);
 #define __msa_test_bz_b __builtin_msa_bz_b
 ```
 
+<span id="intrinsic-__msa_test_bz_d"></span>
+
 ## int __msa_test_bz_d (v2u64 a)
 
 ### Synopsis
@@ -211,6 +225,8 @@ return any_u64_lane(a, == 0);
 ```c
 #define __msa_test_bz_d __builtin_msa_bz_d
 ```
+
+<span id="intrinsic-__msa_test_bz_h"></span>
 
 ## int __msa_test_bz_h (v8u16 a)
 
@@ -242,6 +258,8 @@ return any_u16_lane(a, == 0);
 #define __msa_test_bz_h __builtin_msa_bz_h
 ```
 
+<span id="intrinsic-__msa_test_bz_v"></span>
+
 ## int __msa_test_bz_v (v16u8 a)
 
 ### Synopsis
@@ -271,6 +289,8 @@ return all_u8_lanes(a, == 0);
 ```c
 #define __msa_test_bz_v __builtin_msa_bz_v
 ```
+
+<span id="intrinsic-__msa_test_bz_w"></span>
 
 ## int __msa_test_bz_w (v4u32 a)
 

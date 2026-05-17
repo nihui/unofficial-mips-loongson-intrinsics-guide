@@ -2,6 +2,8 @@
 
 Generated from `include/loongson-sxintrin.h`. This page contains 68 intrinsics.
 
+<span id="intrinsic-__lsx_vbsll_v"></span>
+
 ## __m128i __lsx_vbsll_v (__m128i a, unsigned char imm)
 
 ### Synopsis
@@ -28,21 +30,17 @@ dst.u8 = u8_shift_left(a.u8, imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vbsll_v(a, imm) ((__m128i)__builtin_lsx_vbsll_v((v16i8)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vbsrl_v"></span>
 
 ## __m128i __lsx_vbsrl_v (__m128i a, unsigned char imm)
 
@@ -70,21 +68,17 @@ dst.u8 = u8_shift_right(a.u8, imm);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vbsrl_v(a, imm) ((__m128i)__builtin_lsx_vbsrl_v((v16i8)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsllix_s_d"></span>
 
 ## __m128i __lsx_vsllix_s_d (__m128i a, unsigned char imm)
 
@@ -113,21 +107,17 @@ dst.i64[1] = extend(a.i32[1] << imm, 32, 64);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsllix_s_d(a, imm) ((__m128i)__builtin_lsx_vsllix_s_d((v4i32)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsllix_s_h"></span>
 
 ## __m128i __lsx_vsllix_s_h (__m128i a, unsigned char imm)
 
@@ -162,21 +152,17 @@ dst.i16[7] = extend(a.i8[7] << imm, 8, 16);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsllix_s_h(a, imm) ((__m128i)__builtin_lsx_vsllix_s_h((v16i8)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsllix_s_w"></span>
 
 ## __m128i __lsx_vsllix_s_w (__m128i a, unsigned char imm)
 
@@ -207,21 +193,17 @@ dst.i32[3] = extend(a.i16[3] << imm, 16, 32);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsllix_s_w(a, imm) ((__m128i)__builtin_lsx_vsllix_s_w((v8i16)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsllix_u_d"></span>
 
 ## __m128i __lsx_vsllix_u_d (__m128i a, unsigned char imm)
 
@@ -250,21 +232,17 @@ dst.u64[1] = extend(a.u32[1] << imm, 32, 64);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsllix_u_d(a, imm) ((__m128i)__builtin_lsx_vsllix_u_d((v4u32)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsllix_u_h"></span>
 
 ## __m128i __lsx_vsllix_u_h (__m128i a, unsigned char imm)
 
@@ -299,21 +277,17 @@ dst.u16[7] = extend(a.u8[7] << imm, 8, 16);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsllix_u_h(a, imm) ((__m128i)__builtin_lsx_vsllix_u_h((v16u8)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsllix_u_w"></span>
 
 ## __m128i __lsx_vsllix_u_w (__m128i a, unsigned char imm)
 
@@ -344,21 +318,17 @@ dst.u32[3] = extend(a.u16[3] << imm, 16, 32);
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsllix_u_w(a, imm) ((__m128i)__builtin_lsx_vsllix_u_w((v8u16)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrain_b"></span>
 
 ## __m128i __lsx_vsrain_b (__m128i a, unsigned char imm)
 
@@ -401,21 +371,17 @@ dst.i8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrain_b(a, imm) ((__m128i)__builtin_lsx_vsrain_b((v8i16)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrain_h"></span>
 
 ## __m128i __lsx_vsrain_h (__m128i a, unsigned char imm)
 
@@ -450,21 +416,17 @@ dst.i16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrain_h(a, imm) ((__m128i)__builtin_lsx_vsrain_h((v4i32)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrain_w"></span>
 
 ## __m128i __lsx_vsrain_w (__m128i a, unsigned char imm)
 
@@ -495,21 +457,17 @@ dst.i32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrain_w(a, imm) ((__m128i)__builtin_lsx_vsrain_w((v2i64)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrains_s_b"></span>
 
 ## __m128i __lsx_vsrains_s_b (__m128i a, unsigned char imm)
 
@@ -552,21 +510,17 @@ dst.i8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrains_s_b(a, imm) ((__m128i)__builtin_lsx_vsrains_s_b((v8i16)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrains_s_h"></span>
 
 ## __m128i __lsx_vsrains_s_h (__m128i a, unsigned char imm)
 
@@ -601,21 +555,17 @@ dst.i16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrains_s_h(a, imm) ((__m128i)__builtin_lsx_vsrains_s_h((v4i32)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrains_s_w"></span>
 
 ## __m128i __lsx_vsrains_s_w (__m128i a, unsigned char imm)
 
@@ -646,21 +596,17 @@ dst.i32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrains_s_w(a, imm) ((__m128i)__builtin_lsx_vsrains_s_w((v2i64)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrains_u_b"></span>
 
 ## __m128i __lsx_vsrains_u_b (__m128i a, unsigned char imm)
 
@@ -703,21 +649,17 @@ dst.u8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrains_u_b(a, imm) ((__m128i)__builtin_lsx_vsrains_u_b((v8u16)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrains_u_h"></span>
 
 ## __m128i __lsx_vsrains_u_h (__m128i a, unsigned char imm)
 
@@ -752,21 +694,17 @@ dst.u16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrains_u_h(a, imm) ((__m128i)__builtin_lsx_vsrains_u_h((v4u32)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrains_u_w"></span>
 
 ## __m128i __lsx_vsrains_u_w (__m128i a, unsigned char imm)
 
@@ -797,21 +735,17 @@ dst.u32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrains_u_w(a, imm) ((__m128i)__builtin_lsx_vsrains_u_w((v2u64)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsran_b"></span>
 
 ## __m128i __lsx_vsran_b (__m128i a, __m128i b)
 
@@ -854,21 +788,17 @@ dst.i8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsran_b((v8i16)a, (v8i16)b);
 ```
+
+<span id="intrinsic-__lsx_vsran_h"></span>
 
 ## __m128i __lsx_vsran_h (__m128i a, __m128i b)
 
@@ -903,21 +833,17 @@ dst.i16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsran_h((v4i32)a, (v4i32)b);
 ```
+
+<span id="intrinsic-__lsx_vsran_w"></span>
 
 ## __m128i __lsx_vsran_w (__m128i a, __m128i b)
 
@@ -948,21 +874,17 @@ dst.i32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsran_w((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__lsx_vsrans_s_b"></span>
 
 ## __m128i __lsx_vsrans_s_b (__m128i a, __m128i b)
 
@@ -1005,21 +927,17 @@ dst.i8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrans_s_b((v8i16)a, (v8i16)b);
 ```
+
+<span id="intrinsic-__lsx_vsrans_s_h"></span>
 
 ## __m128i __lsx_vsrans_s_h (__m128i a, __m128i b)
 
@@ -1054,21 +972,17 @@ dst.i16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrans_s_h((v4i32)a, (v4i32)b);
 ```
+
+<span id="intrinsic-__lsx_vsrans_s_w"></span>
 
 ## __m128i __lsx_vsrans_s_w (__m128i a, __m128i b)
 
@@ -1099,21 +1013,17 @@ dst.i32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrans_s_w((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__lsx_vsrans_u_b"></span>
 
 ## __m128i __lsx_vsrans_u_b (__m128i a, __m128i b)
 
@@ -1156,21 +1066,17 @@ dst.u8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrans_u_b((v8u16)a, (v8u16)b);
 ```
+
+<span id="intrinsic-__lsx_vsrans_u_h"></span>
 
 ## __m128i __lsx_vsrans_u_h (__m128i a, __m128i b)
 
@@ -1205,21 +1111,17 @@ dst.u16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrans_u_h((v4u32)a, (v4u32)b);
 ```
+
+<span id="intrinsic-__lsx_vsrans_u_w"></span>
 
 ## __m128i __lsx_vsrans_u_w (__m128i a, __m128i b)
 
@@ -1250,21 +1152,17 @@ dst.u32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrans_u_w((v2u64)a, (v2u64)b);
 ```
+
+<span id="intrinsic-__lsx_vsrarin_b"></span>
 
 ## __m128i __lsx_vsrarin_b (__m128i a, unsigned char imm)
 
@@ -1307,21 +1205,17 @@ dst.i8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrarin_b(a, imm) ((__m128i)__builtin_lsx_vsrarin_b((v8i16)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrarin_h"></span>
 
 ## __m128i __lsx_vsrarin_h (__m128i a, unsigned char imm)
 
@@ -1356,21 +1250,17 @@ dst.i16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrarin_h(a, imm) ((__m128i)__builtin_lsx_vsrarin_h((v4i32)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrarin_w"></span>
 
 ## __m128i __lsx_vsrarin_w (__m128i a, unsigned char imm)
 
@@ -1401,21 +1291,17 @@ dst.i32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrarin_w(a, imm) ((__m128i)__builtin_lsx_vsrarin_w((v2i64)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrarins_s_b"></span>
 
 ## __m128i __lsx_vsrarins_s_b (__m128i a, unsigned char imm)
 
@@ -1458,21 +1344,17 @@ dst.i8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrarins_s_b(a, imm) ((__m128i)__builtin_lsx_vsrarins_s_b((v8i16)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrarins_s_h"></span>
 
 ## __m128i __lsx_vsrarins_s_h (__m128i a, unsigned char imm)
 
@@ -1507,21 +1389,17 @@ dst.i16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrarins_s_h(a, imm) ((__m128i)__builtin_lsx_vsrarins_s_h((v4i32)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrarins_s_w"></span>
 
 ## __m128i __lsx_vsrarins_s_w (__m128i a, unsigned char imm)
 
@@ -1552,21 +1430,17 @@ dst.i32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrarins_s_w(a, imm) ((__m128i)__builtin_lsx_vsrarins_s_w((v2i64)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrarins_u_b"></span>
 
 ## __m128i __lsx_vsrarins_u_b (__m128i a, unsigned char imm)
 
@@ -1609,21 +1483,17 @@ dst.u8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrarins_u_b(a, imm) ((__m128i)__builtin_lsx_vsrarins_u_b((v8u16)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrarins_u_h"></span>
 
 ## __m128i __lsx_vsrarins_u_h (__m128i a, unsigned char imm)
 
@@ -1658,21 +1528,17 @@ dst.u16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrarins_u_h(a, imm) ((__m128i)__builtin_lsx_vsrarins_u_h((v4u32)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrarins_u_w"></span>
 
 ## __m128i __lsx_vsrarins_u_w (__m128i a, unsigned char imm)
 
@@ -1703,21 +1569,17 @@ dst.u32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrarins_u_w(a, imm) ((__m128i)__builtin_lsx_vsrarins_u_w((v2u64)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrarn_b"></span>
 
 ## __m128i __lsx_vsrarn_b (__m128i a, __m128i b)
 
@@ -1760,21 +1622,17 @@ dst.i8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrarn_b((v8i16)a, (v8i16)b);
 ```
+
+<span id="intrinsic-__lsx_vsrarn_h"></span>
 
 ## __m128i __lsx_vsrarn_h (__m128i a, __m128i b)
 
@@ -1809,21 +1667,17 @@ dst.i16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrarn_h((v4i32)a, (v4i32)b);
 ```
+
+<span id="intrinsic-__lsx_vsrarn_w"></span>
 
 ## __m128i __lsx_vsrarn_w (__m128i a, __m128i b)
 
@@ -1854,21 +1708,17 @@ dst.i32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrarn_w((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__lsx_vsrarns_s_b"></span>
 
 ## __m128i __lsx_vsrarns_s_b (__m128i a, __m128i b)
 
@@ -1911,21 +1761,17 @@ dst.i8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrarns_s_b((v8i16)a, (v8i16)b);
 ```
+
+<span id="intrinsic-__lsx_vsrarns_s_h"></span>
 
 ## __m128i __lsx_vsrarns_s_h (__m128i a, __m128i b)
 
@@ -1960,21 +1806,17 @@ dst.i16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrarns_s_h((v4i32)a, (v4i32)b);
 ```
+
+<span id="intrinsic-__lsx_vsrarns_s_w"></span>
 
 ## __m128i __lsx_vsrarns_s_w (__m128i a, __m128i b)
 
@@ -2005,21 +1847,17 @@ dst.i32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrarns_s_w((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__lsx_vsrarns_u_b"></span>
 
 ## __m128i __lsx_vsrarns_u_b (__m128i a, __m128i b)
 
@@ -2062,21 +1900,17 @@ dst.u8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrarns_u_b((v8u16)a, (v8u16)b);
 ```
+
+<span id="intrinsic-__lsx_vsrarns_u_h"></span>
 
 ## __m128i __lsx_vsrarns_u_h (__m128i a, __m128i b)
 
@@ -2111,21 +1945,17 @@ dst.u16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrarns_u_h((v4u32)a, (v4u32)b);
 ```
+
+<span id="intrinsic-__lsx_vsrarns_u_w"></span>
 
 ## __m128i __lsx_vsrarns_u_w (__m128i a, __m128i b)
 
@@ -2156,21 +1986,17 @@ dst.u32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrarns_u_w((v2u64)a, (v2u64)b);
 ```
+
+<span id="intrinsic-__lsx_vsrlin_b"></span>
 
 ## __m128i __lsx_vsrlin_b (__m128i a, unsigned char imm)
 
@@ -2213,21 +2039,17 @@ dst.u8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrlin_b(a, imm) ((__m128i)__builtin_lsx_vsrlin_b((v8i16)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrlin_h"></span>
 
 ## __m128i __lsx_vsrlin_h (__m128i a, unsigned char imm)
 
@@ -2262,21 +2084,17 @@ dst.u16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrlin_h(a, imm) ((__m128i)__builtin_lsx_vsrlin_h((v4i32)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrlin_w"></span>
 
 ## __m128i __lsx_vsrlin_w (__m128i a, unsigned char imm)
 
@@ -2307,21 +2125,17 @@ dst.u32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrlin_w(a, imm) ((__m128i)__builtin_lsx_vsrlin_w((v2i64)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrlins_u_b"></span>
 
 ## __m128i __lsx_vsrlins_u_b (__m128i a, unsigned char imm)
 
@@ -2364,21 +2178,17 @@ dst.u8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrlins_u_b(a, imm) ((__m128i)__builtin_lsx_vsrlins_u_b((v8u16)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrlins_u_h"></span>
 
 ## __m128i __lsx_vsrlins_u_h (__m128i a, unsigned char imm)
 
@@ -2413,21 +2223,17 @@ dst.u16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrlins_u_h(a, imm) ((__m128i)__builtin_lsx_vsrlins_u_h((v4u32)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrlins_u_w"></span>
 
 ## __m128i __lsx_vsrlins_u_w (__m128i a, unsigned char imm)
 
@@ -2458,21 +2264,17 @@ dst.u32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrlins_u_w(a, imm) ((__m128i)__builtin_lsx_vsrlins_u_w((v2u64)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrln_b"></span>
 
 ## __m128i __lsx_vsrln_b (__m128i a, __m128i b)
 
@@ -2515,21 +2317,17 @@ dst.u8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrln_b((v8i16)a, (v8i16)b);
 ```
+
+<span id="intrinsic-__lsx_vsrln_h"></span>
 
 ## __m128i __lsx_vsrln_h (__m128i a, __m128i b)
 
@@ -2564,21 +2362,17 @@ dst.u16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrln_h((v4i32)a, (v4i32)b);
 ```
+
+<span id="intrinsic-__lsx_vsrln_w"></span>
 
 ## __m128i __lsx_vsrln_w (__m128i a, __m128i b)
 
@@ -2609,21 +2403,17 @@ dst.u32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>2</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 2 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrln_w((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__lsx_vsrlns_u_b"></span>
 
 ## __m128i __lsx_vsrlns_u_b (__m128i a, __m128i b)
 
@@ -2666,21 +2456,17 @@ dst.u8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrlns_u_b((v8u16)a, (v8u16)b);
 ```
+
+<span id="intrinsic-__lsx_vsrlns_u_h"></span>
 
 ## __m128i __lsx_vsrlns_u_h (__m128i a, __m128i b)
 
@@ -2715,21 +2501,17 @@ dst.u16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrlns_u_h((v4u32)a, (v4u32)b);
 ```
+
+<span id="intrinsic-__lsx_vsrlns_u_w"></span>
 
 ## __m128i __lsx_vsrlns_u_w (__m128i a, __m128i b)
 
@@ -2760,21 +2542,17 @@ dst.u32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrlns_u_w((v2u64)a, (v2u64)b);
 ```
+
+<span id="intrinsic-__lsx_vsrlrin_b"></span>
 
 ## __m128i __lsx_vsrlrin_b (__m128i a, unsigned char imm)
 
@@ -2817,21 +2595,17 @@ dst.u8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrlrin_b(a, imm) ((__m128i)__builtin_lsx_vsrlrin_b((v8i16)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrlrin_h"></span>
 
 ## __m128i __lsx_vsrlrin_h (__m128i a, unsigned char imm)
 
@@ -2866,21 +2640,17 @@ dst.u16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrlrin_h(a, imm) ((__m128i)__builtin_lsx_vsrlrin_h((v4i32)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrlrin_w"></span>
 
 ## __m128i __lsx_vsrlrin_w (__m128i a, unsigned char imm)
 
@@ -2911,21 +2681,17 @@ dst.u32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrlrin_w(a, imm) ((__m128i)__builtin_lsx_vsrlrin_w((v2i64)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrlrins_u_b"></span>
 
 ## __m128i __lsx_vsrlrins_u_b (__m128i a, unsigned char imm)
 
@@ -2968,21 +2734,17 @@ dst.u8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrlrins_u_b(a, imm) ((__m128i)__builtin_lsx_vsrlrins_u_b((v8u16)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrlrins_u_h"></span>
 
 ## __m128i __lsx_vsrlrins_u_h (__m128i a, unsigned char imm)
 
@@ -3017,21 +2779,17 @@ dst.u16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrlrins_u_h(a, imm) ((__m128i)__builtin_lsx_vsrlrins_u_h((v4u32)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrlrins_u_w"></span>
 
 ## __m128i __lsx_vsrlrins_u_w (__m128i a, unsigned char imm)
 
@@ -3062,21 +2820,17 @@ dst.u32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 #define __lsx_vsrlrins_u_w(a, imm) ((__m128i)__builtin_lsx_vsrlrins_u_w((v2u64)(a), (imm)))
 ```
+
+<span id="intrinsic-__lsx_vsrlrn_b"></span>
 
 ## __m128i __lsx_vsrlrn_b (__m128i a, __m128i b)
 
@@ -3119,21 +2873,17 @@ dst.u8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrlrn_b((v8i16)a, (v8i16)b);
 ```
+
+<span id="intrinsic-__lsx_vsrlrn_h"></span>
 
 ## __m128i __lsx_vsrlrn_h (__m128i a, __m128i b)
 
@@ -3168,21 +2918,17 @@ dst.u16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrlrn_h((v4i32)a, (v4i32)b);
 ```
+
+<span id="intrinsic-__lsx_vsrlrn_w"></span>
 
 ## __m128i __lsx_vsrlrn_w (__m128i a, __m128i b)
 
@@ -3213,21 +2959,17 @@ dst.u32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrlrn_w((v2i64)a, (v2i64)b);
 ```
+
+<span id="intrinsic-__lsx_vsrlrns_u_b"></span>
 
 ## __m128i __lsx_vsrlrns_u_b (__m128i a, __m128i b)
 
@@ -3270,21 +3012,17 @@ dst.u8[15] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrlrns_u_b((v8u16)a, (v8u16)b);
 ```
+
+<span id="intrinsic-__lsx_vsrlrns_u_h"></span>
 
 ## __m128i __lsx_vsrlrns_u_h (__m128i a, __m128i b)
 
@@ -3319,21 +3057,17 @@ dst.u16[7] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 
 ```c
 return (__m128i)__builtin_lsx_vsrlrns_u_h((v4u32)a, (v4u32)b);
 ```
+
+<span id="intrinsic-__lsx_vsrlrns_u_w"></span>
 
 ## __m128i __lsx_vsrlrns_u_w (__m128i a, __m128i b)
 
@@ -3364,15 +3098,9 @@ dst.u32[3] = 0;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>4</td><td>1</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 4 | 1 |
 
 ### Header Mapping
 

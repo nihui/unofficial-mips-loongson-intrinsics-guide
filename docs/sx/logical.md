@@ -2,6 +2,8 @@
 
 Generated from `include/loongson-sxintrin.h`. This page contains 1 intrinsic.
 
+<span id="intrinsic-__lsx_vandn_v"></span>
+
 ## __m128i __lsx_vandn_v (__m128i a, __m128i b)
 
 ### Synopsis
@@ -28,15 +30,9 @@ dst.bits = b.bits & ~a.bits;
 
 ### Latency and Throughput
 
-<table>
-<thead>
-<tr><th colspan="2">3A4000(GS464V)</th></tr>
-<tr><th>Latency</th><th>Throughput (IPC)</th></tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>2</td></tr>
-</tbody>
-</table>
+| CPU | µarch | Latency | Throughput (IPC) |
+|-----|-------|---------|------------------|
+| 3A4000 | GS464V | 1 | 2 |
 
 ### Header Mapping
 

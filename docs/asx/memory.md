@@ -2,6 +2,8 @@
 
 Generated from `include/loongson-asxintrin.h`. This page contains 10 intrinsics.
 
+<span id="intrinsic-__lasx_xvblb"></span>
+
 ## __m256i __lasx_xvblb (int offset, const volatile void * mem)
 
 ### Synopsis
@@ -63,6 +65,8 @@ dst.u8[31] = load_u8(mem + offset);
 #define __lasx_xvblb(offset, mem) ((__m256i)__builtin_lasx_xvblb((offset), (mem)))
 ```
 
+<span id="intrinsic-__lasx_xvbld"></span>
+
 ## __m256i __lasx_xvbld (int offset, const volatile void * mem)
 
 ### Synopsis
@@ -95,6 +99,8 @@ dst.u64[3] = load_u64(mem + offset);
 ```c
 #define __lasx_xvbld(offset, mem) ((__m256i)__builtin_lasx_xvbld((offset), (mem)))
 ```
+
+<span id="intrinsic-__lasx_xvblh"></span>
 
 ## __m256i __lasx_xvblh (int offset, const volatile void * mem)
 
@@ -141,6 +147,8 @@ dst.u16[15] = load_u16(mem + offset);
 #define __lasx_xvblh(offset, mem) ((__m256i)__builtin_lasx_xvblh((offset), (mem)))
 ```
 
+<span id="intrinsic-__lasx_xvblw"></span>
+
 ## __m256i __lasx_xvblw (int offset, const volatile void * mem)
 
 ### Synopsis
@@ -177,6 +185,8 @@ dst.u32[7] = load_u32(mem + offset);
 ```c
 #define __lasx_xvblw(offset, mem) ((__m256i)__builtin_lasx_xvblw((offset), (mem)))
 ```
+
+<span id="intrinsic-__lasx_xvld_b"></span>
 
 ## __m256i __lasx_xvld_b (int offset, const volatile void * mem)
 
@@ -239,6 +249,8 @@ dst.u8[31] = mem.u8[offset + 31];
 #define __lasx_xvld_b(offset, mem) ((__m256i)__builtin_lasx_xvld_b((offset), (mem)))
 ```
 
+<span id="intrinsic-__lasx_xvsb"></span>
+
 ## void __lasx_xvsb (__m256i a, unsigned char lane, int offset, const volatile void * mem)
 
 ### Synopsis
@@ -268,6 +280,8 @@ store_u8(mem + offset, a.u8[lane + 16]);
 ```c
 #define __lasx_xvsb(a, lane, offset, mem) ((void)__builtin_lasx_xvsb((v32i8)(a), (lane), (offset), (mem)))
 ```
+
+<span id="intrinsic-__lasx_xvsd"></span>
 
 ## void __lasx_xvsd (__m256i a, unsigned char lane, int offset, const volatile void * mem)
 
@@ -299,6 +313,8 @@ store_u64(mem + offset, a.u64[lane + 2]);
 #define __lasx_xvsd(a, lane, offset, mem) ((void)__builtin_lasx_xvsd((v4i64)(a), (lane), (offset), (mem)))
 ```
 
+<span id="intrinsic-__lasx_xvsh"></span>
+
 ## void __lasx_xvsh (__m256i a, unsigned char lane, int offset, const volatile void * mem)
 
 ### Synopsis
@@ -328,6 +344,8 @@ store_u16(mem + offset, a.u16[lane + 8]);
 ```c
 #define __lasx_xvsh(a, lane, offset, mem) ((void)__builtin_lasx_xvsh((v16i16)(a), (lane), (offset), (mem)))
 ```
+
+<span id="intrinsic-__lasx_xvst_b"></span>
 
 ## void __lasx_xvst_b (__m256i a, int offset, const volatile void * mem)
 
@@ -389,6 +407,8 @@ mem.u8[offset + 31] = a.u8[31];
 ```c
 #define __lasx_xvst_b(a, offset, mem) ((void)__builtin_lasx_xvst_b((v32i8)(a), (offset), (mem)))
 ```
+
+<span id="intrinsic-__lasx_xvsw"></span>
 
 ## void __lasx_xvsw (__m256i a, unsigned char lane, int offset, const volatile void * mem)
 
